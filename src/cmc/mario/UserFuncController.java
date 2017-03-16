@@ -23,8 +23,10 @@ public class UserFuncController extends AccountController {
   /*
    * Constructor of the class: Inherited from super class: AccountController
    */
-  public UserFuncController(){
-    super();
+  public UserFuncController(User u){
+	  this.user = u;
+	    dbc = new DBController();
+	    search = new SearchController();
   }
   
   /**
@@ -33,7 +35,7 @@ public class UserFuncController extends AccountController {
    */
   public List<String> viewSavedSchools()
   { 
-    return this.user.getSavedSchools();
+    return this.user.getSavedSchools(this.user);
   }
   
   /**
@@ -79,10 +81,31 @@ public class UserFuncController extends AccountController {
    * Displays a list of universities meeting the search criteria for the user. 
    * @return list of universities.
    */
-  public List<University> viewSearchResults() 
+  public List<University> viewSearchResults(University u) 
   {
 	  
-    return null;
+	  List<String> dis = new ArrayList<String>();
+	    
+	    dis.add(u.getName());
+	    dis.add(u.getState());
+	    dis.add(u.getLocation());
+	    dis.add(u.getControl());
+	    dis.add(Integer.toString(u.getName()));
+	    dis.add(Double.toString(s.getNumStudents()));
+	    dis.add(Integer.toString(s.getPerfemale()));
+	    dis.add(Integer.toString(s.getSATVerbal()));
+	    dis.add(Integer.toString(s.getSATMath()));
+	    dis.add(Integer.toString(s.getPrice()));
+	    dis.add(Integer.toString(s.getFinAid()));
+	    dis.add(Integer.toString(s.getNumOfApp()));
+	    dis.add(Double.toString(s.getPerAdmin()));
+	    dis.add(Double.toString(s.getPerEnroll()));
+	    dis.add(Integer.toString(s.getAcedmicScale()));
+	    dis.add(Integer.toString(s.getSocialScale()));
+	    dis.add(Integer.toString(s.getLifeScale()));
+	    dis.add(Integer.toString(s.getPopMajor()));
+	    
+	    return dis;;
   }
   
   /**
@@ -90,7 +113,7 @@ public class UserFuncController extends AccountController {
    * @param schoolName the name which will serve as the selected university
    * @return university object containing university details
    */
-  public University viewSpecificSchool(string schoolName)
+  public University viewSpecificSchool(String schoolName)
   {
     return this.dbc.viewSpecificSchool(schoolName);
   }

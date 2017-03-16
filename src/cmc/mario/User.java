@@ -10,12 +10,12 @@ import java.util.*;
  * User is an object class for the Users extends Account
  * 
  * @author Tre Vazquez | Mario Party 4
- * @version February 25, 2017
+ * @version March 16, 2017
  */
 
 public class User extends Account{
 	
-  private list<University> savedList; 
+  private List<University> savedList; 
   /*
    * Constructor of the class: Inherited from super class: Account
    */

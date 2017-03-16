@@ -18,8 +18,8 @@ public class UserUI extends AccountUI{
   /*
    * Constructor of the class: Inherited from super class: AccountUI
    */
-  public UserUI(){
-    super();
+  public UserUI(User u){
+	 this.userContr = new UserFuncController(u);
   }
   
   /**
@@ -71,8 +71,8 @@ public class UserUI extends AccountUI{
    * Displays a list of universities meeting the search criteria for the user. 
    * @return list of universities.
    */
-  public List<University> viewSearchResults(){
-  return this.userContr.viewSearchResults();
+  public List<University> viewSearchResults(University u){
+  return this.userContr.viewSearchResults(u);
   }
   
   /**

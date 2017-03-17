@@ -13,7 +13,7 @@ import java.util.*;
  * @version February 25, 2017
  */
 
-public class UserFuncController extends AccountController {
+public class UserFuncController {
 	
 	private User user;
 	
@@ -26,7 +26,7 @@ public class UserFuncController extends AccountController {
   public UserFuncController(User u){
     this.user = u;
     dbc = new DBController();
-    search = new SearchController();
+    sc = new SearchController();
   }
   
   /**

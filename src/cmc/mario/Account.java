@@ -98,9 +98,53 @@ public class Account{
 	  }
 	  
 	  /**
+	   * Set type of user
+	   * @param type of user
+	   */
+	  public void setTypeOfUser(char typeOfUser){
+		  this.type = typeOfUser;
+	  }
+	  
+	  /**
 	   * sets account status
 	   */
 	  public void setStatus(boolean newStatus){
-		  this.isActive =newStatus;
+		  this.isActive = newStatus;
 	  }
+	  
+	  /**
+	   * sets the user's firstname
+	   * @param password the user's password
+	   */
+	  public void setPassword(String password)
+	  {
+	    this.password = password;
+	  }
+	  
+	  /**
+	   * sets the user's firstname
+	   * @param firstName the user's firstname
+	   */
+	  public void setFirstName(String firstName)
+	  {
+	    this.firstName = firstName;
+	  }
+	  
+	  /**
+	   * sets the user's lastname
+	   * @param lastname the user's lastname
+	   */
+	  public void setLastName(String lastName)
+	  {
+	    this.lastName = lastName;
+	  }
+	  
+	  /**
+	   * Sets the users username
+	   * @param username the user's username
+	   */
+	  public void setUsername(String username){
+		  this.username = username;
+	  }
+	  
 }

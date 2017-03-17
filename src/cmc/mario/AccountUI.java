@@ -12,62 +12,49 @@ import java.io.*;
  */
 public class AccountUI{
   
-  /**
-   * accountcontroller created for class
-   */
-  public AccountController acctCtr;
-  /**username of the user
-   */
-  String username;
-  /**password of the user
-   */
-  String password;
-  
-   /**
-   * default constructor
-   */
-  public AccountUI(Account acct){
-	this.acctCtr = new AccountController(acct);
-	this.username = acct.getUsername();
-	this.password = acct.getPassword();
-  }
-  
-  /*
-   * Constructor which sets username and password for object
-   */
-  public AccountUI(String username, String password){
-    this.username = username;
-    this.password = password;
-  }
-  
-  /**
-   * This method is to test if the user is logged off or not. //update in class diagram
-   * @return true if user is logged off, false otherwise
-   */ 
-  public boolean logOff(){
-	if (acctCtr.logOff()==true){
-		return true;
-	}
-	return false;
-  }
-  
-  /**
-   * This method is to verify whether the user is logged on to the cmc system.
-   * @param username the username the user puts in
-   * @param password the password the user enters in
-   * @return true if the user is logged on and authentication is confirmed, otherwise return false
-   */
-  public boolean logOn(String username, String password){
-	if(acctCtr.logOn()==true){
-		return true;
-	}
-    return false;
-  }
-  
-  /**
-   * This method resets the logging in fields for the user.
-   */
-  public void reset(){
-	  acctCtr.removeAll();
-  }
+	  /**
+	   * accountcontroller created for class
+	   */
+	  public AccountController acctCtr;
+
+	  
+	   /**
+	   * default constructor
+	   */
+	  public AccountUI()//(Account acct){
+	  {
+		this.acctCtr = new AccountController(new Account());
+
+	  }
+	  
+	  /**
+	   * This method is to test if the user is logged off or not. //update in class diagram
+	   * @return true if user is logged off, false otherwise
+	   */ 
+	  public boolean logOff(){
+		if (acctCtr.logOff()==true){
+			return true;
+		}
+		return false;
+	  }
+	  
+	  /**
+	   * This method is to verify whether the user is logged on to the cmc system.
+	   * @param username the username the user puts in
+	   * @param password the password the user enters in
+	   * @return true if the user is logged on and authentication is confirmed, otherwise return false
+	   */
+	  public boolean logOn(String username, String password){
+		if(acctCtr.logOn()==true){
+			return true;
+		}
+	    return false;
+	  }
+	  
+	  /**
+	   * This method resets the logging in fields for the user.
+	   */
+	//  public void reset(){
+//		  acctCtr.removeAll();
+	//  }    RESET LATER
 }

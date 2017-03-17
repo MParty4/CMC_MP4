@@ -2,29 +2,26 @@ package cmc.mario;
 /*
  * File: AccountUI.java
  */
-import java.io.*;
 /**
  * AccountUI - account user class for cmc system. 
  * This class creates the methods that account, userUI, and adminUI must include.
  * 
  * @authors Mario Party 4 - Kalila Moua
- * @version 2/24/17
+ * @version 3/16/17
  */
 public class AccountUI{
   
 	  /**
-	   * accountcontroller created for class
+	   * Accountcontroller created for class
 	   */
 	  public AccountController acctCtr;
-
 	  
 	   /**
 	   * default constructor
 	   */
-	  public AccountUI()//(Account acct){
+	  public AccountUI()
 	  {
 		this.acctCtr = new AccountController(new Account());
-
 	  }
 	  
 	  /**
@@ -45,7 +42,7 @@ public class AccountUI{
 	   * @return true if the user is logged on and authentication is confirmed, otherwise return false
 	   */
 	  public boolean logOn(String username, String password){
-		if(acctCtr.logOn()==true){
+		if(acctCtr.logOn(username, password).equals(true)){
 			return true;
 		}
 	    return false;

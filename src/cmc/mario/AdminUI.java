@@ -2,7 +2,6 @@
  * File: AdminUI.java
  */
 package cmc.mario;
-import java.io.*;
 import java.util.*;
 /**
  * class for a Admin extends AccountUI
@@ -80,8 +79,13 @@ public class AdminUI extends AccountUI{
   /*
    * view the list of universities
    * 
-   * @return list of universities
-   */   
+   * @return list of universities  /**
+	   * This method resets the logging in fields for the user.
+	   */    
+	//  public void reset(){ 
+//		  acct.removeAll();
+	//  }    DO RESET LASTLY
+     
   public List<University> viewUniversities(){
   return this.adContr.viewUniversities();
   }
@@ -104,8 +108,8 @@ public class AdminUI extends AccountUI{
    * 
    * @return university including its detailed information
    */    
-  public University viewSpecificUniversity(String univeristyName){
-	  return this.adContr .viewSpecificUniversity(universityName);
+  public University viewSpecificUniversity(String universityName){
+	  return this.adContr.viewSpecificUniversity(universityName);
   }
   
   /*
@@ -132,8 +136,8 @@ public class AdminUI extends AccountUI{
   public void editUniversity(String state, String location, String control, int numOfStu, double perFem, int satVerbal
                                , int satMath, int price, int finAid, int numOfApp, double perAdmit, double perEnroll, int academicScale
                                , int socialScale, int lifeScale, String popMajor){
-	  this.adContr .editUniversity(state,location,control numOfStu, perFem, satVerbal,satMath,price, finAid, numOfApp,perAdmin,
-			  perEnroll,academinScale, socialScale, lifeScale, popMajor);
+	  this.adContr.editUniversity(state,location,control, numOfStu, perFem, satVerbal,satMath,price, finAid, numOfApp,perAdmit,
+			  perEnroll,academicScale, socialScale, lifeScale, popMajor);
   }
   
 }

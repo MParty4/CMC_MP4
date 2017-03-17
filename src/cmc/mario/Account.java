@@ -2,11 +2,10 @@ package cmc.mario;
 /*
  * File: Account.java
  */
-import java.io.*;
 /**
  * Account - Account home/entity to create an instance of an account in CMC system for a user.
  * @authors Mario Party 4 - Kalila Moua
- * @version 2/24/17
+ * @version 3/16/17
  */
 public class Account{
 	/**
@@ -34,9 +33,16 @@ public class Account{
 	   */
 	  public boolean isActive;
 	  
+	  /**
+	   * Default constructor
+	   */
+	  public Account(){
+		  this.username = null;
+		  this.password = null;
+	  }
 	  
 	  /*
-	   * second constructor which sets username and password for object
+	   * Second Constructor which sets user name and password for object
 	   */
 	  public Account(String username, String password){
 	    this.username=username;

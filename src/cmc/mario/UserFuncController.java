@@ -10,7 +10,7 @@ import java.util.*;
  * UserFuncController is an implementation for the UserUI and an extension
  * of the account controller
  * @author Tre Vazquez | Mario Party 4
- * @version February 25, 2017
+ * @version March 16, 2017
  */
 
 public class UserFuncController {
@@ -73,7 +73,7 @@ public class UserFuncController {
   public List<University> search(String schoolName, String state, String location, String control, int numOfStu, double perFem, int satVerbal,
 		  				int satMath, int price, int finAid, int numOfApp, double perAdmit, double perEnroll, int academicScale,
                         int socialScale, int lifeScale, String popMajor){
-    this.sc.search(schoolName, state,location,control, numOfStu, perFem, satVerbal,satMath,price, finAid, numOfApp,perAdmit,
+   return this.sc.search(schoolName, state,location,control, numOfStu, perFem, satVerbal,satMath,price, finAid, numOfApp,perAdmit,
 			  perEnroll,academicScale, socialScale, lifeScale, popMajor);
   }
   
@@ -85,24 +85,23 @@ public class UserFuncController {
   {
     List<String> dis = new ArrayList<String>();
     
-    dis.add(u.getName());
+    dis.add(u.getSchoolName());
     dis.add(u.getState());
     dis.add(u.getLocation());
     dis.add(u.getControl());
-    dis.add(Integer.toString(u.getName()));
-    dis.add(Double.toString(s.getNumStudents()));
-    dis.add(Integer.toString(s.getPerfemale()));
-    dis.add(Integer.toString(s.getSATVerbal()));
-    dis.add(Integer.toString(s.getSATMath()));
-    dis.add(Integer.toString(s.getPrice()));
-    dis.add(Integer.toString(s.getFinAid()));
-    dis.add(Integer.toString(s.getNumOfApp()));
-    dis.add(Double.toString(s.getPerAdmin()));
-    dis.add(Double.toString(s.getPerEnroll()));
-    dis.add(Integer.toString(s.getAcedmicScale()));
-    dis.add(Integer.toString(s.getSocialScale()));
-    dis.add(Integer.toString(s.getLifeScale()));
-    dis.add(Integer.toString(s.getPopMajor()));
+    dis.add(Double.toString(u.getNumOfStu()));
+    dis.add(Double.toString(u.getPerFem()));
+    dis.add(Integer.toString(u.getSatVerbal()));
+    dis.add(Integer.toString(u.getSatMath()));
+    dis.add(Integer.toString(u.getPrice()));
+    dis.add(Integer.toString(u.getFinAid()));
+    dis.add(Integer.toString(u.getNumOfApp()));
+    dis.add(Double.toString(u.getPerAdmit()));
+    dis.add(Double.toString(u.getPerEnroll()));
+    dis.add(Integer.toString(u.getAcademicScale()));
+    dis.add(Integer.toString(u.getSocialScale()));
+    dis.add(Integer.toString(u.getLifeScale()));
+    dis.add(u.getPopMajors());
     
     return dis;
   }
@@ -112,7 +111,7 @@ public class UserFuncController {
    * @param schoolName the name which will serve as the selected university
    * @return university object containing university details
    */
-  public University viewSpecificSchool(string schoolName)
+  public University viewSpecificSchool(String schoolName)
   {
     return this.dbc.viewSpecificSchool(schoolName);
   }

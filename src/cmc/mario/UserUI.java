@@ -73,16 +73,16 @@ public class UserUI extends AccountUI{
 	   * Displays a list of universities meeting the search criteria for the user. 
 	   * @return list of universities.
 	   */
-	  public List<University> viewSearchResults(){
-	  return this.userContr.viewSearchResults();
+	  public List<String> viewSearchResults(University u)
+	  return this.userContr.viewSearchResults(u);
 	  }
 	  
 	  /**
 	   * Displays specific school selected to user.
 	   * @return university object containing university details
 	   */
-	  public University viewSpecificSchool(){
-	  return this.userContr.viewSpecificSchool();
+	  public University viewSpecificSchool(String schoolName){
+	  return this.userContr.viewSpecificSchool(schoolName);
 	  }
 	  
 	  /**
@@ -92,7 +92,7 @@ public class UserUI extends AccountUI{
 	   * @return list of universities to be previewed as reccomendations
 	   */
 	  public List<University> viewRecommendation(University u){
-	    return this.userContr.viewReccomendation(u);
+	    return this.userContr.viewRecommendation(u);
 	  }
 	  
 	  /**

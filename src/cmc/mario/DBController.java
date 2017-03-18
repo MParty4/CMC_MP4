@@ -1,3 +1,4 @@
+
 /*
  * File: DBController.java
  */
@@ -11,10 +12,12 @@ import java.util.*;
  * @version 2/24/17
  */
 public class DBController {
+	
+	private UniversityDBLibrary univLib;
   
-//  public DBController(){
-//    
-//  }
+  public DBController(){
+    this.univLib = new UniversityDBLibrary("mariop4","mariop4","csci230");
+  }
   
   /**
    * This method allows the user to edit their own personal profile information.
@@ -32,8 +35,25 @@ public class DBController {
    * @param username the username of the account of new added user
    * @param type the character of which represents the type of user
    */
-  public void addUser(String username, String password, char type){
-  
+  public boolean addUser(String firstName, String lastName, String username, String password, char type){
+	  Account a = this.getSpecificUser(username);
+	  
+	  if(!(a==null)){
+		  return false;
+	  }
+	  else{
+		  int i;
+		  if(type=='a'){
+			i=  univLib.user_addUser(firstName, lastName, username, password, 'a');
+		  }
+		  else{
+			i=  univLib.user_addUser(firstName, lastName, username, password, 'a');
+		  }
+		  if(!(i==1)){
+			  return false;
+		  }
+		  return true;
+	  }
   }
   
   /**

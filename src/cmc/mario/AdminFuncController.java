@@ -39,9 +39,8 @@ public class AdminFuncController extends AccountController {
    * 
    * @return true if add successfully
    */
-  public boolean addUser(String username, String password,char type){
-     this.dbContr.addUser(username, password, type);
-     return true;
+  public boolean addUser(String firstName, String lastName, String username, String password,char type){
+	  return dbContr.addUser(firstName, lastName, username, password, type);
   }
   
   /*

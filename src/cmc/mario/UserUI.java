@@ -17,6 +17,7 @@ public class UserUI extends AccountUI{
 	public UserFuncController userContr;
 	  /*
 	   * Constructor of the class: Inherited from super class: AccountUI
+	   * @param u user object to be used 
 	   */
 	  public UserUI(User u){
 	    this.userContr = new UserFuncController(u);
@@ -56,7 +57,7 @@ public class UserUI extends AccountUI{
 	   * @param perAdmit which is percentage of admit of searching condition
 	   * @param perEnroll which is percentage of enroll of searching condition
 	   * @param control which is new of searching condition
-	   * @param academicScale which is scale of acedmic of searching condition
+	   * @param academicScale which is scale of academic of searching condition
 	   * @param socialScale which is scale of social of searching condition
 	   * @param lifeScale which is scale of life of searching condition
 	   * @param popMajor which is the emphases majors of this school of searching condition
@@ -71,9 +72,10 @@ public class UserUI extends AccountUI{
 	  
 	  /**
 	   * Displays a list of universities meeting the search criteria for the user. 
+	   * @param u university object to be used 
 	   * @return list of universities.
 	   */
-	  public List<String> viewSearchResults(University u)
+	  public List<String> viewSearchResults(University u){
 	  return this.userContr.viewSearchResults(u);
 	  }
 	  
@@ -86,10 +88,10 @@ public class UserUI extends AccountUI{
 	  }
 	  
 	  /**
-	   * Displays 5 different schools as reccomendations to a user viewing 
+	   * Displays 5 different schools as recommendations to a user viewing 
 	   * a specific school
-	   * @param u the university object used as criteria for reccomendtions
-	   * @return list of universities to be previewed as reccomendations
+	   * @param u the university object used as criteria for recommendations
+	   * @return list of universities to be previewed as recommendations
 	   */
 	  public List<University> viewRecommendation(University u){
 	    return this.userContr.viewRecommendation(u);

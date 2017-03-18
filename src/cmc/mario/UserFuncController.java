@@ -14,14 +14,25 @@ import java.util.*;
  */
 
 public class UserFuncController {
-	
+	/**
+	 * user instance  
+	 */
 	private User user;
 	
+	/**
+	 * database controller instance
+	 */
 	private DBController dbc;
 	
+	/**
+	 * SeachController instance
+	 */
 	private SearchController sc;
+	
+	
   /*
    * Constructor of the class: Inherited from super class: AccountController
+   * @param u the user object to be used 
    */
   public UserFuncController(User u){
     this.user = u;
@@ -64,7 +75,7 @@ public class UserFuncController {
    * @param perAdmit which is percentage of admit of searching condition
    * @param perEnroll which is percentage of enroll of searching condition
    * @param control which is new of searching condition
-   * @param academicScale which is scale of acedmic of searching condition
+   * @param academicScale which is scale of academic of searching condition
    * @param socialScale which is scale of social of searching condition
    * @param lifeScale which is scale of life of searching condition
    * @param popMajor which is the emphases majors of this school of searching condition
@@ -140,7 +151,7 @@ public class UserFuncController {
    */
   public User viewPersonalProfile()
   {
-    return this.dbc.getSpecificUser(this.user.getUserName()); //might be wrong?
+    return this.dbc.getSpecificUser(this.user.getUserName()); 
   }
   
   /**

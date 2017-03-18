@@ -44,9 +44,9 @@ public class UserFuncController {
    * Displays list of the Users Saved Schools
    * @return list of saved schools
    */
-  public List<String> viewSavedSchools()
+  public String viewSavedSchools()
   { 
-    return this.dbc.getSavedSchools(this.user);
+    return this.dbc.getSavedSchools(this.user.getUserName());
   }
   
   /**
@@ -82,7 +82,7 @@ public class UserFuncController {
    * @return list of schools matching search
    */
   public List<University> search(String schoolName, String state, String location, String control, int numOfStu, double perFem, int satVerbal,
-		  				int satMath, int price, int finAid, int numOfApp, double perAdmit, double perEnroll, int academicScale,
+		  				int satMath, int price, int finAid, int numOfApp, int perAdmit, int perEnroll, int academicScale,
                         int socialScale, int lifeScale, String popMajor){
    return this.sc.search(schoolName, state,location,control, numOfStu, perFem, satVerbal,satMath,price, finAid, numOfApp,perAdmit,
 			  perEnroll,academicScale, socialScale, lifeScale, popMajor);

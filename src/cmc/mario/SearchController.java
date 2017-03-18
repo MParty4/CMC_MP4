@@ -14,12 +14,12 @@ import java.util.*;
  * @version Feb. 24, 2017
  */
 public class SearchController extends UserFuncController {
-  
+  private DBController dbControl;
   /*
    * Constructor of the class: Inherited from super class: AccountController
    */
   public SearchController() {
-    super();
+    University fire = null;
   }
   /**
    * Searches for a school with the conditions given
@@ -43,10 +43,17 @@ public class SearchController extends UserFuncController {
    * @param lifeScale the user gives 
    * @param popMajor the user gives 
    */
-  public void search(String schoolName, String state, String location, String control, int numOfStu, double perFem, int satVerbal
+  public List<University> search(String schoolName, String state, String location, String control, int numOfStu, double perFem, int satVerbal
                        , int satMath, int price, int finAid, int numOfApp, double perAdmit, double perEnroll, int academicScale
                        , int socialScale, int lifeScale, String popMajor){
-    
+	  List<University> list = dbControl.getUniversities();
+	  List<University> searchList = null;
+	  while(!list.isEmpty()){                                           
+		  
+		  
+	  }
+	  
+    return searchList;
   }
   /**
    * Gives a list of recommendations for the school that was chosen
@@ -54,7 +61,35 @@ public class SearchController extends UserFuncController {
    * @param u the university to be compared to.
    * @return A list of universities
    */
-  public List<University> viewRecommendation(University u){
-    return null;
+  @SuppressWarnings("null")
+public List<University> viewRecommendation(University u){
+	  List<University> uniList = dbControl.getUniversities();
+	  List<University> uniRecommendList = null;
+	  while (!(uniList.isEmpty())){
+		  for(int i = 0; i < uniList.size(); i++ ){
+			University uni = uniList.get(i); 
+			
+			if(uni.getSatMath() > u.getSatMath()-100 && uni.getSatMath() < u.getSatMath() +100){
+				if(uni.getSatVerbal() > u.getSatVerbal()-100 && uni.getSatVerbal() < u.getSatVerbal() +100){
+					if(uni.getLifeScale() > u.getLifeScale() -1 && uni.getLifeScale() <uni.getLifeScale() +1){
+						if(uni.getSocialScale() > u.getSocialScale() -1 && uni.getSocialScale() <uni.getSocialScale() +1){
+							if(uni.getAcademicScale() > u.getAcademicScale() -1 && uni.getAcademicScale() <uni.getAcademicScale() +1){
+								
+								uniRecommendList.add(uni);
+							}
+						}
+					}
+				
+			
+	
+				}
+			}
+		  
+    
+		  
+  
+		  }
+	  }
+	return uniRecommendList;  
   }
 }

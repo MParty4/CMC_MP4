@@ -10,7 +10,7 @@ import java.util.*;
  * UserFuncController is an implementation for the UserUI and an extension
  * of the account controller
  * @author Tre Vazquez | Mario Party 4
- * @version March 16, 2017
+ * @version March 18, 2017
  */
 
 public class UserFuncController {
@@ -117,7 +117,7 @@ public class UserFuncController {
   }
   
   /**
-   * displays reccomendations based upon university being viewed by a user
+   * displays recommendations based upon university being viewed by a user
    * @param u a university object to be used as criteria for recommendations
    * @return list of universities with partial info
    */

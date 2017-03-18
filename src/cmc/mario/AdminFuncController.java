@@ -1,7 +1,5 @@
-/*
- * File: AdminFuncController.java
- */
-package cmc.mario;
+
+ package cmc.mario;
 import java.io.*;
 import java.util.*;
 /**
@@ -12,7 +10,7 @@ import java.util.*;
  * @version Feb. 24, 2017
  */
 
-public class AdminFuncController extends AccountController {
+public class AdminFuncController{
 	private Admin ad;
 	private DBController dbContr;
   /*
@@ -21,7 +19,7 @@ public class AdminFuncController extends AccountController {
   public AdminFuncController(Admin a){
     this.ad = a;
     //super();
-    database = new DBController();
+    dbContr = new DBController();
   }
   /*
    * view the list of users
@@ -64,8 +62,8 @@ public class AdminFuncController extends AccountController {
    * @param status which is new to update
    * 
    */ 
-  public void editUser(String firstName, String lastName, String password, char type, char status){
-    this.dbContr.editUser(firstName, lastName, password, type, status)
+  public boolean editUser(String firstName, String lastName, String username, String password, char type, char status){
+    return this.dbContr.editUser(firstName, lastName,username, password, type, status);
   }
   /*
    * view a specific user profile including first name, last name, username, password, type, status
@@ -86,7 +84,7 @@ public class AdminFuncController extends AccountController {
    * 
    * @return list of universities
    */    
-  public List<University> viewUniversities(){
+  public List<String> viewUniversities(){
     return this.dbContr.getUniversities();
   }
   /*
@@ -97,8 +95,12 @@ public class AdminFuncController extends AccountController {
    * @return true if add successfully
    * 
    */   
-  public boolean addUniversity(University u){
-    return this.dbContr.addUniversity;
+  public boolean addUniversity(String school, String state, String location, String control, int numberOfStudents, int percentFemales, int SATVerbal, int SATMath, 
+		  int expenses, int percentFinancialAid, int numberOfApplicants, int percentAdmitted, int percentEnrolled, 
+		  int academicsScale, int socialScale, int qualityOfLifeScale){
+    return this.dbContr.addUniversity(school, state, location, control, 
+			  numberOfStudents, percentFemales, SATVerbal, SATMath, expenses, percentFinancialAid, 
+			  numberOfApplicants, percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
   }
   
   /*
@@ -110,7 +112,7 @@ public class AdminFuncController extends AccountController {
    */    
   public University viewSpecificUniversity(String univeristyname){
     
-    return this.dbContr.viewSpecificSchool(universityname);
+    return this.dbContr.viewSpecificSchool(univeristyname);
   }
   
   /*
@@ -134,11 +136,11 @@ public class AdminFuncController extends AccountController {
    * @param popMajor which is the emphases majors of this school to update
    * 
    */    
-  public void editUniversity(String state, String location, String control, int numOfStu, double perFem, int satVerbal
-                               , int satMath, int price, int finAid, int numOfApp, double perAdmit, double perEnroll, int academicScale
-                               , int socialScale, int lifeScale, String popMajor){
-    this.dbContr.editUniversity(state,location,control numOfStu, perFem, satVerbal,satMath,price, finAid, numOfApp,perAdmin,
-			  perEnroll,academinScale, socialScale, lifeScale, popMajor)
+  public boolean editUniversity(String school, String state, String location, String control, int numOfStu, int perFem, int satVerbal
+                               , int satMath, int price, int finAid, int numOfApp, int perAdmit, int perEnroll, int academicScale
+                               , int socialScale, int lifeScale){
+    return this.dbContr.editUniversity(school, state, location, control, numOfStu, perFem, satVerbal, satMath, 
+			  price, finAid, numOfApp, perAdmit, perEnroll, academicScale, socialScale, lifeScale);
   }
   
 }

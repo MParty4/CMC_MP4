@@ -64,8 +64,16 @@ public class DBController {
    * @param type the character of which represents the type of user
    * @param status the status of the user, if active or not
    */
-  public void editUser(String firstName, String lastName, String password, char type, char status){
-  
+  public boolean editUser(String firstName, String lastName, String username, String password, char type, char status){
+	  Account a = this.getSpecificUser(username);
+	  if(a==null){
+		  return false;
+	  }
+	  int i = univLib.user_editUser(username, firstName, lastName, password, type, status);
+	  if(!(i==1)){
+		  return false;
+	  }
+	  return true;
   }
   
   /**
@@ -81,7 +89,22 @@ public class DBController {
    * 
    * @return true if add successfully
    */ 
-  public boolean addUniversity(University u){
+  public boolean addUniversity(String school, String state, String location, String control, int numberOfStudents, int percentFemales, int SATVerbal, int SATMath, 
+		  int expenses, int percentFinancialAid, int numberOfApplicants, int percentAdmitted, int percentEnrolled, 
+		  int academicsScale, int socialScale, int qualityOfLifeScale){
+	  University u = this.findSpecificUniversity(school, state, location, control, numberOfStudents, percentFemales, SATVerbal, SATMath, 
+			  expenses, percentFinancialAid, numberOfApplicants, percentAdmitted, percentEnrolled, 
+			  academicsScale, socialScale, qualityOfLifeScale);
+	  
+	  if(!(u==null)){
+		  return false;
+	  }
+	  int i = univLib.university_addUniversity(school, state, location, control, 
+			  numberOfStudents, percentFemales, SATVerbal, SATMath, expenses, percentFinancialAid, 
+			  numberOfApplicants, percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
+	  if(!(i==1)){
+		  return false;
+	  }
     return true;
   }
   
@@ -106,9 +129,22 @@ public class DBController {
     * @param lifeScale which is scale of life to update
     * @param popMajor which is the emphases majors of this school to update
    */
-  public void editUniversity(String state, String location, String control, int numOfStu, double perFem, int satVerbal
-                       , int satMath, int price, int finAid, int numOfApp, double perAdmit, double perEnroll, int academicScale
-                       , int socialScale, int lifeScale, String popMajor){
+  public boolean editUniversity(String school, String state, String location, String control, int numOfStu, int perFem, int satVerbal
+                       , int satMath, int price, int finAid, int numOfApp, int perAdmit, int perEnroll, int academicScale
+                       , int socialScale, int lifeScale){
+	  University u = this.findSpecificUniversity(school, state, location, control, numOfStu, perFem, satVerbal, satMath, 
+			  price, finAid, numOfApp, perAdmit, perEnroll, 
+			  academicScale, socialScale, lifeScale);
+	  
+	  if(u==null){
+		  return false;
+	  }
+	  int i = univLib.university_editUniversity(school, state, location, control, numOfStu, perFem, satVerbal, satMath, 
+			  price, finAid, numOfApp, perAdmit, perEnroll, academicScale, socialScale, lifeScale);
+	  if(!(i==1)){
+		  return false;
+	  }
+	  return true;
 
   }
   
@@ -183,7 +219,7 @@ public class DBController {
    */ 
   public University findSpecificUniversity(String schoolName, String state, String location, String control, int numOfStu, double perFem, int satVerbal
                       , int satMath, int price, int finAid, int numOfApp, double perAdmit, double perEnroll, int academicScale
-                                    , int socialScale, int lifeScale, String popMajor){
+                                    , int socialScale, int lifeScale){
     return null;
   }
 

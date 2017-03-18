@@ -203,7 +203,7 @@ public class University {
 	 */
 	public void setState(String state) {
 		this.state = state;
-	}
+	}[]
 
 	/**
 	 * A method to get location

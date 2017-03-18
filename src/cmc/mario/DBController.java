@@ -1,3 +1,4 @@
+
 /*
  * File: DBController.java
  */
@@ -11,10 +12,12 @@ import java.util.*;
  * @version 2/24/17
  */
 public class DBController {
+	
+	private UniversityDBLibrary univLib;
   
-//  public DBController(){
-//    
-//  }
+  public DBController(){
+    this.univLib = new UniversityDBLibrary("mariop4","mariop4","csci230");
+  }
   
   /**
    * This method allows the user to edit their own personal profile information.
@@ -32,8 +35,25 @@ public class DBController {
    * @param username the username of the account of new added user
    * @param type the character of which represents the type of user
    */
-  public void addUser(String username, String password, char type){
-  
+  public boolean addUser(String firstName, String lastName, String username, String password, char type){
+	  Account a = this.getSpecificUser(username);
+	  
+	  if(!(a==null)){
+		  return false;
+	  }
+	  else{
+		  int i;
+		  if(type=='a'){
+			i=  univLib.user_addUser(firstName, lastName, username, password, 'a');
+		  }
+		  else{
+			i=  univLib.user_addUser(firstName, lastName, username, password, 'a');
+		  }
+		  if(!(i==1)){
+			  return false;
+		  }
+		  return true;
+	  }
   }
   
   /**
@@ -44,8 +64,16 @@ public class DBController {
    * @param type the character of which represents the type of user
    * @param status the status of the user, if active or not
    */
-  public void editUser(String firstName, String lastName, String password, char type, char status){
-  
+  public boolean editUser(String firstName, String lastName, String username, String password, char type, char status){
+	  Account a = this.getSpecificUser(username);
+	  if(a==null){
+		  return false;
+	  }
+	  int i = univLib.user_editUser(username, firstName, lastName, password, type, status);
+	  if(!(i==1)){
+		  return false;
+	  }
+	  return true;
   }
   
   /**
@@ -61,7 +89,22 @@ public class DBController {
    * 
    * @return true if add successfully
    */ 
-  public boolean addUniversity(University u){
+  public boolean addUniversity(String school, String state, String location, String control, int numberOfStudents, int percentFemales, int SATVerbal, int SATMath, 
+		  int expenses, int percentFinancialAid, int numberOfApplicants, int percentAdmitted, int percentEnrolled, 
+		  int academicsScale, int socialScale, int qualityOfLifeScale){
+	  University u = this.findSpecificUniversity(school, state, location, control, numberOfStudents, percentFemales, SATVerbal, SATMath, 
+			  expenses, percentFinancialAid, numberOfApplicants, percentAdmitted, percentEnrolled, 
+			  academicsScale, socialScale, qualityOfLifeScale);
+	  
+	  if(!(u==null)){
+		  return false;
+	  }
+	  int i = univLib.university_addUniversity(school, state, location, control, 
+			  numberOfStudents, percentFemales, SATVerbal, SATMath, expenses, percentFinancialAid, 
+			  numberOfApplicants, percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
+	  if(!(i==1)){
+		  return false;
+	  }
     return true;
   }
   
@@ -86,9 +129,22 @@ public class DBController {
     * @param lifeScale which is scale of life to update
     * @param popMajor which is the emphases majors of this school to update
    */
-  public void editUniversity(String state, String location, String control, int numOfStu, double perFem, int satVerbal
-                       , int satMath, int price, int finAid, int numOfApp, double perAdmit, double perEnroll, int academicScale
-                       , int socialScale, int lifeScale, String popMajor){
+  public boolean editUniversity(String school, String state, String location, String control, int numOfStu, int perFem, int satVerbal
+                       , int satMath, int price, int finAid, int numOfApp, int perAdmit, int perEnroll, int academicScale
+                       , int socialScale, int lifeScale){
+	  University u = this.findSpecificUniversity(school, state, location, control, numOfStu, perFem, satVerbal, satMath, 
+			  price, finAid, numOfApp, perAdmit, perEnroll, 
+			  academicScale, socialScale, lifeScale);
+	  
+	  if(u==null){
+		  return false;
+	  }
+	  int i = univLib.university_editUniversity(school, state, location, control, numOfStu, perFem, satVerbal, satMath, 
+			  price, finAid, numOfApp, perAdmit, perEnroll, academicScale, socialScale, lifeScale);
+	  if(!(i==1)){
+		  return false;
+	  }
+	  return true;
 
   }
   
@@ -96,8 +152,13 @@ public class DBController {
    * Gets the list of accounts.
    * @return returns a list accounts
    */
-  public List<Account> getAccountList(){
-    return null;
+  public List<String> getAccountList(){
+    String[][] userList = univLib.user_getUsers();
+    List<String> userListConvert = new ArrayList<String>();
+    for(String[] arr : userList){
+    	userListConvert.addAll(Arrays.asList(arr));    	
+    }
+    return userListConvert;
   }
   
   /**
@@ -112,8 +173,13 @@ public class DBController {
    * Get universities list.
    * @return list of universities in database.
    */
-  public List<University> getUniversities(){
-    return null;
+  public List<String> getUniversities(){
+    String[][] univList = univLib.university_getUniversities();
+    List<String> list = new ArrayList<String>();
+    for(String[] arr : univList){
+    	list.addAll(Arrays.asList(arr));
+    }
+    return list;
   }
   
   /**
@@ -122,15 +188,6 @@ public class DBController {
    * @return the university
    */
   public University viewSpecificSchool(String schoolName){
-    return null;
-  }
-  
-  /**
-   * Identifies if logged on or not
-   * @param username of user
-   * @return the user if logged in
-   */ 
-  public User loggedOn(String username){
     return null;
   }
   
@@ -158,7 +215,7 @@ public class DBController {
    */ 
   public University findSpecificUniversity(String schoolName, String state, String location, String control, int numOfStu, double perFem, int satVerbal
                       , int satMath, int price, int finAid, int numOfApp, double perAdmit, double perEnroll, int academicScale
-                                    , int socialScale, int lifeScale, String popMajor){
+                                    , int socialScale, int lifeScale){
     return null;
   }
 

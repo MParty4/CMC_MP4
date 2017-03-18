@@ -10,7 +10,7 @@ import java.util.*;
  * User is an object class for the Users extends Account
  * 
  * @author Tre Vazquez | Mario Party 4
- * @version March 16, 2017
+ * @version March 18, 2017
  */
 
 public class User extends Account{
@@ -22,34 +22,34 @@ public class User extends Account{
 	    super();
 	  }
 	  
-	  /**
-	   * sets the user's firstname
-	   * @param password the user's password
-	   */
-	  public void setPassword(String password)
-	  {
-	    String p = super.getPassword();
-	    p= password;
-	  }
-	  
-	  /**
-	   * sets the user's firstname
-	   * @param firstName the user's firstname
-	   */
-	  public void setFirstName(String firstName)
-	  {
-	    this.firstName = firstName;
-	  }
-	  
-	  /**
-	   * sets the user's lastname
-	   * @param lastname the user's lastname
-	   */
-	  public void setLastName(String lastName)
-	  {
-	    this.lastName = lastName;
-	  }
-	  
+//	  /**
+//	   * sets the user's firstname
+//	   * @param password the user's password
+//	   */
+//	  public void setPassword(String password)
+//	  {
+//	    String p = super.getPassword();
+//	    p= password;
+//	  }
+//	  
+//	  /**
+//	   * sets the user's firstname
+//	   * @param firstName the user's firstname
+//	   */
+//	  public void setFirstName(String firstName)
+//	  {
+//	    this.firstName = firstName;
+//	  }
+//	  
+//	  /**
+//	   * sets the user's lastname
+//	   * @param lastname the user's lastname
+//	   */
+//	  public void setLastName(String lastName)
+//	  {
+//	    this.lastName = lastName;
+//	  }
+//	  
 	 
 	  /**
 	   * Method to return the user's firstName

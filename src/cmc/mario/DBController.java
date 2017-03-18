@@ -132,8 +132,13 @@ public class DBController {
    * Get universities list.
    * @return list of universities in database.
    */
-  public List<University> getUniversities(){
-    return null;
+  public List<String> getUniversities(){
+    String[][] univList = univLib.university_getUniversities();
+    List<String> list = new ArrayList<String>();
+    for(String[] arr : univList){
+    	list.addAll(Arrays.asList(arr));
+    }
+    return list;
   }
   
   /**

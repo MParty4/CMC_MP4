@@ -50,7 +50,7 @@ public class SearchController extends UserFuncController {
 	  List<University> searchList = null;
 	  while(!list.isEmpty()){                                           
 		  
-		  []
+		  
 	  }
 	  
     return searchList;

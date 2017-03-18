@@ -161,4 +161,33 @@ public class DBController {
                                     , int socialScale, int lifeScale, String popMajor){
     return null;
   }
+
+  /**
+   * Method to retrieve list of saved schools for a specified user
+   * @param user the user whose saved schools are being retrieved
+   * @return list of saved schools
+   */
+  public List<String> getSavedSchools(User user) {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+  /**
+   * method to remove a selected school from a user's saved school list
+   * @param user the user who is removing a school from their list
+   * @param schoolName the name of the school to be removed
+   */
+  public void removeSavedSchool(User user, String schoolName) {
+	// TODO Auto-generated method stub
+	
+}
+/**
+ * method that will add a selected school to a specified user's saved school list
+ * @param user user who will be adding to their list
+ * @param schoolName name of school to be added to the saved school list
+ */
+public void addSavedSchool(User user, String schoolName) {
+	// TODO Auto-generated method stub
+	
+}
 }

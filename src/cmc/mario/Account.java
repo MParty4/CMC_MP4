@@ -11,15 +11,15 @@ public class Account{
 	/**
 	   * First name of user
 	   */
-	  public String firstName;
+	   String firstName;
 	  /**
 	   * Last name of user
 	   */
-	  public String lastName;
+	   String lastName;
 	  /**
 	   * Password of user
 	   */
-	  private String password;
+	 String password;
 	  /**
 	   * Username of user
 	   */
@@ -31,7 +31,7 @@ public class Account{
 	  /**
 	   * if user is active or not, true if active, otherwise false
 	   */
-	  public boolean isActive;
+	   boolean isActive;
 	  
 	  /**
 	   * Default constructor

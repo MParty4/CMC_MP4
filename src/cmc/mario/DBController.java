@@ -152,8 +152,13 @@ public class DBController {
    * Gets the list of accounts.
    * @return returns a list accounts
    */
-  public List<Account> getAccountList(){
-    return null;
+  public List<String> getAccountList(){
+    String[][] userList = univLib.user_getUsers();
+    List<String> userListConvert = new ArrayList<String>();
+    for(String[] arr : userList){
+    	userListConvert.addAll(Arrays.asList(arr));    	
+    }
+    return userListConvert;
   }
   
   /**
@@ -183,15 +188,6 @@ public class DBController {
    * @return the university
    */
   public University viewSpecificSchool(String schoolName){
-    return null;
-  }
-  
-  /**
-   * Identifies if logged on or not
-   * @param username of user
-   * @return the user if logged in
-   */ 
-  public User loggedOn(String username){
     return null;
   }
   

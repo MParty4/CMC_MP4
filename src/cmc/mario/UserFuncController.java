@@ -3,7 +3,6 @@ package cmc.mario;
  * File: UserFuncController.java
  */
 
-import java.io.*;
 import java.util.*;
 
 /** 

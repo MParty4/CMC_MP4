@@ -46,7 +46,7 @@ public class SearchController extends UserFuncController {
   public List<University> search(String schoolName, String state, String location, String control, int numOfStu, double perFem, int satVerbal
                        , int satMath, int price, int finAid, int numOfApp, double perAdmit, double perEnroll, int academicScale
                        , int socialScale, int lifeScale, String popMajor){
-	  List<University> list = dbControl.getUniversities();
+	  List<String> list = dbControl.getUniversities();
 	  List<University> searchList = null;
 	  while(!list.isEmpty()){                                           
 		  

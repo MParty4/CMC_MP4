@@ -3,9 +3,6 @@ package cmc.mario;
  * File: User.java
  */
 
-import java.io.*;
-import java.util.*;
-
 /** 
  * User is an object class for the Users extends Account
  * 

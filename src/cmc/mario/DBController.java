@@ -331,7 +331,7 @@ public void addSavedSchool(User user, String schoolName) {
 		for(int i = 0; i < univList.length; i++){
 			for(int j = 0; j < univList.length; j++){
 				if(univList[i][j].contains(schoolName)){
-					listOfMatchingUniversities.addAll(i);
+					listOfMatchingUniversities.add(i);
 				}
 			}
 		}

@@ -11,8 +11,8 @@ import java.util.*;
  * SearchController Class which helps search universities 
  * which meet the requirements from user extends userFuncController
  * 
- * @author Mario Party 4: Jing Thao 
- * @version Feb. 24, 2017
+ * @author Mario Party 4: Jing Thao and Kalila Moua
+ * @version March 19, 2017
  */
 public class SearchController {
   private DBController dbControl;

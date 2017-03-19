@@ -226,7 +226,20 @@ public class DBController {
    */
   public List<String> getSavedSchools(User user) {
 	// TODO Auto-generated method stub
-	return null;
+	  public String getSavedSchools(String username) {
+			// TODO Auto-generated method stub
+			  String[][] userList = univLib.user_getUsernamesWithSavedSchools();
+			  List<String> list = new ArrayList<String>();
+			    for(String[] arr : userList){
+			    	list.addAll(Arrays.asList(arr));
+			    }
+			    for(int i =0; i <list.size();i++){
+			    	if((list.get(i).contentEquals(new StringBuffer(username)))==true){
+			    		return list.get(i);
+			    	}
+			    }
+			    return null;
+		}
 }
 
   /**

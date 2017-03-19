@@ -83,7 +83,7 @@ public class University {
 	private int perEnroll;
 
 	/**
-	 * academicScale the scale of acdemic of a school
+	 * academicScale the scale of academic of a school
 	 */
 	private int academicScale;
 

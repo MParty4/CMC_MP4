@@ -358,7 +358,6 @@ public void addSavedSchool(User user, String schoolName) {
 	 *            which is the emphases majors of this school of searching
 	 *            condition
 	 */
-	 */
 	public List<University> searchResults(String schoolName, String state, String location, String control, int numOfStuStart, int numOfStuEnd, 
 		  double perFemStart,double perFemEnd, int satVerbalStart, int satVerbalEnd, int satMathStart, int satMathEnd, int priceStart, int priceEnd,
 		  int finAidStart,int finAidEnd, int numOfAppStart, int numOfAppEnd, double perAdmitStart, double perAdmitEnd, double perEnrollStart, 

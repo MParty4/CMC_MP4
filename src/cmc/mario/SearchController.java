@@ -26,10 +26,10 @@ public class SearchController {
   /**
    * Searches for schools with the conditions given -Kalila 
    * 
-   * @param schoolName the user gives   
-   * @param state the user gives 
-   * @param location the user gives 
-   * @param control the user gives 
+   * @param schoolName the schoolname of the university
+   * @param state the state of the university
+   * @param location the location of the university 
+   * @param control the type of school (e.g. private)
    * @param numOfStuStart the number of students starting range number
    * @param numOfStuEnd the number of students ending range number
    * @param perFemStart the percentage of students who are female starting range number

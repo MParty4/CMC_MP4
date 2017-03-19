@@ -1,6 +1,8 @@
 package cmc.mario;
-/*
+/**
  * File: SearchController.java
+ * author Jing Thao | Mario Party 4
+ * @version March 19, 2017
  */
 
 import java.io.*;

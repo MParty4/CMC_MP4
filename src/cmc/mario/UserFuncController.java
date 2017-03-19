@@ -1,6 +1,8 @@
 package cmc.mario;
-/*
- * File: UserFuncController.java
+/**
+ * File: UserFuncController.java 
+ * @author Tre Vazquez | Mario Party 4
+ * @version March 18, 2017
  */
 
 import java.util.*;

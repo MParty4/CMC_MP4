@@ -153,13 +153,15 @@ public class DBController {
    * @return returns a list accounts
    */
   public List<Account> getAccountList(){
-    String[][] userList = univLib.user_getUsers();
-    List<Account> userListConvert = new ArrayList<Account>();
-    for(String[] arr : userList){
-    	Account a = new Account(arr[0],arr[1])	
-    }
-    return userListConvert;
-  }
+	    String[][] userList = univLib.user_getUsers();
+	    List<Account> userListConvert = new ArrayList<Account>();
+	    for(String[] arr : userList){
+	    	Account a = new Account(arr[0],arr[1],arr[2],arr[3],arr[4].charAt(0),arr[5].charAt(0));	
+	    	userListConvert.add(a);
+	    }
+	    return userListConvert;
+	  }
+
   
   /**
    * Gets a specific user.

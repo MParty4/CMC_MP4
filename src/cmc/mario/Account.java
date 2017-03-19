@@ -29,6 +29,10 @@ public class Account{
 	   */
 	  public char type;
 	  /**
+	   * "Y" for active account, "N" for inactive account
+	   */
+	  char status;
+	  /**
 	   * if user is active or not, true if active, otherwise false
 	   */
 	   boolean isActive;
@@ -44,9 +48,13 @@ public class Account{
 	  /*
 	   * Second Constructor which sets user name and password for object
 	   */
-	  public Account(String username, String password){
+	  public Account(String firstName, String lastName, String username, String password, char type, char status){
+		this.firstName= firstName;
+		this.lastName = lastName;
 	    this.username=username;
 	    this.password=password;
+	    this.type = type;
+	    this.status = status;
 	  }
 	  
 	  /**
@@ -94,7 +102,11 @@ public class Account{
 	   * @return true if isActive
 	   */
 	  public boolean isActive(){
-		  return isActive;
+		  if(status=='Y'){
+		  return true;
+		  }
+		  return false;
+		  
 	  }
 	  
 	  /**

@@ -26,7 +26,7 @@ public class AdminFuncController{
    * 
    * @return list of users
    */ 
-  public List<String> viewAccount(){
+  public List<Account> viewAccount(){
     return this.dbContr.getAccountList();
   }
   /*
@@ -84,7 +84,7 @@ public class AdminFuncController{
    * 
    * @return list of universities
    */    
-  public List<String> viewUniversities(){
+  public List<University> viewUniversities(){
     return this.dbContr.getUniversities();
   }
   /*

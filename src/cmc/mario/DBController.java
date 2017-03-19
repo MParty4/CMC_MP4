@@ -212,7 +212,27 @@ public class DBController {
    * @return the university
    */
   public University viewSpecificSchool(String schoolName){
-    return null;
+    String[][] univList =univLib.university_getUniversities();
+    University u = new University();
+    for(String[] arr: univList){
+    	u.setSchoolName(arr[0]);
+    	u.setState(arr[1]);
+    	u.setLocation(arr[2]);
+    	u.setControl(arr[3]);
+    	u.setNumOfStu(Integer.parseInt(arr[4]));
+    	u.setPerFem(Integer.parseInt(arr[5]));
+    	u.setSatVerbal(Integer.parseInt(arr[6]));
+    	u.setSatMath(Integer.parseInt(arr[7]));
+    	u.setPrice(Integer.parseInt(arr[8]));
+    	u.setFinAid(Integer.parseInt(arr[9]));
+    	u.setNumOfApp(Integer.parseInt(arr[10]));
+    	u.setPerAdmit(Integer.parseInt(arr[11]));
+    	u.setPerEnroll(Integer.parseInt(arr[12]));
+    	u.setAcademicScale(Integer.parseInt(arr[13]));
+    	u.setSocialScale(Integer.parseInt(arr[14]));
+    	u.setLifeScale(Integer.parseInt(arr[15]));
+    }
+    return u;
   }
   
   /**
@@ -275,13 +295,21 @@ public class DBController {
    * method to remove a selected school from a user's saved school list
    * @param user the user who is removing a school from their list
    * @param schoolName the name of the school to be removed
+   * @throws NoSuchElementException if the user's saved list is empty
    */
-  public void removeSavedSchool(User user, String schoolName) {
+  public void removeSavedSchool(User user, University schoolName) {
 	// TODO Auto-generated method stub
-	  String[][] userList =univLib.user_getUsernamesWithSavedSchools();
-	  for(String[] myUser: userList)
+	  List<University> userList =this.getSavedSchools(user.getUserName());
+	  if(userList.isEmpty())
 	  {
-		  if()
+		  throw new NoSuchElementException("The User's saved list is empty, you cannot remove from an empty list");
+	  }
+	  for(University u: userList)
+	  {
+		  if(u.equals(schoolName))
+		  { 
+			  userList.remove(u);
+		  }
 	  }
 	
 }

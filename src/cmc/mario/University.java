@@ -44,7 +44,7 @@ public class University {
 	/**
 	 * perFem the percentage of female in a school
 	 */
-	private double perFem;
+	private int perFem;
 
 	/**
 	 * satVerbal the sat verbal score requirement of a school
@@ -75,12 +75,12 @@ public class University {
 	/**
 	 * perAdmit the name of applicants for a school
 	 */
-	private double perAdmit;
+	private int perAdmit;
 
 	/**
 	 * perEnroll the percentage of enrolled students in a school
 	 */
-	private double perEnroll;
+	private int perEnroll;
 
 	/**
 	 * academicScale the scale of acdemic of a school
@@ -143,9 +143,9 @@ public class University {
 	 *            which is the emphases majors of this school of searching
 	 *            condition
 	 */
-	public University(String schoolName, String state, String location, String control, int numOfStu, double perFem,
-			int satVerbal, int satMath, int price, int finAid, int numOfApp, double perAdmit, double perEnroll,
-			int academicScale, int socialScale, int lifeScale, String popMajors) {
+	public University(String schoolName, String state, String location, String control, int numOfStu, int perFem,
+			int satVerbal, int satMath, int price, int finAid, int numOfApp, int perAdmit, int perEnroll,
+			int academicScale, int socialScale, int lifeScale) {
 		this.schoolName = schoolName;
 		this.state = state;
 		this.location = location;
@@ -267,7 +267,7 @@ public class University {
 	 * 
 	 * @return the perFem
 	 */
-	public double getPerFem() {
+	public Integer getPerFem() {
 		return perFem;
 	}
 
@@ -277,7 +277,7 @@ public class University {
 	 * @param perFem
 	 *            the perFem to set
 	 */
-	public void setPerFem(double perFem) {
+	public void setPerFem(int perFem) {
 		this.perFem = perFem;
 	}
 
@@ -380,7 +380,7 @@ public class University {
 	 * 
 	 * @return the perAdmit
 	 */
-	public double getPerAdmit() {
+	public Integer getPerAdmit() {
 		return perAdmit;
 	}
 
@@ -390,7 +390,7 @@ public class University {
 	 * @param perAdmit
 	 *            the perAdmit to set
 	 */
-	public void setPerAdmit(double perAdmit) {
+	public void setPerAdmit(int perAdmit) {
 		this.perAdmit = perAdmit;
 	}
 
@@ -399,7 +399,7 @@ public class University {
 	 * 
 	 * @return the perEnroll
 	 */
-	public double getPerEnroll() {
+	public Integer getPerEnroll() {
 		return perEnroll;
 	}
 
@@ -409,7 +409,7 @@ public class University {
 	 * @param perEnroll
 	 *            the perEnroll to set
 	 */
-	public void setPerEnroll(double perEnroll) {
+	public void setPerEnroll(int perEnroll) {
 		this.perEnroll = perEnroll;
 	}
 

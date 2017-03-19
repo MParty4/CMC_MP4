@@ -49,7 +49,7 @@ public class AdminFuncController{
    * 
    * @return user including personal profile
    */ 
-  public User viewSpecificUser(String username){
+  public Account viewSpecificUser(String username){
     return this.dbContr.getSpecificUser(username);
   }
   /*
@@ -93,10 +93,10 @@ public class AdminFuncController{
    */   
   public boolean addUniversity(String school, String state, String location, String control, int numberOfStudents, int percentFemales, int SATVerbal, int SATMath, 
 		  int expenses, int percentFinancialAid, int numberOfApplicants, int percentAdmitted, int percentEnrolled, 
-		  int academicsScale, int socialScale, int qualityOfLifeScale){
+		  int academicsScale, int socialScale, int qualityOfLifeScale, String popMajors){
     return this.dbContr.addUniversity(school, state, location, control, 
 			  numberOfStudents, percentFemales, SATVerbal, SATMath, expenses, percentFinancialAid, 
-			  numberOfApplicants, percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
+			  numberOfApplicants, percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale,popMajors);
   }
   
   /*

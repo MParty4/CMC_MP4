@@ -96,11 +96,8 @@ public class DBController {
    */ 
   public boolean addUniversity(String school, String state, String location, String control, int numberOfStudents, int percentFemales, int SATVerbal, int SATMath, 
 		  int expenses, int percentFinancialAid, int numberOfApplicants, int percentAdmitted, int percentEnrolled, 
-		  int academicsScale, int socialScale, int qualityOfLifeScale){
-	  University u = this.findSpecificUniversity(school, state, location, control, numberOfStudents, percentFemales, SATVerbal, SATMath, 
-			  expenses, percentFinancialAid, numberOfApplicants, percentAdmitted, percentEnrolled, 
-			  academicsScale, socialScale, qualityOfLifeScale);
-	  
+		  int academicsScale, int socialScale, int qualityOfLifeScale,String popMajors){
+	  University u = this.viewSpecificSchool(school);
 	  if(!(u==null)){
 		  return false;
 	  }
@@ -108,6 +105,10 @@ public class DBController {
 			  numberOfStudents, percentFemales, SATVerbal, SATMath, expenses, percentFinancialAid, 
 			  numberOfApplicants, percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
 	  if(!(i==1)){
+		  return false;
+	  }
+	  int j =univLib.university_addUniversityEmphasis(school, popMajors);
+	  if(j!=1){
 		  return false;
 	  }
     return true;
@@ -137,9 +138,7 @@ public class DBController {
   public boolean editUniversity(String school, String state, String location, String control, int numOfStu, int perFem, int satVerbal
                        , int satMath, int price, int finAid, int numOfApp, int perAdmit, int perEnroll, int academicScale
                        , int socialScale, int lifeScale){
-	  University u = this.findSpecificUniversity(school, state, location, control, numOfStu, perFem, satVerbal, satMath, 
-			  price, finAid, numOfApp, perAdmit, perEnroll, 
-			  academicScale, socialScale, lifeScale);
+	  University u = this.viewSpecificSchool(school);
 	  
 	  if(u==null){
 		  return false;
@@ -197,12 +196,24 @@ public class DBController {
     	University u = new University(schoolC[0],schoolC[1],schoolC[2],schoolC[3],
 				Integer.parseInt(schoolC[4]),Integer.parseInt(schoolC[5]),Integer.parseInt(schoolC[6]),Integer.parseInt(schoolC[7]),
 				Integer.parseInt(schoolC[8]),Integer.parseInt(schoolC[9]),Integer.parseInt(schoolC[10]),Integer.parseInt(schoolC[11]),
-				Integer.parseInt(schoolC[12]),Integer.parseInt(schoolC[13]),Integer.parseInt(schoolC[14]),Integer.parseInt(schoolC[15]));
+				Integer.parseInt(schoolC[12]),Integer.parseInt(schoolC[13]),Integer.parseInt(schoolC[14]),Integer.parseInt(schoolC[15]), this.getEmphasis(schoolC[0]));
 		list.add(u);
     }
     return list;
   }
-  
+  public String getEmphasis(String schoolName){
+	  String[][] em = univLib.university_getNamesWithEmphases();
+	  String emph="";
+	  for(String[] school :em){
+		  if (school[0].equals(schoolName)){
+			  for(String s : school){
+				  emph = emph+s;
+			  }
+			 
+		  }
+	  }
+	  return emph;
+  } 
   /**
    * To view specific university.
    * @param university name
@@ -278,7 +289,7 @@ public class DBController {
 			    				University u = new University(schoolC[0],schoolC[1],schoolC[2],schoolC[3],
 			    						Integer.parseInt(schoolC[4]),Integer.parseInt(schoolC[5]),Integer.parseInt(schoolC[6]),Integer.parseInt(schoolC[7]),
 			    						Integer.parseInt(schoolC[8]),Integer.parseInt(schoolC[9]),Integer.parseInt(schoolC[10]),Integer.parseInt(schoolC[11]),
-			    						Integer.parseInt(schoolC[12]),Integer.parseInt(schoolC[13]),Integer.parseInt(schoolC[14]),Integer.parseInt(schoolC[15]));
+			    						Integer.parseInt(schoolC[12]),Integer.parseInt(schoolC[13]),Integer.parseInt(schoolC[14]),Integer.parseInt(schoolC[15]),this.getEmphasis(schoolC[0]));
 			    				list.add(u);
 			    			}
 			    		}

@@ -26,7 +26,7 @@ public class AdminUI extends AccountUI{
    * 
    * @return list of users
    */  
-  public List<String> viewAccount(){
+  public List<Account> viewAccount(){
     return this.adContr.viewAccount();
   }
   
@@ -50,7 +50,7 @@ public class AdminUI extends AccountUI{
    * 
    * @return user including personal profile
    */   
-  public User viewSpecificUser(String username){
+  public Account viewSpecificUser(String username){
   return this.adContr .viewSpecificUser(username);
   }
   /*
@@ -86,7 +86,7 @@ public class AdminUI extends AccountUI{
 //		  acct.removeAll();
 	//  }    DO RESET LASTLY
      
-  public List<String> viewUniversities(){
+  public List<University> viewUniversities(){
   return this.adContr.viewUniversities();
   }
   /*
@@ -99,10 +99,10 @@ public class AdminUI extends AccountUI{
    */   
   public boolean addUniversity(String school, String state, String location, String control, int numberOfStudents, int percentFemales, int SATVerbal, int SATMath, 
 		  int expenses, int percentFinancialAid, int numberOfApplicants, int percentAdmitted, int percentEnrolled, 
-		  int academicsScale, int socialScale, int qualityOfLifeScale){
+		  int academicsScale, int socialScale, int qualityOfLifeScale, String popMajors){
 	  return this.adContr.addUniversity(school, state, location, control, 
 			  numberOfStudents, percentFemales, SATVerbal, SATMath, expenses, percentFinancialAid, 
-			  numberOfApplicants, percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
+			  numberOfApplicants, percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale, popMajors);
   }
   
   /*

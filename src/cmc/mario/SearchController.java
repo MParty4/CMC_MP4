@@ -63,8 +63,8 @@ public class SearchController extends UserFuncController {
    */
   @SuppressWarnings("null")
 public List<University> viewRecommendation(University u){
-	  List<University> uniList = dbControl.getUniversities();
-	  List<University> uniRecommendList = null;
+	  List<University> uniList = dbControl.getUniversities();//dbControl.getUniversities();
+	  List<University> uniRecommendList = new ArrayList<University>();
 	  while (!(uniList.isEmpty())){
 		  for(int i = 0; i < uniList.size(); i++ ){
 			University uni = uniList.get(i); 

@@ -134,7 +134,7 @@ public class University {
 	 * @param control
 	 *            which is new of searching condition
 	 * @param academicScale
-	 *            which is scale of acedmic of searching condition
+	 *            which is scale of academic of searching condition
 	 * @param socialScale
 	 *            which is scale of social of searching condition
 	 * @param lifeScale
@@ -143,8 +143,8 @@ public class University {
 	 *            which is the emphases majors of this school of searching
 	 *            condition
 	 */
-	public University(String schoolName, String state, String location, String control, int numOfStu, int perFem,
-			int satVerbal, int satMath, int price, int finAid, int numOfApp, int perAdmit, int perEnroll,
+	public University(String schoolName, String state, String location, String control, int numOfStu, double perFem,
+			int satVerbal, int satMath, int price, int finAid, int numOfApp, double perAdmit, double perEnroll,
 			int academicScale, int socialScale, int lifeScale) {
 		this.schoolName = schoolName;
 		this.state = state;

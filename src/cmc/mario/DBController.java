@@ -318,8 +318,46 @@ public void addSavedSchool(User user, String schoolName) {
 }
 
 	/**
-	 * Method to return a list of universities that fit in the criteria entered by user
-	 * @param 
+	 * Method to return a list of universities that fit in the criteria entered by user - Kalila
+	 * @param schoolName
+	 *            name of the school
+	 * @param state
+	 *            which is searching condition
+	 * @param location
+	 *            which is searching condition
+	 * @param control
+	 *            which is searching condition
+	 * @param numOfStu
+	 *            which is number of students of searching condition
+	 * @param perFem
+	 *            which is percentage of female of searching condition
+	 * @param satVerbal
+	 *            which is sat verbal score of searching condition
+	 * @param satMath
+	 *            which is sat math score of searching condition
+	 * @param price
+	 *            which is expense of searching condition
+	 * @param finAid
+	 *            which is financial aid student can get from school of
+	 *            searching condition
+	 * @param numOfApp
+	 *            which is number of applicants of searching condition
+	 * @param perAdmit
+	 *            which is percentage of admit of searching condition
+	 * @param perEnroll
+	 *            which is percentage of enroll of searching condition
+	 * @param control
+	 *            which is new of searching condition
+	 * @param academicScale
+	 *            which is scale of academic of searching condition
+	 * @param socialScale
+	 *            which is scale of social of searching condition
+	 * @param lifeScale
+	 *            which is scale of life of searching condition
+	 * @param popMajor
+	 *            which is the emphases majors of this school of searching
+	 *            condition
+	 */
 	 */
 	public List<University> searchResults(String schoolName, String state, String location, String control, int numOfStuStart, int numOfStuEnd, 
 		  double perFemStart,double perFemEnd, int satVerbalStart, int satVerbalEnd, int satMathStart, int satMathEnd, int priceStart, int priceEnd,
@@ -330,14 +368,54 @@ public void addSavedSchool(User user, String schoolName) {
 		String[][] univList = univLib.university_getUniversities();
 		for(int i = 0; i < univList.length; i++){
 			for(int j = 0; j < univList.length; j++){
-				if(univList[i][j].contains(schoolName)){
-					listOfMatchingUniversities.add(i);
+				University uni = new University(univList[i][0], univList[i][1], univList[i][2], univList[i][3], Integer.parseInt(univList[i][4]),
+				Double.parseDouble(univList[i][5]), Integer.parseInt(univList[i][6]), Integer.parseInt(univList[i][7]), Integer.parseInt(univList[i][8]), 
+				Integer.parseInt(univList[i][9]), Integer.parseInt(univList[i][10]), Double.parseDouble(univList[i][11]), Double.parseDouble(univList[i][12]),
+				Integer.parseInt(univList[i][13]), Integer.parseInt(univList[i][14]), Integer.parseInt(univList[i][15]));
+				if(univList[i][0].contains(schoolName)){
+					if(listOfMatchingUniversities.contains(uni)){
+						break;
+					}
+					listOfMatchingUniversities.add(uni);
+				}
+				else if(univList[i][1].contains(state)){
+					if(listOfMatchingUniversities.contains(uni)){
+						break;
+					}
+					listOfMatchingUniversities.add(uni);
+				}
+				else if(univList[i][2].contains(location)){
+					if(listOfMatchingUniversities.contains(uni)){
+						break;
+					}
+					listOfMatchingUniversities.add(uni);
+				}
+				else if(univList[i][3].contains(control)){
+					if(listOfMatchingUniversities.contains(uni)){
+						break;
+					}
+					listOfMatchingUniversities.add(uni);
+				}
+				else if(isBetween(numOfStuStart, numOfStuEnd, Integer.parseInt(univList[i][4]))){
+					if(listOfMatchingUniversities.contains(uni)){
+						break;
+					}
+					listOfMatchingUniversities.add(uni);	
 				}
 			}
 		}
 		return listOfMatchingUniversities;
 		
 	}
-	
+	/**
+	 * To check if search 'c' is between a and b values
+	 * @param a
+	 * @param b
+	 * @param c
+	 * @return true if c is between a and b or equal to a and b, otherwise false
+	 */
+	 public static boolean isBetween(int a, int b, int c) {
+		    return b > a ? c >= a && c <= b : c > b && c < a;
+	 }
 
 }

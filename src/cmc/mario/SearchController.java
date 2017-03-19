@@ -22,8 +22,9 @@ public class SearchController {
   public SearchController() {
     this.dbControl = new DBController();
   }
+  
   /**
-   * Searches for a school with the conditions given
+   * Searches for schools with the conditions given -Kalila 
    * 
    * @param schoolName the user gives   
    * @param state the user gives 
@@ -39,15 +40,20 @@ public class SearchController {
    * @param satMathEnd the ending range for SAT math score
    * @param priceStart the starting range for price/expenses
    * @param priceEnd the ending range for price/expenses
-   * @param finAid the user gives 
-   * @param numOfApp the user gives 
-   * @param perAdmit the user gives 
-   * @param perEnroll the user gives 
-   * @param control the user gives 
-   * @param academicScale the user gives 
-   * @param socialScale the user gives 
-   * @param lifeScale the user gives 
-   * @param popMajor the user gives 
+   * @param finAidStart the starting range for financial aid percentage
+   * @param finAidEnd the ending range for financial aid percentage
+   * @param numOfAppStart the user gives 
+   * @param perAdmitStart the starting range for admitted students percentage
+   * @param perAdmitEnd the ending range for admitted students percentage
+   * @param perEnrollStart the starting range for enrolled students percentage
+   * @param perEnrollEnd the ending range for enrolled students percentage
+   * @param academicScaleStart the starting range for quality of academics
+   * @param academicScaleEnd the ending range for quality of academics
+   * @param socialScaleStart the starting range for quality of social
+   * @param socialScaleEnd the ending range for quality of social
+   * @param lifeScaleStart the starting range for quality of life scale
+   * @param lifeScaleEnd the ending range for quality of life scale 
+   * @param popMajor an list of popular major or emphases at the university
    */
   public List<University> search(String schoolName, String state, String location, String control, int numOfStuStart, int numOfStuEnd, 
 		  double perFemStart,double perFemEnd, int satVerbalStart, int satVerbalEnd, int satMathStart, int satMathEnd, int priceStart, int priceEnd,

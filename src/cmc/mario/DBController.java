@@ -314,7 +314,8 @@ public class DBController {
   /**
    * method to remove a selected school from a user's saved school list
    * @param user the user who is removing a school from their list
-   * @param schoolName the name of the school to be removed
+   * @param schoolName the school object to be removed
+   * @param school the name of the school to be removed
    * @throws NoSuchElementException if the user's saved list is empty
    */
   public void removeSavedSchool(User user, University schoolName) {
@@ -331,7 +332,8 @@ public class DBController {
 			  userList.remove(u);
 		  }
 	  }
-	
+	  
+	  //univLib.user_removeSchool(user.getUsername(),schoolName.getSchoolName());
 }
 /**
  * method that will add a selected school to a specified user's saved school list

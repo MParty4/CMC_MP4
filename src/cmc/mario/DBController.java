@@ -268,7 +268,29 @@ public class DBController {
  * @param schoolName name of school to be added to the saved school list
  */
 public void addSavedSchool(User user, String schoolName) {
-	// TODO Auto-generated method stub
+	String[][] schoolList = univLib.university_getUniversities();
+	String[] saveS;
+	for(String[] schoolC: schoolList){
+		if(schoolC[0].equals(schoolName)){
+			saveS[0]=schoolC[0];
+			saveS[1]=schoolC[1];
+			saveS[2]=schoolC[2];
+			saveS[3]=schoolC[3];
+			saveS[4]=schoolC[4];
+			saveS[5]=schoolC[5];
+			saveS[6]=schoolC[6];
+			saveS[7]=schoolC[7];
+			saveS[8]=schoolC[8];
+			saveS[9]=schoolC[9];
+			saveS[10]=schoolC[10];
+			saveS[11]=schoolC[11];
+			saveS[12]=schoolC[12];
+			saveS[13]=schoolC[13];
+			saveS[14]=schoolC[14];
+			saveS[15]=schoolC[15];
+		}
+		}
+	univLib.user_saveSchool(user.getUsername(),saveS);
 	
 }
 }

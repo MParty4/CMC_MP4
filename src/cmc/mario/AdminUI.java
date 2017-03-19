@@ -26,7 +26,7 @@ public class AdminUI extends AccountUI{
    * 
    * @return list of users
    */  
-  public List<Account> viewAccount(){
+  public List<String> viewAccount(){
     return this.adContr.viewAccount();
   }
   
@@ -38,8 +38,8 @@ public class AdminUI extends AccountUI{
    * 
    * @return true if add successfully
    */
-  public boolean addUser(String username, String password, char type){
-  return this.adContr.addUser(username, password, type);
+  public boolean addUser(String firstName, String lastName, String username, String password, char type){
+  return this.adContr.addUser(firstName, lastName, username, password, type);
   }
   
   /*
@@ -63,8 +63,8 @@ public class AdminUI extends AccountUI{
    * @param status which is new to update
    * 
    */  
-  public void editUser(String firstName, String lastName, String password, char type, char status){
-	  this.adContr.editUser(firstName, lastName, password, type, status);
+  public void editUser(String firstName, String lastName, String username, String password, char type, char status){
+	  this.adContr.editUser(firstName, lastName, username, password, type, status);
   }
   /*
    * view a specific user profile including first name, last name, username, password, type, status
@@ -86,7 +86,7 @@ public class AdminUI extends AccountUI{
 //		  acct.removeAll();
 	//  }    DO RESET LASTLY
      
-  public List<University> viewUniversities(){
+  public List<String> viewUniversities(){
   return this.adContr.viewUniversities();
   }
   /*
@@ -97,8 +97,12 @@ public class AdminUI extends AccountUI{
    * @return true if add successfully
    * 
    */   
-  public boolean addUniversity(University u){
-	  return this.adContr.addUniversity(u);
+  public boolean addUniversity(String school, String state, String location, String control, int numberOfStudents, int percentFemales, int SATVerbal, int SATMath, 
+		  int expenses, int percentFinancialAid, int numberOfApplicants, int percentAdmitted, int percentEnrolled, 
+		  int academicsScale, int socialScale, int qualityOfLifeScale){
+	  return this.adContr.addUniversity(school, state, location, control, 
+			  numberOfStudents, percentFemales, SATVerbal, SATMath, expenses, percentFinancialAid, 
+			  numberOfApplicants, percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
   }
   
   /*
@@ -133,11 +137,11 @@ public class AdminUI extends AccountUI{
    * @param popMajor which is the emphases majors of this school to update
    * 
    */   
-  public void editUniversity(String state, String location, String control, int numOfStu, double perFem, int satVerbal
-                               , int satMath, int price, int finAid, int numOfApp, double perAdmit, double perEnroll, int academicScale
-                               , int socialScale, int lifeScale, String popMajor){
-	  this.adContr.editUniversity(state,location,control, numOfStu, perFem, satVerbal,satMath,price, finAid, numOfApp,perAdmit,
-			  perEnroll,academicScale, socialScale, lifeScale, popMajor);
+  public void editUniversity(String school, String state, String location, String control, int numOfStu, int perFem, int satVerbal
+          , int satMath, int price, int finAid, int numOfApp, int perAdmit, int perEnroll, int academicScale
+          , int socialScale, int lifeScale){
+	  this.adContr.editUniversity(school, state, location, control, numOfStu, perFem, satVerbal, satMath, 
+			  price, finAid, numOfApp, perAdmit, perEnroll, academicScale, socialScale, lifeScale);
   }
   
 }

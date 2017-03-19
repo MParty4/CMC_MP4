@@ -26,7 +26,7 @@ public class AdminFuncController{
    * 
    * @return list of users
    */ 
-  public List<Account> viewAccount(){
+  public List<String> viewAccount(){
     return this.dbContr.getAccountList();
   }
   /*

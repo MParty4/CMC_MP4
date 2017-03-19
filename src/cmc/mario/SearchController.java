@@ -26,7 +26,7 @@ public class SearchController {
   /**
    * Searches for schools with the conditions given -Kalila 
    * 
-   * @param schoolName the schoolname of the university
+   * @param schoolName the school name of the university
    * @param state the state of the university
    * @param location the location of the university 
    * @param control the type of school (e.g. private)

@@ -355,7 +355,7 @@ public void addSavedSchool(User user, String schoolName) {
 	 * @param lifeScale
 	 *            which is scale of life of searching condition
 	 * @param popMajor
-	 *            which is the emphases majors of this school of searching
+	 *            which is the emphasis majors of this school of searching
 	 *            condition
 	 */
 	public List<University> searchResults(String schoolName, String state, String location, String control, int numOfStuStart, int numOfStuEnd, 

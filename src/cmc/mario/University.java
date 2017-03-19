@@ -8,7 +8,7 @@ package cmc.mario;
  * 
  * @author Mario Party 4: Jing Thao
  * @Modify by Yidan Zhang
- * @version Feb. 24, 2017
+ * @version March 19, 2017
  */
 public class University {
 

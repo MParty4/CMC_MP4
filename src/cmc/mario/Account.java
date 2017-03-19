@@ -120,8 +120,8 @@ public class Account{
 	  /**
 	   * sets account status
 	   */
-	  public void setStatus(boolean newStatus){
-		  this.isActive = newStatus;
+	  public void setStatus(char status){
+		  this.status = status;
 	  }
 	  
 	  /**

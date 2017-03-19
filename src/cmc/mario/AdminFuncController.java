@@ -71,12 +71,8 @@ public class AdminFuncController{
    * @param userName of the user
    * 
    */ 
-  public void deactivateUser(String username){
-	  if( dbContr.getSpecificUser(username).isActive==true){
-		  dbContr.getSpecificUser(username).isActive=false;
-		  dbContr.deactivateUser(username);
-		  
-	  }
+  public boolean deactivateUser(String username){
+	  return this.dbContr.deactivateUser(username);
   }
   
   /*

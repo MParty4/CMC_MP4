@@ -79,8 +79,16 @@ public class DBController {
   /**
    * To deactivate user-admin only.
    */
-  public void deactivateUser(String username){
-  
+  public boolean deactivateUser(String username){
+	  Account a = this.getSpecificUser(username);
+	  if(a==null||a.isActive()==false){
+		  throw new IllegalArgumentException("The account has already deactived or it does not exist");
+	  }
+	  int i =  univLib.user_deleteUser(username);
+	  if(!(i==1)){
+		  return false;
+	  }
+	  return true;
   }
   
   /**
@@ -99,7 +107,7 @@ public class DBController {
 	  if(!(u==null)){
 		  return false;
 	  }
-	  int i = univLib.university_addUniversity(school, state, location, control, 
+	  int i =univLib.university_addUniversity(school, state, location, control, 
 			  numberOfStudents, percentFemales, SATVerbal, SATMath, expenses, percentFinancialAid, 
 			  numberOfApplicants, percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
 	  if(!(i==1)){
@@ -153,7 +161,7 @@ public class DBController {
    * @return returns a list accounts
    */
   public List<Account> getAccountList(){
-	    String[][] userList = univLib.user_getUsers();
+	    String[][] userList =univLib.user_getUsers();
 	    List<Account> userListConvert = new ArrayList<Account>();
 	    for(String[] arr : userList){
 	    	Account a = new Account(arr[0],arr[1],arr[2],arr[3],arr[4].charAt(0),arr[5].charAt(0));	
@@ -167,8 +175,18 @@ public class DBController {
    * Gets a specific user.
    * @return user to return
    */
-  public User getSpecificUser(String username){
-    return null;
+  public Account getSpecificUser(String username){
+	  String[][] userList =univLib.user_getUsers();
+	  Account a = new Account();
+	  for(String[] arr : userList){
+	    	a.setFirstName(arr[0]);
+	    	a.setLastName(arr[1]);
+	    	a.setUsername(arr[2]);
+	    	a.setPassword(arr[3]);
+	    	a.setTypeOfUser(arr[4].charAt(0));
+	    	a.setStatus(arr[5].charAt(0));
+	  }
+	  return a;
   }
   
   /**
@@ -176,7 +194,7 @@ public class DBController {
    * @return list of universities in database.
    */
   public List<University> getUniversities(){
-    String[][] univList = univLib.university_getUniversities();
+    String[][] univList =univLib.university_getUniversities();
     List<University> list = new ArrayList<University>();
     for(String[] schoolC : univList){
     	University u = new University(schoolC[0],schoolC[1],schoolC[2],schoolC[3],
@@ -233,8 +251,8 @@ public class DBController {
  
 	  public List<University> getSavedSchools(String username) {
 			// TODO Auto-generated method stub
-			  String[][] userList = univLib.user_getUsernamesWithSavedSchools();
-			  String[][] schoolList = univLib.university_getUniversities();
+			  String[][] userList =univLib.user_getUsernamesWithSavedSchools();
+			  String[][] schoolList =univLib.university_getUniversities();
 			  List<University> list = new ArrayList<University>();
 			    for(String[] userC : userList){
 			    	if(userC[0].equals(username)){
@@ -260,7 +278,7 @@ public class DBController {
    */
   public void removeSavedSchool(User user, String schoolName) {
 	// TODO Auto-generated method stub
-	  String[][] userList = univLib.user_getUsernamesWithSavedSchools();
+	  String[][] userList =univLib.user_getUsernamesWithSavedSchools();
 	  for(String[] myUser: userList)
 	  {
 		  if()
@@ -273,7 +291,7 @@ public class DBController {
  * @param schoolName name of school to be added to the saved school list
  */
 public void addSavedSchool(User user, String schoolName) {
-	String[][] schoolList = univLib.university_getUniversities();
+	String[][] schoolList =univLib.university_getUniversities();
 	String saveS="";
 	for(String[] schoolC: schoolList){
 		if(schoolC[0].equals(schoolName)){

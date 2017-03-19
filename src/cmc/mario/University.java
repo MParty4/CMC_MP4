@@ -102,6 +102,27 @@ public class University {
 	 * popMajors the emphases majors of a school
 	 */
 	private String popMajors;
+	
+	public University(){
+		this.schoolName = null;
+		this.state = null;
+		this.location = null;
+		this.control = null;
+		this.numOfStu = -1;
+		this.perFem = -1;
+		this.satVerbal = -1;
+		this.satMath = -1;
+		this.price = -1;
+		this.finAid = -1;
+		this.numOfApp = -1;
+		this.perAdmit = -1;
+		this.perEnroll = -1;
+		this.academicScale = -1;
+		this.socialScale = -1;
+		this.lifeScale = -1;
+		this.popMajors = null;
+
+	}
 
 	/**
 	 * @param schoolName

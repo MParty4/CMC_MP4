@@ -212,7 +212,27 @@ public class DBController {
    * @return the university
    */
   public University viewSpecificSchool(String schoolName){
-    return null;
+    String[][] univList =univLib.university_getUniversities();
+    University u = new University();
+    for(String[] arr: univList){
+    	u.setSchoolName(arr[0]);
+    	u.setState(arr[1]);
+    	u.setLocation(arr[2]);
+    	u.setControl(arr[3]);
+    	u.setNumOfStu(Integer.parseInt(arr[4]));
+    	u.setPerFem(Integer.parseInt(arr[5]));
+    	u.setSatVerbal(Integer.parseInt(arr[6]));
+    	u.setSatMath(Integer.parseInt(arr[7]));
+    	u.setPrice(Integer.parseInt(arr[8]));
+    	u.setFinAid(Integer.parseInt(arr[9]));
+    	u.setNumOfApp(Integer.parseInt(arr[10]));
+    	u.setPerAdmit(Integer.parseInt(arr[11]));
+    	u.setPerEnroll(Integer.parseInt(arr[12]));
+    	u.setAcademicScale(Integer.parseInt(arr[13]));
+    	u.setSocialScale(Integer.parseInt(arr[14]));
+    	u.setLifeScale(Integer.parseInt(arr[15]));
+    }
+    return u;
   }
   
   /**

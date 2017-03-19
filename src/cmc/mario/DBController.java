@@ -412,7 +412,7 @@ public void addSavedSchool(User user, String schoolName) {
 		  Double perFemStart,Double perFemEnd, Integer satVerbalStart, Integer satVerbalEnd, Integer satMathStart, Integer satMathEnd, Integer priceStart, Integer priceEnd,
 		  Integer finAidStart,Integer finAidEnd, Integer numOfAppStart, Integer numOfAppEnd, Double perAdmitStart, Double perAdmitEnd, Double perEnrollStart, 
 		  Double perEnrollEnd, Integer academicScaleStart, Integer academicScaleEnd, Integer socialScaleStart, Integer socialScaleEnd, Integer lifeScaleStart,
-		  Integer lifeScaleEnd, String[] popMajor){
+		  Integer lifeScaleEnd, String[][] popMajor){
 		List<University> listOfMatchingUniversities = new ArrayList<University>();
 		String[][] univList = univLib.university_getUniversities();
 		for(int i = 0; i < univList.length; i++){

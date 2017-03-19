@@ -162,7 +162,7 @@ public class University {
 	 */
 	public University(String schoolName, String state, String location, String control, int numOfStu, double perFem,
 			double satVerbal, double satMath, double price, double finAid, int numOfApp, double perAdmit, double perEnroll,
-			int academicScale, int socialScale, int lifeScale, String[] popMajors) {
+			int academicScale, int socialScale, int lifeScale, String[][] popMajors) {
 		this.schoolName = schoolName;
 		this.state = state;
 		this.location = location;

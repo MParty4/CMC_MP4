@@ -40,7 +40,7 @@ public class University {
 	/**
 	 * perFem the percentage of female in a school
 	 */
-	private int perFem;
+	private double perFem;
 
 	/**
 	 * satVerbal the sat verbal score requirement of a school
@@ -71,12 +71,12 @@ public class University {
 	/**
 	 * perAdmit the name of applicants for a school
 	 */
-	private int perAdmit;
+	private double perAdmit;
 
 	/**
 	 * perEnroll the percentage of enrolled students in a school
 	 */
-	private int perEnroll;
+	private double perEnroll;
 
 	/**
 	 * academicScale the scale of academic of a school

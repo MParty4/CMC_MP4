@@ -383,11 +383,11 @@ public void addSavedSchool(User user, String schoolName) {
 	 *            which is the emphasis majors of this school of searching
 	 *            condition
 	 */
-	public List<University> searchResults(String schoolName, String state, String location, String control, int numOfStuStart, int numOfStuEnd, 
-		  double perFemStart,double perFemEnd, int satVerbalStart, int satVerbalEnd, int satMathStart, int satMathEnd, int priceStart, int priceEnd,
-		  int finAidStart,int finAidEnd, int numOfAppStart, int numOfAppEnd, double perAdmitStart, double perAdmitEnd, double perEnrollStart, 
-		  double perEnrollEnd, int academicScaleStart, int academicScaleEnd, int socialScaleStart, int socialScaleEnd, int lifeScaleStart,
-		  int lifeScaleEnd, String[] popMajor){
+	public List<University> searchResults(String schoolName, String state, String location, String control, Integer numOfStuStart, Integer numOfStuEnd, 
+		  Double perFemStart,Double perFemEnd, Integer satVerbalStart, Integer satVerbalEnd, Integer satMathStart, Integer satMathEnd, Integer priceStart, Integer priceEnd,
+		  Integer finAidStart,Integer finAidEnd, Integer numOfAppStart, Integer numOfAppEnd, Double perAdmitStart, Double perAdmitEnd, Double perEnrollStart, 
+		  Double perEnrollEnd, Integer academicScaleStart, Integer academicScaleEnd, Integer socialScaleStart, Integer socialScaleEnd, Integer lifeScaleStart,
+		  Integer lifeScaleEnd, String[] popMajor) throws NullPointerException{
 		List<University> listOfMatchingUniversities = new ArrayList<University>();
 		String[][] univList = univLib.university_getUniversities();
 		for(int i = 0; i < univList.length; i++){
@@ -420,17 +420,97 @@ public void addSavedSchool(User user, String schoolName) {
 					}
 					listOfMatchingUniversities.add(uni);
 				}
-				else if(isBetween(numOfStuStart, numOfStuEnd, Integer.parseInt(univList[i][4]))){
+				else if((isBetweenIntOrEqualToAAndOrB(numOfStuStart, numOfStuEnd, Integer.parseInt(univList[i][4]))) || equals((Integer.parseInt(univList
+						[i][4])>=numOfStuStart && numOfStuEnd == null || Integer.parseInt(univList[i][4])<=numOfStuEnd && numOfStuStart == null))){
 					if(listOfMatchingUniversities.contains(uni)){
 						break;
 					}
 					listOfMatchingUniversities.add(uni);	
+				}
+				else if((isBetweenDoubleOrEqualToAAndOrB(perFemStart, perFemEnd, Double.parseDouble(univList[i][5]))) || (Double.parseDouble(univList
+						[i][5])>=perFemStart && perFemEnd == null || Double.parseDouble(univList[i][5])<=perFemEnd && perFemStart == null)){
+					if(listOfMatchingUniversities.contains(uni)){
+						break;
+					}
+					listOfMatchingUniversities.add(uni);	
+				}
+				else if((isBetweenDoubleOrEqualToAAndOrB(satVerbalStart, satVerbalEnd, Double.parseDouble(univList[i][6]))) || (Double.parseDouble(univList
+						[i][6])>=satVerbalStart && satVerbalEnd == null || Double.parseDouble(univList[i][6])<=satVerbalEnd && satVerbalStart == null)){
+					if(listOfMatchingUniversities.contains(uni)){
+						break;
+					}
+					listOfMatchingUniversities.add(uni);
+				}
+				else if((isBetweenDoubleOrEqualToAAndOrB(satMathStart, satMathEnd, Double.parseDouble(univList[i][7]))) || (Double.parseDouble(univList
+						[i][7])>=satMathStart && satMathEnd == null || Double.parseDouble(univList[i][7])<=satMathEnd && satMathStart == null)){
+					if(listOfMatchingUniversities.contains(uni)){
+						break;
+					}
+					listOfMatchingUniversities.add(uni);
+				}
+				else if((isBetweenDoubleOrEqualToAAndOrB(priceStart, priceEnd, Double.parseDouble(univList[i][8]))) || (Double.parseDouble(univList
+						[i][8])>=priceStart && priceEnd == null || Double.parseDouble(univList[i][8])<=priceEnd && priceStart == null)){
+					if(listOfMatchingUniversities.contains(uni)){
+						break;
+					}
+					listOfMatchingUniversities.add(uni);
+				}
+				else if((isBetweenDoubleOrEqualToAAndOrB(finAidStart, finAidEnd, Double.parseDouble(univList[i][9]))) || (Double.parseDouble(univList
+						[i][9])>=finAidStart && finAidEnd == null || Double.parseDouble(univList[i][9])<=finAidEnd && finAidStart == null)){
+					if(listOfMatchingUniversities.contains(uni)){
+						break;
+					}
+					listOfMatchingUniversities.add(uni);
+				}
+				else if((isBetweenIntOrEqualToAAndOrB(numOfAppStart, numOfAppEnd, Integer.parseInt(univList[i][10]))) || equals((Integer.parseInt(univList
+						[i][10])>=numOfAppStart && numOfAppEnd == null || Integer.parseInt(univList[i][10])<=numOfAppEnd && numOfAppStart == null))){
+					if(listOfMatchingUniversities.contains(uni)){
+						break;
+					}
+					listOfMatchingUniversities.add(uni);
+				}
+				else if((isBetweenDoubleOrEqualToAAndOrB(perAdmitStart, perAdmitEnd, Double.parseDouble(univList[i][11]))) || (Double.parseDouble(univList
+						[i][11])>=perAdmitStart && perAdmitEnd == null || Double.parseDouble(univList[i][11])<=perAdmitEnd && perAdmitStart == null)){
+					if(listOfMatchingUniversities.contains(uni)){
+						break;
+					}
+					listOfMatchingUniversities.add(uni);
+				}
+				else if((isBetweenDoubleOrEqualToAAndOrB(perEnrollStart, perEnrollEnd, Double.parseDouble(univList[i][12]))) || (Double.parseDouble(univList
+						[i][12])>=perEnrollStart && perEnrollEnd == null || Double.parseDouble(univList[i][12])<=perEnrollEnd && perEnrollStart == null)){
+					if(listOfMatchingUniversities.contains(uni)){
+						break;
+					}
+					listOfMatchingUniversities.add(uni);
+				}
+				else if((isBetweenIntOrEqualToAAndOrB(academicScaleStart, academicScaleEnd, Integer.parseInt(univList[i][13])) || (Integer.parseInt(univList
+						[i][13])>=academicScaleStart && academicScaleEnd == null || Integer.parseInt(univList[i][13])<=academicScaleEnd && academicScaleStart == null))){
+					if(listOfMatchingUniversities.contains(uni)){
+						break;
+					}
+					listOfMatchingUniversities.add(uni);
+				}
+				else if(isBetweenIntOrEqualToAAndOrB(socialScaleStart, socialScaleEnd, Integer.parseInt(univList[i][14]))){
+					if(listOfMatchingUniversities.contains(uni)){
+						break;
+					}
+					listOfMatchingUniversities.add(uni);
+				}
+				else if(isBetweenIntOrEqualToAAndOrB(lifeScaleStart, lifeScaleEnd, Integer.parseInt(univList[i][15]))){
+					if(listOfMatchingUniversities.contains(uni)){
+						break;
+					}
+					listOfMatchingUniversities.add(uni);
+				}
+				else if(Integer.parseInt(univList[i][j]) == -1){
+					break;
 				}
 			}
 		}
 		return listOfMatchingUniversities;
 		
 	}
+	
 	/**
 	 * To check if search 'c' is between a and b values
 	 * @param a
@@ -438,8 +518,19 @@ public void addSavedSchool(User user, String schoolName) {
 	 * @param c
 	 * @return true if c is between a and b or equal to a and b, otherwise false
 	 */
-	 public static boolean isBetween(int a, int b, int c) {
-		    return b > a ? c >= a && c <= b : c > b && c < a;
+	 public static boolean isBetweenIntOrEqualToAAndOrB(int a, int b, int c) {
+		 return b > a ? c >= a && c <= b : c > b && c < a;
 	 }
 
+	 /**
+	  * To check if search 'c' is between a and b values
+	  * @param a
+	  * @param b
+	  * @param c
+	  * @return true if c is between a and b or equal to a and b, otherwise false
+	  */
+	public static boolean isBetweenDoubleOrEqualToAAndOrB(double a, double b, double c) {
+		 return b > a ? c >= a && c <= b : c > b && c < a;
+	}
+	
 }

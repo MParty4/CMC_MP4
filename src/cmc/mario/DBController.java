@@ -295,13 +295,21 @@ public class DBController {
    * method to remove a selected school from a user's saved school list
    * @param user the user who is removing a school from their list
    * @param schoolName the name of the school to be removed
+   * @throws NoSuchElementException if the user's saved list is empty
    */
-  public void removeSavedSchool(User user, String schoolName) {
+  public void removeSavedSchool(User user, University schoolName) {
 	// TODO Auto-generated method stub
-	  String[][] userList =univLib.user_getUsernamesWithSavedSchools();
-	  for(String[] myUser: userList)
+	  List<University> userList =this.getSavedSchools(user.getUserName());
+	  if(userList.isEmpty())
 	  {
-		  if()
+		  throw new NoSuchElementException("The User's saved list is empty, you cannot remove from an empty list");
+	  }
+	  for(University u: userList)
+	  {
+		  if(u.equals(schoolName))
+		  { 
+			  userList.remove(u);
+		  }
 	  }
 	
 }

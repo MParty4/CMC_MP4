@@ -412,15 +412,15 @@ public void addSavedSchool(User user, String schoolName) {
 		  Double perFemStart,Double perFemEnd, Integer satVerbalStart, Integer satVerbalEnd, Integer satMathStart, Integer satMathEnd, Integer priceStart, Integer priceEnd,
 		  Integer finAidStart,Integer finAidEnd, Integer numOfAppStart, Integer numOfAppEnd, Double perAdmitStart, Double perAdmitEnd, Double perEnrollStart, 
 		  Double perEnrollEnd, Integer academicScaleStart, Integer academicScaleEnd, Integer socialScaleStart, Integer socialScaleEnd, Integer lifeScaleStart,
-		  Integer lifeScaleEnd, String[] popMajor) throws NullPointerException{
+		  Integer lifeScaleEnd, String[] popMajor){
 		List<University> listOfMatchingUniversities = new ArrayList<University>();
 		String[][] univList = univLib.university_getUniversities();
 		for(int i = 0; i < univList.length; i++){
 			for(int j = 0; j < univList.length; j++){
 				University uni = new University(univList[i][0], univList[i][1], univList[i][2], univList[i][3], Integer.parseInt(univList[i][4]),
-				Double.parseDouble(univList[i][5]), Integer.parseInt(univList[i][6]), Integer.parseInt(univList[i][7]), Integer.parseInt(univList[i][8]), 
-				Integer.parseInt(univList[i][9]), Integer.parseInt(univList[i][10]), Double.parseDouble(univList[i][11]), Double.parseDouble(univList[i][12]),
-				Integer.parseInt(univList[i][13]), Integer.parseInt(univList[i][14]), Integer.parseInt(univList[i][15]));
+				Double.parseDouble(univList[i][5]), Double.parseDouble(univList[i][6]), Double.parseDouble(univList[i][7]), Double.parseDouble(univList[i][8]), 
+				Double.parseDouble(univList[i][9]), Integer.parseInt(univList[i][10]), Double.parseDouble(univList[i][11]), Double.parseDouble(univList[i][12]),
+				Integer.parseInt(univList[i][13]), Integer.parseInt(univList[i][14]), Integer.parseInt(univList[i][15]), univLib.university_getEmphases());
 				if(univList[i][0].contains(schoolName)){
 					if(listOfMatchingUniversities.contains(uni)){
 						break;

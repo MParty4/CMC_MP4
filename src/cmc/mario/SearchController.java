@@ -49,7 +49,7 @@ public class SearchController {
    * @param academicScaleStart the starting range for quality of academics
    * @param academicScaleEnd the ending range for quality of academics
    * @param socialScaleStart the starting range for quality of social
-   * @param socialScaleEnd the ending range for quality of social
+   * @param socialScaleEnd the ending range for quality of social scale
    * @param lifeScaleStart the starting range for quality of life scale
    * @param lifeScaleEnd the ending range for quality of life scale 
    * @param popMajor an list of popular major or emphases at the university

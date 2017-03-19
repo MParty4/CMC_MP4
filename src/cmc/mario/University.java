@@ -45,22 +45,22 @@ public class University {
 	/**
 	 * satVerbal the sat verbal score requirement of a school
 	 */
-	private int satVerbal;
+	private double satVerbal;
 
 	/**
 	 * satMath the sat math score requirement of a school
 	 */
-	private int satMath;
+	private double satMath;
 
 	/**
 	 * price the expenses of a school
 	 */
-	private int price;
+	private double price;
 
 	/**
 	 * finAidthe financial aid a school can provide to a student
 	 */
-	private int finAid;
+	private double finAid;
 
 	/**
 	 * numOfApp the percentage of admitted for a school
@@ -160,9 +160,9 @@ public class University {
 	 *            which is the emphases majors of this school of searching
 	 *            condition
 	 */
-	public University(String schoolName, String state, String location, String control, int numOfStu, int perFem,
-			int satVerbal, int satMath, int price, int finAid, int numOfApp, int perAdmit, int perEnroll,
-			int academicScale, int socialScale, int lifeScale, String popMajors) {
+	public University(String schoolName, String state, String location, String control, int numOfStu, double perFem,
+			double satVerbal, double satMath, double price, double finAid, int numOfApp, double perAdmit, double perEnroll,
+			int academicScale, int socialScale, int lifeScale, String[] popMajors) {
 		this.schoolName = schoolName;
 		this.state = state;
 		this.location = location;

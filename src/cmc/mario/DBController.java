@@ -1,12 +1,9 @@
-
-/*
- * File: DBController.java
- */
 package cmc.mario;
 import dblibrary.project.csci230.*;
 import java.io.*;
 import java.util.*;
 /**
+ * File: DBController.java
  * DBController - Database controller for CMC system. This controller connects to all classes.
  * @authors Mario Party 4 - Kalila Moua, Yidan Zhang
  * @version 3/19/2017

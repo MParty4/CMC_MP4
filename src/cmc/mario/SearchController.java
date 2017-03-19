@@ -1,11 +1,10 @@
 package cmc.mario;
+import java.util.*;
 /**
  * File: SearchController.java
  * author Jing Thao | Mario Party 4
  * @version March 19, 2017
  */
-
-import java.util.*;
 
 /**
  * SearchController Class which helps search universities 

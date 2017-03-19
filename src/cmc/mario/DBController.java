@@ -21,9 +21,21 @@ public class DBController {
    * @param firstName the first name to change the old first name to 
    * @param lastName the last name to change the old last name to
    * @param password the password to change the old password to
+   * @param username the user's userName
+   * @throws IllegalArgumentException if account cannot be found
    */ 
-  public void editPersonalProfile(String firstName, String lastName, String password){
-  
+  public void editPersonalProfile(String userName, String firstName, String lastName, String password){
+	  Account x = this.getSpecificUser(userName);
+	  if(x==null)
+	  {
+		  throw new IllegalArgumentException("Account is either invalid or is non-existant");
+	  }
+	  else
+	  {
+		  char type = x.getTypeOfUser();
+		  char status = x.status;
+		  univLib.user_editUser(userName, firstName, lastName, password, type, status);
+	  }
   }
 
   /**

@@ -44,7 +44,7 @@ public class UserFuncController {
    * Displays list of the Users Saved Schools
    * @return list of saved schools
    */
-  public String viewSavedSchools()
+  public List<University> viewSavedSchools()
   { 
     return this.dbc.getSavedSchools(this.user.getUserName());
   }

@@ -5,7 +5,6 @@ package cmc.mario;
  * @version March 19, 2017
  */
 
-import java.io.*;
 import java.util.*;
 
 /**
@@ -15,13 +14,13 @@ import java.util.*;
  * @author Mario Party 4: Jing Thao 
  * @version Feb. 24, 2017
  */
-public class SearchController extends UserFuncController {
+public class SearchController {
   private DBController dbControl;
   /*
    * Constructor of the class: Inherited from super class: AccountController
    */
   public SearchController() {
-    University fire = null;
+    this.dbControl = new DBController();
   }
   /**
    * Searches for a school with the conditions given
@@ -30,11 +29,16 @@ public class SearchController extends UserFuncController {
    * @param state the user gives 
    * @param location the user gives 
    * @param control the user gives 
-   * @param numOfStu the user gives 
-   * @param perFem the user gives 
-   * @param satVerbal the user gives 
-   * @param satMath the user gives 
-   * @param price the user gives 
+   * @param numOfStuStart the number of students starting range number
+   * @param numOfStuEnd the number of students ending range number
+   * @param perFemStart the percentage of students who are female starting range number
+   * @param perFemEnd the percentage of students who are female ending range number
+   * @param satVerbalStart the starting range for SAT verbal score
+   * @param satVerbalEnd the ending range for SAT verbal score
+   * @param satMathStart the starting range for SAT math score
+   * @param satMathEnd the ending range for SAT math score
+   * @param priceStart the starting range for price/expenses
+   * @param priceEnd the ending range for price/expenses
    * @param finAid the user gives 
    * @param numOfApp the user gives 
    * @param perAdmit the user gives 
@@ -45,17 +49,15 @@ public class SearchController extends UserFuncController {
    * @param lifeScale the user gives 
    * @param popMajor the user gives 
    */
-  public List<University> search(String schoolName, String state, String location, String control, int numOfStu, double perFem, int satVerbal
-                       , int satMath, int price, int finAid, int numOfApp, double perAdmit, double perEnroll, int academicScale
-                       , int socialScale, int lifeScale, String popMajor){
-	  List<String> list = dbControl.getUniversities();
-	  List<University> searchList = null;
-	  while(!list.isEmpty()){                                           
-		  
-		  
-	  }
-	  
-    return searchList;
+  public List<University> search(String schoolName, String state, String location, String control, int numOfStuStart, int numOfStuEnd, 
+		  double perFemStart,double perFemEnd, int satVerbalStart, int satVerbalEnd, int satMathStart, int satMathEnd, int priceStart, int priceEnd,
+		  int finAidStart,int finAidEnd, int numOfAppStart, int numOfAppEnd, double perAdmitStart, double perAdmitEnd, double perEnrollStart, 
+		  double perEnrollEnd, int academicScaleStart, int academicScaleEnd, int socialScaleStart, int socialScaleEnd, int lifeScaleStart,
+		  int lifeScaleEnd, String[] popMajor){
+	  	return dbControl.searchResults(schoolName, state, location, control, numOfStuStart, numOfStuEnd, perFemStart, perFemEnd, satVerbalStart,
+	  			satVerbalEnd, satMathStart, satMathEnd, priceStart, priceEnd, finAidStart, finAidEnd, numOfAppStart, numOfAppEnd, perAdmitStart,
+	  			perAdmitEnd, perEnrollStart, perEnrollEnd, academicScaleStart, academicScaleEnd, socialScaleStart, socialScaleEnd, lifeScaleStart,
+	  			lifeScaleEnd, popMajor);
   }
   /**
    * Gives a list of recommendations for the school that was chosen
@@ -76,7 +78,7 @@ public List<University> viewRecommendation(University u){
 					if(uni.getLifeScale() > u.getLifeScale() -1 && uni.getLifeScale() <uni.getLifeScale() +1){
 						if(uni.getSocialScale() > u.getSocialScale() -1 && uni.getSocialScale() <uni.getSocialScale() +1){
 							if(uni.getAcademicScale() > u.getAcademicScale() -1 && uni.getAcademicScale() <uni.getAcademicScale() +1){
-								
+
 								uniRecommendList.add(uni);
 							}
 						}
@@ -94,4 +96,5 @@ public List<University> viewRecommendation(University u){
 	  }
 	return uniRecommendList;  
   }
+  
 }

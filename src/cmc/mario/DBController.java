@@ -298,4 +298,28 @@ public void addSavedSchool(User user, String schoolName) {
 	univLib.user_saveSchool(user.getUsername(), saveS);
 	
 }
+
+	/**
+	 * Method to return a list of universities that fit in the criteria entered by user
+	 * @param 
+	 */
+	public List<University> searchResults(String schoolName, String state, String location, String control, int numOfStuStart, int numOfStuEnd, 
+		  double perFemStart,double perFemEnd, int satVerbalStart, int satVerbalEnd, int satMathStart, int satMathEnd, int priceStart, int priceEnd,
+		  int finAidStart,int finAidEnd, int numOfAppStart, int numOfAppEnd, double perAdmitStart, double perAdmitEnd, double perEnrollStart, 
+		  double perEnrollEnd, int academicScaleStart, int academicScaleEnd, int socialScaleStart, int socialScaleEnd, int lifeScaleStart,
+		  int lifeScaleEnd, String[] popMajor){
+		List<University> listOfMatchingUniversities = new ArrayList<University>();
+		String[][] univList = univLib.university_getUniversities();
+		for(int i = 0; i < univList.length; i++){
+			for(int j = 0; j < univList.length; j++){
+				if(univList[i][j].contains(schoolName)){
+					listOfMatchingUniversities.addAll(i);
+				}
+			}
+		}
+		return listOfMatchingUniversities;
+		
+	}
+	
+
 }

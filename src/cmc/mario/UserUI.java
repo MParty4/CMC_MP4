@@ -9,7 +9,7 @@ import java.util.*;
  * UserUI is an class for Users
  * 
  * @author Tre Vazquez | Mario Party 4
- * @version March 18, 2017
+ * @version March 19, 2017
  */
 
 public class UserUI extends AccountUI{ 

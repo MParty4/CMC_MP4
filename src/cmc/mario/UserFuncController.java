@@ -11,7 +11,7 @@ import java.util.*;
  * UserFuncController is an implementation for the UserUI and an extension
  * of the account controller
  * @author Tre Vazquez | Mario Party 4
- * @version March 18, 2017
+ * @version March 19, 2017
  */
 
 public class UserFuncController {

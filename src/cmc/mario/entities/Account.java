@@ -31,7 +31,7 @@ public class Account{
 	  /**
 	   * "Y" for active account, "N" for inactive account
 	   */
-	  char status;
+	  public char status;
 	  /**
 	   * if user is active or not, true if active, otherwise false
 	   */
@@ -54,10 +54,8 @@ public class Account{
 	 * @param username the user name the user uses
 	 * @param type user is regular user or an admin
 	 * @param status if is account is active
-	 * @param isActive
 	 */
-	public Account(String firstName, String lastName, String password, String username, char type, char status,
-			boolean isActive) {
+	public Account(String firstName, String lastName, String password, String username, char type, char status) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;

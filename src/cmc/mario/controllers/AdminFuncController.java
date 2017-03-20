@@ -11,7 +11,8 @@ import cmc.mario.entities.University;
  * an Admin is able to do extends AccountController and implements AdminUI.
  * 
  * @author Mario Party 4: Yidan Zhang
- * @version Feb. 24, 2017
+ * @modift Kalila Moua
+ * @version 03/20/2017
  */
 
 public class AdminFuncController{
@@ -48,19 +49,20 @@ public AdminFuncController(Admin adm, DBController dbContr) {
   public List<Account> viewAccount(){
     return this.dbContr.getAccountList();
   }
-  /*
-   * Add a new user to database
-   * 
-   * @param username the username of new user
-   * @param password which is created by the new user
-   * 
-   * @return true if add successfully
+  /**
+   * add a new user to database
+   * @param firstName the first name of the user added
+   * @param lastName the last name of the user added
+   * @param username the user name of the user added
+   * @param password the password of the user set
+   * @param type the type of the user
+   * @return true if add successful
    */
   public boolean addUser(String firstName, String lastName, String username, String password,char type){
 	  return dbContr.addUser(firstName, lastName, username, password, type);
   }
   
-  /*
+  /**
    * view a specific user profile including first name, last name, username, password, type, status
    * 
    * @param userName of the user
@@ -71,7 +73,7 @@ public AdminFuncController(Admin adm, DBController dbContr) {
   public Account viewSpecificUser(String username){
     return this.dbContr.getSpecificUser(username);
   }
-  /*
+  /**
    * edit a specific user profile including first name, last name, username, password, type, status
    * 
    * @param firstName which is new to update
@@ -84,17 +86,17 @@ public AdminFuncController(Admin adm, DBController dbContr) {
   public boolean editUser(String firstName, String lastName, String username, String password, char type, char status){
     return this.dbContr.editUser(firstName, lastName,username, password, type, status);
   }
-  /*
+  /**
    * view a specific user profile including first name, last name, username, password, type, status
    * 
    * @param userName of the user
-   * 
+   * @return true if deactivate successfully
    */ 
   public boolean deactivateUser(String username){
 	  return this.dbContr.deactivateUser(username);
   }
   
-  /*
+  /**
    * view the list of universities
    * 
    * @return list of universities
@@ -102,14 +104,47 @@ public AdminFuncController(Admin adm, DBController dbContr) {
   public List<University> viewUniversities(){
     return this.dbContr.getUniversities();
   }
-  /*
-   * add a university
-   * 
-   * @param u the instance of University which will be added to database
-   * 
-   * @return true if add successfully
-   * 
-   */   
+  /**
+	 * @param schoolName
+	 *            name of the school
+	 * @param state
+	 *            which is searching condition
+	 * @param location
+	 *            which is searching condition
+	 * @param control
+	 *            which is searching condition
+	 * @param numOfStu
+	 *            which is number of students of searching condition
+	 * @param perFem
+	 *            which is percentage of female of searching condition
+	 * @param satVerbal
+	 *            which is sat verbal score of searching condition
+	 * @param satMath
+	 *            which is sat math score of searching condition
+	 * @param price
+	 *            which is expense of searching condition
+	 * @param finAid
+	 *            which is financial aid student can get from school of
+	 *            searching condition
+	 * @param numOfApp
+	 *            which is number of applicants of searching condition
+	 * @param perAdmit
+	 *            which is percentage of admit of searching condition
+	 * @param perEnroll
+	 *            which is percentage of enroll of searching condition
+	 * @param control
+	 *            which is new of searching condition
+	 * @param academicScale
+	 *            which is scale of academic of searching condition
+	 * @param socialScale
+	 *            which is scale of social of searching condition
+	 * @param lifeScale
+	 *            which is scale of life of searching condition
+	 * @param popMajor
+	 *            which is the emphases majors of this school of searching
+	 *            condition
+	 * @return true if add successfully
+	 */
   public boolean addUniversity(String school, String state, String location, String control, int numberOfStudents, int percentFemales, int SATVerbal, int SATMath, 
 		  int expenses, int percentFinancialAid, int numberOfApplicants, int percentAdmitted, int percentEnrolled, 
 		  int academicsScale, int socialScale, int qualityOfLifeScale, String popMajors){
@@ -118,7 +153,7 @@ public AdminFuncController(Admin adm, DBController dbContr) {
 			  numberOfApplicants, percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale,popMajors);
   }
   
-  /*
+  /**
    * view a specific university information 
    * 
    * @param universityName which admin wants to view
@@ -130,7 +165,7 @@ public AdminFuncController(Admin adm, DBController dbContr) {
     return this.dbContr.viewSpecificSchool(univeristyname);
   }
   
-  /*
+  /**
    * edit a specific university information including 
    * @param state which is new to update
    * @param location which is new to update
@@ -148,8 +183,6 @@ public AdminFuncController(Admin adm, DBController dbContr) {
    * @param academicScale which is scale of acedmic to update
    * @param socialScale which is scale of social to update
    * @param lifeScale which is scale of life to update
-   * @param popMajor which is the emphases majors of this school to update
-   * 
    */    
   public boolean editUniversity(String school, String state, String location, String control, int numOfStu, int perFem, int satVerbal
                                , int satMath, int price, int finAid, int numOfApp, int perAdmit, int perEnroll, int academicScale

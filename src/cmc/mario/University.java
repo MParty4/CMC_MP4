@@ -1,9 +1,10 @@
 package cmc.mario;
+import java.util.*;
 /**
  * File: University.java
  * University Class which includes all information about a university
  * @author Mario Party 4: Jing Thao
- * @Modify by Yidan Zhang
+ * @Modify by Yidan Zhang and Kalila Moua
  * @version March 19, 2017
  */
 public class University {
@@ -97,7 +98,7 @@ public class University {
 	/**
 	 * popMajors the emphases majors of a school
 	 */
-	private String popMajors;
+	private List<String> popMajors;
 	
 	public University(){
 		this.schoolName = null;
@@ -117,7 +118,6 @@ public class University {
 		this.socialScale = -1;
 		this.lifeScale = -1;
 		this.popMajors = null;
-
 	}
 
 	/**
@@ -162,7 +162,7 @@ public class University {
 	 */
 	public University(String schoolName, String state, String location, String control, int numOfStu, double perFem,
 			double satVerbal, double satMath, double price, double finAid, int numOfApp, double perAdmit, double perEnroll,
-			int academicScale, int socialScale, int lifeScale, String[][] popMajors) {
+			int academicScale, int socialScale, int lifeScale, List<String> popMajors) {
 		this.schoolName = schoolName;
 		this.state = state;
 		this.location = location;
@@ -284,7 +284,7 @@ public class University {
 	 * 
 	 * @return the perFem
 	 */
-	public Integer getPerFem() {
+	public double getPerFem() {
 		return perFem;
 	}
 
@@ -303,7 +303,7 @@ public class University {
 	 * 
 	 * @return the satVerbal
 	 */
-	public int getSatVerbal() {
+	public double getSatVerbal() {
 		return satVerbal;
 	}
 
@@ -322,7 +322,7 @@ public class University {
 	 * 
 	 * @return the satMath
 	 */
-	public int getSatMath() {
+	public double getSatMath() {
 		return satMath;
 	}
 
@@ -341,7 +341,7 @@ public class University {
 	 * 
 	 * @return the price of the school
 	 */
-	public int getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
@@ -359,7 +359,7 @@ public class University {
 	 * 
 	 * @return the price of the school
 	 */
-	public int getFinAid() {
+	public double getFinAid() {
 		return finAid;
 	}
 
@@ -393,11 +393,11 @@ public class University {
 	}
 
 	/**
-	 * get percentage of Amitted of a school
+	 * get percentage of Admitted of a school
 	 * 
 	 * @return the perAdmit
 	 */
-	public Integer getPerAdmit() {
+	public double getPerAdmit() {
 		return perAdmit;
 	}
 
@@ -416,7 +416,7 @@ public class University {
 	 * 
 	 * @return the perEnroll
 	 */
-	public Integer getPerEnroll() {
+	public double getPerEnroll() {
 		return perEnroll;
 	}
 
@@ -492,7 +492,7 @@ public class University {
 	 * 
 	 * @return the popMajors
 	 */
-	public String getPopMajors() {
+	public List<String> getPopMajors() {
 		return popMajors;
 	}
 
@@ -502,7 +502,7 @@ public class University {
 	 * @param popMajors
 	 *            the popMajors to set
 	 */
-	public void setPopMajors(String popMajors) {
+	public void setPopMajors(List<String> popMajors) {
 		this.popMajors = popMajors;
 	}
 

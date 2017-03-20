@@ -63,7 +63,6 @@ public class Account{
 		this.username = username;
 		this.type = type;
 		this.status = status;
-		this.isActive = isActive;
 	}
 
 	  /**

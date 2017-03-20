@@ -41,27 +41,27 @@ public class University {
 	/**
 	 * perFem the percentage of female in a school
 	 */
-	private double perFem;
+	private int perFem;
 
 	/**
 	 * satVerbal the sat verbal score requirement of a school
 	 */
-	private double satVerbal;
+	private int satVerbal;
 
 	/**
 	 * satMath the sat math score requirement of a school
 	 */
-	private double satMath;
+	private int satMath;
 
 	/**
 	 * price the expenses of a school
 	 */
-	private double price;
+	private int price;
 
 	/**
 	 * finAidthe financial aid a school can provide to a student
 	 */
-	private double finAid;
+	private int finAid;
 
 	/**
 	 * numOfApp the percentage of admitted for a school
@@ -72,12 +72,12 @@ public class University {
 	/**
 	 * perAdmit the name of applicants for a school
 	 */
-	private double perAdmit;
+	private int perAdmit;
 
 	/**
 	 * perEnroll the percentage of enrolled students in a school
 	 */
-	private double perEnroll;
+	private int perEnroll;
 
 	/**
 	 * academicScale the scale of academic of a school
@@ -160,8 +160,8 @@ public class University {
 	 *            which is the emphases majors of this school of searching
 	 *            condition
 	 */
-	public University(String schoolName, String state, String location, String control, int numOfStu, double perFem,
-			double satVerbal, double satMath, double price, double finAid, int numOfApp, double perAdmit, double perEnroll,
+	public University(String schoolName, String state, String location, String control, int numOfStu, int perFem,
+			int satVerbal, int satMath, int price, int finAid, int numOfApp, int perAdmit, int perEnroll,
 			int academicScale, int socialScale, int lifeScale, List<String> popMajors) {
 		this.schoolName = schoolName;
 		this.state = state;
@@ -284,7 +284,7 @@ public class University {
 	 * 
 	 * @return the perFem
 	 */
-	public double getPerFem() {
+	public int getPerFem() {
 		return perFem;
 	}
 
@@ -303,7 +303,7 @@ public class University {
 	 * 
 	 * @return the satVerbal
 	 */
-	public double getSatVerbal() {
+	public int getSatVerbal() {
 		return satVerbal;
 	}
 
@@ -322,7 +322,7 @@ public class University {
 	 * 
 	 * @return the satMath
 	 */
-	public double getSatMath() {
+	public int getSatMath() {
 		return satMath;
 	}
 
@@ -341,7 +341,7 @@ public class University {
 	 * 
 	 * @return the price of the school
 	 */
-	public double getPrice() {
+	public int getPrice() {
 		return price;
 	}
 
@@ -359,7 +359,7 @@ public class University {
 	 * 
 	 * @return the price of the school
 	 */
-	public double getFinAid() {
+	public int getFinAid() {
 		return finAid;
 	}
 
@@ -397,7 +397,7 @@ public class University {
 	 * 
 	 * @return the perAdmit
 	 */
-	public double getPerAdmit() {
+	public int getPerAdmit() {
 		return perAdmit;
 	}
 
@@ -416,7 +416,7 @@ public class University {
 	 * 
 	 * @return the perEnroll
 	 */
-	public double getPerEnroll() {
+	public int getPerEnroll() {
 		return perEnroll;
 	}
 

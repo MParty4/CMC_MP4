@@ -86,9 +86,9 @@ public class UserFuncController {
    * @return list of schools matching search
    */
   public List<University> search(String schoolName, String state, String location, String control, Integer numOfStuStart, Integer numOfStuEnd, 
-		  Double perFemStart,Double perFemEnd, Integer satVerbalStart, Integer satVerbalEnd, Integer satMathStart, Integer satMathEnd, Integer priceStart, Integer priceEnd,
-		  Integer finAidStart,Integer finAidEnd, Integer numOfAppStart, Integer numOfAppEnd, Double perAdmitStart, Double perAdmitEnd, Double perEnrollStart, 
-		  Double perEnrollEnd, Integer academicScaleStart, Integer academicScaleEnd, Integer socialScaleStart, Integer socialScaleEnd, Integer lifeScaleStart,
+		  Integer perFemStart,Integer perFemEnd, Integer satVerbalStart, Integer satVerbalEnd, Integer satMathStart, Integer satMathEnd, Integer priceStart, Integer priceEnd,
+		  Integer finAidStart,Integer finAidEnd, Integer numOfAppStart, Integer numOfAppEnd, Integer perAdmitStart, Integer perAdmitEnd, Integer perEnrollStart, 
+		  Integer perEnrollEnd, Integer academicScaleStart, Integer academicScaleEnd, Integer socialScaleStart, Integer socialScaleEnd, Integer lifeScaleStart,
 		  Integer lifeScaleEnd, List<String> popMajor){
    return this.sc.search(schoolName, state,location,control, numOfStuStart, numOfStuEnd, perFemStart, perFemEnd, satVerbalStart, satVerbalEnd, satMathStart, 
 		   
@@ -97,7 +97,8 @@ public class UserFuncController {
   }
   
   /**
-   * Displays a list of universities meeting the search criteria for the user. 
+   * Displays a specific list of universities meeting the search criteria for the user.
+   * @param u the university 
    * @return list of universities.
    */
   public List<String> viewSearchResults(University u) 
@@ -108,15 +109,15 @@ public class UserFuncController {
     dis.add(u.getState());
     dis.add(u.getLocation());
     dis.add(u.getControl());
-    dis.add(Double.toString(u.getNumOfStu()));
-    dis.add(Double.toString(u.getPerFem()));
-    dis.add(Double.toString(u.getSatVerbal()));
-    dis.add(Double.toString(u.getSatMath()));
-    dis.add(Double.toString(u.getPrice()));
-    dis.add(Double.toString(u.getFinAid()));
-    dis.add(Double.toString(u.getNumOfApp()));
-    dis.add(Double.toString(u.getPerAdmit()));
-    dis.add(Double.toString(u.getPerEnroll()));
+    dis.add(Integer.toString(u.getNumOfStu()));
+    dis.add(Integer.toString(u.getPerFem()));
+    dis.add(Integer.toString(u.getSatVerbal()));
+    dis.add(Integer.toString(u.getSatMath()));
+    dis.add(Integer.toString(u.getPrice()));
+    dis.add(Integer.toString(u.getFinAid()));
+    dis.add(Integer.toString(u.getNumOfApp()));
+    dis.add(Integer.toString(u.getPerAdmit()));
+    dis.add(Integer.toString(u.getPerEnroll()));
     dis.add(Integer.toString(u.getAcademicScale()));
     dis.add(Integer.toString(u.getSocialScale()));
     dis.add(Integer.toString(u.getLifeScale()));
@@ -136,7 +137,7 @@ public class UserFuncController {
   }
   
   /**
-   * displays recommendations based upon university being viewed by a user
+   * Displays recommendations based upon university being viewed by a user
    * @param u a university object to be used as criteria for recommendations
    * @return list of universities with partial info
    */
@@ -154,7 +155,7 @@ public class UserFuncController {
   }
   
   /**
-   * displays the user profile to the user.
+   * Displays the user profile to the user.
    * @return user object to preview user details
    */
   public User viewPersonalProfile()
@@ -164,6 +165,7 @@ public class UserFuncController {
   
   /**
    * Grants user the ability to edit their personal profile
+   * @param username the user name of user
    * @param firstName the user's firstName
    * @param lastName the user's lastName
    * @param password the user's password

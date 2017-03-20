@@ -426,27 +426,6 @@ public void addSavedSchool(User user, String schoolName) {
 	}
 	
 	/**
-	 * To check if search 'c' is between a and b values - helper method for searchResults
-	 * @param a
-	 * @param b
-	 * @param c
-	 * @return true if c is between a and b or equal to a and b, otherwise false
-	 */
-	 public static boolean isBetweenIntOrEqualToAAndOrB(int a, int b, int c) {
-		 return b > a ? c >= a && c <= b : c > b && c < a;
-	 }
-
-//	 /**
-//	  * To check if search 'c' is between a and b values -helper method for searchResults
-//	  * @param a
-//	  * @param b
-//	  * @param c
-//	  * @return true if c is between a and b or equal to a and b, otherwise false
-//	  */
-//	public static boolean isBetweenDoubleOrEqualToAAndOrB(double a, double b, double c) {
-//		 return b > a ? c >= a && c <= b : c > b && c < a;
-//	}
-	/**
 	 * Method to return a list of universities with attributes that fit in the criteria entered by user - Kalila
 	 * @param schoolName
 	 *            name of the school

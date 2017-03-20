@@ -65,11 +65,11 @@ public class AccountController {
 			  if(password.equals(thisPerson.getPassword())){
 				 if(thisPerson.isActive()){
 					 if(thisPerson.getTypeOfUser()=='a'){
-						 thisPerson.isActive=true;
+						 thisPerson.setActive(true);
 						 return new AdminUI((Admin)thisPerson);
 					 }
 					 else{
-						 thisPerson.isActive=true;
+						 thisPerson.setActive(true);
 						 return new UserUI((User)thisPerson);
 					 }
 				 }

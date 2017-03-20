@@ -1,7 +1,7 @@
 package cmc.mario;
 import java.util.*;
 /**
- * File: University.java
+ * File: University. java
  * University Class which includes all information about a university
  * @author Mario Party 4: Jing Thao
  * @Modify by Yidan Zhang and Kalila Moua

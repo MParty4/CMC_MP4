@@ -5,8 +5,8 @@ import java.util.*;
 /**
  * File: DBController.java
  * DBController - Database controller for CMC system. This controller connects to all classes.
- * @authors Mario Party 4 - Kalila Moua, Yidan Zhang
- * @version 3/19/2017
+ * @authors Mario Party 4 - Kalila Moua, Yidan Zhang, and Tre 
+ * @version March 19, 2017
  */
 public class DBController {
 	

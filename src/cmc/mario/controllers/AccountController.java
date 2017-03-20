@@ -21,7 +21,7 @@ public class AccountController {
 	  /**
 	   * Account object for acct controller to communicate to
 	   */
-	  public Account acct;
+	  private Account acct;
 	  /**
 	   * DBController object for acct controller to search data
 	   */
@@ -36,7 +36,7 @@ public class AccountController {
 	   * @param acct the account who is using currently 
 	   */
 	  public AccountController(Account acct){
-		this.acct = acct;
+		this.setAcct(acct);
 		this.database = new DBController();
 	  }
 	  
@@ -46,10 +46,10 @@ public class AccountController {
 	   * @return true if user is logged off, false otherwise
 	   */ 
 	  public boolean logOff(){
-		  if (this.acct==null){
+		  if (this.getAcct()==null){
 			  return false;
 		  }
-		this.acct.setActive(false);
+		this.getAcct().setActive(false);
 		return true;
 	  }
 	  
@@ -92,9 +92,25 @@ public class AccountController {
 	   * @return the character 'a' for admin, or 'u' for user
 	   */
 	  public char typeOfUser(String username){
-		if(this.acct.getTypeOfUser()=='a'){
+		if(this.getAcct().getTypeOfUser()=='a'){
 			return 'a';
 		}
 	    return 'u';
 	  }
+
+
+	/**
+	 * @return the acct
+	 */
+	public Account getAcct() {
+		return acct;
+	}
+
+
+	/**
+	 * @param acct the acct to set
+	 */
+	public void setAcct(Account acct) {
+		this.acct = acct;
+	}
 }

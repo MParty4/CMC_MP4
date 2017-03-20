@@ -1,34 +1,40 @@
-
- package cmc.mario;
-import java.io.*;
+/*
+ * File: AdminUI.java
+ */
+package cmc.mario.interfaces;
 import java.util.*;
+
+import cmc.mario.controllers.AdminFuncController;
+import cmc.mario.entities.Account;
+import cmc.mario.entities.Admin;
+import cmc.mario.entities.University;
 /**
- * AdminFuncController Class which includes all functionalities 
- * an Admin is able to do extends AccountController and implements AdminUI.
+ * class for a Admin extends AccountUI
  * 
- * @author Mario Party 4: Yidan Zhang
+ * @author Yidan Zhang
  * @version Feb. 24, 2017
  */
 
-public class AdminFuncController{
-	private Admin ad;
-	private DBController dbContr;
+public class AdminUI extends AccountUI{
+  public AdminFuncController adContr;
+  
   /*
-   * Constructor of the class: Inherited from super class: AccountController
+   * Constructor of the class
+   * 
+   * @param a who is logging in now
    */
-  public AdminFuncController(Admin a){
-    this.ad = a;
-    //super();
-    dbContr = new DBController();
+  public AdminUI(Admin a){
+    this.adContr = new AdminFuncController(a);
   }
   /*
    * view the list of users
    * 
    * @return list of users
-   */ 
+   */  
   public List<Account> viewAccount(){
-    return this.dbContr.getAccountList();
+    return this.adContr.viewAccount();
   }
+  
   /*
    * Add a new user to database
    * 
@@ -37,8 +43,8 @@ public class AdminFuncController{
    * 
    * @return true if add successfully
    */
-  public boolean addUser(String firstName, String lastName, String username, String password,char type){
-	  return dbContr.addUser(firstName, lastName, username, password, type);
+  public boolean addUser(String firstName, String lastName, String username, String password, char type){
+  return this.adContr.addUser(firstName, lastName, username, password, type);
   }
   
   /*
@@ -48,9 +54,9 @@ public class AdminFuncController{
    * @param password of the user
    * 
    * @return user including personal profile
-   */ 
+   */   
   public Account viewSpecificUser(String username){
-    return this.dbContr.getSpecificUser(username);
+  return this.adContr .viewSpecificUser(username);
   }
   /*
    * edit a specific user profile including first name, last name, username, password, type, status
@@ -61,9 +67,9 @@ public class AdminFuncController{
    * @param type which is new to update
    * @param status which is new to update
    * 
-   */ 
-  public boolean editUser(String firstName, String lastName, String username, String password, char type, char status){
-    return this.dbContr.editUser(firstName, lastName,username, password, type, status);
+   */  
+  public void editUser(String firstName, String lastName, String username, String password, char type, char status){
+	  this.adContr.editUser(firstName, lastName, username, password, type, status);
   }
   /*
    * view a specific user profile including first name, last name, username, password, type, status
@@ -71,17 +77,22 @@ public class AdminFuncController{
    * @param userName of the user
    * 
    */ 
-  public boolean deactivateUser(String username){
-	  return this.dbContr.deactivateUser(username);
+  public void deactivateUser(String username){
+	  this.adContr.deactivateUser(username);
   }
   
   /*
    * view the list of universities
    * 
-   * @return list of universities
-   */    
+   * @return list of universities  /**
+	   * This method resets the logging in fields for the user.
+	   */    
+	//  public void reset(){ 
+//		  acct.removeAll();
+	//  }    DO RESET LASTLY
+     
   public List<University> viewUniversities(){
-    return this.dbContr.getUniversities();
+  return this.adContr.viewUniversities();
   }
   /*
    * add a university
@@ -94,9 +105,9 @@ public class AdminFuncController{
   public boolean addUniversity(String school, String state, String location, String control, int numberOfStudents, int percentFemales, int SATVerbal, int SATMath, 
 		  int expenses, int percentFinancialAid, int numberOfApplicants, int percentAdmitted, int percentEnrolled, 
 		  int academicsScale, int socialScale, int qualityOfLifeScale, String popMajors){
-    return this.dbContr.addUniversity(school, state, location, control, 
+	  return this.adContr.addUniversity(school, state, location, control, 
 			  numberOfStudents, percentFemales, SATVerbal, SATMath, expenses, percentFinancialAid, 
-			  numberOfApplicants, percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale,popMajors);
+			  numberOfApplicants, percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale, popMajors);
   }
   
   /*
@@ -106,9 +117,8 @@ public class AdminFuncController{
    * 
    * @return university including its detailed information
    */    
-  public University viewSpecificUniversity(String univeristyname){
-    
-    return this.dbContr.viewSpecificSchool(univeristyname);
+  public University viewSpecificUniversity(String universityName){
+	  return this.adContr.viewSpecificUniversity(universityName);
   }
   
   /*
@@ -131,11 +141,11 @@ public class AdminFuncController{
    * @param lifeScale which is scale of life to update
    * @param popMajor which is the emphases majors of this school to update
    * 
-   */    
-  public boolean editUniversity(String school, String state, String location, String control, int numOfStu, int perFem, int satVerbal
-                               , int satMath, int price, int finAid, int numOfApp, int perAdmit, int perEnroll, int academicScale
-                               , int socialScale, int lifeScale){
-    return this.dbContr.editUniversity(school, state, location, control, numOfStu, perFem, satVerbal, satMath, 
+   */   
+  public void editUniversity(String school, String state, String location, String control, int numOfStu, int perFem, int satVerbal
+          , int satMath, int price, int finAid, int numOfApp, int perAdmit, int perEnroll, int academicScale
+          , int socialScale, int lifeScale){
+	  this.adContr.editUniversity(school, state, location, control, numOfStu, perFem, satVerbal, satMath, 
 			  price, finAid, numOfApp, perAdmit, perEnroll, academicScale, socialScale, lifeScale);
   }
   

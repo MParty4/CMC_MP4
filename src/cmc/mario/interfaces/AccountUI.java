@@ -1,4 +1,8 @@
-package cmc.mario;
+package cmc.mario.interfaces;
+
+import cmc.mario.controllers.AccountController;
+import cmc.mario.entities.Account;
+
 /*
  * File: AccountUI.java
  */

@@ -1,4 +1,12 @@
-package cmc.mario;
+package cmc.mario.controllers;
+
+import cmc.mario.entities.Account;
+import cmc.mario.entities.Admin;
+import cmc.mario.entities.User;
+import cmc.mario.interfaces.AccountUI;
+import cmc.mario.interfaces.AdminUI;
+import cmc.mario.interfaces.UserUI;
+
 /*
  * File: AccountController.java
  */

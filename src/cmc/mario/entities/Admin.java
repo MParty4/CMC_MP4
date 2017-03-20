@@ -1,21 +1,29 @@
 /*
  * File: Admin.java
  */
-package cmc.mario;
+package cmc.mario.entities;
+
 /**
  * Admin Class which includes the basic 
  * information about an Admin extends Account 
  * 
  * @author Mario Party 4: Yidan Zhang
- * @version Feb. 24, 2017
+ * @version 03/20/2017
  */
 public class Admin extends Account{
-  /*
+  /**
    * Constructor of the class: Inherited from super class: Account
    */
   public Admin(){
     super();
   }
+  /**
+   * 
+   * @param firstName first name of this admin
+   * @param lastName last name of this admin
+   * @param userName user name of this admin
+   * @param password password of this admin
+   */
   public Admin(String firstName, String lastName, String userName, String password){
 	  super.setFirstName(firstName);
 	  super.setLastName(lastName);

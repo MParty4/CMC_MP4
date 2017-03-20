@@ -1,4 +1,4 @@
-package cmc.mario;
+package cmc.mario.entities;
 /*
  * File: Account.java
  */

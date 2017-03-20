@@ -1,7 +1,11 @@
-package cmc.mario;
+package cmc.mario.controllers;
 import dblibrary.project.csci230.*;
 import java.io.*;
 import java.util.*;
+
+import cmc.mario.entities.Account;
+import cmc.mario.entities.University;
+import cmc.mario.entities.User;
 /**
  * File: DBController.java
  * DBController - Database controller for CMC system. This controller connects to all classes.

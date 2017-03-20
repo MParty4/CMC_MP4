@@ -1,4 +1,4 @@
-package cmc.mario;
+package cmc.mario.controllers;
 /**
  * File: UserFuncController.java 
  * @author Tre Vazquez | Mario Party 4
@@ -6,6 +6,9 @@ package cmc.mario;
  */
 
 import java.util.*;
+
+import cmc.mario.entities.University;
+import cmc.mario.entities.User;
 
 /** 
  * UserFuncController is an implementation for the UserUI and an extension

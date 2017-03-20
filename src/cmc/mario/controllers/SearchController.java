@@ -1,7 +1,9 @@
-package cmc.mario;
+package cmc.mario.controllers;
 
 import java.lang.reflect.Array;
 import java.util.*;
+
+import cmc.mario.entities.University;
 
 /**
  * File: SearchController.java

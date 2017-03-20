@@ -1,35 +1,53 @@
-/*
- * File: AdminUI.java
- */
-package cmc.mario;
+
+package cmc.mario.controllers;
+import java.io.*;
 import java.util.*;
+
+import cmc.mario.entities.Account;
+import cmc.mario.entities.Admin;
+import cmc.mario.entities.University;
 /**
- * class for a Admin extends AccountUI
+ * AdminFuncController Class which includes all functionalities 
+ * an Admin is able to do extends AccountController and implements AdminUI.
  * 
- * @author Yidan Zhang
+ * @author Mario Party 4: Yidan Zhang
  * @version Feb. 24, 2017
  */
 
-public class AdminUI extends AccountUI{
-  public AdminFuncController adContr;
-  
-  /*
-   * Constructor of the class
-   * 
-   * @param a who is logging in now
+public class AdminFuncController{
+	 /**
+	   * Admin object for admin controller to communicate to
+	   */
+	  public Admin adm;
+	  /**
+	   * DBController object for admin controller to search data
+	   */
+	  public DBController dbContr;
+	
+  /**
+   * @param a current admin who is using program
    */
-  public AdminUI(Admin a){
-    this.adContr = new AdminFuncController(a);
+  public AdminFuncController(Admin a){
+    this.adm = a;
+    dbContr = new DBController();
   }
-  /*
+  /**
+ * @param adm a current admin who is using program
+ * @param dbContr a current dbContr which is been using
+ */
+public AdminFuncController(Admin adm, DBController dbContr) {
+	super();
+	this.adm = adm;
+	this.dbContr = dbContr;
+}
+  /**
    * view the list of users
    * 
    * @return list of users
-   */  
+   */ 
   public List<Account> viewAccount(){
-    return this.adContr.viewAccount();
+    return this.dbContr.getAccountList();
   }
-  
   /*
    * Add a new user to database
    * 
@@ -38,8 +56,8 @@ public class AdminUI extends AccountUI{
    * 
    * @return true if add successfully
    */
-  public boolean addUser(String firstName, String lastName, String username, String password, char type){
-  return this.adContr.addUser(firstName, lastName, username, password, type);
+  public boolean addUser(String firstName, String lastName, String username, String password,char type){
+	  return dbContr.addUser(firstName, lastName, username, password, type);
   }
   
   /*
@@ -49,9 +67,9 @@ public class AdminUI extends AccountUI{
    * @param password of the user
    * 
    * @return user including personal profile
-   */   
+   */ 
   public Account viewSpecificUser(String username){
-  return this.adContr .viewSpecificUser(username);
+    return this.dbContr.getSpecificUser(username);
   }
   /*
    * edit a specific user profile including first name, last name, username, password, type, status
@@ -62,9 +80,9 @@ public class AdminUI extends AccountUI{
    * @param type which is new to update
    * @param status which is new to update
    * 
-   */  
-  public void editUser(String firstName, String lastName, String username, String password, char type, char status){
-	  this.adContr.editUser(firstName, lastName, username, password, type, status);
+   */ 
+  public boolean editUser(String firstName, String lastName, String username, String password, char type, char status){
+    return this.dbContr.editUser(firstName, lastName,username, password, type, status);
   }
   /*
    * view a specific user profile including first name, last name, username, password, type, status
@@ -72,22 +90,17 @@ public class AdminUI extends AccountUI{
    * @param userName of the user
    * 
    */ 
-  public void deactivateUser(String username){
-	  this.adContr.deactivateUser(username);
+  public boolean deactivateUser(String username){
+	  return this.dbContr.deactivateUser(username);
   }
   
   /*
    * view the list of universities
    * 
-   * @return list of universities  /**
-	   * This method resets the logging in fields for the user.
-	   */    
-	//  public void reset(){ 
-//		  acct.removeAll();
-	//  }    DO RESET LASTLY
-     
+   * @return list of universities
+   */    
   public List<University> viewUniversities(){
-  return this.adContr.viewUniversities();
+    return this.dbContr.getUniversities();
   }
   /*
    * add a university
@@ -100,9 +113,9 @@ public class AdminUI extends AccountUI{
   public boolean addUniversity(String school, String state, String location, String control, int numberOfStudents, int percentFemales, int SATVerbal, int SATMath, 
 		  int expenses, int percentFinancialAid, int numberOfApplicants, int percentAdmitted, int percentEnrolled, 
 		  int academicsScale, int socialScale, int qualityOfLifeScale, String popMajors){
-	  return this.adContr.addUniversity(school, state, location, control, 
+    return this.dbContr.addUniversity(school, state, location, control, 
 			  numberOfStudents, percentFemales, SATVerbal, SATMath, expenses, percentFinancialAid, 
-			  numberOfApplicants, percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale, popMajors);
+			  numberOfApplicants, percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale,popMajors);
   }
   
   /*
@@ -112,8 +125,9 @@ public class AdminUI extends AccountUI{
    * 
    * @return university including its detailed information
    */    
-  public University viewSpecificUniversity(String universityName){
-	  return this.adContr.viewSpecificUniversity(universityName);
+  public University viewSpecificUniversity(String univeristyname){
+    
+    return this.dbContr.viewSpecificSchool(univeristyname);
   }
   
   /*
@@ -136,11 +150,11 @@ public class AdminUI extends AccountUI{
    * @param lifeScale which is scale of life to update
    * @param popMajor which is the emphases majors of this school to update
    * 
-   */   
-  public void editUniversity(String school, String state, String location, String control, int numOfStu, int perFem, int satVerbal
-          , int satMath, int price, int finAid, int numOfApp, int perAdmit, int perEnroll, int academicScale
-          , int socialScale, int lifeScale){
-	  this.adContr.editUniversity(school, state, location, control, numOfStu, perFem, satVerbal, satMath, 
+   */    
+  public boolean editUniversity(String school, String state, String location, String control, int numOfStu, int perFem, int satVerbal
+                               , int satMath, int price, int finAid, int numOfApp, int perAdmit, int perEnroll, int academicScale
+                               , int socialScale, int lifeScale){
+    return this.dbContr.editUniversity(school, state, location, control, numOfStu, perFem, satVerbal, satMath, 
 			  price, finAid, numOfApp, perAdmit, perEnroll, academicScale, socialScale, lifeScale);
   }
   

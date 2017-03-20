@@ -1,9 +1,13 @@
-package cmc.mario;
+package cmc.mario.interfaces;
 /*
  * File: UserUI.java
  */
 
 import java.util.*;
+
+import cmc.mario.controllers.UserFuncController;
+import cmc.mario.entities.University;
+import cmc.mario.entities.User;
 
 /** 
  * UserUI is an class for Users

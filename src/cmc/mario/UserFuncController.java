@@ -54,7 +54,7 @@ public class UserFuncController {
    * Removes desired school from the User's saved school list
    * @param schoolName the name of the school to be removed 
    */
-  public void removeSavedSchool(String schoolName)
+  public void removeSavedSchool(University schoolName)
   {
     this.dbc.removeSavedSchool(this.user, schoolName);
   }
@@ -82,11 +82,15 @@ public class UserFuncController {
    * @param popMajor which is the emphases majors of this school of searching condition
    * @return list of schools matching search
    */
-  public List<University> search(String schoolName, String state, String location, String control, int numOfStu, double perFem, int satVerbal,
-		  				int satMath, int price, int finAid, int numOfApp, int perAdmit, int perEnroll, int academicScale,
-                        int socialScale, int lifeScale, String popMajor){
-   return this.sc.search(schoolName, state,location,control, numOfStu, perFem, satVerbal,satMath,price, finAid, numOfApp,perAdmit,
-			  perEnroll,academicScale, socialScale, lifeScale, popMajor);
+  public List<University> search(String schoolName, String state, String location, String control, Integer numOfStuStart, Integer numOfStuEnd, 
+		  Double perFemStart,Double perFemEnd, Integer satVerbalStart, Integer satVerbalEnd, Integer satMathStart, Integer satMathEnd, Integer priceStart, Integer priceEnd,
+		  Integer finAidStart,Integer finAidEnd, Integer numOfAppStart, Integer numOfAppEnd, Double perAdmitStart, Double perAdmitEnd, Double perEnrollStart, 
+		  Double perEnrollEnd, Integer academicScaleStart, Integer academicScaleEnd, Integer socialScaleStart, Integer socialScaleEnd, Integer lifeScaleStart,
+		  Integer lifeScaleEnd, List<String> popMajor){
+   return this.sc.search(schoolName, state,location,control, numOfStuStart, numOfStuEnd, perFemStart, perFemEnd, satVerbalStart, satVerbalEnd, satMathStart, 
+		   
+		   satMathEnd, priceStart, priceEnd, finAidStart, finAidEnd, numOfAppStart, numOfAppEnd, perAdmitStart, perAdmitEnd, perEnrollStart, 
+		   perEnrollEnd, academicScaleStart, academicScaleEnd, socialScaleStart,socialScaleEnd, lifeScaleStart, lifeScaleEnd, popMajor);
   }
   
   /**
@@ -103,17 +107,17 @@ public class UserFuncController {
     dis.add(u.getControl());
     dis.add(Double.toString(u.getNumOfStu()));
     dis.add(Double.toString(u.getPerFem()));
-    dis.add(Integer.toString(u.getSatVerbal()));
-    dis.add(Integer.toString(u.getSatMath()));
-    dis.add(Integer.toString(u.getPrice()));
-    dis.add(Integer.toString(u.getFinAid()));
-    dis.add(Integer.toString(u.getNumOfApp()));
+    dis.add(Double.toString(u.getSatVerbal()));
+    dis.add(Double.toString(u.getSatMath()));
+    dis.add(Double.toString(u.getPrice()));
+    dis.add(Double.toString(u.getFinAid()));
+    dis.add(Double.toString(u.getNumOfApp()));
     dis.add(Double.toString(u.getPerAdmit()));
     dis.add(Double.toString(u.getPerEnroll()));
     dis.add(Integer.toString(u.getAcademicScale()));
     dis.add(Integer.toString(u.getSocialScale()));
     dis.add(Integer.toString(u.getLifeScale()));
-    dis.add(u.getPopMajors());
+    dis.addAll(u.getPopMajors());
     
     return dis;
   }
@@ -152,7 +156,7 @@ public class UserFuncController {
    */
   public User viewPersonalProfile()
   {
-    return this.dbc.getSpecificUser(this.user.getUserName()); 
+    return (User) this.dbc.getSpecificUser(this.user.getUserName()); 
   }
   
   /**
@@ -161,8 +165,8 @@ public class UserFuncController {
    * @param lastName the user's lastName
    * @param password the user's password
    */
-  public void editPersonalProfile(String firstName, String lastName, String password)
+  public void editPersonalProfile(String userName, String firstName, String lastName, String password)
   {
-    this.dbc.editPersonalProfile(firstName, lastName, password);
+    this.dbc.editPersonalProfile(userName, firstName, lastName, password);
   }
 }

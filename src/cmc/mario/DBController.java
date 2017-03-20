@@ -208,24 +208,24 @@ public class DBController {
     	University u = new University(schoolC[0],schoolC[1],schoolC[2],schoolC[3],
 				Integer.parseInt(schoolC[4]),Integer.parseInt(schoolC[5]),Integer.parseInt(schoolC[6]),Integer.parseInt(schoolC[7]),
 				Integer.parseInt(schoolC[8]),Integer.parseInt(schoolC[9]),Integer.parseInt(schoolC[10]),Integer.parseInt(schoolC[11]),
-				Integer.parseInt(schoolC[12]),Integer.parseInt(schoolC[13]),Integer.parseInt(schoolC[14]),Integer.parseInt(schoolC[15]), this.getEmphasis(schoolC[0]));
+				Integer.parseInt(schoolC[12]),Integer.parseInt(schoolC[13]),Integer.parseInt(schoolC[14]),Integer.parseInt(schoolC[15]), this.getEmphasesForUniversity(schoolC[0]));
 		list.add(u);
     }
     return list;
   }
-  public String getEmphasis(String schoolName){
-	  String[][] em = univLib.university_getNamesWithEmphases();
-	  String emph="";
-	  for(String[] school :em){
-		  if (school[0].equals(schoolName)){
-			  for(String s : school){
-				  emph = emph+s;
-			  }
-			 
-		  }
-	  }
-	  return emph;
-  } 
+//  public List<String> getEmphasis(String schoolName){
+//	  String[][] em = univLib.university_getNamesWithEmphases();
+//	  String emph="";
+//	  for(String[] school :em){
+//		  if (school[0].equals(schoolName)){
+//			  for(String s : school){
+//				  emph = emph+s;
+//			  }
+//			 
+//		  }
+//	  }
+//	  return emph;
+//  } 
   /**
    * To view specific university.
    * @param university name
@@ -301,7 +301,7 @@ public class DBController {
 			    				University u = new University(schoolC[0],schoolC[1],schoolC[2],schoolC[3],
 			    						Integer.parseInt(schoolC[4]),Integer.parseInt(schoolC[5]),Integer.parseInt(schoolC[6]),Integer.parseInt(schoolC[7]),
 			    						Integer.parseInt(schoolC[8]),Integer.parseInt(schoolC[9]),Integer.parseInt(schoolC[10]),Integer.parseInt(schoolC[11]),
-			    						Integer.parseInt(schoolC[12]),Integer.parseInt(schoolC[13]),Integer.parseInt(schoolC[14]),Integer.parseInt(schoolC[15]),this.getEmphasis(schoolC[0]));
+			    						Integer.parseInt(schoolC[12]),Integer.parseInt(schoolC[13]),Integer.parseInt(schoolC[14]),Integer.parseInt(schoolC[15]),this.getEmphasesForUniversity(schoolC[0]));
 			    				list.add(u);
 			    			}
 			    		}

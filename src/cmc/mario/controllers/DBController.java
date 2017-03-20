@@ -12,10 +12,19 @@ import cmc.mario.entities.User;
  * @authors Mario Party 4 - Kalila Moua, Yidan Zhang, and Tre Vasquez 
  * @version March 19, 2017
  */
+/**
+ * @author y4zhang
+ *
+ */
 public class DBController {
 	
+	/**
+	 * Database library is been using
+	 */
 	private UniversityDBLibrary univLib;
-  
+  /**
+   * create a new univeresityDBLibrary with user name and password
+   */
   public DBController(){
     this.univLib = new UniversityDBLibrary("mariop4","mariop4","csci230");
   }
@@ -42,13 +51,17 @@ public class DBController {
 	  }
   }
 
-  /**
-   * This method adds the user into the database -admin only.
-   * @param password the password to change the old password to
-   * @param username the username of the account of new added user
-   * @param type the character of which represents the type of user
-   */
-  public boolean addUser(String firstName, String lastName, String username, String password, char type){
+
+/**
+ * This method adds the user into the database -admin only.
+ * @param firstName first name to add
+ * @param lastName last name to change
+ * @param password the password to change the old password to
+ * @param username the username of the account of new added user
+ * @param type the character of which represents the type of user
+ * @return true if add successfully
+ */
+public boolean addUser(String firstName, String lastName, String username, String password, char type){
 	  Account a = this.getSpecificUser(username);
 	  
 	  if(!(a==null)){
@@ -76,6 +89,7 @@ public class DBController {
    * @param password the password to change the old password to
    * @param type the character of which represents the type of user
    * @param status the status of the user, if active or not
+   * @return true if edit successfully
    */
   public boolean editUser(String firstName, String lastName, String username, String password, char type, char status){
 	  Account a = this.getSpecificUser(username);
@@ -91,6 +105,8 @@ public class DBController {
   
   /**
    * To deactivate user-admin only.
+   * @param username the username of the user to be deleted
+   * @return true if deactivate successfully
    */
   public boolean deactivateUser(String username){
 	  Account a = this.getSpecificUser(username);
@@ -105,11 +121,27 @@ public class DBController {
   }
   
   /**
-   * To add university to database.
-   * @param u the university to add
-   * 
-   * @return true if add successfully
-   */ 
+   * This method add a specific university - admin only.
+    * @param schoolName university to update
+    * @param state which is new to update
+    * @param location which is new to update
+    * @param control which is new to update
+    * @param numOfStu which is number of students to update
+    * @param perFem which is percentage of female to update
+    * @param satVerbal which is sat verbal score to update
+    * @param satMath which is sat math score to update
+    * @param price which is expense to update
+    * @param finAid which is financial aid student can get from school to update
+    * @param numOfApp which is number of applicants to update
+    * @param perAdmit which is percentage of admit to update
+    * @param perEnroll which is percentage of enroll to update
+    * @param control which is new to update
+    * @param academicScale which is scale of acedmic to update
+    * @param socialScale which is scale of social to update
+    * @param lifeScale which is scale of life to update
+    * @param popMajor which is the emphases majors of this school to update
+    * @return true if it successfully
+   */
   public boolean addUniversity(String school, String state, String location, String control, int numberOfStudents, int percentFemales, int SATVerbal, int SATMath, 
 		  int expenses, int percentFinancialAid, int numberOfApplicants, int percentAdmitted, int percentEnrolled, 
 		  int academicsScale, int socialScale, int qualityOfLifeScale,String popMajors){
@@ -185,6 +217,7 @@ public class DBController {
   
   /**
    * Gets a specific user.
+   * @param username of the user need to view
    * @return user to return
    */
   public Account getSpecificUser(String username){
@@ -404,16 +437,16 @@ public void addSavedSchool(User user, String schoolName) {
 		 return b > a ? c >= a && c <= b : c > b && c < a;
 	 }
 
-	 /**
-	  * To check if search 'c' is between a and b values -helper method for searchResults
-	  * @param a
-	  * @param b
-	  * @param c
-	  * @return true if c is between a and b or equal to a and b, otherwise false
-	  */
-	public static boolean isBetweenDoubleOrEqualToAAndOrB(double a, double b, double c) {
-		 return b > a ? c >= a && c <= b : c > b && c < a;
-	}
+//	 /**
+//	  * To check if search 'c' is between a and b values -helper method for searchResults
+//	  * @param a
+//	  * @param b
+//	  * @param c
+//	  * @return true if c is between a and b or equal to a and b, otherwise false
+//	  */
+//	public static boolean isBetweenDoubleOrEqualToAAndOrB(double a, double b, double c) {
+//		 return b > a ? c >= a && c <= b : c > b && c < a;
+//	}
 	/**
 	 * Method to return a list of universities with attributes that fit in the criteria entered by user - Kalila
 	 * @param schoolName
@@ -452,17 +485,17 @@ public void addSavedSchool(User user, String schoolName) {
 	 *            the list of emphases for a specific school
 	 */
 	public List<University> searchResults(String schoolName, String state, String location, String control, Integer numOfStuStart, Integer numOfStuEnd, 
-		  Double perFemStart,Double perFemEnd, Integer satVerbalStart, Integer satVerbalEnd, Integer satMathStart, Integer satMathEnd, Integer priceStart, Integer priceEnd,
-		  Integer finAidStart,Integer finAidEnd, Integer numOfAppStart, Integer numOfAppEnd, Double perAdmitStart, Double perAdmitEnd, Double perEnrollStart, 
-		  Double perEnrollEnd, Integer academicScaleStart, Integer academicScaleEnd, Integer socialScaleStart, Integer socialScaleEnd, Integer lifeScaleStart,
+		  Integer perFemStart,Integer perFemEnd, Integer satVerbalStart, Integer satVerbalEnd, Integer satMathStart, Integer satMathEnd, Integer priceStart, Integer priceEnd,
+		  Integer finAidStart,Integer finAidEnd, Integer numOfAppStart, Integer numOfAppEnd, Integer perAdmitStart, Integer perAdmitEnd, Integer perEnrollStart, 
+		  Integer perEnrollEnd, Integer academicScaleStart, Integer academicScaleEnd, Integer socialScaleStart, Integer socialScaleEnd, Integer lifeScaleStart,
 		  Integer lifeScaleEnd, List<String> popMajor){
 		List<University> listOfMatchingUniversities = new ArrayList<University>();
 		String[][] univList = univLib.university_getUniversities();
 		for(int i = 0; i < univList.length; i++){
 			for(int j = 0; j < univList.length; j++){
 				University uni = new University(univList[i][0], univList[i][1], univList[i][2], univList[i][3], Integer.parseInt(univList[i][4]),
-				Double.parseDouble(univList[i][5]), Double.parseDouble(univList[i][6]), Double.parseDouble(univList[i][7]), Double.parseDouble(univList[i][8]), 
-				Double.parseDouble(univList[i][9]), Integer.parseInt(univList[i][10]), Double.parseDouble(univList[i][11]), Double.parseDouble(univList[i][12]),
+				Integer.parseInt(univList[i][5]), Integer.parseInt(univList[i][6]), Integer.parseInt(univList[i][7]), Integer.parseInt(univList[i][8]), 
+				Integer.parseInt(univList[i][9]), Integer.parseInt(univList[i][10]), Integer.parseInt(univList[i][11]), Integer.parseInt(univList[i][12]),
 				Integer.parseInt(univList[i][13]), Integer.parseInt(univList[i][14]), Integer.parseInt(univList[i][15]), this.getEmphasesForUniversity(univList[i][0]));
 				if(univList[i][0].contains(schoolName)){
 					if(!listOfMatchingUniversities.contains(uni)){
@@ -490,32 +523,32 @@ public void addSavedSchool(User user, String schoolName) {
 						listOfMatchingUniversities.add(uni); //if list does not have school then add to list
 					}	
 				}
-				else if((isBetweenDoubleOrEqualToAAndOrB(perFemStart, perFemEnd, Double.parseDouble(univList[i][5]))) || (Double.parseDouble(univList
-						[i][5])>=perFemStart && perFemEnd == null || Double.parseDouble(univList[i][5])<=perFemEnd && perFemStart == null)){
+				else if((isBetweenIntOrEqualToAAndOrB(perFemStart, perFemEnd, Integer.parseInt(univList[i][5]))) || Integer.parseInt(univList
+						[i][5])>=perFemStart && perFemEnd == null || Integer.parseInt(univList[i][5])<=perFemEnd && perFemStart == null)){
 					if(!listOfMatchingUniversities.contains(uni)){
 						listOfMatchingUniversities.add(uni); //if list does not have school then add to list
 					}
 				}
-				else if((isBetweenDoubleOrEqualToAAndOrB(satVerbalStart, satVerbalEnd, Double.parseDouble(univList[i][6]))) || (Double.parseDouble(univList
-						[i][6])>=satVerbalStart && satVerbalEnd == null || Double.parseDouble(univList[i][6])<=satVerbalEnd && satVerbalStart == null)){
+				else if((isBetweenIntOrEqualToAAndOrB(satVerbalStart, satVerbalEnd, Integer.parseInt(univList[i][6]))) || (Integer.parseInt(univList
+						[i][6])>=satVerbalStart && satVerbalEnd == null || Integer.parseInt(univList[i][6])<=satVerbalEnd && satVerbalStart == null)){
 					if(!listOfMatchingUniversities.contains(uni)){
 						listOfMatchingUniversities.add(uni); //if list does not have school then add to list
 					}
 				}
-				else if((isBetweenDoubleOrEqualToAAndOrB(satMathStart, satMathEnd, Double.parseDouble(univList[i][7]))) || (Double.parseDouble(univList
-						[i][7])>=satMathStart && satMathEnd == null || Double.parseDouble(univList[i][7])<=satMathEnd && satMathStart == null)){
+				else if((isBetweenIntOrEqualToAAndOrB(satMathStart, satMathEnd, Integer.parseInt(univList[i][7]))) || (Integer.parseInt(univList
+						[i][7])>=satMathStart && satMathEnd == null || Integer.parseInt(univList[i][7])<=satMathEnd && satMathStart == null)){
 					if(!listOfMatchingUniversities.contains(uni)){
 						listOfMatchingUniversities.add(uni); //if list does not have school then add to list
 					}
 				}
-				else if((isBetweenDoubleOrEqualToAAndOrB(priceStart, priceEnd, Double.parseDouble(univList[i][8]))) || (Double.parseDouble(univList
-						[i][8])>=priceStart && priceEnd == null || Double.parseDouble(univList[i][8])<=priceEnd && priceStart == null)){
+				else if((isBetweenIntOrEqualToAAndOrB(priceStart, priceEnd, Integer.parseInt(univList[i][8]))) || (Integer.parseInt(univList
+						[i][8])>=priceStart && priceEnd == null || Integer.parseInt(univList[i][8])<=priceEnd && priceStart == null)){
 					if(!listOfMatchingUniversities.contains(uni)){
 						listOfMatchingUniversities.add(uni); //if list does not have school then add to list
 					}
 				}
-				else if((isBetweenDoubleOrEqualToAAndOrB(finAidStart, finAidEnd, Double.parseDouble(univList[i][9]))) || (Double.parseDouble(univList
-						[i][9])>=finAidStart && finAidEnd == null || Double.parseDouble(univList[i][9])<=finAidEnd && finAidStart == null)){
+				else if((isBetweenIntOrEqualToAAndOrB(finAidStart, finAidEnd, Integer.parseInt(univList[i][9]))) || (Integer.parseInt(univList
+						[i][9])>=finAidStart && finAidEnd == null || Integer.parseInt(univList[i][9])<=finAidEnd && finAidStart == null)){
 					if(!listOfMatchingUniversities.contains(uni)){
 						listOfMatchingUniversities.add(uni); //if list does not have school then add to list
 					}
@@ -526,14 +559,14 @@ public void addSavedSchool(User user, String schoolName) {
 						listOfMatchingUniversities.add(uni); //if list does not have school then add to list
 					}
 				}
-				else if((isBetweenDoubleOrEqualToAAndOrB(perAdmitStart, perAdmitEnd, Double.parseDouble(univList[i][11]))) || (Double.parseDouble(univList
-						[i][11])>=perAdmitStart && perAdmitEnd == null || Double.parseDouble(univList[i][11])<=perAdmitEnd && perAdmitStart == null)){
+				else if((isBetweenIntOrEqualToAAndOrB(perAdmitStart, perAdmitEnd, Integer.parseInt(univList[i][11]))) || (Integer.parseInt(univList
+						[i][11])>=perAdmitStart && perAdmitEnd == null || Integer.parseInt(univList[i][11])<=perAdmitEnd && perAdmitStart == null)){
 					if(!listOfMatchingUniversities.contains(uni)){
 						listOfMatchingUniversities.add(uni); //if list does not have school then add to list
 					}
 				}
-				else if((isBetweenDoubleOrEqualToAAndOrB(perEnrollStart, perEnrollEnd, Double.parseDouble(univList[i][12]))) || (Double.parseDouble(univList
-						[i][12])>=perEnrollStart && perEnrollEnd == null || Double.parseDouble(univList[i][12])<=perEnrollEnd && perEnrollStart == null)){
+				else if((isBetweenIntOrEqualToAAndOrB(perEnrollStart, perEnrollEnd,Integer.parseInt(univList[i][12]))) || (Integer.parseInt(univList
+						[i][12])>=perEnrollStart && perEnrollEnd == null || Integer.parseInt(univList[i][12])<=perEnrollEnd && perEnrollStart == null)){
 					if(!listOfMatchingUniversities.contains(uni)){
 						listOfMatchingUniversities.add(uni); //if list does not have school then add to list
 					}

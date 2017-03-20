@@ -7,12 +7,13 @@ package cmc.mario;
  * This class creates the methods that account, userUI, and adminUI must include.
  * 
  * @authors Mario Party 4 - Kalila Moua
- * @version 3/16/17
+ * @modify Yidan Zhang
+ * @version 3/20/2017
  */
 public class AccountUI{
   
 	  /**
-	   * Accountcontroller created for class
+	   * Account controller created for class
 	   */
 	  public AccountController acctCtr;
 	  
@@ -37,21 +38,13 @@ public class AccountUI{
 	  
 	  /**
 	   * This method is to verify whether the user is logged on to the cmc system.
-	   * @param username the username the user puts in
+	   * @param username the user name the user puts in
 	   * @param password the password the user enters in
 	   * @return true if the user is logged on and authentication is confirmed, otherwise return false
 	   */
-	  public boolean logOn(String username, String password){
-		if(acctCtr.logOn(username, password).equals(true)){
-			return true;
-		}
-	    return false;
+	  public AccountUI logOn(String username, String password){
+		return acctCtr.logOn(username, password);
 	  }
 	  
-	  /**
-	   * This method resets the logging in fields for the user.
-	   */
-	//  public void reset(){
-//		  acctCtr.removeAll();
-	//  }    RESET LATER
+	  
 }

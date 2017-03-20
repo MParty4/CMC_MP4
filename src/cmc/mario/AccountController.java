@@ -6,22 +6,26 @@ package cmc.mario;
  * AccountController - Controller to control account functionality.
  * 
  * @authors Mario Party 4 - Kalila Moua
- * @version 3/16/17
+ * @modify Yidan Zhang
+ * @version 3/20/2017
  */
 public class AccountController {
-	/**
+	  /**
 	   * Account object for acct controller to communicate to
 	   */
 	  public Account acct;
 	  /**
-	   * DBController object for acc controller to search data
+	   * DBController object for acct controller to search data
 	   */
 	  public DBController database;
-	  //true if user is logged on
+	  /**
+	   * true if user is logged on
+	   */
 	  public boolean isLoggedOn;
 	  
-	  /*
+	  /**
 	   * default constructor
+	   * @param acct the account who is using currently 
 	   */
 	  public AccountController(Account acct){
 		this.acct = acct;
@@ -34,10 +38,11 @@ public class AccountController {
 	   * @return true if user is logged off, false otherwise
 	   */ 
 	  public boolean logOff(){
-		if (acct.isActive==false){
-			return true;
-	    }
-		return false;
+		  if (this.acct==null){
+			  return false;
+		  }
+		this.acct.setActive(false);
+		return true;
 	  }
 	  
 	  /**
@@ -52,9 +57,11 @@ public class AccountController {
 			  if(password.equals(thisPerson.getPassword())){
 				 if(thisPerson.isActive()){
 					 if(thisPerson.getTypeOfUser()=='a'){
+						 thisPerson.isActive=true;
 						 return new AdminUI((Admin)thisPerson);
 					 }
 					 else{
+						 thisPerson.isActive=true;
 						 return new UserUI((User)thisPerson);
 					 }
 				 }
@@ -77,16 +84,9 @@ public class AccountController {
 	   * @return the character 'a' for admin, or 'u' for user
 	   */
 	  public char typeOfUser(String username){
-		if(acct.getTypeOfUser()=='a'){
+		if(this.acct.getTypeOfUser()=='a'){
 			return 'a';
 		}
 	    return 'u';
 	  }
-	  
-	  /**
-	   * This method resets the logging in fields for the user.
-	   */    
-	//  public void reset(){ 
-//		  acct.removeAll();
-	//  }    DO RESET LASTLY
 }

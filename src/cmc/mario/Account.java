@@ -44,19 +44,30 @@ public class Account{
 		  this.username = null;
 		  this.password = null;
 	  }
-	  
-	  /*
-	   * Second Constructor which sets user name and password for object
-	   */
-	  public Account(String firstName, String lastName, String username, String password, char type, char status){
-		this.firstName= firstName;
+
+
+	/**
+	 * Second constructor with param first name, last name, password, user name, type, status
+	 * @param firstName the first name of this user
+	 * @param lastName the last name of this user
+	 * @param password the password the user sets
+	 * @param username the user name the user uses
+	 * @param type user is regular user or an admin
+	 * @param status if is account is active
+	 * @param isActive
+	 */
+	public Account(String firstName, String lastName, String password, String username, char type, char status,
+			boolean isActive) {
+		super();
+		this.firstName = firstName;
 		this.lastName = lastName;
-	    this.username=username;
-	    this.password=password;
-	    this.type = type;
-	    this.status = status;
-	  }
-	  
+		this.password = password;
+		this.username = username;
+		this.type = type;
+		this.status = status;
+		this.isActive = isActive;
+	}
+
 	  /**
 	   * Method gets the password from the user input.
 	   * @return password is returned
@@ -96,19 +107,35 @@ public class Account{
 	  public char getTypeOfUser(){
 	    return this.type;
 	  }
+	  /**
+	   * Get status of this account if "Y" is active account, otherwise is inactive
+	   * @return
+	   */
+	  public boolean getStatus(){
+		  if(status=='Y'){
+			  return true;
+			  }
+		  else{
+			  return false;
+		  }
+	  }
 	  
 	  /**
 	   * gets account active status
 	   * @return true if isActive
 	   */
 	  public boolean isActive(){
-		  if(status=='Y'){
-		  return true;
-		  }
-		  return false;
+		  return this.isActive;
 		  
 	  }
-	  
+	  /**
+	   * sets account active status
+	   * @param isAcitve if is log on currently
+	   */
+	  public void setActive(boolean isActive){
+		  this.isActive=isActive;
+		  
+	  }
 	  /**
 	   * Set type of user
 	   * @param type of user
@@ -119,6 +146,7 @@ public class Account{
 	  
 	  /**
 	   * sets account status
+	   * @param  current status of this account(active or inactive)
 	   */
 	  public void setStatus(char status){
 		  this.status = status;

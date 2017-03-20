@@ -17,7 +17,10 @@ import cmc.mario.entities.University;
  */
 
 public class AdminUI extends AccountUI{
-  public AdminFuncController adContr;
+/**
+* Admin controller created for class
+*/
+public AdminFuncController adContr;
   
   /**
    * Constructor of the class

@@ -14,7 +14,7 @@ import cmc.mario.entities.User;
  * UserFuncController is an implementation for the UserUI and an extension
  * of the account controller
  * @author Tre Vazquez | Mario Party 4
- * @version March 19, 2017
+ * @version 03/20/2017
  */
 
 public class UserFuncController {

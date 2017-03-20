@@ -258,34 +258,34 @@ public class DBController {
     }
     return u;
   }
-  
-  /**
-   * Finds the specific university and returns it.
-   * @param schoolName of university
-   * @param state the state in which the university is in
-   * @param location to find the city of university
-   * @param control the type of control
-   * @param numOfStu number of students to find
-   * @param perFem percentage of female to find
-   * @param satVerbal sat verbal score to find
-   * @param satMath sat math score to find
-   * @param price expense to find
-   * @param finAid financial aid student can get from school to find
-   * @param numOfApp number of applicants to find
-   * @param perAdmit percentage of admit to find
-   * @param perEnroll percentage of enroll to find
-   * @param control control to find
-   * @param academicScale scale of academic to find
-   * @param socialScale scale of social to find
-   * @param lifeScale scale of life to find
-   * @param popMajor the emphases majors of this school to find
-   * @return university which needs to be found
-   */ 
-  public University findSpecificUniversity(String schoolName, String state, String location, String control, int numOfStu, double perFem, int satVerbal
-                      , int satMath, int price, int finAid, int numOfApp, double perAdmit, double perEnroll, int academicScale
-                                    , int socialScale, int lifeScale){
-	  return null;
-  }
+//  
+//  /**
+//   * Finds the specific university and returns it.
+//   * @param schoolName of university
+//   * @param state the state in which the university is in
+//   * @param location to find the city of university
+//   * @param control the type of control
+//   * @param numOfStu number of students to find
+//   * @param perFem percentage of female to find
+//   * @param satVerbal sat verbal score to find
+//   * @param satMath sat math score to find
+//   * @param price expense to find
+//   * @param finAid financial aid student can get from school to find
+//   * @param numOfApp number of applicants to find
+//   * @param perAdmit percentage of admit to find
+//   * @param perEnroll percentage of enroll to find
+//   * @param control control to find
+//   * @param academicScale scale of academic to find
+//   * @param socialScale scale of social to find
+//   * @param lifeScale scale of life to find
+//   * @param popMajor the emphases majors of this school to find
+//   * @return university which needs to be found
+//   */ 
+//  public University findSpecificUniversity(String schoolName, String state, String location, String control, int numOfStu, double perFem, int satVerbal
+//                      , int satMath, int price, int finAid, int numOfApp, double perAdmit, double perEnroll, int academicScale
+//                                    , int socialScale, int lifeScale){
+//	  return null;
+//  }
 
   /**
    * Method to retrieve list of saved schools for a specified user

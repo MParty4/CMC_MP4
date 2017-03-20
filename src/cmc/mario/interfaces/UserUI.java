@@ -13,13 +13,16 @@ import cmc.mario.entities.User;
  * UserUI is an class for Users
  * 
  * @author Tre Vazquez | Mario Party 4
- * @version March 19, 2017
+ * @version 03/20/2017
  */
 
 public class UserUI extends AccountUI{ 
+	/**
+	 * User controller created for class
+	 */
 	public UserFuncController userContr;
-	  /*
-	   * Constructor of the class: Inherited from super class: AccountUI
+	  /**
+	   * Constructor of the class
 	   * @param u user object to be used 
 	   */
 	  public UserUI(User u){
@@ -42,30 +45,67 @@ public class UserUI extends AccountUI{
 	  public void removeSavedSchool(University schoolName){
 		  this.userContr.removeSavedSchool(schoolName);
 	  }
-	  //
-	  /**
-	   * The search method which sorts known universities depending in 
-	   * the user's search criteria. 
-	   * @param schoolName name of the school
-	   * @param state which is searching condition
-	   * @param location which is searching condition
-	   * @param control which is searching condition
-	   * @param numOfStu which is number of students of searching condition
-	   * @param perFem which is percentage of female of searching condition
-	   * @param satVerbal which is sat verbal score of searching condition
-	   * @param satMath which is sat math score of searching condition
-	   * @param price which is expense of searching condition
-	   * @param finAid which is financial aid student can get from school of searching condition
-	   * @param numOfApp which is number of applicants of searching condition
-	   * @param perAdmit which is percentage of admit of searching condition
-	   * @param perEnroll which is percentage of enroll of searching condition
-	   * @param control which is new of searching condition
-	   * @param academicScale which is scale of academic of searching condition
-	   * @param socialScale which is scale of social of searching condition
-	   * @param lifeScale which is scale of life of searching condition
-	   * @param popMajor which is the emphases majors of this school of searching condition
-	   * @return list of schools matching search
-	   */
+		/**
+		 * Searches for schools with the conditions given -Kalila
+		 * 
+		 * @param schoolName
+		 *            the school name of the university
+		 * @param state
+		 *            the state of the university
+		 * @param location
+		 *            the location of the university
+		 * @param control
+		 *            the type of school (e.g. private)
+		 * @param numOfStuStart
+		 *            the number of students starting range number
+		 * @param numOfStuEnd
+		 *            the number of students ending range number
+		 * @param perFemStart
+		 *            the percentage of students who are female starting range
+		 *            number
+		 * @param perFemEnd
+		 *            the percentage of students who are female ending range number
+		 * @param satVerbalStart
+		 *            the starting range for SAT verbal score
+		 * @param satVerbalEnd
+		 *            the ending range for SAT verbal score
+		 * @param satMathStart
+		 *            the starting range for SAT math score
+		 * @param satMathEnd
+		 *            the ending range for SAT math score
+		 * @param priceStart
+		 *            the starting range for price/expenses
+		 * @param priceEnd
+		 *            the ending range for price/expenses
+		 * @param finAidStart
+		 *            the starting range for financial aid percentage
+		 * @param finAidEnd
+		 *            the ending range for financial aid percentage
+		 * @param numOfAppStart
+		 *            the user gives
+		 * @param perAdmitStart
+		 *            the starting range for admitted students percentage
+		 * @param perAdmitEnd
+		 *            the ending range for admitted students percentage
+		 * @param perEnrollStart
+		 *            the starting range for enrolled students percentage
+		 * @param perEnrollEnd
+		 *            the ending range for enrolled students percentage
+		 * @param academicScaleStart
+		 *            the starting range for quality of academics
+		 * @param academicScaleEnd
+		 *            the ending range for quality of academics
+		 * @param socialScaleStart
+		 *            the starting range for quality of social
+		 * @param socialScaleEnd
+		 *            the ending range for quality of social scale
+		 * @param lifeScaleStart
+		 *            the starting range for quality of life scale
+		 * @param lifeScaleEnd
+		 *            the ending range for quality of life scale
+		 * @param popMajor
+		 *            an list of popular major or emphases at the university
+		 */
 	  public List<University> search(String schoolName, String state, String location, String control, Integer numOfStuStart, Integer numOfStuEnd, 
 			  Double perFemStart,Double perFemEnd, Integer satVerbalStart, Integer satVerbalEnd, Integer satMathStart, Integer satMathEnd, Integer priceStart, Integer priceEnd,
 			  Integer finAidStart,Integer finAidEnd, Integer numOfAppStart, Integer numOfAppEnd, Double perAdmitStart, Double perAdmitEnd, Double perEnrollStart, 

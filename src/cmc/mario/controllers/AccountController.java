@@ -92,10 +92,16 @@ public class AccountController {
 	   * @return the character 'a' for admin, or 'u' for user
 	   */
 	  public char typeOfUser(String username){
-		if(this.getAcct().getTypeOfUser()=='a'){
-			return 'a';
+		  Account person = database.getSpecificUser(username);
+		  if(person==null){
+			  throw new IllegalArgumentException("The account does not exist");
+		  }
+		if(person.type=='u'){
+			return 'u';
 		}
-	    return 'u';
+		else{
+	    return 'a';
+		}
 	  }
 
 

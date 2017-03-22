@@ -50,5 +50,7 @@ public class AccountUI{
 		return acctCtr.logOn(username, password);
 	  }
 	  
-	  
+	  public char typeOfUser(String username){
+		  return acctCtr.typeOfUser(username);
+	  }
 }

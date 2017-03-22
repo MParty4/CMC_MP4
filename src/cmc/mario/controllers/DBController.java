@@ -223,12 +223,14 @@ public boolean addUser(String firstName, String lastName, String username, Strin
 	  String[][] userList =univLib.user_getUsers();
 	  Account a = new Account();
 	  for(String[] arr : userList){
+		  if(arr[2].equals(username)){
 	    	a.setFirstName(arr[0]);
 	    	a.setLastName(arr[1]);
 	    	a.setUsername(arr[2]);
 	    	a.setPassword(arr[3]);
 	    	a.setTypeOfUser(arr[4].charAt(0));
 	    	a.setStatus(arr[5].charAt(0));
+	  }
 	  }
 	  return a;
   }

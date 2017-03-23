@@ -74,7 +74,7 @@ public class AccountController {
 					 }
 				 }
 				 else{
-					 throw new IllegalArgumentException("Person is deactived");
+					 throw new IllegalArgumentException("Person is deactivated");
 				 }
 			  }
 			  else{

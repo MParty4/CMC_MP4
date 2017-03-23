@@ -41,10 +41,10 @@ public class AccountUI{
 	  }
 	  
 	  /**
-	   * This method is to verify whether the user is logged on to the cmc system.
+	   * This method is to log on and return account UI to user
 	   * @param username the user name the user puts in
 	   * @param password the password the user enters in
-	   * @return true if the user is logged on and authentication is confirmed, otherwise return false
+	   * @return user is brought to accountUI if the user is logged on and authentication is confirmed	   
 	   */
 	  public AccountUI logOn(String username, String password){
 		return acctCtr.logOn(username, password);

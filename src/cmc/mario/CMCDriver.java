@@ -23,12 +23,20 @@ public class CMCDriver {
 //		String username = sc.next();
 //		System.out.println("Please enter your password:");
 //		String password = sc.next();
-//		System.out.println(acct.typeOfUser(username));
-		
+//		acct=acct.logOn(username, password);
+//		if(acct instanceof UserUI){
+//			usr =(UserUI)acct;
+//		}
+//		else if(acct instanceof AdminUI){
+//			adm=(AdminUI)acct;
+//		}
+//		else{
+//			throw new IllegalArgumentException("The acct does  not exist");
+//		}
+	
 		//usr testing except search -Tre
 		//U2 saveSchool
 		//usr = (UserUI)acct.logOn(username, password);
-		
 		
 		
 		
@@ -64,9 +72,9 @@ public class CMCDriver {
 //		}		
 		
 		//U14 View Specific User
-//		Account a = adm.viewSpecificUser("yuser");
-//		System.out.println(a.getFirstName()+" "+a.getLastName()+" "+a.getUsername()+" "+a.getPassword()+" "+a.getTypeOfUser()+
-//				" "+a.getStatus());
+		Account a = adm.viewSpecificUser("yuser");
+		System.out.println(a.getFirstName()+" "+a.getLastName()+" "+a.getUsername()+" "+a.getPassword()+" "+a.getTypeOfUser()+
+				" "+a.getStatus());
 		//U15 Edit User
 		System.out.println( adm.editUser("Yidan", "Zhang", "yuser", "user", 'u', 'Y'));
 //		
@@ -81,15 +89,25 @@ public class CMCDriver {
 //				" "+a.getStatus());
 		
 		//U17 View Universities
-		List<University> uniList = adm.viewUniversities();
+		List<University> univList = adm.viewUniversities();
 		System.out.println("University Lists");
 		//System.out.println("");
-		for(University a:uniList){
-			System.out.println(a.getSchoolName()+"     "+a.getLocation()+"    "+a.getState()+"     "+a.getControl()+"      "+a.getNumOfStu()+
-					"       "+a.getPerFem()+"   "+a.getSatVerbal()+"   "+a.getSatVerbal()+"   "+a.getPrice()+"   "+
-					a.getFinAid());
+		for(University a1:univList){
+			System.out.println(a1.getSchoolName()+"     "+a1.getLocation()+"    "+a1.getState()+"     "+a1.getControl()+"      "+a1.getNumOfStu()+
+					"       "+a1.getPerFem()+"   "+a1.getSatVerbal()+"   "+a1.getSatVerbal()+"   "+a1.getPrice()+"   "+a1.getFinAid()+"   "+a1.getNumOfApp()+
+					"   "+a1.getPerAdmit()+"   "+a1.getPerEnroll()+"   "+a1.getAcademicScale()+"   "+a1.getSocialScale()+"   "+a1.getLifeScale());
 		}
+		//U18 Add a university
 		
+		//U19 View specific University
+		System.out.println("--------------------Specific University---------------------");
+		University u = adm.viewSpecificUniversity("ST JOHNS UNIVERSITY");
+		System.out.println(u.getSchoolName()+"     "+u.getLocation()+"    "+u.getState()+"     "+u.getControl()+"      "+u.getNumOfStu()+
+				"       "+u.getPerFem()+"   "+u.getSatVerbal()+"   "+u.getSatVerbal()+"   "+u.getPrice()+"   "+u.getFinAid()+"   "+u.getNumOfApp()+
+				"   "+u.getPerAdmit()+"   "+u.getPerEnroll()+"   "+u.getAcademicScale()+"   "+u.getSocialScale()+"   "+u.getLifeScale());
+		
+		
+		//U20 edit university
 		
 		
 		

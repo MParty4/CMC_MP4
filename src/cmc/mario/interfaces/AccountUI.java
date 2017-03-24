@@ -53,4 +53,5 @@ public class AccountUI{
 	  public char typeOfUser(String username){
 		  return acctCtr.typeOfUser(username);
 	  }
+	  
 }

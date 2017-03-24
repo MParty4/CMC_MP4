@@ -270,6 +270,7 @@ public boolean addUser(String firstName, String lastName, String username, Strin
     String[][] univList =univLib.university_getUniversities();
     University u = new University();
     for(String[] arr: univList){
+    	 if(arr[0].equals(schoolName)){
     	u.setSchoolName(arr[0]);
     	u.setState(arr[1]);
     	u.setLocation(arr[2]);
@@ -286,6 +287,7 @@ public boolean addUser(String firstName, String lastName, String username, Strin
     	u.setAcademicScale(Integer.parseInt(arr[13]));
     	u.setSocialScale(Integer.parseInt(arr[14]));
     	u.setLifeScale(Integer.parseInt(arr[15]));
+    	 }
     }
     return u;
   }

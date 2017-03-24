@@ -61,9 +61,10 @@ public class AccountController {
 	   */
 	  public AccountUI logOn(String username, String password){
 		  Account thisPerson = database.getSpecificUser(username);
-		  if(!(thisPerson==null)){
+		  System.out.println(thisPerson.getUsername()+" "+thisPerson.getFirstName());
+		  if(thisPerson!=null){
 			  if(password.equals(thisPerson.getPassword())){
-				 if(thisPerson.isActive()){
+				 if(thisPerson.getStatus()=='Y'){
 					 if(thisPerson.getTypeOfUser()=='a'){
 						 thisPerson.setActive(true);
 						 return new AdminUI((Admin)thisPerson);

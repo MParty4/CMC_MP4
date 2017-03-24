@@ -77,9 +77,9 @@ public boolean addUser(String firstName, String lastName, String username, Strin
    * @param status which is new to update
    * 
    */  
-  public void editUser(String firstName, String lastName, String username, String password, char type, char status){
-	  this.adContr.editUser(firstName, lastName, username, password, type, status);
-  }
+  public boolean editUser(String firstName, String lastName, String username, String password, char type, char status){
+	  return this.adContr.editUser(firstName, lastName,username, password, type, status);
+	  }
   /**
    * view a specific user profile including first name, last name, username, password, type, status
    * 

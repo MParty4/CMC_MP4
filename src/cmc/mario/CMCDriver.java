@@ -18,12 +18,12 @@ public class CMCDriver {
 
 	public void run() throws NullPointerException{
 		// TODO Auto-generated method stub
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Please enter your username:");
-		String username = sc.next();
-		System.out.println("Please enter your password:");
-		String password = sc.next();
-		System.out.println(acct.typeOfUser(username));
+//		Scanner sc = new Scanner(System.in);
+//		System.out.println("Please enter your username:");
+//		String username = sc.next();
+//		System.out.println("Please enter your password:");
+//		String password = sc.next();
+//		System.out.println(acct.typeOfUser(username));
 		
 		//usr testing except search -Tre
 		//U2 saveSchool
@@ -64,13 +64,15 @@ public class CMCDriver {
 //		}		
 		
 		//U14 View Specific User
-		Account a = adm.viewSpecificUser("juser");
+		Account a = adm.viewSpecificUser("yuser");
 		System.out.println(a.getFirstName()+" "+a.getLastName()+" "+a.getUsername()+" "+a.getPassword()+" "+a.getTypeOfUser()+
 				" "+a.getStatus());
-		
-		
-		
-		
+		//U15 Edit User
+		System.out.println( adm.editUser("Yidan", "Zhang", "yuser", "user", 'u', 'Y'));
+//		
+//		Account a = adm.viewSpecificUser("yuser");
+//		System.out.println(a.getFirstName()+" "+a.getLastName()+" "+a.getUsername()+" "+a.getPassword()+" "+a.getTypeOfUser()+
+//				" "+a.getStatus());
 		
 		
 		

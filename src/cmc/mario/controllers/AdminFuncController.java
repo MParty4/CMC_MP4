@@ -25,6 +25,9 @@ public class AdminFuncController{
 	   */
 	  public DBController dbContr;
 	
+	  public AdminFuncController(){
+		  this.dbContr = new DBController();
+	  }
   /**
    * @param a current admin who is using program
    */

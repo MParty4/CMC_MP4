@@ -41,8 +41,11 @@ public class Account{
 	   * Default constructor
 	   */
 	  public Account(){
+		  this.firstName=null;
+		  this.lastName=null;
 		  this.username = null;
 		  this.password = null;
+	   
 	  }
 
 
@@ -55,12 +58,12 @@ public class Account{
 	 * @param type user is regular user or an admin
 	 * @param status if is account is active
 	 */
-	public Account(String firstName, String lastName, String password, String username, char type, char status) {
+	public Account(String firstName, String lastName, String username, String password, char type, char status) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.password = password;
 		this.username = username;
+		this.password = password;
 		this.type = type;
 		this.status = status;
 	}
@@ -108,13 +111,8 @@ public class Account{
 	   * Get status of this account if "Y" is active account, otherwise is inactive
 	   * @return
 	   */
-	  public boolean getStatus(){
-		  if(status=='Y'){
-			  return true;
-			  }
-		  else{
-			  return false;
-		  }
+	  public char getStatus(){
+		return this.status;
 	  }
 	  
 	  /**

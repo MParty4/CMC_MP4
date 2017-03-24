@@ -22,6 +22,9 @@ public class AdminUI extends AccountUI{
 */
 public AdminFuncController adContr;
   
+public AdminUI(){
+	this.adContr = new AdminFuncController();
+}
   /**
    * Constructor of the class
    * 
@@ -30,6 +33,7 @@ public AdminFuncController adContr;
   public AdminUI(Admin a){
     this.adContr = new AdminFuncController(a);
   }
+  
   /**
    * view the list of users
    * 

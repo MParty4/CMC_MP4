@@ -62,8 +62,7 @@ public class DBController {
  */
 public boolean addUser(String firstName, String lastName, String username, String password, char type){
 	  Account a = this.getSpecificUser(username);
-	  
-	  if(!(a==null)){
+	  if(a.getUsername()!=null){
 		  return false;
 	  }
 	  else{
@@ -72,7 +71,7 @@ public boolean addUser(String firstName, String lastName, String username, Strin
 			i=  univLib.user_addUser(firstName, lastName, username, password, 'a');
 		  }
 		  else{
-			i=  univLib.user_addUser(firstName, lastName, username, password, 'a');
+			i=  univLib.user_addUser(firstName, lastName, username, password, 'u');
 		  }
 		  if(!(i==1)){
 			  return false;

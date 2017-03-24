@@ -13,7 +13,7 @@ public class CMCDriver {
 	 */
 	public CMCDriver() {
 		acct = new AccountUI();
-		
+		adm = new AdminUI();
 	}
 
 	public void run() throws NullPointerException{
@@ -44,12 +44,29 @@ public class CMCDriver {
 		
 		
 		//admin-Yidan
+		//U12 View Users(view Accounts)
+		List<Account> acctList = adm.viewAccount();
+		System.out.println("Account Lists");
+		System.out.println("First    Last   Username   Password   Type   Status");
+		for(Account a:acctList){
+			System.out.println(a.getFirstName()+"     "+a.getLastName()+"    "+a.getUsername()+"     "+a.getPassword()+"       "+a.getTypeOfUser()+
+					"       "+a.getStatus());
+		}
 		
+		//U13 Add User
+ 		System.out.println(adm.addUser("Yidan", "yuser", "yuser", "user", 'u'));		
+//		List<Account> acctList = adm.viewAccount();
+//		System.out.println("Account Lists");
+//		System.out.println("First    Last   Username   Password   Type   Status");
+//		for(Account a:acctList){
+//			System.out.println(a.getFirstName()+"     "+a.getLastName()+"    "+a.getUsername()+"     "+a.getPassword()+"       "+a.getTypeOfUser()+
+//					"       "+a.getStatus());
+//		}		
 		
-		
-		
-		
-		
+		//U14 View Specific User
+		Account a = adm.viewSpecificUser("juser");
+		System.out.println(a.getFirstName()+" "+a.getLastName()+" "+a.getUsername()+" "+a.getPassword()+" "+a.getTypeOfUser()+
+				" "+a.getStatus());
 		
 		
 		
@@ -173,7 +190,12 @@ public class CMCDriver {
 		}
 
 	}
-	public static void main(String[] args){
+	private char[] addUser(String string, String string2, String string3, char c) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public static void main(String[] args)throws NullPointerException{
 		CMCDriver cd = new CMCDriver();
 		cd.run();
 	}

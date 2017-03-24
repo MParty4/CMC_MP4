@@ -86,8 +86,8 @@ public boolean addUser(String firstName, String lastName, String username, Strin
    * @param userName of the user
    * 
    */ 
-  public void deactivateUser(String username){
-	  this.adContr.deactivateUser(username);
+  public boolean deactivateUser(String username){
+	 return this.adContr.deactivateUser(username);
   }
   /**
    * view a list of all university containing all info of these universities

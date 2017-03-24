@@ -108,14 +108,12 @@ public boolean addUser(String firstName, String lastName, String username, Strin
    */
   public boolean deactivateUser(String username){
 	  Account a = this.getSpecificUser(username);
-	  if(a==null||a.isActive()==false){
+	  if(a.getUsername()==null||a.getStatus()=='N'){
 		  throw new IllegalArgumentException("The account has already deactived or it does not exist");
 	  }
-	  int i =  univLib.user_deleteUser(username);
-	  if(!(i==1)){
-		  return false;
-	  }
-	  return true;
+	  a.setStatus('N');
+	  return this.editUser(a.getFirstName(), a.getLastName(), a.getUsername(), a.getPassword(), a.getTypeOfUser(), a.getStatus());
+	 
   }
   
   /**

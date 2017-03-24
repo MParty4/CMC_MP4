@@ -64,9 +64,9 @@ public class CMCDriver {
 //		}		
 		
 		//U14 View Specific User
-		Account a = adm.viewSpecificUser("yuser");
-		System.out.println(a.getFirstName()+" "+a.getLastName()+" "+a.getUsername()+" "+a.getPassword()+" "+a.getTypeOfUser()+
-				" "+a.getStatus());
+//		Account a = adm.viewSpecificUser("yuser");
+//		System.out.println(a.getFirstName()+" "+a.getLastName()+" "+a.getUsername()+" "+a.getPassword()+" "+a.getTypeOfUser()+
+//				" "+a.getStatus());
 		//U15 Edit User
 		System.out.println( adm.editUser("Yidan", "Zhang", "yuser", "user", 'u', 'Y'));
 //		
@@ -74,11 +74,21 @@ public class CMCDriver {
 //		System.out.println(a.getFirstName()+" "+a.getLastName()+" "+a.getUsername()+" "+a.getPassword()+" "+a.getTypeOfUser()+
 //				" "+a.getStatus());
 		
+		//U16 Deactivate User
+		System.out.println(adm.deactivateUser("yuser"));
+//		Account a = adm.viewSpecificUser("yuser");
+//		System.out.println(a.getFirstName()+" "+a.getLastName()+" "+a.getUsername()+" "+a.getPassword()+" "+a.getTypeOfUser()+
+//				" "+a.getStatus());
 		
-		
-		
-		
-		
+		//U17 View Universities
+		List<University> uniList = adm.viewUniversities();
+		System.out.println("University Lists");
+		//System.out.println("");
+		for(University a:uniList){
+			System.out.println(a.getSchoolName()+"     "+a.getLocation()+"    "+a.getState()+"     "+a.getControl()+"      "+a.getNumOfStu()+
+					"       "+a.getPerFem()+"   "+a.getSatVerbal()+"   "+a.getSatVerbal()+"   "+a.getPrice()+"   "+
+					a.getFinAid());
+		}
 		
 		
 		

@@ -32,7 +32,14 @@ public class AccountController {
 	  public boolean isLoggedOn;
 	  
 	  /**
-	   * default constructor
+	   * Default constructor
+	   */
+	  public AccountController(){
+		  
+	  }
+	  
+	  /**
+	   * constructor
 	   * @param acct the account who is using currently 
 	   */
 	  public AccountController(Account acct){
@@ -62,16 +69,17 @@ public class AccountController {
 	  public AccountUI logOn(String username, String password){
 		  Account thisPerson = database.getSpecificUser(username);
 		  System.out.println(thisPerson.getUsername()+" "+thisPerson.getFirstName());
-		  if(thisPerson!=null){
+		 
 			  if(password.equals(thisPerson.getPassword())){
 				 if(thisPerson.getStatus()=='Y'){
 					 if(thisPerson.getTypeOfUser()=='a'){
+						 System.out.println("r");
 						 thisPerson.setActive(true);
-						 return new AdminUI((Admin)thisPerson);
+						 return new AdminUI(new Admin(thisPerson.getFirstName(),thisPerson.getLastName(),thisPerson.getUsername(),thisPerson.getPassword()));
 					 }
 					 else{
 						 thisPerson.setActive(true);
-						 return new UserUI((User)thisPerson);
+						 return new UserUI(new User(thisPerson.getFirstName(),thisPerson.getLastName(),thisPerson.getUsername(),thisPerson.getPassword()));
 					 }
 				 }
 				 else{
@@ -82,10 +90,8 @@ public class AccountController {
 				  throw new IllegalArgumentException("Password is not correct");
 			  }
 		  }
-		  else{
-			  throw new IllegalArgumentException("Account does not exist");
-		  }
-	  }
+		  
+	  
 	  
 	  /**
 	   * This method identifies the type of user the user is: 'a' or 'u'.

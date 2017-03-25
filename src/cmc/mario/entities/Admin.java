@@ -15,7 +15,7 @@ public class Admin extends Account{
    * Constructor of the class: Inherited from super class: Account
    */
   public Admin(){
-    super();
+    super.setTypeOfUser('a');
   }
   /**
    * 
@@ -25,6 +25,7 @@ public class Admin extends Account{
    * @param password password of this admin
    */
   public Admin(String firstName, String lastName, String userName, String password){
+	  super.setTypeOfUser('a');
 	  super.setFirstName(firstName);
 	  super.setLastName(lastName);
 	  super.setUsername(userName);

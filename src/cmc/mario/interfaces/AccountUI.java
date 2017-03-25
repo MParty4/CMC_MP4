@@ -47,11 +47,11 @@ public class AccountUI{
 	   * @return user is brought to accountUI if the user is logged on and authentication is confirmed	   
 	   */
 	  public AccountUI logOn(String username, String password){
-		return acctCtr.logOn(username, password);
+		return this.acctCtr.logOn(username, password);
 	  }
 	  
 	  public char typeOfUser(String username){
-		  return acctCtr.typeOfUser(username);
+		  return this.acctCtr.typeOfUser(username);
 	  }
 	  
 }

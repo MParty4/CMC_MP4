@@ -3,7 +3,11 @@ import cmc.mario.entities.*;
 import cmc.mario.interfaces.*;
 import cmc.mario.controllers.*;
 import java.util.*;
-
+/**
+ * Test driver for all functionalities
+ * @author Kalila Moua,  Tre Vazquez, Jing Thao, Yidan Zhang
+ * @version 03/25/2017
+ */
 public class CMCDriver {
 	private AccountUI acct;
 	private UserUI usr;
@@ -13,107 +17,146 @@ public class CMCDriver {
 	 */
 	public CMCDriver() {
 		acct = new AccountUI();
-		adm = new AdminUI();
+	//	adm = new AdminUI();
 	}
-
-	public void run() throws NullPointerException{
-		// TODO Auto-generated method stub
-//		Scanner sc = new Scanner(System.in);
-//		System.out.println("Please enter your username:");
-//		String username = sc.next();
-//		System.out.println("Please enter your password:");
-//		String password = sc.next();
-//		acct=acct.logOn(username, password);
-//		if(acct instanceof UserUI){
-//			usr =(UserUI)acct;
-//		}
-//		else if(acct instanceof AdminUI){
-//			adm=(AdminUI)acct;
-//		}
-//		else{
-//			throw new IllegalArgumentException("The acct does  not exist");
-//		}
+	/**
+	 * Admin && User: run login method for U1:Log in
+	 * get username and password from user and log in as admin or user
+	 */
+	public void login (){
+		System.out.println("---------------------------------Log In--------------------------------------");
+		Scanner sc = new Scanner(System.in);
+		
+		//get username from user
+		System.out.println("Please enter your username:");
+		String username = sc.next();
+		
+		//get password from user
+		System.out.println("Please enter your password:");
+		String password = sc.next();
+		
+		//call log on method
+		acct=acct.logOn(username, password);
+		
+		//assign it to a user
+		if(acct instanceof UserUI){
+			usr =(UserUI)acct;
+		}
+		//assign it to a admin
+		else if(acct instanceof AdminUI){
+			adm=(AdminUI)acct;
+		}
+		//not exist
+		else{
+			throw new IllegalArgumentException("The acct does  not exist");
+		}
+	}
 	
-		//usr testing except search -Tre
-		//U2 saveSchool
-		//usr = (UserUI)acct.logOn(username, password);
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		//admin-Yidan
-		//U12 View Users(view Accounts)
+	/**
+	 * Admin: view all accounts for U12: View Users(View Accounts)
+	 * print them out
+	 */
+	public void viewUsers(){
 		List<Account> acctList = adm.viewAccount();
-		System.out.println("Account Lists");
+		System.out.println("-------------------------------------------Account Lists------------------------------------------------");
 		System.out.println("First    Last   Username   Password   Type   Status");
 		for(Account a:acctList){
 			System.out.println(a.getFirstName()+"     "+a.getLastName()+"    "+a.getUsername()+"     "+a.getPassword()+"       "+a.getTypeOfUser()+
 					"       "+a.getStatus());
 		}
-		
-		//U13 Add User
- 		System.out.println(adm.addUser("Yidan", "yuser", "yuser", "user", 'u'));		
-//		List<Account> acctList = adm.viewAccount();
-//		System.out.println("Account Lists");
-//		System.out.println("First    Last   Username   Password   Type   Status");
-//		for(Account a:acctList){
-//			System.out.println(a.getFirstName()+"     "+a.getLastName()+"    "+a.getUsername()+"     "+a.getPassword()+"       "+a.getTypeOfUser()+
-//					"       "+a.getStatus());
-//		}		
-		
-		//U14 View Specific User
-		Account a = adm.viewSpecificUser("yuser");
+	}
+	
+	/**
+	 * Admin: add a user to database for U13: Add User(Add Account) 
+	 * 
+	 */
+	public void addUser(){
+		System.out.println("--------------------------------------------Add a specific user--------------------------------------------");
+		System.out.println("Add an admin: First Name: Kalila, Last Name Kadmin, User Name: kadmin, Password: admin, Type: a");
+	//	System.out.println("If Successful? "+adm.addUser("Kalila", "kadmin", "kadmin", "admin", 'a'));
+		System.out.println("Show Accounts List After Adding");
+		this.viewUsers();
+		System.out.println("Add an user: First Name: Tre, Last Name tuser, User Name: tuser, Password: user, u");
+	//	System.out.println(adm.addUser("Tre", "tuser", "tuser", "user", 'u'));
+		System.out.println("Show Accounts List After Adding");
+		this.viewUsers();
+	}
+	/**
+	 * Admin: view specific user profile for U14: View Specific User (Account)
+	 * 
+	 */
+	public void viewSpecificUser(){
+		System.out.println("--------------------------------------------View a specific account--------------------------------------------");
+		System.out.println("View profile of kadmin");
+		Account a = adm.viewSpecificUser("kadmin");
 		System.out.println(a.getFirstName()+" "+a.getLastName()+" "+a.getUsername()+" "+a.getPassword()+" "+a.getTypeOfUser()+
 				" "+a.getStatus());
-		//U15 Edit User
-		System.out.println( adm.editUser("Yidan", "Zhang", "yuser", "user", 'u', 'Y'));
-//		
-//		Account a = adm.viewSpecificUser("yuser");
-//		System.out.println(a.getFirstName()+" "+a.getLastName()+" "+a.getUsername()+" "+a.getPassword()+" "+a.getTypeOfUser()+
-//				" "+a.getStatus());
-		
-		//U16 Deactivate User
+	}
+	
+	/**
+	 * Admin: Edit an account for U15
+	 */
+	public void editUser(){
+		System.out.println("--------------------------------------------Edit a specific account--------------------------------------------");
+		System.out.println("Change Yidan Zhang Account to: First Name: Yidan, Last Name: yuser, User Name: yuser, Password: user, Type: u, Status: Y");
+	//	System.out.println("If Successful?"+ adm.editUser("Yidan", "yuser", "yuser", "user", 'u', 'Y'));
+		System.out.println("Show Accounts List After Editing");
+		this.viewUsers();
+	}
+	
+	/**
+	 * Admin: Deactivate a specific Account for U16: Deactivate User (Account)
+	 */
+	public void deactivateUser(){
+		System.out.println("--------------------------------------------Deactivate a specific account--------------------------------------------");
+		System.out.println("Deactivate: yuser");
 		System.out.println(adm.deactivateUser("yuser"));
-//		Account a = adm.viewSpecificUser("yuser");
-//		System.out.println(a.getFirstName()+" "+a.getLastName()+" "+a.getUsername()+" "+a.getPassword()+" "+a.getTypeOfUser()+
-//				" "+a.getStatus());
-		
-		//U17 View Universities
+		System.out.println("Show Accounts List After Deactivating");
+		this.viewUsers();
+	}
+	
+	/**
+	 * Admin: View all universities for U17: View Universities
+	 */
+	public void viewUniversities(){
+		System.out.println("--------------------------------------------University List--------------------------------------------");
 		List<University> univList = adm.viewUniversities();
 		System.out.println("University Lists");
-		//System.out.println("");
 		for(University a1:univList){
 			System.out.println(a1.getSchoolName()+"     "+a1.getLocation()+"    "+a1.getState()+"     "+a1.getControl()+"      "+a1.getNumOfStu()+
 					"       "+a1.getPerFem()+"   "+a1.getSatVerbal()+"   "+a1.getSatVerbal()+"   "+a1.getPrice()+"   "+a1.getFinAid()+"   "+a1.getNumOfApp()+
 					"   "+a1.getPerAdmit()+"   "+a1.getPerEnroll()+"   "+a1.getAcademicScale()+"   "+a1.getSocialScale()+"   "+a1.getLifeScale());
 		}
-		//U18 Add a university
+	}
+	
+	/**
+	 * Admin: Add a specific university for U18: Add a university
+	 */
+	public void addUniversity(){
 		
-		//U19 View specific University
-		System.out.println("--------------------Specific University---------------------");
+	}
+	/**
+	 * Admin: View a specific university for U19: View specific University
+	 */
+	public void viewSpecificUniversity(){
+		System.out.println("--------------------------------------------View a specific university--------------------------------------------");
 		University u = adm.viewSpecificUniversity("ST JOHNS UNIVERSITY");
 		System.out.println(u.getSchoolName()+"     "+u.getLocation()+"    "+u.getState()+"     "+u.getControl()+"      "+u.getNumOfStu()+
 				"       "+u.getPerFem()+"   "+u.getSatVerbal()+"   "+u.getSatVerbal()+"   "+u.getPrice()+"   "+u.getFinAid()+"   "+u.getNumOfApp()+
 				"   "+u.getPerAdmit()+"   "+u.getPerEnroll()+"   "+u.getAcademicScale()+"   "+u.getSocialScale()+"   "+u.getLifeScale());
 		
+	}
+	/**
+	 * Admin: Edit University for U20: Edit University
+	 */
+	public void editUniversity(){
 		
-		//U20 edit university
+	}
+	public void run() throws NullPointerException{
 		
 		
 		
-		
-		
-		//Recommendation --Jing
+	//	Recommendation --Jing
 		System.out.println("START OF RECOMMENDATION CLASS");
 		List<University> uniList = new ArrayList<University>();
 		List<String> popMajors = new ArrayList<String>();

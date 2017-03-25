@@ -13,40 +13,19 @@ package cmc.mario.entities;
 public class User extends Account{
 	
 	/*
-	   * Constructor of the class: Inherited from super class: Account
+	   * default Constructor
 	   */
 	  public User(){
-	    super();
+		  super.setTypeOfUser('a');
 	  }
-	  
-//	  /**
-//	   * sets the user's firstname
-//	   * @param password the user's password
-//	   */
-//	  public void setPassword(String password)
-//	  {
-//	    String p = super.getPassword();
-//	    p= password;
-//	  }
-//	  
-//	  /**
-//	   * sets the user's firstname
-//	   * @param firstName the user's firstname
-//	   */
-//	  public void setFirstName(String firstName)
-//	  {
-//	    this.firstName = firstName;
-//	  }
-//	  
-//	  /**
-//	   * sets the user's lastname
-//	   * @param lastname the user's lastname
-//	   */
-//	  public void setLastName(String lastName)
-//	  {
-//	    this.lastName = lastName;
-//	  }
-//	  
+	 
+	  public User(String firstName, String lastName, String username, String password){
+		  super.setTypeOfUser('a');
+		  super.setFirstName(firstName);
+		  super.setLastName(lastName);
+		  super.setUsername(username);
+		  super.setPassword(password);
+	  }
 	 
 	  /**
 	   * Method to return the user's firstName

@@ -326,9 +326,10 @@ public boolean addUser(String firstName, String lastName, String username, Strin
    * @return list of saved schools
    */
  
-	  public List<University> getSavedSchools(String username) {
+	  public List<University> getSavedSchools(String username){
 			// TODO Auto-generated method stub
 			  String[][] userList =univLib.user_getUsernamesWithSavedSchools();
+	//		  System.out.println(userList);
 			  String[][] schoolList =univLib.university_getUniversities();
 			  List<University> list = new ArrayList<University>();
 			    for(String[] userC : userList){
@@ -377,30 +378,19 @@ public boolean addUser(String firstName, String lastName, String username, Strin
  * @param user user who will be adding to their list
  * @param schoolName name of school to be added to the saved school list
  */
-public void addSavedSchool(User user, String schoolName) {
-	String[][] schoolList =univLib.university_getUniversities();
-	String saveS="";
-	for(String[] schoolC: schoolList){
-		if(schoolC[0].equals(schoolName)){
-			saveS=saveS+schoolC[0]+
-			schoolC[1] +
-			schoolC[2] +
-			schoolC[3] +
-			schoolC[4] +
-			schoolC[5] +
-			schoolC[6] +
-			schoolC[7] +
-			schoolC[8] +
-			schoolC[9] +
-			schoolC[10] +
-			schoolC[11] +
-			schoolC[12] +
-			schoolC[13] +
-			schoolC[14] +
-			schoolC[15];
+public boolean addSavedSchool(User user, String schoolName) {
+	List<University> list = this.getSavedSchools(user.getUsername());
+	for(University u: list){
+		if(u.getSchoolName().equals(schoolName)){
+		return false;
 		}
-		}
-	univLib.user_saveSchool(user.getUsername(), saveS);
+	}
+	int i = univLib.user_saveSchool(user.getUsername(), schoolName);
+	System.out.println(i);
+	if(i==1){
+		return true;
+	}
+	return false;
 	
 }
 

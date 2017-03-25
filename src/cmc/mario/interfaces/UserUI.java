@@ -5,6 +5,7 @@ package cmc.mario.interfaces;
 
 import java.util.*;
 
+import cmc.mario.controllers.AdminFuncController;
 import cmc.mario.controllers.UserFuncController;
 import cmc.mario.entities.University;
 import cmc.mario.entities.User;
@@ -21,6 +22,10 @@ public class UserUI extends AccountUI{
 	 * User controller created for class
 	 */
 	public UserFuncController userContr;
+	
+	public UserUI(){
+		this.userContr = new UserFuncController();
+	 }
 	  /**
 	   * Constructor of the class
 	   * @param u user object to be used 
@@ -148,8 +153,8 @@ public class UserUI extends AccountUI{
 	   * Grants user the ability to save a school to their saved school lists
 	   * @param schoolName the name of the school to be saved
 	   */
-	  public void saveSchool(String schoolName){
-		  this.userContr.saveSchool(schoolName);
+	  public boolean saveSchool(String schoolName){
+		 return this.userContr.saveSchool(schoolName);
 	  }
 	  
 	  /**

@@ -33,7 +33,9 @@ public class UserFuncController {
 	 */
 	private SearchController sc;
 	
-	
+	 public UserFuncController(){
+		  this.dbc = new DBController();
+	  }
   /*
    * Constructor of the class: Inherited from super class: AccountController
    * @param u the user object to be used 
@@ -149,9 +151,9 @@ public class UserFuncController {
    * Grants user the ability to save a school to their saved school lists
    * @param schoolName the name of the school to be saved 
    */
-  public void saveSchool(String schoolName)
+  public boolean saveSchool(String schoolName)
   {
-    this.dbc.addSavedSchool(this.user, schoolName);
+    return this.dbc.addSavedSchool(this.user, schoolName);
   }
   
   /**

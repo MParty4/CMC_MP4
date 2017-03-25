@@ -33,7 +33,10 @@ public class UserFuncController {
 	 */
 	private SearchController sc;
 	
-	
+	 public UserFuncController(){
+		  this.dbc = new DBController();
+		  this.sc = new SearchController();
+	  }
   /*
    * Constructor of the class: Inherited from super class: AccountController
    * @param u the user object to be used 

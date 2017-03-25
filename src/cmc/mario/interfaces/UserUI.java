@@ -23,10 +23,9 @@ public class UserUI extends AccountUI{
 	public UserFuncController userContr;
 	  /**
 	   * Constructor of the class
-	   * @param u user object to be used 
 	   */
-	  public UserUI(User u){
-	    this.userContr = new UserFuncController(u);
+	  public UserUI(){
+	    this.userContr = new UserFuncController();
 	    
 	  }
 	  

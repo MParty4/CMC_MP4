@@ -167,40 +167,58 @@ public class CMCDriver {
 				"   "+a1.getPerAdmit()+"   "+a1.getPerEnroll()+"   "+a1.getAcademicScale()+"   "+a1.getSocialScale()+"   "+a1.getLifeScale());
 	}
 		
-	//	Recommendation --Jing
-//		System.out.println("START OF RECOMMENDATION CLASS");
+//		Recommendation --Jing
+		System.out.println("START OF RECOMMENDATION CLASS");
 //		List<University> uniList = new ArrayList<University>();
-//		List<String> popMajors = new ArrayList<String>();
-//		SearchController seCon = new SearchController();
+		List<String> popMajors = new ArrayList<String>();
+		SearchController seCon = new SearchController();
 //		String m1 = "Biology";
 //		String m2 = "Computer Science";
 //		popMajors.add(m1);
 //		popMajors.add(m2);
-//		University bitch = new University("ABILENE CHRISTIAN UNIVERSITY","TEXAS","SUBURBAN","PRIVATE",
-//				10000, 50 , -1,-1 ,12088, 70 ,4000,90 , 80 , 2,3,3,popMajors);
-//		University bitch1 = new University("AUBURN","NEW YORK","SMALL-CITY","STATE",35000
-//				,21,480,545,12468,50,5500,90,60,2,4,4,popMajors);
-//		University bitch2 = new University("ARIZONA STATE","ARIZONA","-1","STATE",40000
-//				,59,450,500,16181,50,17000,80,60,3,4,5, popMajors);
-//		University bitch3 = new University("BARD","NEW YORK","SMALL-CITY","PRIVATE",10000,55
-//				,560,520,32239,80,4000,70,30,3,4,4,popMajors);
-//		University bitch4 = new University("AUGSBURG","MINNESOTA","SMALL-CITY","PRIVATE",10000
-//				,43,420,490,29991,80,4000,85,50,1,3,4,popMajors);
-//		University bitch5 = new University("BARNARD","NEW YORK","URBAN","PRIVATE",10000
-//				,100,630,610,31009,60,4000,60,20,4,3,4,popMajors);
-//		University bitch6 = new University("BAYLOR UNIVERSITY", "TEXAS","URBAN","PRIVATE",15000
-//				,55,485,521,21658,65,11500,65,75,4,4,3,popMajors);
-//		uniList.add(bitch);
+		University uni1 = new University("ABILENE CHRISTIAN UNIVERSITY","TEXAS","SUBURBAN","PRIVATE",
+				10000, 50 , -1,-1 ,12088, 70 ,4000,90 , 80 , 2,3,3,popMajors);
+		University uni2 = new University("AUBURN","NEW YORK","SMALL-CITY","STATE",35000
+				,21,480,545,12468,50,5500,90,60,2,4,4,popMajors);
+		University uni3 = new University("ARIZONA STATE","ARIZONA","-1","STATE",40000
+				,59,450,500,16181,50,17000,80,60,3,4,5, popMajors);
+		University uni4 = new University("BARD","NEW YORK","SMALL-CITY","PRIVATE",10000,55
+				,560,520,32239,80,4000,70,30,3,4,4,popMajors);
+		University uni5 = new University("AUGSBURG","MINNESOTA","SMALL-CITY","PRIVATE",10000
+				,43,420,490,29991,80,4000,85,50,1,3,4,popMajors);
+		University uni6 = new University("BARNARD","NEW YORK","URBAN","PRIVATE",10000
+				,100,630,610,31009,60,4000,60,20,4,3,4,popMajors);
+		University uni7 = new University("BAYLOR UNIVERSITY", "TEXAS","URBAN","PRIVATE",15000
+				,55,485,521,21658,65,11500,65,75,4,4,3,popMajors);
+//		
 //		uniList.add(bitch1);
 //		uniList.add(bitch2);
 //		uniList.add(bitch3);
 //		uniList.add(bitch4);
 //		uniList.add(bitch5);
 //		uniList.add(bitch6);
-//		seCon.viewRecommendation(bitch);
-//		System.out.println("END OF RECOMMENDATION CLASS");
+		List<University> list2 =seCon.viewRecommendation(uni5);
+		System.out.println("START UNIVERSITY: "+uni5.getSchoolName()+"||"+ 
+				"\n STUDENTS:"+uni5.getNumOfStu()+
+				" FEM:"+uni5.getPerFem()+" SAT MATH:"+uni5.getSatMath()+" SAT VERBAL:"+uni5.getSatVerbal()+
+				" PRICE:"+uni5.getPrice()+" FINAID:"+uni5.getFinAid()+" NUM APP:"+uni5.getNumOfApp()+
+				" ADMITTED:"+uni5.getPerAdmit()+" ENROLLED:"+uni5.getPerEnroll()+" ACADEMIC SCALE:"+uni5.getAcademicScale()+
+				" SOCIAL SCALE:"+uni5.getSocialScale()+" LIFE SCALE"+uni5.getLifeScale()
+		);
+		for(int i = 0 ; i<5; i++){
+			System.out.println("IN LIST: "+list2.get(i).getSchoolName()+"||"+ 
+					"\n STUDENTS:"+list2.get(i).getNumOfStu()+
+					" FEM:"+list2.get(i).getPerFem()+" SAT MATH:"+list2.get(i).getSatMath()+" SAT VERBAL:"+list2.get(i).getSatVerbal()+
+					" PRICE:"+list2.get(i).getPrice()+" FINAID:"+list2.get(i).getFinAid()+" NUM APP:"+list2.get(i).getNumOfApp()+
+					" ADMITTED:"+list2.get(i).getPerAdmit()+" ENROLLED:"+list2.get(i).getPerEnroll()+" ACADEMIC SCALE:"+list2.get(i).getAcademicScale()+
+					" SOCIAL SCALE:"+list2.get(i).getSocialScale()+" LIFE SCALE"+list2.get(i).getLifeScale()
+			);
+			
+		}
+		
 
-//		
+		System.out.println("END OF RECOMMENDATION CLASS");
+			
 //		
 //		
 //		

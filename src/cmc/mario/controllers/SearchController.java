@@ -109,8 +109,8 @@ public class SearchController {
 	 */
 	public List<University> viewRecommendation(University u) {
 		List<University> uniList = dbControl.getUniversities();// dbControl.getUniversities();
-		String[][] listRecommend = new String[uniList.size()][1];
-		double[] listRecommend2 = new double[uniList.size()];
+		String[][] listRecommend = new String[uniList.size()][2];
+		List<Double> listRecommend2 = new ArrayList<Double>();
 		List<University> uniRecommendList = new ArrayList<University>();
 
 		int uStudents = u.getNumOfStu();
@@ -145,27 +145,51 @@ public class SearchController {
 						+ percentLife) / 12;
 				listRecommend[i][0] = uniList.get(i).getSchoolName();
 				listRecommend[i][1] = Double.toString(totalPer);
-				listRecommend2[i] = Double.parseDouble(listRecommend[i][1]);
-				Arrays.sort(listRecommend2);
-			}
+				listRecommend2.add(Double.parseDouble(listRecommend[i][1]));
+				Collections.sort(listRecommend2);
+				for (int k = 0; k < listRecommend2.size() - 1; k++) {
+					if (listRecommend2.get(k) == 0.0) {
+					
+						listRecommend2.remove(k);
 
-		}
-		while (uniRecommendList.size() < 5) {
-			for (int j = 0; j < 5; j++) {
-				for (int k = 0; k < uniList.size() - 1; k++) {
-					if (listRecommend2[j] == Double.parseDouble(listRecommend[k][1])) {
-						for (int l = 0; l < uniList.size() - 1; l++) {
-							if (listRecommend[k][0] == uniList.get(l).getSchoolName())
-								uniRecommendList.add(uniList.get(l));
+						
+					}
+					//System.out.println(listRecommend2.get(i));
+				}
+				//System.out.println("DONE CHECKING LISTRECOMMEND2");
+			}
+			// for(int i =0 ;i< listRecommend.length -1;i++){
+			// System.out.println(listRecommend[i][0]);
+			// System.out.println(listRecommend[i][1]);
+			//
+			//
+			//
+			// }
+			// System.out.println("LIST 2****************************");
+			//// for(int k = 0 ; k <listRecommend2.length -1 ; k++){
+			//// System.out.println(listRecommend2[k]);
+			//// }
+
+			while (uniRecommendList.size() < 5) {
+				for (int j = 0; j < 5; j++) {
+					for (int k = 0; k < uniList.size() - 1; k++) {
+						if (listRecommend2.get(j) == Double.parseDouble(listRecommend[k][1])) {
+							for (int l = 0; l < uniList.size() - 1; l++) {
+								if (listRecommend[k][0] == uniList.get(l).getSchoolName())
+									uniRecommendList.add(uniList.get(l));
+							}
+
 						}
 
 					}
-
 				}
-			}
 
+			}
+			
 		}
+		
 		return uniRecommendList;
 	}
-
 }
+	
+

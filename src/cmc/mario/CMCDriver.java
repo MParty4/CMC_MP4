@@ -18,7 +18,11 @@ public class CMCDriver {
 	public CMCDriver() {
 		acct = new AccountUI();
 	//	adm = new AdminUI();
+<<<<<<< HEAD
 		usr = new UserUI(new User("John", "User", "juser", "user"));
+=======
+		usr = new UserUI();
+>>>>>>> branch 'master' of https://github.com/MParty4/CMC_MP4.git
 	}
 	/**
 	 * Admin && User: run login method for U1:Log in
@@ -195,6 +199,7 @@ public class CMCDriver {
 //		uniList.add(bitch6);
 //		seCon.viewRecommendation(bitch);
 //		System.out.println("END OF RECOMMENDATION CLASS");
+<<<<<<< HEAD
 //		
 //		
 //		
@@ -268,6 +273,37 @@ public class CMCDriver {
 //		for(int i = 0; i < uni.size(); i++){
 //			System.out.println(i);
 //		}
+=======
+		
+		
+		
+		
+		
+//		Search and Account UI - Kalila
+//		U5: Search for Schools
+//		U6: View Search Results
+//		U7: View Specific School
+//		U21: Logout
+		List<String> popMajor = new ArrayList<String>(5);
+		String s1 = "BIOLOGY";
+		String s2 = "ART-HISTORY";
+		popMajor.add(s1);
+		popMajor.add(s2);
+		List<University> uni = new ArrayList<University>();
+		String school = "";
+		String loc = "";
+		String state = "";
+		String cont = "PRIVATE";
+		int numOfStuStart = 5000;
+		Integer numOfStuSt = numOfStuStart;
+		int numOfStuEnd = 15000;
+		Integer numOfStuEn = numOfStuEnd;
+	
+		uni = usr.search(school, state, loc, cont, numOfStuSt, numOfStuEn, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, popMajor);
+		for(int i = 0; i < uni.size(); i++){
+			System.out.println(uni.get(i));
+		}
+>>>>>>> branch 'master' of https://github.com/MParty4/CMC_MP4.git
 
 	}
 	private char[] addUser(String string, String string2, String string3, char c) {

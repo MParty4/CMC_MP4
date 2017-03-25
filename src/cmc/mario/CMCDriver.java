@@ -18,11 +18,11 @@ public class CMCDriver {
 	public CMCDriver() {
 		acct = new AccountUI();
 	//	adm = new AdminUI();
-<<<<<<< HEAD
-		usr = new UserUI(new User("John", "User", "juser", "user"));
-=======
-		usr = new UserUI();
->>>>>>> branch 'master' of https://github.com/MParty4/CMC_MP4.git
+
+		usr = new UserUI (new User("John", "User","juser","user"));
+
+	
+
 	}
 	/**
 	 * Admin && User: run login method for U1:Log in
@@ -199,7 +199,7 @@ public class CMCDriver {
 //		uniList.add(bitch6);
 //		seCon.viewRecommendation(bitch);
 //		System.out.println("END OF RECOMMENDATION CLASS");
-<<<<<<< HEAD
+
 //		
 //		
 //		
@@ -273,7 +273,7 @@ public class CMCDriver {
 //		for(int i = 0; i < uni.size(); i++){
 //			System.out.println(i);
 //		}
-=======
+
 		
 		
 		
@@ -303,7 +303,7 @@ public class CMCDriver {
 		for(int i = 0; i < uni.size(); i++){
 			System.out.println(uni.get(i));
 		}
->>>>>>> branch 'master' of https://github.com/MParty4/CMC_MP4.git
+
 
 	}
 	private char[] addUser(String string, String string2, String string3, char c) {

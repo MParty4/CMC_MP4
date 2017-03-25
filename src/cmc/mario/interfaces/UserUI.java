@@ -7,6 +7,7 @@ import java.util.*;
 
 import cmc.mario.controllers.AdminFuncController;
 import cmc.mario.controllers.UserFuncController;
+import cmc.mario.entities.Admin;
 import cmc.mario.entities.University;
 import cmc.mario.entities.User;
 
@@ -29,10 +30,10 @@ public class UserUI extends AccountUI{
 	  /**
 	   * Constructor of the class
 	   */
-	  public UserUI(){
-	    this.userContr = new UserFuncController();
-	    
+	public UserUI(User user){
+	    this.userContr = new UserFuncController(user);
 	  }
+	  
 	  
 	  /**
 	   * Displays list of the Users Saved Schools

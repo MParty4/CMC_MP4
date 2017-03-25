@@ -35,10 +35,8 @@ public class UserFuncController {
 	
 	 public UserFuncController(){
 		  this.dbc = new DBController();
-<<<<<<< HEAD
-=======
+
 		  this.sc = new SearchController();
->>>>>>> branch 'master' of https://github.com/MParty4/CMC_MP4.git
 	  }
   /*
    * Constructor of the class: Inherited from super class: AccountController

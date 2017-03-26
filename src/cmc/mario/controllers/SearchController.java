@@ -86,13 +86,11 @@ public class SearchController {
 	 * @param popMajor
 	 *            an list of popular major or emphases at the university
 	 */
-	public List<University> search(String schoolName, String state, String location, String control,
-			Integer numOfStuStart, Integer numOfStuEnd, Integer perFemStart, Integer perFemEnd, Integer satVerbalStart,
-			Integer satVerbalEnd, Integer satMathStart, Integer satMathEnd, Integer priceStart, Integer priceEnd,
-			Integer finAidStart, Integer finAidEnd, Integer numOfAppStart, Integer numOfAppEnd, Integer perAdmitStart,
-			Integer perAdmitEnd, Integer perEnrollStart, Integer perEnrollEnd, Integer academicScaleStart,
-			Integer academicScaleEnd, Integer socialScaleStart, Integer socialScaleEnd, Integer lifeScaleStart,
-			Integer lifeScaleEnd, List<String> popMajor) {
+	public List<University> search(String schoolName, String state, String location, String control, int numOfStuStart, int numOfStuEnd, 
+			 int perFemStart,int perFemEnd, int satVerbalStart, int satVerbalEnd, int satMathStart, int satMathEnd, int priceStart, int priceEnd,
+			 int finAidStart,int finAidEnd, int numOfAppStart, int numOfAppEnd, int perAdmitStart, int perAdmitEnd, int perEnrollStart, 
+			 int perEnrollEnd, double academicScaleStart, double academicScaleEnd, double socialScaleStart, double socialScaleEnd, double lifeScaleStart,
+			 double lifeScaleEnd, String[] popMajor) {
 		return dbControl.searchResults(schoolName, state, location, control, numOfStuStart, numOfStuEnd, perFemStart,
 				perFemEnd, satVerbalStart, satVerbalEnd, satMathStart, satMathEnd, priceStart, priceEnd, finAidStart,
 				finAidEnd, numOfAppStart, numOfAppEnd, perAdmitStart, perAdmitEnd, perEnrollStart, perEnrollEnd,
@@ -122,9 +120,9 @@ public class SearchController {
 		int uApp = u.getNumOfApp();
 		double uAdmit = u.getPerAdmit();
 		double uEnroll = u.getPerEnroll();
-		int uAcademic = u.getAcademicScale();
-		int uSocial = u.getSocialScale();
-		int uLife = u.getLifeScale();
+		double uAcademic = u.getAcademicScale();
+		double uSocial = u.getSocialScale();
+		double uLife = u.getLifeScale();
 
 		if (!(uniList.isEmpty())) {
 			for (int i = 0; i < uniList.size() - 1; i++) {

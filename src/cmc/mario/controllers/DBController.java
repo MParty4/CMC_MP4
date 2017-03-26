@@ -243,24 +243,12 @@ public boolean addUser(String firstName, String lastName, String username, Strin
     	University u = new University(schoolC[0],schoolC[1],schoolC[2],schoolC[3],
 				Integer.parseInt(schoolC[4]),Integer.parseInt(schoolC[5]),Integer.parseInt(schoolC[6]),Integer.parseInt(schoolC[7]),
 				Integer.parseInt(schoolC[8]),Integer.parseInt(schoolC[9]),Integer.parseInt(schoolC[10]),Integer.parseInt(schoolC[11]),
-				Integer.parseInt(schoolC[12]),Integer.parseInt(schoolC[13]),Integer.parseInt(schoolC[14]),Integer.parseInt(schoolC[15]), this.getEmphasesForUniversity(schoolC[0]));
+				Integer.parseInt(schoolC[12]),Double.parseDouble(schoolC[13]),Double.parseDouble(schoolC[14]),Double.parseDouble(schoolC[15]));
 		list.add(u);
     }
     return list;
   }
-//  public List<String> getEmphasis(String schoolName){
-//	  String[][] em = univLib.university_getNamesWithEmphases();
-//	  String emph="";
-//	  for(String[] school :em){
-//		  if (school[0].equals(schoolName)){
-//			  for(String s : school){
-//				  emph = emph+s;
-//			  }
-//			 
-//		  }
-//	  }
-//	  return emph;
-//  } 
+
   /**
    * To view specific university.
    * @param university name
@@ -339,7 +327,7 @@ public boolean addUser(String firstName, String lastName, String username, Strin
 			    				University u = new University(schoolC[0],schoolC[1],schoolC[2],schoolC[3],
 			    						Integer.parseInt(schoolC[4]),Integer.parseInt(schoolC[5]),Integer.parseInt(schoolC[6]),Integer.parseInt(schoolC[7]),
 			    						Integer.parseInt(schoolC[8]),Integer.parseInt(schoolC[9]),Integer.parseInt(schoolC[10]),Integer.parseInt(schoolC[11]),
-			    						Integer.parseInt(schoolC[12]),Integer.parseInt(schoolC[13]),Integer.parseInt(schoolC[14]),Integer.parseInt(schoolC[15]),this.getEmphasesForUniversity(schoolC[0]));
+			    						Integer.parseInt(schoolC[12]),Double.parseDouble(schoolC[13]),Double.parseDouble(schoolC[14]),Double.parseDouble(schoolC[15]));
 			    				list.add(u);
 			    			}
 			    		}
@@ -400,16 +388,12 @@ public boolean addSavedSchool(User user, String schoolName) {
 	 * @return list of strings of emphases for university
 	 */
 	public List<String> getEmphasesForUniversity(String universityName){
-		String[][] uni = univLib.university_getNamesWithEmphases();
+		String[][] uniE = univLib.university_getNamesWithEmphases();
 		List<String> emphasesList = new ArrayList<String>();
-		for(int i = 0; i < uni.length; i++){
-			for(int j = 0; j <= 1; j++){
-				if(uni[i][1] == null){
-					return emphasesList;
-				}
-				else if(uni[i][0] == universityName){
-					String emphasis = uni[i][1];
-					emphasesList.add(emphasis);
+		for(String[] em: uniE){
+			if(em[0].equals(universityName)){
+				for(int i =1; i<em.length; i++){
+					emphasesList.add(em[i]);
 				}
 			}
 		}
@@ -454,65 +438,70 @@ public boolean addSavedSchool(User user, String schoolName) {
 	 *            the list of emphases for a specific school
 	 */
 
-	public List<University> searchResults(String schoolName, String state, String location, String control, Integer numOfStuStart, Integer numOfStuEnd, 
-			 Integer perFemStart,Integer perFemEnd, Integer satVerbalStart, Integer satVerbalEnd, Integer satMathStart, Integer satMathEnd, Integer priceStart, Integer priceEnd,
-			 Integer finAidStart,Integer finAidEnd, Integer numOfAppStart, Integer numOfAppEnd, Integer perAdmitStart, Integer perAdmitEnd, Integer perEnrollStart, 
-			 Integer perEnrollEnd, Integer academicScaleStart, Integer academicScaleEnd, Integer socialScaleStart, Integer socialScaleEnd, Integer lifeScaleStart,
-			 Integer lifeScaleEnd, List<String> popMajor){
-			List<University> listOfMatchingUniversities = new ArrayList<University>();
+	public List<University> searchResults(String schoolName, String state, String location, String control, int numOfStuStart, int numOfStuEnd, 
+			 int perFemStart,int perFemEnd, int satVerbalStart, int satVerbalEnd, int satMathStart, int satMathEnd, int priceStart, int priceEnd,
+			 int finAidStart,int finAidEnd, int numOfAppStart, int numOfAppEnd, int perAdmitStart, int perAdmitEnd, int perEnrollStart, 
+			 int perEnrollEnd, double academicScaleStart, double academicScaleEnd, double socialScaleStart, double socialScaleEnd, double lifeScaleStart,
+			 double lifeScaleEnd, String[] popMajor){
 			List<University> results = new ArrayList<University>();
 			String[][] univList = univLib.university_getUniversities();
+			List<University> resultT = new ArrayList<University>();
+
 			 for(String[] arr: univList){
-//					University uni = new University(univList[i][0], univList[i][1], univList[i][2], univList[i][3], Integer.parseInt(univList[i][4]),
-//					Integer.parseInt(univList[i][5]), Integer.parseInt(univList[i][6]), Integer.parseInt(univList[i][7]), Integer.parseInt(univList[i][8]), 
-//					Integer.parseInt(univList[i][9]), Integer.parseInt(univList[i][10]), Integer.parseInt(univList[i][11]), Integer.parseInt(univList[i][12]),
-//					Integer.parseInt(univList[i][13]), Integer.parseInt(univList[i][14]), Integer.parseInt(univList[i][15]), this.getEmphasesForUniversity(univList[i][0]));
-					if((arr[0] .contains(schoolName)|| (schoolName == "")) 
+				 if((arr[0] .contains(schoolName)|| (schoolName == "")) 
 							&& ((arr[1] .contains(state)) ||(state == "")) 
 							&& ((arr[2] .contains(location)) ||(location == "")) 
 							&& ((arr[3] .contains(control)) ||(control == "")) 
-							&& (((numOfStuStart<=Integer.parseInt(arr[4]))&&(Integer.parseInt(arr[4])<= numOfStuEnd)) || numOfStuEnd==-1)
-							&& (((perFemStart<=Integer.parseInt(arr[5]))&&(Integer.parseInt(arr[5])<= perFemEnd)) || perFemEnd==-1)
-							&& (((satVerbalStart<=Integer.parseInt(arr[6]))&&(Integer.parseInt(arr[6])<= satVerbalEnd)) || satVerbalEnd==-1)
-							&& (((satMathStart<=Integer.parseInt(arr[7]))&&(Integer.parseInt(arr[7])<= satMathEnd)) || satMathEnd==-1)
-							&& (((priceStart<=Integer.parseInt(arr[8]))&&(Integer.parseInt(arr[8])<= priceEnd)) || priceEnd==-1)
-							&& (((finAidStart<=Integer.parseInt(arr[9]))&&(Integer.parseInt(arr[9])<= finAidEnd)) || finAidEnd==-1)
-							&&(((numOfAppStart<=Integer.parseInt(arr[10]))&&(Integer.parseInt(arr[10])<= numOfAppEnd)) || numOfAppEnd==-1)
-							&& (((perAdmitStart<=Integer.parseInt(arr[11]))&&(Integer.parseInt(arr[11])<= perAdmitEnd)) || perAdmitEnd==-1)
-							&&  (((perEnrollStart<=Integer.parseInt(arr[12]))&&(Integer.parseInt(arr[12])<= perEnrollEnd)) || perEnrollEnd==-1)
-							&& (((academicScaleStart<=Integer.parseInt(arr[13]))&&(Integer.parseInt(arr[13])<= academicScaleEnd)) || academicScaleEnd==-1)
-							&&  (((socialScaleStart<=Integer.parseInt(arr[14]))&&(Integer.parseInt(arr[14])<= socialScaleEnd)) || socialScaleEnd==-1)
-							&& (((lifeScaleStart<=Integer.parseInt(arr[15]))&&(Integer.parseInt(arr[15])<= lifeScaleEnd)) || lifeScaleEnd==-1)
+							&& (((numOfStuStart<=Integer.parseInt(arr[4]))&&(Integer.parseInt(arr[4])<= numOfStuEnd)) || ((numOfStuStart<=Integer.parseInt(arr[4]))&&(numOfStuEnd==-1))||((numOfStuStart==-1)&&(Integer.parseInt(arr[4])<= numOfStuEnd))||((numOfStuStart==-1)&&(numOfStuEnd==-1)))
+							&& (((perFemStart<=Integer.parseInt(arr[5]))&&(Integer.parseInt(arr[5])<= perFemEnd)) || ((perFemStart<=Integer.parseInt(arr[5]))&&(perFemEnd==-1))||((perFemStart==-1)&&(Integer.parseInt(arr[5])<= perFemEnd))||((perFemStart==-1)&&(perFemEnd==-1)))
+							&& (((satVerbalStart<=Integer.parseInt(arr[6]))&&(Integer.parseInt(arr[6])<= satVerbalEnd)) || ((satVerbalStart<=Integer.parseInt(arr[6]))&&(satVerbalEnd==-1))||((satVerbalStart==-1)&&(Integer.parseInt(arr[6])<= satVerbalEnd))||((satVerbalStart==-1)&&(satVerbalEnd==-1)))
+							&& (((satMathStart<=Integer.parseInt(arr[7]))&&(Integer.parseInt(arr[7])<= satMathEnd)) || ((satMathStart<=Integer.parseInt(arr[7]))&&(satMathEnd==-1))||((satMathStart==-1)&&(Integer.parseInt(arr[7])<= satMathEnd))||((satMathStart==-1)&&(satMathEnd==-1)))
+							&& (((priceStart<=Integer.parseInt(arr[8]))&&(Integer.parseInt(arr[8])<= priceEnd)) ||((priceStart<=Integer.parseInt(arr[8]))&&(priceEnd==-1))||((priceStart==-1)&&(Integer.parseInt(arr[8])<= priceEnd))||((priceStart==-1)&&(priceEnd==-1)))
+							&& (((finAidStart<=Integer.parseInt(arr[9]))&&(Integer.parseInt(arr[9])<= finAidEnd)) || ((finAidStart<=Integer.parseInt(arr[9]))&&( finAidEnd==-1))||((finAidStart==-1)&&(Integer.parseInt(arr[9])<= finAidEnd))||((finAidStart==-1)&&(finAidEnd==-1)))
+							&& (((numOfAppStart<=Integer.parseInt(arr[10]))&&(Integer.parseInt(arr[10])<= numOfAppEnd)) || ((numOfAppStart<=Integer.parseInt(arr[10]))&&(numOfAppEnd==-1))||((numOfAppStart==-1)&&(Integer.parseInt(arr[10])<= numOfAppEnd))||((numOfAppStart==-1)&&(numOfAppEnd==-1)))
+							&& (((perAdmitStart<=Integer.parseInt(arr[11]))&&(Integer.parseInt(arr[11])<= perAdmitEnd)) || ((perAdmitStart<=Integer.parseInt(arr[11]))&&(perAdmitEnd==-1))||((perAdmitStart==-1)&&(Integer.parseInt(arr[11])<= perAdmitEnd))||((perAdmitStart==-1)&&(perAdmitEnd==-1)))
+							&& (((perEnrollStart<=Integer.parseInt(arr[12]))&&(Integer.parseInt(arr[12])<= perEnrollEnd)) || ((perEnrollStart<=Integer.parseInt(arr[12]))&&(perEnrollEnd==-1))||((perEnrollStart==-1)&&(Integer.parseInt(arr[12])<= perEnrollEnd))||((perEnrollStart==-1)&&(perEnrollEnd==-1)))
+							&& (((academicScaleStart<=Double.parseDouble(arr[13]))&&(Double.parseDouble(arr[13])<= academicScaleEnd)) || ((academicScaleStart<=Double.parseDouble(arr[13]))&&(academicScaleEnd==-1))||((academicScaleStart==-1)&&(Double.parseDouble(arr[13])<= academicScaleEnd))||((academicScaleStart==-1)&&(academicScaleEnd==-1)))
+							&& (((socialScaleStart<=Double.parseDouble(arr[14]))&&(Integer.parseInt(arr[14])<= socialScaleEnd)) || ((socialScaleStart<=Double.parseDouble(arr[14]))&&(socialScaleEnd==-1))||((socialScaleStart==-1)&&(Integer.parseInt(arr[14])<= socialScaleEnd))||((socialScaleStart==-1)&&(socialScaleEnd==-1)))
+							&& (((lifeScaleStart<=Double.parseDouble(arr[15]))&&(Integer.parseInt(arr[15])<= lifeScaleEnd)) || ((lifeScaleStart<=Double.parseDouble(arr[15]))&&(lifeScaleEnd==-1))||((lifeScaleStart==-1)&&(Integer.parseInt(arr[15])<= lifeScaleEnd))||((lifeScaleStart==-1)&&(Integer.parseInt(arr[15])<= lifeScaleEnd))||((lifeScaleStart==-1)&&(lifeScaleEnd==-1)))
 							){
 			
 						University u = new University(arr[0],arr[1],arr[2],arr[3],
 	    						Integer.parseInt(arr[4]),Integer.parseInt(arr[5]),Integer.parseInt(arr[6]),Integer.parseInt(arr[7]),
 	    						Integer.parseInt(arr[8]),Integer.parseInt(arr[9]),Integer.parseInt(arr[10]),Integer.parseInt(arr[11]),
-	    						Integer.parseInt(arr[12]),Integer.parseInt(arr[13]),Integer.parseInt(arr[14]),Integer.parseInt(arr[15]),this.getEmphasesForUniversity(arr[0]));
-						if(!listOfMatchingUniversities.contains(u))
-							listOfMatchingUniversities.add(u); //if list does not have school then add to list
+	    						Integer.parseInt(arr[12]),Double.parseDouble(arr[13]),Double.parseDouble(arr[14]),Double.parseDouble(arr[15]));
+						if(!resultT.contains(u))
+							resultT.add(u); //if list does not have school then add to list
 					}	
 				}
 			 System.out.println("r");
-			 System.out.println(listOfMatchingUniversities);
-			 System.out.println(listOfMatchingUniversities.size());
-			 String s = "";
-			 for(String t: popMajor){
-				 s+= t+", ";
-			 }
-			 String[][] emphases = univLib.university_getNamesWithEmphases();
-			 int i =0;
-			 for(String[] em: emphases){
-				 if(em[0].equals(listOfMatchingUniversities.get(i).getSchoolName())){
-					 for(int j =1; j<em.length; j++){
-						 if(s.contains(em[j])){
-							 results.add(listOfMatchingUniversities.get(i));
-						 }
-						 i++;
-					 }
-				 }
-			 }
+			 System.out.println(resultT.get(0).getSchoolName());
+			 System.out.println(resultT.size());
 			
+			 String[][] emphases = univLib.university_getNamesWithEmphases();
+			 if(popMajor.length==0){
+				 return resultT;
+			 }
+				for(String[] em : emphases){
+					for(int i =0;i<resultT.size();i++){
+					//	System.out.println("r");
+					if(em[0].equals(resultT.get(i).getSchoolName())){
+						//System.out.println("r");
+						for(int j =1; j<em.length; j++){
+						//	System.out.println("r");
+							for(String s:popMajor){
+							 if(em[j].equals(s)){
+							//	 System.out.println("r");
+								 if(!results.contains(resultT.get(i)))
+										results.add(resultT.get(i)); 
+							 }
+							}
+					}
+					}
+				}
+			}
+			
+			System.out.println(results);
 			return results; // returns the list of matching universities with its attributes
 		}
 	

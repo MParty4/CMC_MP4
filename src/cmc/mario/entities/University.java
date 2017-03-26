@@ -82,23 +82,23 @@ public class University {
 	/**
 	 * academicScale the scale of academic of a school
 	 */
-	private int academicScale;
+	private double academicScale;
 
 	/**
 	 * socialScale the social scale of a school
 	 * 
 	 */
-	private int socialScale;
+	private double socialScale;
 
 	/**
 	 * lifeScale the life scale of a school
 	 */
-	private int lifeScale;
+	private double lifeScale;
 
 	/**
 	 * popMajors the emphases majors of a school
 	 */
-	private List<String> popMajors;
+	private String[] popMajors;
 	
 	public University(){
 		this.schoolName = null;
@@ -117,7 +117,7 @@ public class University {
 		this.academicScale = -1;
 		this.socialScale = -1;
 		this.lifeScale = -1;
-		this.popMajors = null;
+	//	this.popMajors = null;
 	}
 
 	/**
@@ -162,7 +162,7 @@ public class University {
 	 */
 	public University(String schoolName, String state, String location, String control, int numOfStu, int perFem,
 			int satVerbal, int satMath, int price, int finAid, int numOfApp, int perAdmit, int perEnroll,
-			int academicScale, int socialScale, int lifeScale, List<String> popMajors) {
+			double academicScale, double socialScale, double lifeScale) {
 		this.schoolName = schoolName;
 		this.state = state;
 		this.location = location;
@@ -179,7 +179,7 @@ public class University {
 		this.academicScale = academicScale;
 		this.socialScale = socialScale;
 		this.lifeScale = lifeScale;
-		this.popMajors = popMajors;
+	//	this.popMajors = popMajors;
 
 	}
 
@@ -435,7 +435,7 @@ public class University {
 	 * 
 	 * @return the academicScale
 	 */
-	public int getAcademicScale() {
+	public double getAcademicScale() {
 		return academicScale;
 	}
 
@@ -445,7 +445,7 @@ public class University {
 	 * @param academicScale
 	 *            the academicScale to set
 	 */
-	public void setAcademicScale(int academicScale) {
+	public void setAcademicScale(double academicScale) {
 		this.academicScale = academicScale;
 	}
 
@@ -454,7 +454,7 @@ public class University {
 	 * 
 	 * @return the socialScale
 	 */
-	public int getSocialScale() {
+	public double getSocialScale() {
 		return socialScale;
 	}
 
@@ -464,7 +464,7 @@ public class University {
 	 * @param socialScale
 	 *            the socialScale to set
 	 */
-	public void setSocialScale(int socialScale) {
+	public void setSocialScale(double socialScale) {
 		this.socialScale = socialScale;
 	}
 
@@ -473,7 +473,7 @@ public class University {
 	 * 
 	 * @return the lifeScale
 	 */
-	public int getLifeScale() {
+	public double getLifeScale() {
 		return lifeScale;
 	}
 
@@ -483,7 +483,7 @@ public class University {
 	 * @param lifeScale
 	 *            the lifeScale to set
 	 */
-	public void setLifeScale(int lifeScale) {
+	public void setLifeScale(double lifeScale) {
 		this.lifeScale = lifeScale;
 	}
 
@@ -492,7 +492,7 @@ public class University {
 	 * 
 	 * @return the popMajors
 	 */
-	public List<String> getPopMajors() {
+	public String[] getPopMajors() {
 		return popMajors;
 	}
 
@@ -502,7 +502,7 @@ public class University {
 	 * @param popMajors
 	 *            the popMajors to set
 	 */
-	public void setPopMajors(List<String> popMajors) {
+	public void setPopMajors(String[] popMajors) {
 		this.popMajors = popMajors;
 	}
 

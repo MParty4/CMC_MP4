@@ -57,6 +57,14 @@ public class CMCDriver {
 		}
 	}
 	
+	public void logOff(){
+		System.out.println("---------------------------------Log Off--------------------------------------");
+		
+		acct = (AccountUI) acct;
+		System.out.println(acct.logOff());
+
+		}
+	
 	/**
 	 * Admin: view all accounts for U12: View Users(View Accounts)
 	 * print them out
@@ -158,6 +166,7 @@ public class CMCDriver {
 		
 	}
 	public void run() throws NullPointerException{
+		this.logOff();
 	//  Use case U2 and U9 Save school and view saved school
 			System.out.println("START OF ADD SAVED SCHOOL U9" + "\n" + "**************************************");
 			System.out.println(usr.saveSchool("BOSTON COLLEGE"));

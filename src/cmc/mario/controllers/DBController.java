@@ -22,7 +22,7 @@ public class DBController {
 	 */
 	private UniversityDBLibrary univLib;
   /**
-   * create a new univeresityDBLibrary with user name and password
+   * Create a new univeresityDBLibrary with user name and password
    */
   public DBController(){
     this.univLib = new UniversityDBLibrary("mariop4","mariop4","csci230");
@@ -45,7 +45,7 @@ public class DBController {
 	  else
 	  {
 		  char type = x.getTypeOfUser();
-		  char status = x.status;
+		  char status = x.getStatus();
 		  
 		  int i = univLib.user_editUser(userName, firstName, lastName, password, type, status);
 		  if (i ==1)
@@ -342,7 +342,7 @@ public boolean addUser(String firstName, String lastName, String username, Strin
 }
 
   /**
-   * method to remove a selected school from a user's saved school list
+   * Method to remove a selected school from a user's saved school list
    * @param user the user who is removing a school from their list
    * @param schoolName the school object to be removed
    * @param school the name of the school to be removed
@@ -373,7 +373,7 @@ public boolean addUser(String firstName, String lastName, String username, Strin
 			  //univLib.user_removeSchool(user.getUsername(),schoolName.getSchoolName());
 		}
 /**
- * method that will add a selected school to a specified user's saved school list
+ * Method that will add a selected school to a specified user's saved school list
  * @param user user who will be adding to their list
  * @param schoolName name of school to be added to the saved school list
  */

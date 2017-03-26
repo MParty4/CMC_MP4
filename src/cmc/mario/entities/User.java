@@ -1,24 +1,31 @@
 package cmc.mario.entities;
-/*
+/**
  * File: User.java
  */
 
 /** 
  * User is an object class for the Users extends Account
- * 
+ * first
  * @author Tre Vazquez | Mario Party 4
- * @version 03/20/2017
+ * @version 03/26/2017
  */
 
 public class User extends Account{
 	
-	/*
-	   * default Constructor
+	/**
+	   * Default Constructor
 	   */
 	  public User(){
 		  super.setTypeOfUser('a');
 	  }
 	 
+	  /**
+		  * Constructor of the class: sets firstname, lastname, username, and password
+		  * @param firstName the first name of the user
+		  * @param lastName the last name of the user
+		  * @param username the username of the user
+		  * @param password the password of the user
+		  */
 	  public User(String firstName, String lastName, String username, String password){
 		  super.setTypeOfUser('a');
 		  super.setFirstName(firstName);
@@ -29,7 +36,7 @@ public class User extends Account{
 	 
 	  /**
 	   * Method to return the user's firstName
-	   * @return user firstname
+	   * @return user first name
 	   */
 	  public String getFirstName()
 	  {
@@ -38,7 +45,7 @@ public class User extends Account{
 	  
 	  /**
 	   * Method to return the user's lastname
-	   * @return user lastname
+	   * @return user last name
 	   */
 	  public String getLastName()
 	  {
@@ -55,8 +62,8 @@ public class User extends Account{
 	  }
 	  
 	  /**
-	   * Method to return the user's username
-	   * @return user's username
+	   * Method to return the user's user name
+	   * @return user's user name
 	   */
 	  public String getUserName()
 	  {

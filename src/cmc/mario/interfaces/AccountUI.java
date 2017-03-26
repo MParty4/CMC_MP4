@@ -1,18 +1,17 @@
 package cmc.mario.interfaces;
-
+/**
+ * File: AccountUI.java
+ */
 import cmc.mario.controllers.AccountController;
 import cmc.mario.entities.Account;
 
-/*
- * File: AccountUI.java
- */
 /**
  * AccountUI - account user class for cmc system. 
  * This class creates the methods that account, userUI, and adminUI must include.
  * 
  * @authors Mario Party 4 - Kalila Moua
  * @modify Yidan Zhang
- * @version 3/20/2017
+ * @version 3/26/2017
  */
 public class AccountUI{
   
@@ -22,7 +21,7 @@ public class AccountUI{
 	  public AccountController acctCtr;
 	  
 	   /**
-	   * default constructor
+	   * Default constructor
 	   */
 	  public AccountUI()
 	  {
@@ -30,7 +29,7 @@ public class AccountUI{
 	  }
 	  
 	  /**
-	   * This method is to test if the user is logged off or not. //update in class diagram
+	   * This method is to test if the user is logged off or not. 
 	   * @return true if user is logged off, false otherwise
 	   */ 
 	  public boolean logOff(){

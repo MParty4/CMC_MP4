@@ -1,4 +1,4 @@
-/*
+/**
  * File: Admin.java
  */
 package cmc.mario.entities;
@@ -8,7 +8,7 @@ package cmc.mario.entities;
  * information about an Admin extends Account 
  * 
  * @author Mario Party 4: Yidan Zhang
- * @version 03/20/2017
+ * @version 03/26/2017
  */
 public class Admin extends Account{
   /**
@@ -18,11 +18,11 @@ public class Admin extends Account{
     super.setTypeOfUser('a');
   }
   /**
-   * 
-   * @param firstName first name of this admin
-   * @param lastName last name of this admin
-   * @param userName user name of this admin
-   * @param password password of this admin
+   * Constructor to set first name, last name, user name, and password of created instance
+   * @param firstName first name of this administrator
+   * @param lastName last name of this administrator
+   * @param userName user name of this administrator
+   * @param password password of this administrator
    */
   public Admin(String firstName, String lastName, String userName, String password){
 	  super.setTypeOfUser('a');

@@ -1,24 +1,24 @@
 package cmc.mario.controllers;
-
+/**
+ * File: SearchController.java
+ */
 import java.lang.reflect.Array;
 import java.util.*;
 
 import cmc.mario.entities.University;
 
 /**
- * File: SearchController.java
- *
  * SearchController class which helps search universities which meet the
  * requirements from user extends userFuncController
  * 
  * @author Mario Party 4: Jing Thao and Kalila Moua
- * @version March 19, 2017
+ * @version 3/26/17
  */
 public class SearchController {
 	private DBController dbControl;
 
-	//
-	/*
+
+	/**
 	 * Constructor of the class: Inherited from super class: AccountController
 	 */
 	public SearchController() {
@@ -26,7 +26,7 @@ public class SearchController {
 	}
 
 	/**
-	 * Searches for schools with the conditions given -Kalila
+	 * Searches for schools with the conditions given 
 	 * 
 	 * @param schoolName
 	 *            the school name of the university
@@ -100,9 +100,7 @@ public class SearchController {
 
 	/**
 	 * Gives a list of recommendations for the school that was chosen
-	 * 
-	 * @param u
-	 *            the university to be compared to.
+	 * @param u the university to be compared to.
 	 * @return A list of universities
 	 */
 	public List<University> viewRecommendation(University u) {

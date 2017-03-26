@@ -1,5 +1,5 @@
 package cmc.mario.interfaces;
-/*
+/**
  * File: UserUI.java
  */
 
@@ -15,7 +15,7 @@ import cmc.mario.entities.User;
  * UserUI is an class for Users
  * 
  * @author Tre Vazquez | Mario Party 4
- * @version 03/20/2017
+ * @version 03/26/2017
  */
 
 public class UserUI extends AccountUI{ 
@@ -24,11 +24,15 @@ public class UserUI extends AccountUI{
 	 */
 	public UserFuncController userContr;
 	
+	 /**
+	   * Default Constructor of the class
+	   */
 	public UserUI(){
 		this.userContr = new UserFuncController();
 	 }
 	  /**
 	   * Constructor of the class
+	   * @param user the User object
 	   */
 	public UserUI(User user){
 	    this.userContr = new UserFuncController(user);
@@ -46,74 +50,46 @@ public class UserUI extends AccountUI{
 	  /**
 	   * Removes desired school from the User's saved school list
 	   * @param schoolName the name of the school to be removed 
-	   */ 
-	  /**
-	   * Removes desired school from the User's saved school list
-	   * @param schoolName the name of the school to be removed 
+	   * @return true if the school was successfully removed, otherwise false
 	   */ 
 	  public boolean removeSavedSchool(String schoolName){
 		 return this.userContr.removeSavedSchool(schoolName);
 	  }
 		/**
-		 * Searches for schools with the conditions given -Kalila
+		 * Searches for schools with the conditions given
 		 * 
-		 * @param schoolName
-		 *            the school name of the university
-		 * @param state
-		 *            the state of the university
-		 * @param location
-		 *            the location of the university
-		 * @param control
-		 *            the type of school (e.g. private)
-		 * @param numOfStuStart
-		 *            the number of students starting range number
-		 * @param numOfStuEnd
-		 *            the number of students ending range number
-		 * @param perFemStart
-		 *            the percentage of students who are female starting range
-		 *            number
-		 * @param perFemEnd
-		 *            the percentage of students who are female ending range number
-		 * @param satVerbalStart
-		 *            the starting range for SAT verbal score
-		 * @param satVerbalEnd
-		 *            the ending range for SAT verbal score
-		 * @param satMathStart
-		 *            the starting range for SAT math score
-		 * @param satMathEnd
-		 *            the ending range for SAT math score
-		 * @param priceStart
-		 *            the starting range for price/expenses
-		 * @param priceEnd
-		 *            the ending range for price/expenses
-		 * @param finAidStart
-		 *            the starting range for financial aid percentage
-		 * @param finAidEnd
-		 *            the ending range for financial aid percentage
-		 * @param numOfAppStart
-		 *            the user gives
-		 * @param perAdmitStart
-		 *            the starting range for admitted students percentage
-		 * @param perAdmitEnd
-		 *            the ending range for admitted students percentage
-		 * @param perEnrollStart
-		 *            the starting range for enrolled students percentage
-		 * @param perEnrollEnd
-		 *            the ending range for enrolled students percentage
-		 * @param academicScaleStart
-		 *            the starting range for quality of academics
-		 * @param academicScaleEnd
-		 *            the ending range for quality of academics
-		 * @param socialScaleStart
-		 *            the starting range for quality of social
-		 * @param socialScaleEnd
-		 *            the ending range for quality of social scale
-		 * @param lifeScaleStart
-		 *            the starting range for quality of life scale
-		 * @param lifeScaleEnd
-		 *            the ending range for quality of life scale
-		 * @param popMajor
-		 *            an list of popular major or emphases at the university
+		 * @param schoolName name of the school
+		   * @param state the state where the school is located
+		   * @param location what type of area is the school located at
+		   * @param control the type of school (e.g. private)
+		   * @param numOfStuStart number of students attending school starting amount
+		   * @param numOfStuEnd number of students attending school ending amount
+		   * @param perFemStart percentage of females attending starting amount
+		   * @param perFemEnd percentage of females attending ending amount
+		   * @param satVerbalStart average SAT Verbal score starting amount
+		   * @param satVerbalEnd average SAT Verbal score ending amount
+		   * @param satMathStart average SAT Math score starting amount
+		   * @param satMathEnd average SAT Math score ending amount
+           * @param priceStart total expenses for a year at school starting amount
+		   * @param priceEnd total expenses for a year at school ending amount
+		   * @param finAidStart the percentage of students receiving financial aid starting amount
+		   * @param finAidEnd the percentage of students receiving financial aid ending amount
+		   * @param numOfAppStart the number of applications the school receives starting amount
+		   * @param numOfAppEnd the number of applications the school receives ending amount
+		   * @param perAdmitStart the percentage of admitted students condition starting amount
+		   * @param perAdmitEnd the percentage of admitted students ending amount
+		   * @param perEnrollStart the percentage of students enrolled starting amount
+		   * @param perEnrollEnd the percentage of students enrolled after applying ending amount
+		   * @param controlStart the control of school amount
+		   * @param controlEnd the control of school ending amount
+		   * @param academicScaleStart the scale of academic life on campus starting amount
+		   * @param academicScaleEnd the scale of academic life on campus ending amount
+		   * @param socialScaleStart the scale of social life on campus starting amount
+		   * @param socialScaleEnd the scale of social life on campus ending amount
+		   * @param lifeScaleStart the scale of life on campus starting amount
+		   * @param lifeScaleEnd the scale of life on campus ending amount
+		   * @param popMajor a list of popular majors at university
+		   * @return list of university which matches criteria entered by user
 		 */
 	  public List<University> search(String schoolName, String state, String location, String control, int numOfStuStart, int numOfStuEnd, 
 				 int perFemStart,int perFemEnd, int satVerbalStart, int satVerbalEnd, int satMathStart, int satMathEnd, int priceStart, int priceEnd,
@@ -137,6 +113,7 @@ public class UserUI extends AccountUI{
 	  
 	  /**
 	   * Displays specific school selected to user.
+	   * @param schoolName the school name of the university
 	   * @return university object containing university details
 	   */
 	  public University viewSpecificSchool(String schoolName){
@@ -156,13 +133,14 @@ public class UserUI extends AccountUI{
 	  /**
 	   * Grants user the ability to save a school to their saved school lists
 	   * @param schoolName the name of the school to be saved
+	   * @return true if school is saved successfully, otherwise false
 	   */
 	  public boolean saveSchool(String schoolName){
 		 return this.userContr.saveSchool(schoolName);
 	  }
 	  
 	  /**
-	   * displays the user profile to the user.
+	   * Displays the user profile to the user.
 	   * @return user object to preview user details
 	   */
 	  public User viewPersonalProfile(){
@@ -174,6 +152,7 @@ public class UserUI extends AccountUI{
 	   * @param firstName the user's firstName
 	   * @param lastName the user's lastName
 	   * @param password the user's password
+	   * @return true if user can edit personal profile, otherwise false
 	   */   
 	  public boolean editPersonalProfile(String userName, String firstName, String lastName, String password){
 		  return this.userContr.editPersonalProfile(userName, firstName, lastName, password);

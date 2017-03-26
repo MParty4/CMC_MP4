@@ -1,5 +1,7 @@
 package cmc.mario.controllers;
-
+/**
+ * File: AccountController.java
+ */
 import cmc.mario.entities.Account;
 import cmc.mario.entities.Admin;
 import cmc.mario.entities.User;
@@ -7,23 +9,20 @@ import cmc.mario.interfaces.AccountUI;
 import cmc.mario.interfaces.AdminUI;
 import cmc.mario.interfaces.UserUI;
 
-/*
- * File: AccountController.java
- */
 /**
  * AccountController - Controller to control account functionality.
  * 
  * @authors Mario Party 4 - Kalila Moua
  * @modify Yidan Zhang
- * @version 3/20/2017
+ * @version 3/26/2017
  */
 public class AccountController {
 	  /**
-	   * Account object for acct controller to communicate to
+	   * Account object for account controller to communicate to
 	   */
 	  private Account acct;
 	  /**
-	   * DBController object for acct controller to search data
+	   * DBController object for account controller to search data
 	   */
 	  public DBController database;
 	  /**
@@ -103,7 +102,7 @@ public class AccountController {
 		  if(person==null){
 			  throw new IllegalArgumentException("The account does not exist");
 		  }
-		if(person.type=='u'){
+		if(person.getTypeOfUser()=='u'){
 			return 'u';
 		}
 		else{
@@ -113,6 +112,7 @@ public class AccountController {
 
 
 	/**
+	 * Method to return account object
 	 * @return the acct
 	 */
 	public Account getAcct() {
@@ -121,6 +121,7 @@ public class AccountController {
 
 
 	/**
+	 * Method to set account object
 	 * @param acct the acct to set
 	 */
 	public void setAcct(Account acct) {

@@ -1,41 +1,41 @@
 package cmc.mario.entities;
-/*
+/**
  * File: Account.java
  */
 /**
  * Account - Account home/entity to create an instance of an account in CMC system for a user.
- * @authors Mario Party 4 - Kalila Moua
- * @version 3/16/17
+ * @authors Mario Party 4 | Kalila Moua
+ * @version 3/26/17
  */
 public class Account{
 	/**
 	   * First name of user
 	   */
-	   String firstName;
+	   protected String firstName;
 	  /**
 	   * Last name of user
 	   */
-	   String lastName;
+	   protected String lastName;
 	  /**
 	   * Password of user
 	   */
-	 String password;
+	 protected String password;
 	  /**
-	   * Username of user
+	   * User name of user
 	   */
-	  public String username;
+	 protected String username;
 	  /**
 	   * Type of user
 	   */
-	  public char type;
+	 protected char type;
 	  /**
 	   * "Y" for active account, "N" for inactive account
 	   */
-	  public char status;
+	 protected char status;
 	  /**
 	   * if user is active or not, true if active, otherwise false
 	   */
-	   boolean isActive;
+	 protected boolean isActive;
 	  
 	  /**
 	   * Default constructor
@@ -45,17 +45,16 @@ public class Account{
 		  this.lastName=null;
 		  this.username = null;
 		  this.password = null;
-	   
 	  }
 
 
 	/**
-	 * Second constructor with param first name, last name, password, user name, type, status
+	 * Second constructor with parameter first name, last name, password, user name, type, status
 	 * @param firstName the first name of this user
 	 * @param lastName the last name of this user
 	 * @param password the password the user sets
 	 * @param username the user name the user uses
-	 * @param type user is regular user or an admin
+	 * @param type user is regular user or an administrator
 	 * @param status if is account is active
 	 */
 	public Account(String firstName, String lastName, String username, String password, char type, char status) {
@@ -70,15 +69,15 @@ public class Account{
 
 	  /**
 	   * Method gets the password from the user input.
-	   * @return password is returned
+	   * @return password of user
 	   */
 	  public String getPassword(){
 	    return this.password;
 	  }
 	  
 	  /**
-	   * Method gets the username from the user input.
-	   * @return username is returned
+	   * Method gets the user name from the user input.
+	   * @return user name of user
 	   */
 	  public String getUsername(){
 	    return this.username;
@@ -86,7 +85,7 @@ public class Account{
 	  
 	  /**
 	   * Method gets the first name from the user input.
-	   * @return first name is returned
+	   * @return first name of user
 	   */
 	  public String getFirstName(){
 	    return this.firstName;
@@ -94,7 +93,7 @@ public class Account{
 	  
 	  /**
 	   * Method gets the last name from the user input.
-	   * @return last name is returned
+	   * @return last name of user
 	   */
 	  public String getLastName(){
 	    return this.lastName;
@@ -102,30 +101,30 @@ public class Account{
 	  
 	  /**
 	   * Method gets the type of user from the user input.
-	   * @return type of user is returned
+	   * @return type of user of user
 	   */
 	  public char getTypeOfUser(){
 	    return this.type;
 	  }
 	  /**
 	   * Get status of this account if "Y" is active account, otherwise is inactive
-	   * @return
+	   * @return status of the user
 	   */
 	  public char getStatus(){
 		return this.status;
 	  }
 	  
 	  /**
-	   * gets account active status
-	   * @return true if isActive
+	   * Gets account status based on user
+	   * @return true if user is active or not
 	   */
 	  public boolean isActive(){
 		  return this.isActive;
 		  
 	  }
 	  /**
-	   * sets account active status
-	   * @param isAcitve if is log on currently
+	   * Sets account active status
+	   * @param isAcitve if the user is logged on currently
 	   */
 	  public void setActive(boolean isActive){
 		  this.isActive=isActive;
@@ -140,15 +139,15 @@ public class Account{
 	  }
 	  
 	  /**
-	   * sets account status
-	   * @param  current status of this account(active or inactive)
+	   * Sets account status of user
+	   * @param current status of this account(active or inactive)
 	   */
 	  public void setStatus(char status){
 		  this.status = status;
 	  }
 	  
 	  /**
-	   * sets the user's firstname
+	   * Allows the user to set their own password
 	   * @param password the user's password
 	   */
 	  public void setPassword(String password)
@@ -157,8 +156,8 @@ public class Account{
 	  }
 	  
 	  /**
-	   * sets the user's firstname
-	   * @param firstName the user's firstname
+	   * Allows the user to set their own first name
+	   * @param firstName the user's first name
 	   */
 	  public void setFirstName(String firstName)
 	  {
@@ -166,8 +165,8 @@ public class Account{
 	  }
 	  
 	  /**
-	   * sets the user's lastname
-	   * @param lastname the user's lastname
+	   * Allows the user to set their own last name
+	   * @param lastname the user's last name
 	   */
 	  public void setLastName(String lastName)
 	  {
@@ -175,8 +174,8 @@ public class Account{
 	  }
 	  
 	  /**
-	   * Sets the users username
-	   * @param username the user's username
+	   * Sets the users user name
+	   * @param username the user's user name
 	   */
 	  public void setUsername(String username){
 		  this.username = username;

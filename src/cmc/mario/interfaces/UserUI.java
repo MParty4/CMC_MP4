@@ -47,8 +47,12 @@ public class UserUI extends AccountUI{
 	   * Removes desired school from the User's saved school list
 	   * @param schoolName the name of the school to be removed 
 	   */ 
-	  public void removeSavedSchool(University schoolName){
-		  this.userContr.removeSavedSchool(schoolName);
+	  /**
+	   * Removes desired school from the User's saved school list
+	   * @param schoolName the name of the school to be removed 
+	   */ 
+	  public boolean removeSavedSchool(String schoolName){
+		 return this.userContr.removeSavedSchool(schoolName);
 	  }
 		/**
 		 * Searches for schools with the conditions given -Kalila
@@ -171,7 +175,7 @@ public class UserUI extends AccountUI{
 	   * @param lastName the user's lastName
 	   * @param password the user's password
 	   */   
-	  public void editPersonalProfile(String userName, String firstName, String lastName, String password){
-		  this.userContr.editPersonalProfile(userName, firstName, lastName, password);
+	  public boolean editPersonalProfile(String userName, String firstName, String lastName, String password){
+		  return this.userContr.editPersonalProfile(userName, firstName, lastName, password);
 	  }
 }

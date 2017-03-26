@@ -158,14 +158,41 @@ public class CMCDriver {
 		
 	}
 	public void run() throws NullPointerException{
-		System.out.println(usr.saveSchool("BOSTON COLLEGE"));
+	//  Use case U2 and U9 Save school and view saved school
+			System.out.println("START OF ADD SAVED SCHOOL U9" + "\n" + "**************************************");
+			System.out.println(usr.saveSchool("BOSTON COLLEGE"));
+			System.out.println(usr.saveSchool("AUGSBURG"));
+			System.out.println(usr.saveSchool("BARD"));
+			System.out.println("END OF ADD SAVED SCHOOL U9" + "\n" + "**************************************"+ "\n");
+			
+			System.out.println("START OF VIEW SAVED SCHOOL U2" + "\n" + "**************************************" );
+			System.out.println("Should display Boston , augsburg, and bard"+ "\n");
+			List<University> un=usr.viewSavedSchools();
+			for(University a1:un){
+			System.out.println(a1.getSchoolName()+"     "+a1.getLocation()+"    "+a1.getState()+"     "+a1.getControl()+"      "+a1.getNumOfStu()+
+					"       "+a1.getPerFem()+"   "+a1.getSatVerbal()+"   "+a1.getSatVerbal()+"   "+a1.getPrice()+"   "+a1.getFinAid()+"   "+a1.getNumOfApp()+
+					"   "+a1.getPerAdmit()+"   "+a1.getPerEnroll()+"   "+a1.getAcademicScale()+"   "+a1.getSocialScale()+"   "+a1.getLifeScale());
+		}
+			System.out.println("END OF VIEW SAVED SCHOOL U2" + "\n" + "**************************************"+ "\n" );
+//		Use case U3 remove saved school		
+			System.out.println("START OF REMOVE SAVED SCHOOL U3" + "\n" + "**************************************" );
+			System.out.println("Should only display Boston and Bard"+ "\n");
+			System.out.println(usr.removeSavedSchool("AUGSBURG"));
+			List<University> uno=usr.viewSavedSchools();
+			for(University a1:uno){
+			System.out.println(a1.getSchoolName()+"     "+a1.getLocation()+"    "+a1.getState()+"     "+a1.getControl()+"      "+a1.getNumOfStu()+
+					"       "+a1.getPerFem()+"   "+a1.getSatVerbal()+"   "+a1.getSatVerbal()+"   "+a1.getPrice()+"   "+a1.getFinAid()+"   "+a1.getNumOfApp()+
+					"   "+a1.getPerAdmit()+"   "+a1.getPerEnroll()+"   "+a1.getAcademicScale()+"   "+a1.getSocialScale()+"   "+a1.getLifeScale());
+			
+			}
+			System.out.println("END OF REMOVE SAVED SCHOOL U3" + "\n" + "**************************************" );
+	// USE CASE U10 EDIT PERSONAL PROFILE
+			System.out.println("START OF EDIT PROFILE U" + "\n" + "**************************************" );
+			System.out.println(usr.viewPersonalProfile().getLastName());
+			System.out.println(usr.editPersonalProfile("juser", "John", "Diller", "user"));
+			System.out.println(usr.viewPersonalProfile().getLastName());
 		
-		List<University> un=usr.viewSavedSchools();
-		for(University a1:un){
-		System.out.println(a1.getSchoolName()+"     "+a1.getLocation()+"    "+a1.getState()+"     "+a1.getControl()+"      "+a1.getNumOfStu()+
-				"       "+a1.getPerFem()+"   "+a1.getSatVerbal()+"   "+a1.getSatVerbal()+"   "+a1.getPrice()+"   "+a1.getFinAid()+"   "+a1.getNumOfApp()+
-				"   "+a1.getPerAdmit()+"   "+a1.getPerEnroll()+"   "+a1.getAcademicScale()+"   "+a1.getSocialScale()+"   "+a1.getLifeScale());
-	}
+			System.out.println("END OF EDIT PROFILE U" + "\n" + "**************************************" );
 		
 //////		Recommendation --Jing
 System.out.println("START OF RECOMMENDATION CLASS");

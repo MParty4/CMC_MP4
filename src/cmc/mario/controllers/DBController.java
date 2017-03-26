@@ -36,7 +36,7 @@ public class DBController {
    * @param username the user's userName
    * @throws IllegalArgumentException if account cannot be found
    */ 
-  public void editPersonalProfile(String userName, String firstName, String lastName, String password){
+  public boolean editPersonalProfile(String userName, String firstName, String lastName, String password){
 	  Account x = this.getSpecificUser(userName);
 	  if(x==null)
 	  {
@@ -46,8 +46,12 @@ public class DBController {
 	  {
 		  char type = x.getTypeOfUser();
 		  char status = x.status;
-		  univLib.user_editUser(userName, firstName, lastName, password, type, status);
+		  
+		  int i = univLib.user_editUser(userName, firstName, lastName, password, type, status);
+		  if (i ==1)
+			  {return true;}
 	  }
+	  return false;
   }
 
 
@@ -344,43 +348,50 @@ public boolean addUser(String firstName, String lastName, String username, Strin
    * @param school the name of the school to be removed
    * @throws NoSuchElementException if the user's saved list is empty
    */
-  public void removeSavedSchool(User user, University schoolName) {
-	// TODO Auto-generated method stub
-	  List<University> userList =this.getSavedSchools(user.getUserName());
-	  if(userList.isEmpty())
-	  {
-		  throw new NoSuchElementException("The User's saved list is empty, you cannot remove from an empty list");
-	  }
-	  for(University u: userList)
-	  {
-		  if(u.equals(schoolName))
-		  { 
-			  userList.remove(u);
-		  }
-	  }
-	  
-	  //univLib.user_removeSchool(user.getUsername(),schoolName.getSchoolName());
-}
+	  public boolean removeSavedSchool(User user, String schoolName) {
+			// TODO Auto-generated method stub
+			  List<University> userList =this.getSavedSchools(user.getUserName());
+			  if(userList.isEmpty())
+			  {
+				  throw new NoSuchElementException("The User's saved list is empty, you cannot remove from an empty list");
+			  }
+			  for(University u: userList)
+			  {
+				  if(u.equals(schoolName))
+				  { 
+					  //userList.remove(u);
+					  return true;
+				  }
+			  }
+				int i = univLib.user_removeSchool(user.getUsername(),schoolName);
+				//System.out.println(i);
+				if(i==1){
+					return true;
+				}
+				return false;
+			  
+			  //univLib.user_removeSchool(user.getUsername(),schoolName.getSchoolName());
+		}
 /**
  * method that will add a selected school to a specified user's saved school list
  * @param user user who will be adding to their list
  * @param schoolName name of school to be added to the saved school list
  */
-public boolean addSavedSchool(User user, String schoolName) {
-	List<University> list = this.getSavedSchools(user.getUsername());
-	for(University u: list){
-		if(u.getSchoolName().equals(schoolName)){
-		return false;
+	  public boolean addSavedSchool(User user, String schoolName) {
+			List<University> list = this.getSavedSchools(user.getUsername());
+			for(University u: list){
+				if(u.getSchoolName().equals(schoolName)){
+				return false;
+				}
+			}
+			int i = univLib.user_saveSchool(user.getUsername(), schoolName);
+			//System.out.println(i);
+			if(i==1){
+				return true;
+			}
+			return false;
+			
 		}
-	}
-	int i = univLib.user_saveSchool(user.getUsername(), schoolName);
-	System.out.println(i);
-	if(i==1){
-		return true;
-	}
-	return false;
-	
-}
 
 	/**
 	 * Method to get emphases for specific university - helper method

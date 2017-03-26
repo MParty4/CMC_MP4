@@ -61,10 +61,11 @@ public class UserFuncController {
    * Removes desired school from the User's saved school list
    * @param schoolName the name of the school to be removed 
    */
-  public void removeSavedSchool(University schoolName)
+  public boolean removeSavedSchool(String schoolName)
   {
-    this.dbc.removeSavedSchool(this.user, schoolName);
+    return this.dbc.removeSavedSchool(this.user, schoolName);
   }
+  
   
   /**
    * The search method which sorts known universities depending in 
@@ -164,7 +165,7 @@ public class UserFuncController {
    */
   public User viewPersonalProfile()
   {
-    return (User) this.dbc.getSpecificUser(this.user.getUserName()); 
+    return (User)this.dbc.getSpecificUser(this.user.getUserName()); 
   }
   
   /**
@@ -174,8 +175,8 @@ public class UserFuncController {
    * @param lastName the user's lastName
    * @param password the user's password
    */
-  public void editPersonalProfile(String userName, String firstName, String lastName, String password)
+  public boolean editPersonalProfile(String userName, String firstName, String lastName, String password)
   {
-    this.dbc.editPersonalProfile(userName, firstName, lastName, password);
+    return this.dbc.editPersonalProfile(userName, firstName, lastName, password);
   }
 }

@@ -144,19 +144,26 @@ public boolean addUser(String firstName, String lastName, String username, Strin
    */
   public boolean addUniversity(String school, String state, String location, String control, int numberOfStudents, int percentFemales, int SATVerbal, int SATMath, 
 		  int expenses, int percentFinancialAid, int numberOfApplicants, int percentAdmitted, int percentEnrolled, 
-		  int academicsScale, int socialScale, int qualityOfLifeScale,String popMajors){
+		  double academicsScale, double socialScale, double qualityOfLifeScale, String[] popMajors){
 	  University u = this.viewSpecificSchool(school);
-	  if(!(u==null)){
+	  if(u.getSchoolName()!=null){
 		  return false;
 	  }
 	  int i =univLib.university_addUniversity(school, state, location, control, 
 			  numberOfStudents, percentFemales, SATVerbal, SATMath, expenses, percentFinancialAid, 
-			  numberOfApplicants, percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
+			  numberOfApplicants, percentAdmitted, percentEnrolled, (int)academicsScale, (int)socialScale, (int)qualityOfLifeScale);
 	  if(!(i==1)){
 		  return false;
+		  
 	  }
-	  int j =univLib.university_addUniversityEmphasis(school, popMajors);
+	  String pop ="";
+	  for(int k=0; k<popMajors.length; k++){
+		  pop +=popMajors[k]+", ";
+	  }
+	  System.out.println(pop);
+	  int j =univLib.university_addUniversityEmphasis(school, pop);
 	  if(j!=1){
+		  System.out.println("e");
 		  return false;
 	  }
     return true;
@@ -183,16 +190,17 @@ public boolean addUser(String firstName, String lastName, String username, Strin
     * @param lifeScale which is scale of life to update
     * @param popMajor which is the emphases majors of this school to update
    */
-  public boolean editUniversity(String school, String state, String location, String control, int numOfStu, int perFem, int satVerbal
-                       , int satMath, int price, int finAid, int numOfApp, int perAdmit, int perEnroll, int academicScale
-                       , int socialScale, int lifeScale){
+  public boolean editUniversity(String school, String state, String location, String control, int numberOfStudents, int percentFemales, int SATVerbal, int SATMath, 
+		  int expenses, int percentFinancialAid, int numberOfApplicants, int percentAdmitted, int percentEnrolled, 
+		  double academicsScale, double socialScale, double qualityOfLifeScale){
 	  University u = this.viewSpecificSchool(school);
 	  
 	  if(u==null){
 		  return false;
 	  }
-	  int i = univLib.university_editUniversity(school, state, location, control, numOfStu, perFem, satVerbal, satMath, 
-			  price, finAid, numOfApp, perAdmit, perEnroll, academicScale, socialScale, lifeScale);
+	  int i = univLib.university_editUniversity(school, state, location, control, 
+			  numberOfStudents, percentFemales, SATVerbal, SATMath, expenses, percentFinancialAid, 
+			  numberOfApplicants, percentAdmitted, percentEnrolled, (int)academicsScale, (int)socialScale, (int)qualityOfLifeScale);
 	  if(!(i==1)){
 		  return false;
 	  }
@@ -263,22 +271,22 @@ public boolean addUser(String firstName, String lastName, String username, Strin
     University u = new University();
     for(String[] arr: univList){
     	 if(arr[0].equals(schoolName)){
-    	u.setSchoolName(arr[0]);
-    	u.setState(arr[1]);
-    	u.setLocation(arr[2]);
-    	u.setControl(arr[3]);
-    	u.setNumOfStu(Integer.parseInt(arr[4]));
-    	u.setPerFem(Integer.parseInt(arr[5]));
-    	u.setSatVerbal(Integer.parseInt(arr[6]));
-    	u.setSatMath(Integer.parseInt(arr[7]));
-    	u.setPrice(Integer.parseInt(arr[8]));
-    	u.setFinAid(Integer.parseInt(arr[9]));
-    	u.setNumOfApp(Integer.parseInt(arr[10]));
-    	u.setPerAdmit(Integer.parseInt(arr[11]));
-    	u.setPerEnroll(Integer.parseInt(arr[12]));
-    	u.setAcademicScale(Integer.parseInt(arr[13]));
-    	u.setSocialScale(Integer.parseInt(arr[14]));
-    	u.setLifeScale(Integer.parseInt(arr[15]));
+	    	u.setSchoolName(arr[0]);
+	    	u.setState(arr[1]);
+	    	u.setLocation(arr[2]);
+	    	u.setControl(arr[3]);
+	    	u.setNumOfStu(Integer.parseInt(arr[4]));
+	    	u.setPerFem(Integer.parseInt(arr[5]));
+	    	u.setSatVerbal(Integer.parseInt(arr[6]));
+	    	u.setSatMath(Integer.parseInt(arr[7]));
+	    	u.setPrice(Integer.parseInt(arr[8]));
+	    	u.setFinAid(Integer.parseInt(arr[9]));
+	    	u.setNumOfApp(Integer.parseInt(arr[10]));
+	    	u.setPerAdmit(Integer.parseInt(arr[11]));
+	    	u.setPerEnroll(Integer.parseInt(arr[12]));
+	    	u.setAcademicScale(Double.parseDouble(arr[13]));
+	    	u.setSocialScale(Double.parseDouble(arr[14]));
+	    	u.setLifeScale(Double.parseDouble(arr[15]));
     	 }
     }
     return u;
@@ -385,7 +393,6 @@ public boolean addUser(String firstName, String lastName, String username, Strin
 				}
 			}
 			int i = univLib.user_saveSchool(user.getUsername(), schoolName);
-			//System.out.println(i);
 			if(i==1){
 				return true;
 			}
@@ -485,10 +492,7 @@ public boolean addUser(String firstName, String lastName, String username, Strin
 							resultT.add(u); //if list does not have school then add to list
 					}	
 				}
-			 System.out.println("r");
-			 System.out.println(resultT.get(0).getSchoolName());
-			 System.out.println(resultT.size());
-			
+			 
 			 String[][] emphases = univLib.university_getNamesWithEmphases();
 			 if(popMajor.length==0){
 				 return resultT;

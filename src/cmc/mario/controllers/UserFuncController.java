@@ -5,6 +5,7 @@ package cmc.mario.controllers;
 
 import java.util.*;
 
+import cmc.mario.entities.Account;
 import cmc.mario.entities.University;
 import cmc.mario.entities.User;
 
@@ -180,9 +181,9 @@ public class UserFuncController {
    * Displays the user profile to the user.
    * @return user object to preview user details
    */
-  public User viewPersonalProfile()
+  public Account viewPersonalProfile()
   {
-    return (User)this.dbc.getSpecificUser(this.user.getUserName()); 
+    return this.dbc.getSpecificUser(this.user.getUserName()); 
   }
   
   /**

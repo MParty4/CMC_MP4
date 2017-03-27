@@ -66,13 +66,10 @@ public class AccountController {
 	   * @return true if the user is logged on and authentication is confirmed, otherwise return false
 	   */
 	  public AccountUI logOn(String username, String password){
-		  Account thisPerson = database.getSpecificUser(username);
-		  System.out.println(thisPerson.getUsername()+" "+thisPerson.getFirstName());
-		 
+		  Account thisPerson = database.getSpecificUser(username);		 
 			  if(password.equals(thisPerson.getPassword())){
 				 if(thisPerson.getStatus()=='Y'){
 					 if(thisPerson.getTypeOfUser()=='a'){
-						 System.out.println("r");
 						 thisPerson.setActive(true);
 						 return new AdminUI(new Admin(thisPerson.getFirstName(),thisPerson.getLastName(),thisPerson.getUsername(),thisPerson.getPassword()));
 					 }

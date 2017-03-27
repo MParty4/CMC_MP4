@@ -132,7 +132,7 @@ public AdminFuncController(Admin adm, DBController dbContr) {
 	 */
   public boolean addUniversity(String school, String state, String location, String control, int numberOfStudents, int percentFemales, int SATVerbal, int SATMath, 
 		  int expenses, int percentFinancialAid, int numberOfApplicants, int percentAdmitted, int percentEnrolled, 
-		  int academicsScale, int socialScale, int qualityOfLifeScale, String popMajors){
+		  double academicsScale, double socialScale, double qualityOfLifeScale, String[] popMajors){
     return this.dbContr.addUniversity(school, state, location, control, 
 			  numberOfStudents, percentFemales, SATVerbal, SATMath, expenses, percentFinancialAid, 
 			  numberOfApplicants, percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale,popMajors);
@@ -169,11 +169,12 @@ public AdminFuncController(Admin adm, DBController dbContr) {
 		   * @param popMajor a list of popular majors at university
 		   * @return true if the university is edited, otherwise false
    */    
-  public boolean editUniversity(String school, String state, String location, String control, int numOfStu, int perFem, int satVerbal
-                               , int satMath, int price, int finAid, int numOfApp, int perAdmit, int perEnroll, int academicScale
-                               , int socialScale, int lifeScale){
-    return this.dbContr.editUniversity(school, state, location, control, numOfStu, perFem, satVerbal, satMath, 
-			  price, finAid, numOfApp, perAdmit, perEnroll, academicScale, socialScale, lifeScale);
+  public boolean editUniversity(String school, String state, String location, String control, int numberOfStudents, int percentFemales, int SATVerbal, int SATMath, 
+		  int expenses, int percentFinancialAid, int numberOfApplicants, int percentAdmitted, int percentEnrolled, 
+		  double academicsScale, double socialScale, double qualityOfLifeScale){
+    return this.dbContr.editUniversity(school, state, location, control, 
+			  numberOfStudents, percentFemales, SATVerbal, SATMath, expenses, percentFinancialAid, 
+			  numberOfApplicants, percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
   }
   
 }

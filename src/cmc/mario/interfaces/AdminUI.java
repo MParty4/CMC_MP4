@@ -115,7 +115,7 @@ public boolean addUser(String firstName, String lastName, String username, Strin
 		   */
 public boolean addUniversity(String school, String state, String location, String control, int numberOfStudents, int percentFemales, int SATVerbal, int SATMath, 
 		  int expenses, int percentFinancialAid, int numberOfApplicants, int percentAdmitted, int percentEnrolled, 
-		  int academicsScale, int socialScale, int qualityOfLifeScale, String popMajors){
+		  double academicsScale, double socialScale, double qualityOfLifeScale, String[] popMajors){
 	  return this.adContr.addUniversity(school, state, location, control, 
 			  numberOfStudents, percentFemales, SATVerbal, SATMath, expenses, percentFinancialAid, 
 			  numberOfApplicants, percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale, popMajors);
@@ -149,11 +149,12 @@ public boolean addUniversity(String school, String state, String location, Strin
    * @param socialScale the scale of social life on campus 
    * @param lifeScale the scale of life on campus 
    */   
-  public void editUniversity(String school, String state, String location, String control, int numOfStu, int perFem, int satVerbal
-          , int satMath, int price, int finAid, int numOfApp, int perAdmit, int perEnroll, int academicScale
-          , int socialScale, int lifeScale){
-	  this.adContr.editUniversity(school, state, location, control, numOfStu, perFem, satVerbal, satMath, 
-			  price, finAid, numOfApp, perAdmit, perEnroll, academicScale, socialScale, lifeScale);
+  public boolean editUniversity(String school, String state, String location, String control, int numberOfStudents, int percentFemales, int SATVerbal, int SATMath, 
+		  int expenses, int percentFinancialAid, int numberOfApplicants, int percentAdmitted, int percentEnrolled, 
+		  double academicsScale, double socialScale, double qualityOfLifeScale){
+	 return this.adContr.editUniversity(school, state, location, control, 
+			  numberOfStudents, percentFemales, SATVerbal, SATMath, expenses, percentFinancialAid, 
+			  numberOfApplicants, percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
   }
   
 }

@@ -18,7 +18,7 @@ public class AccountUI{
 	  /**
 	   * Account controller created for class
 	   */
-	  public AccountController acctCtr;
+	  private AccountController acctCtr;
 	  
 	   /**
 	   * Default constructor
@@ -48,7 +48,11 @@ public class AccountUI{
 	  public AccountUI logOn(String username, String password){
 		return this.acctCtr.logOn(username, password);
 	  }
-	  
+	  /**
+	   * This method to get type of user with username
+	   * @param username the name the user hope to check the the type
+	   * @return 'u' if it's a user account; 'a' if it is an admin account
+	   */
 	  public char typeOfUser(String username){
 		  return this.acctCtr.typeOfUser(username);
 	  }

@@ -23,14 +23,8 @@ public class UserUI extends AccountUI{
 	/**
 	 * User controller created for class
 	 */
-	public UserFuncController userContr;
+	private UserFuncController userContr;
 	
-	 /**
-	   * Default Constructor of the class
-	   */
-	public UserUI(){
-		this.userContr = new UserFuncController();
-	 }
 	  /**
 	   * Constructor of the class
 	   * @param user the User object

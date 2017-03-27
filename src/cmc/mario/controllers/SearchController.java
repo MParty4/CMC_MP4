@@ -15,6 +15,9 @@ import cmc.mario.entities.University;
  * @version 3/26/17
  */
 public class SearchController {
+	/**
+	 * dbcontroller created for get information from dblibrary 
+	 */
 	private DBController dbControl;
 
 
@@ -150,21 +153,9 @@ public class SearchController {
 
 						
 					}
-					//System.out.println(listRecommend2.get(i));
+					
 				}
-				//System.out.println("DONE CHECKING LISTRECOMMEND2");
 			}
-			// for(int i =0 ;i< listRecommend.length -1;i++){
-			// System.out.println(listRecommend[i][0]);
-			// System.out.println(listRecommend[i][1]);
-			//
-			//
-			//
-			// }
-			// System.out.println("LIST 2****************************");
-			//// for(int k = 0 ; k <listRecommend2.length -1 ; k++){
-			//// System.out.println(listRecommend2[k]);
-			//// }
 
 			while (uniRecommendList.size() < 5) {
 				for (int j = 0; j < 5; j++) {

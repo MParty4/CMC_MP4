@@ -14,7 +14,7 @@ import cmc.mario.entities.University;
  * an Admin is able to do extends AccountController and implements AdminUI.
  * 
  * @author Mario Party 4: Yidan Zhang
- * @modift Kalila Moua
+ * @modify Kalila Moua
  * @version 03/26/2017
  */
 
@@ -22,21 +22,18 @@ public class AdminFuncController{
 	 /**
 	   * Admin object for admin controller to communicate to
 	   */
-	  public Admin adm;
+	  private Admin adm;
 	  /**
 	   * DBController object for admin controller to search data
 	   */
-	  public DBController dbContr;
+	  private DBController dbContr;
 	
-	  public AdminFuncController(){
-		  this.dbContr = new DBController();
-	  }
   /**
    * First constructor
    * @param a current admin who is using program
    */
   public AdminFuncController(Admin a){
-    this.adm = a;
+	  this.setAdmin(a);
     dbContr = new DBController();
   }
   /**
@@ -46,7 +43,7 @@ public class AdminFuncController{
  */
 public AdminFuncController(Admin adm, DBController dbContr) {
 	super();
-	this.adm = adm;
+	this.setAdmin(adm);
 	this.dbContr = dbContr;
 }
   /**
@@ -176,5 +173,21 @@ public AdminFuncController(Admin adm, DBController dbContr) {
 			  numberOfStudents, percentFemales, SATVerbal, SATMath, expenses, percentFinancialAid, 
 			  numberOfApplicants, percentAdmitted, percentEnrolled, academicsScale, socialScale, qualityOfLifeScale);
   }
+  /**
+	 * Method to return admin object
+	 * @return the adm
+	 */
+	public Admin getAdmin() {
+		return adm;
+	}
+
+
+	/**
+	 * Method to set admin object
+	 * @param adm the adm to set
+	 */
+	public void setAdmin(Admin adm) {
+		this.adm = adm;
+	}
   
 }

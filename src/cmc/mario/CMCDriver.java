@@ -14,7 +14,7 @@ public class CMCDriver {
 	private AdminUI adm;
 	private Scanner sc;
 	/**
-	 * @param acct
+	 * 
 	 */
 	public CMCDriver() {
 		acct = new AccountUI();
@@ -266,14 +266,17 @@ public class CMCDriver {
 	 * Admin: Edit University for U20: Edit University
 	 */
 	public void editUniversity(){
-		System.out.println("--------------------------------------------Edit A University (U18)---------------------------------");
+		System.out.println("--------------------------------------------Edit A University (U20)---------------------------------");
 		System.out.println("Edit the University, AAAAA: Edit Sat Verbal: 480 && Lift Scale: 3.0");
 		System.out.println(adm.editUniversity("AAAAA", "BBBB", "CCC", "PRIVATE", 1000, 43, 460, 500, 12000, 23, 500, 30, 15, 2.5, 1.5, 3.0));
 		System.out.println("University List After Editing");
 		this.viewUniversities();
 	}
+	/**
+	 * Admin && User: log off the account for U20: Log Off
+	 */
 	public void logOff(){
-		System.out.println("---------------------------------Log Off (U20)----------------------------------");
+		System.out.println("---------------------------------Log Off (U21)----------------------------------");
 		
 		acct = (AccountUI) acct;
 		System.out.println(acct.logOff());
@@ -281,24 +284,24 @@ public class CMCDriver {
 	
 	public void run() throws NullPointerException{
 		//First Time Login as a user
-//		this.login();
-//		this.viewSaveSchools();
-//		this.removeSchool();
-//		this.viewSavedDetails();
-//		this.search();
-//		this.recommendation();
-//		this.saveSchool();
-//		this.viewPersonalProfile();
-//		this.editProfile();
-//		this.logOff();
+		this.login();
+		this.viewSaveSchools();
+		this.removeSchool();
+		this.viewSavedDetails();
+		this.search();
+		this.recommendation();
+		this.saveSchool();
+		this.viewPersonalProfile();
+		this.editProfile();
+		this.logOff();
 		//Second Time login as an admin
 		this.login();
-//		this.viewUsers();
-//		this.addUser();
-//		this.viewSpecificUser();
-//		this.editUser();
-//		this.deactivateUser();
-//		this.viewUniversities();
+		this.viewUsers();
+		this.addUser();
+		this.viewSpecificUser();
+		this.editUser();
+		this.deactivateUser();
+		this.viewUniversities();
 		this.addUniversity();
 		this.viewSpecificUniversity();
 		this.editUniversity();

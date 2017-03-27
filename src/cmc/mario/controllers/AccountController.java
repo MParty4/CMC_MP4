@@ -24,11 +24,7 @@ public class AccountController {
 	  /**
 	   * DBController object for account controller to search data
 	   */
-	  public DBController database;
-	  /**
-	   * true if user is logged on
-	   */
-	  public boolean isLoggedOn;
+	  private DBController database;
 	  
 	  /**
 	   * Default constructor

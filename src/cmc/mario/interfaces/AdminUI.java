@@ -16,19 +16,15 @@ import cmc.mario.entities.University;
  */
 
 public class AdminUI extends AccountUI{
-	
 /**
- *  Default Constructor created for class
+ * admin function controller created to apply functions of admin
  */
-public AdminFuncController adContr;
-  
-	public AdminUI(){
-	this.adContr = new AdminFuncController();
- }
+private AdminFuncController adContr;
+
   /**
    * Constructor of the class
    * 
-   * @param which user is logging in
+   * @param a which user is logging in
    */
   public AdminUI(Admin a){
     this.adContr = new AdminFuncController(a);

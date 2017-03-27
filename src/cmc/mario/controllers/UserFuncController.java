@@ -32,21 +32,13 @@ public class UserFuncController {
 	 */
 	private SearchController sc;
 	
-	/**
-	  * Constructor of the class: Inherited from super class: AccountController
-	  */
-	 public UserFuncController(){
-		  this.dbc = new DBController();
 
-		  this.sc = new SearchController();
-	  }
-	 
 	/**
    	  * Constructor of the class: Inherited from super class: AccountController
    	  * @param u the user object to be used 
    	  */
 	 public UserFuncController(User u){
-		 this.user = u;
+		 this.setUser(u);
 		 dbc = new DBController();
 		 sc = new SearchController();
 	 }
@@ -198,4 +190,20 @@ public class UserFuncController {
   {
     return this.dbc.editPersonalProfile(userName, firstName, lastName, password);
   }
+  /**
+	 * Method to return user object
+	 * @return the user
+	 */
+	public User getUser() {
+		return user;
+	}
+
+
+	/**
+	 * Method to set user object
+	 * @param usr the usr to set
+	 */
+	public void setUser(User usr) {
+		this.user = usr;
+	}
 }

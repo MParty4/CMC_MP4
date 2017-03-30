@@ -123,7 +123,7 @@ public class Account{
 		  
 	  }
 	  /**
-	   * Sets account active status
+	   * Sets account active status - Kalila (Black-box)
 	   * @param isAcitve if the user is logged on currently
 	   */
 	  public void setActive(boolean isActive){
@@ -131,15 +131,15 @@ public class Account{
 		  
 	  }
 	  /**
-	   * Set type of user
+	   * Set type of user - Kalila (Black-box)
 	   * @param type of user
 	   */
-	  public void setTypeOfUser(char typeOfUser){
+	  public void setTypeOfUser(char typeOfUser){ 
 		  this.type = typeOfUser;
 	  }
 	  
 	  /**
-	   * Sets account status of user
+	   * Sets account status of user - Kalila  (Black-box)
 	   * @param current status of this account(active or inactive)
 	   */
 	  public void setStatus(char status){
@@ -147,7 +147,7 @@ public class Account{
 	  }
 	  
 	  /**
-	   * Allows the user to set their own password
+	   * Allows the user to set their own password - Kalila (Black-box)
 	   * @param password the user's password
 	   */
 	  public void setPassword(String password)
@@ -156,7 +156,7 @@ public class Account{
 	  }
 	  
 	  /**
-	   * Allows the user to set their own first name
+	   * Allows the user to set their own first name - Kalila (Black-box)
 	   * @param firstName the user's first name
 	   */
 	  public void setFirstName(String firstName)
@@ -165,7 +165,7 @@ public class Account{
 	  }
 	  
 	  /**
-	   * Allows the user to set their own last name
+	   * Allows the user to set their own last name - Kalila  (Black-box)
 	   * @param lastname the user's last name
 	   */
 	  public void setLastName(String lastName)
@@ -175,7 +175,7 @@ public class Account{
 	  
 	  /**
 	   * Sets the users user name
-	   * @param username the user's user name
+	   * @param username the user's user name - Kalila (Black-box)
 	   */
 	  public void setUsername(String username){
 		  this.username = username;

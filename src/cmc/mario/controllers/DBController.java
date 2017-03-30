@@ -26,7 +26,7 @@ public class DBController {
   }
   
   /**
-   * This method allows the user to edit their own personal profile information.
+   * This method allows the user to edit their own personal profile information. - Yidan 
    * @param firstName the first name to change the old first name to 
    * @param lastName the last name to change the old last name to
    * @param password the password to change the old password to
@@ -34,7 +34,7 @@ public class DBController {
    * @throws IllegalArgumentException if account cannot be found
    * @return true if edit successfully
    */ 
-  public boolean editPersonalProfile(String userName, String firstName, String lastName, String password){
+  public boolean editPersonalProfile(String userName, String firstName, String lastName, String password){ 
 	  Account x = this.getSpecificUser(userName);
 	  if(x==null)
 	  {
@@ -54,7 +54,7 @@ public class DBController {
 
 
 /**
- * This method adds the user into the database -admin only.
+ * This method adds the user into the database -admin only. - Tre
  * @param firstName first name to add
  * @param lastName last name to change
  * @param password the password to change the old password to
@@ -83,7 +83,7 @@ public boolean addUser(String firstName, String lastName, String username, Strin
   }
   
   /**
-   * This method allows the admin to edit user information.
+   * This method allows the admin to edit user information. - Kalila 
    * @param firstName the first name to change the old first name to
    * @param lastName the last name to change the old last name to
    * @param password the password to change the old password to
@@ -105,7 +105,7 @@ public boolean addUser(String firstName, String lastName, String username, Strin
   
   /**
    * To deactivate user-admin only.
-   * @param username the username of the user to be deleted
+   * @param username the username of the user to be deleted - Yidan
    * @throws IllegalArgumentException if the account has already deactived or it does not exist
    * @return true if deactivate successfully
    */
@@ -120,7 +120,7 @@ public boolean addUser(String firstName, String lastName, String username, Strin
   }
   
   /**
-   * This method add a specific university - admin only.
+   * This method add a specific university - admin only. - Yidan
     * @param schoolName university to update
     * @param state which is new to update
     * @param location which is new to update
@@ -169,7 +169,7 @@ public boolean addUser(String firstName, String lastName, String username, Strin
   }
   
   /**
-   * This method edits a specific university - admin only.
+   * This method edits a specific university - admin only. - Yidan
     * @param schoolName university to update
     * @param state which is new to update
     * @param location which is new to update
@@ -209,7 +209,7 @@ public boolean addUser(String firstName, String lastName, String username, Strin
   }
   
   /**
-   * Gets the list of accounts.
+   * Gets the list of accounts. - Kalila
    * @return returns a list accounts
    */
   public List<Account> getAccountList(){
@@ -225,7 +225,7 @@ public boolean addUser(String firstName, String lastName, String username, Strin
   
   /**
    * Gets a specific user.
-   * @param username of the user need to view
+   * @param username of the user need to view - Yidan
    * @return account to return
    */
   public Account getSpecificUser(String username){
@@ -246,7 +246,7 @@ public boolean addUser(String firstName, String lastName, String username, Strin
   
   /**
    * Get universities list.
-   * @return list of universities in database.
+   * @return list of universities in database. -Tre
    */
   public List<University> getUniversities(){
     String[][] univList =univLib.university_getUniversities();
@@ -262,7 +262,7 @@ public boolean addUser(String firstName, String lastName, String username, Strin
   }
 
   /**
-   * To view specific university.
+   * To view specific university. - Tre
    * @param university name
    * @return the university
    */
@@ -293,7 +293,7 @@ public boolean addUser(String firstName, String lastName, String username, Strin
   }
 
   /**
-   * Method to retrieve list of saved schools for a specified user
+   * Method to retrieve list of saved schools for a specified user - Tre
    * @param user the user whose saved schools are being retrieved
    * @return list of saved schools
    */
@@ -321,14 +321,14 @@ public boolean addUser(String firstName, String lastName, String username, Strin
 }
 
   /**
-   * Method to remove a selected school from a user's saved school list
+   * Method to remove a selected school from a user's saved school list - Tre
    * @param user the user who is removing a school from their list
    * @param schoolName the school object to be removed
    * @param school the name of the school to be removed
    * @throws NoSuchElementException if the user's saved list is empty
    * @return true if successfully
    */
-	  public boolean removeSavedSchool(User user, String schoolName) {
+	  public boolean removeSavedSchool(User user, String schoolName) { 
 			// TODO Auto-generated method stub
 			  List<University> userList =this.getSavedSchools(user.getUserName());
 			  if(userList.isEmpty())
@@ -353,7 +353,7 @@ public boolean addUser(String firstName, String lastName, String username, Strin
 			  //univLib.user_removeSchool(user.getUsername(),schoolName.getSchoolName());
 		}
 /**
- * Method that will add a selected school to a specified user's saved school list
+ * Method that will add a selected school to a specified user's saved school list - JING
  * @param user user who will be adding to their list
  * @param schoolName name of school to be added to the saved school list
  * @return true add successfully
@@ -374,7 +374,7 @@ public boolean addUser(String firstName, String lastName, String username, Strin
 		}
 
 	/**
-	 * Method to get emphases for specific university - helper method
+	 * Method to get emphases for specific university - helper method - JING
 	 * @param universityName the name of university
 	 * @return list of strings of emphases for university
 	 */

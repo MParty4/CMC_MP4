@@ -30,7 +30,7 @@ public class AccountController {
 	   * Default constructor
 	   */
 	  public AccountController(){
-		  
+	
 	  }
 	  
 	  /**
@@ -44,7 +44,7 @@ public class AccountController {
 	  
 	   
 	  /**
-	   * This method is to test if the user is logged off or not. //update in class diagram
+	   * This method is to test if the user is logged off or not. //update in class diagram - Yidan
 	   * @return true if user is logged off, false otherwise
 	   */ 
 	  public boolean logOff(){
@@ -56,7 +56,7 @@ public class AccountController {
 	  }
 	  
 	  /**
-	   * This method is to logon to the cmc system.
+	   * This method is to logon to the cmc system. - Kalila (White box)
 	   * @param username the username the user puts in
 	   * @param password the password the user enters in
 	   * @throws IllegalArgumentException if username or password is wrong 
@@ -87,7 +87,7 @@ public class AccountController {
 	  
 	  
 	  /**
-	   * This method identifies the type of user the user is: 'a' or 'u'.
+	   * This method identifies the type of user the user is: 'a' or 'u'. -  Tre
 	   * @param username the username the user puts in
 	   * @return the character 'a' for admin, or 'u' for user
 	   */

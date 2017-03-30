@@ -15,7 +15,6 @@ public class University {
 	 * the name of a school
 	 */
 	private String schoolName;
-
 	/**
 	 * state of a school
 	 */
@@ -170,7 +169,7 @@ public class University {
 	}
 
 	/**
-	 * A method to set school name
+	 * A method to set school name - Jing
 	 * @param schoolName the schoolName to set
 	 */
 	public void setSchoolName(String schoolName) {
@@ -187,7 +186,7 @@ public class University {
 	}
 
 	/**
-	 * A method to set state school locates in
+	 * A method to set state school locates in - Jing
 	 * @param state the state to set
 	 */
 	public void setState(String state) {
@@ -203,7 +202,7 @@ public class University {
 	}
 
 	/**
-	 * A method to set location
+	 * A method to set location - Jing
 	 * @param location the location to set
 	 */
 	public void setLocation(String location) {
@@ -219,7 +218,7 @@ public class University {
 	}
 
 	/**
-	 * Set the control of the school: private or public
+	 * Set the control of the school: private or public - Jing
 	 * @param control the control to set
 	 */
 	public void setControl(String control) {
@@ -236,7 +235,7 @@ public class University {
 
 	/**
 	 * Set number of students
-	 * @param numOfStu the number of students to set field to
+	 * @param numOfStu the number of students to set field to - Jing
 	 */
 	public void setNumOfStu(int numOfStu) {
 		this.numOfStu = numOfStu;
@@ -251,7 +250,7 @@ public class University {
 	}
 
 	/**
-	 * Set percentage of female in the school
+	 * Set percentage of female in the school - Jing
 	 * @param perFem the perFem to set
 	 */
 	public void setPerFem(int perFem) {
@@ -267,7 +266,7 @@ public class University {
 	}
 
 	/**
-	 * Set sat verbal score requirement of a school
+	 * Set sat verbal score requirement of a school - Jing
 	 * @param satVerbal the satVerbal to set
 	 */
 	public void setSatVerbal(int satVerbal) {
@@ -283,7 +282,7 @@ public class University {
 	}
 
 	/**
-	 * Set sat math score requirement of a school
+	 * Set sat math score requirement of a school - Jing
 	 * @param satMath the satMath to set
 	 */
 	public void setSatMath(int satMath) {
@@ -299,7 +298,7 @@ public class University {
 	}
 
 	/**
-	 * Get expense of a school
+	 * Get expense of a school - Tre
 	 * @return the price of the school
 	 */
 	public void setPrice(int price) {
@@ -315,7 +314,7 @@ public class University {
 	}
 
 	/**
-	 * Set financial aid a school provides
+	 * Set financial aid a school provides - Tre
 	 * @param finAid
 	 *            to set
 	 */
@@ -332,7 +331,7 @@ public class University {
 	}
 
 	/**
-	 * Set number of applicants
+	 * Set number of applicants - Tre
 	 * @param numOfApp the number of applicants to set
 	 */
 	public void setNumOfApp(int numOfApp) {
@@ -348,7 +347,7 @@ public class University {
 	}
 
 	/**
-	 * Set percentage of Admitted of a school
+	 * Set percentage of Admitted of a school - Tre
 	 * @param perAdmit the percentage of admitted students to set
 	 */
 	public void setPerAdmit(int perAdmit) {
@@ -364,7 +363,7 @@ public class University {
 	}
 
 	/**
-	 * Set percentage of enrolled students of a school
+	 * Set percentage of enrolled students of a school -Tre
 	 * @param perEnroll the percentage of enrolled students to set
 	 */
 	public void setPerEnroll(int perEnroll) {
@@ -380,8 +379,8 @@ public class University {
 	}
 
 	/**
-	 * Set academic scale of a school
-	 * @param academicScale the academic scale to set
+	 * Set academic scale of a school -Yidan
+	 * @param academicScale the academic scale to set 
 	 */
 	public void setAcademicScale(double academicScale) {
 		this.academicScale = academicScale;
@@ -396,7 +395,7 @@ public class University {
 	}
 
 	/**
-	 * Set social scale of a school
+	 * Set social scale of a school -Yidan
 	 * @param socialScale the socialScale to set
 	 */
 	public void setSocialScale(double socialScale) {
@@ -411,8 +410,8 @@ public class University {
 		return lifeScale;
 	}
 
-	/**
-	 * Set life scale of a school
+	/** 
+	 * Set life scale of a school -Yidan
 	 * @param lifeScale the lifeScale to set
 	 */
 	public void setLifeScale(double lifeScale) {
@@ -428,7 +427,7 @@ public class University {
 	}
 
 	/**
-	 * Set emphases/popular majors of a school
+	 * Set emphases/popular majors of a school -Yidan
 	 * @param popMajors a string array of popMajors to set for a university
 	 */
 	public void setPopMajors(String[] popMajors) {

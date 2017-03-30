@@ -13,7 +13,7 @@ import cmc.mario.entities.User;
  * UserFuncController is an implementation for the UserUI and an extension
  * of the account controller
  * @author Tre Vazquez | Mario Party 4
- * @version 03/26/2017
+ * @version 03/27/2017
  */
 
 public class UserFuncController {
@@ -135,7 +135,7 @@ public class UserFuncController {
     dis.add(Double.toString(u.getAcademicScale()));
     dis.add(Double.toString(u.getSocialScale()));
     dis.add(Double.toString(u.getLifeScale()));
-  //  dis.addAll(u.getPopMajors());
+    dis.addAll(this.dbc.getEmphasesForUniversity(u.getSchoolName()));
     
     return dis;
   }

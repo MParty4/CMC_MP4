@@ -4,8 +4,8 @@ package cmc.mario.entities;
  */
 /**
  * Account - Account home/entity to create an instance of an account in CMC system for a user.
- * @authors Mario Party 4 | Kalila Moua
- * @version 3/26/17
+ * @author Mario Party 4: Kalila Moua
+ * @version 3/27/17
  */
 public class Account{
 	/**

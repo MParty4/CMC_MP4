@@ -6,7 +6,7 @@ import java.util.*;
 /**
  * Test driver for all functionalities
  * @author Kalila Moua,  Tre Vazquez, Jing Thao, Yidan Zhang
- * @version 03/25/2017
+ * @version 03/27/2017
  */
 public class CMCDriver {
 	private AccountUI acct;
@@ -42,10 +42,12 @@ public class CMCDriver {
 		//assign it to a user
 		if(acct instanceof UserUI){
 			usr =(UserUI)acct;
+			System.out.println("Functionalities: Search for Schools, Manage My Saved Schools, and Manage My Profile");
 		}
 		//assign it to a admin
 		else if(acct instanceof AdminUI){
 			adm=(AdminUI)acct;
+			System.out.println("Functionalities: Manage Universities and Manage Users");
 		}
 		//not exist
 		else{
@@ -60,9 +62,7 @@ public class CMCDriver {
 		System.out.println("---------------------------------Saved School List (U2)--------------------------------------");
 		List<University> un=usr.viewSavedSchools();
 		for(University a1:un){
-		System.out.println(a1.getSchoolName()+"     "+a1.getLocation()+"    "+a1.getState()+"     "+a1.getControl()+"      "+a1.getNumOfStu()+
-				"       "+a1.getPerFem()+"   "+a1.getSatVerbal()+"   "+a1.getSatVerbal()+"   "+a1.getPrice()+"   "+a1.getFinAid()+"   "+a1.getNumOfApp()+
-				"   "+a1.getPerAdmit()+"   "+a1.getPerEnroll()+"   "+a1.getAcademicScale()+"   "+a1.getSocialScale()+"   "+a1.getLifeScale());
+		System.out.println(a1.getSchoolName());
 		}
 	}
 	
@@ -88,9 +88,11 @@ public class CMCDriver {
 		System.out.println("Which school you want to view?");
 		String schoolname = sc.nextLine();
 		University u = usr.viewSpecificSchool(schoolname.toUpperCase());
-		System.out.println(u.getSchoolName()+"     "+u.getLocation()+"    "+u.getState()+"     "+u.getControl()+"      "+u.getNumOfStu()+
-				"       "+u.getPerFem()+"   "+u.getSatVerbal()+"   "+u.getSatVerbal()+"   "+u.getPrice()+"   "+u.getFinAid()+"   "+u.getNumOfApp()+
-				"   "+u.getPerAdmit()+"   "+u.getPerEnroll()+"   "+u.getAcademicScale()+"   "+u.getSocialScale()+"   "+u.getLifeScale());
+		List<String> info = usr.viewSearchResults(u);
+		for(String s : info){
+			System.out.print(s+" ");
+		}
+		System.out.println();
 	}
 	
 	/**
@@ -98,12 +100,11 @@ public class CMCDriver {
 	 */
 	public void search(){
 		System.out.println("----------------------------------Search with conditions (U5 & U6)-----------------------------");
-		 List<University> uni = usr.search("", "NEW", "", "", -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 1.2, 4.5, -1.0,-1.0, 1.0, -1.0, new String[0]);
+		 List<University> uni = usr.search("", "MINNE", "", "", -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1.0, -1.0, -1.0,-1.0, 1.0, -1.0, new String[0]);
 			for(University u : uni){
 				System.out.println(u.getSchoolName());
 			}
 	}
-	
 	/**
 	 * User: View Specific School with Recommendations for U7 and U8: View Specific School and view Recommendation
 	 */
@@ -114,13 +115,11 @@ public class CMCDriver {
 				String schoolname = sc.nextLine();
 				University uni5 = usr.viewSpecificSchool(schoolname.toUpperCase());
 				List<University> list2 =usr.viewRecommendation(uni5);
-				System.out.println("START UNIVERSITY: "+uni5.getSchoolName()+"||"+ 
-						"\n STUDENTS:"+uni5.getNumOfStu()+
-					" FEM:"+uni5.getPerFem()+" SAT MATH:"+uni5.getSatMath()+" SAT VERBAL:"+uni5.getSatVerbal()+
-						" PRICE:"+uni5.getPrice()+" FINAID:"+uni5.getFinAid()+" NUM APP:"+uni5.getNumOfApp()+
-						" ADMITTED:"+uni5.getPerAdmit()+" ENROLLED:"+uni5.getPerEnroll()+" ACADEMIC SCALE:"+uni5.getAcademicScale()+
-						" SOCIAL SCALE:"+uni5.getSocialScale()+" LIFE SCALE"+uni5.getLifeScale()
-				);
+				List<String> info = usr.viewSearchResults(uni5);
+				for(String s : info){
+					System.out.print(s+" ");
+				}
+				System.out.println();
 				System.out.println("************Recommadation List*****************");
 				for(int i = 0 ; i<5; i++){
 					System.out.println("IN LIST: "+list2.get(i).getSchoolName()+"||"+ 
@@ -185,12 +184,8 @@ public class CMCDriver {
 	 */
 	public void addUser(){
 		System.out.println("--------------------------------------------Add a specific user (U13)---------------------------");
-		System.out.println("Add an admin: First Name: Kalila, Last Name Kadmin, User Name: kadmin, Password: admin, Type: a");
-		System.out.println("If Successful? "+adm.addUser("Kalila", "kadmin", "kadmin", "admin", 'a'));
-		System.out.println("Show Accounts List After Adding");
-		this.viewUsers();
-		System.out.println("Add an user: First Name: Tre, Last Name tuser, User Name: tuser, Password: user, u");
-		System.out.println(adm.addUser("Tre", "tuser", "tuser", "user", 'u'));
+	//	System.out.println("Add an admin: First Name: Kalila, Last Name Kadmin, User Name: kadmin, Password: aduser", "user");
+		adm.addUser("Jing", "Cool", "lur", "user", 'u');
 		System.out.println("Show Accounts List After Adding");
 		this.viewUsers();
 	}
@@ -212,7 +207,7 @@ public class CMCDriver {
 	public void editUser(){
 		System.out.println("--------------------------------------------Edit a specific account (U15)------------------------------");
 		System.out.println("Change Yidan Zhang Account to: First Name: Yidan, Last Name: yuser, User Name: yuser, Password: user, Type: u, Status: Y");
-		System.out.println("If Successful?"+ adm.editUser("Yidan", "yuser", "yuser", "user", 'u', 'Y'));
+		System.out.println("If Successful?"+ adm.editUser("Yidan", "Zhang", "yuser", "user", 'u', 'Y'));
 		System.out.println("Show Accounts List After Editing");
 		this.viewUsers();
 	}
@@ -247,7 +242,7 @@ public class CMCDriver {
 	public void addUniversity(){
 		System.out.println("--------------------------------------------Add A University (U18)---------------------------------");
 		System.out.println("Add a Unviersity: School Name: AAAAA");
-		System.out.println(adm.addUniversity("AAAAA", "BBBB", "CCC", "PRIVATE", 1000, 43, 400, 500, 12000, 23, 500, 30, 15, 2.5, 1.5, 2.0, new String[]{"ART-HISTORY","FINANCE"}));
+		System.out.println(adm.addUniversity("AAAAA", "BBBB", "CCC", "PRIVATE", 1000, 43, 400, 400, 12000, 23, 500, 30, 15, 2.5, 1.5, 2.0, new String[]{"ART-HISTORY","FINANCE"}));
 		System.out.println("University List After Adding");
 		this.viewUniversities();
 	}
@@ -256,10 +251,13 @@ public class CMCDriver {
 	 */
 	public void viewSpecificUniversity(){
 		System.out.println("--------------------------------------------View a specific university (U19)------------------------");
-		University u = adm.viewSpecificUniversity("ST JOHNS UNIVERSITY");
-		System.out.println(u.getSchoolName()+"     "+u.getLocation()+"    "+u.getState()+"     "+u.getControl()+"      "+u.getNumOfStu()+
-				"       "+u.getPerFem()+"   "+u.getSatVerbal()+"   "+u.getSatVerbal()+"   "+u.getPrice()+"   "+u.getFinAid()+"   "+u.getNumOfApp()+
-				"   "+u.getPerAdmit()+"   "+u.getPerEnroll()+"   "+u.getAcademicScale()+"   "+u.getSocialScale()+"   "+u.getLifeScale());
+		sc= new Scanner(System.in);
+		University uni5 = adm.viewSpecificUniversity("ST JOHNS UNIVERSITY");
+		List<String> info = adm.viewResults(uni5);
+		for(String s : info){
+			System.out.print(s+" ");
+		}
+		System.out.println();
 		
 	}
 	/**
@@ -267,8 +265,8 @@ public class CMCDriver {
 	 */
 	public void editUniversity(){
 		System.out.println("--------------------------------------------Edit A University (U20)---------------------------------");
-		System.out.println("Edit the University, AAAAA: Edit Sat Verbal: 480 && Lift Scale: 3.0");
-		System.out.println(adm.editUniversity("AAAAA", "BBBB", "CCC", "PRIVATE", 1000, 43, 460, 500, 12000, 23, 500, 30, 15, 2.5, 1.5, 3.0));
+		System.out.println("Edit the University, AAAAA: Edit Sat Verbal: 460 && Lift Scale: 3.0");
+		System.out.println(adm.editUniversity("AAAAA", "BBBB", "CCC", "PRIVATE", 1000, 43, 460, 460, 12000, 23, 500, 30, 15, 2.5, 1.5, 3.0));
 		System.out.println("University List After Editing");
 		this.viewUniversities();
 	}
@@ -282,7 +280,7 @@ public class CMCDriver {
 		System.out.println(acct.logOff());
 		}
 	
-	public void run() throws NullPointerException{
+	public void run(){
 		//First Time Login as a user
 		this.login();
 		this.viewSaveSchools();
@@ -313,7 +311,7 @@ public class CMCDriver {
 		return null;
 	}
 
-	public static void main(String[] args)throws NullPointerException{
+	public static void main(String[] args){
 		CMCDriver cd = new CMCDriver();
 		cd.run();
 	}

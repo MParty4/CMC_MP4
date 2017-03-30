@@ -12,7 +12,7 @@ import cmc.mario.interfaces.UserUI;
 /**
  * AccountController - Controller to control account functionality.
  * 
- * @authors Mario Party 4 - Kalila Moua
+ * @author Mario Party 4: Kalila Moua
  * @modify Yidan Zhang
  * @version 3/26/2017
  */
@@ -59,6 +59,7 @@ public class AccountController {
 	   * This method is to logon to the cmc system.
 	   * @param username the username the user puts in
 	   * @param password the password the user enters in
+	   * @throws IllegalArgumentException if username or password is wrong 
 	   * @return true if the user is logged on and authentication is confirmed, otherwise return false
 	   */
 	  public AccountUI logOn(String username, String password){

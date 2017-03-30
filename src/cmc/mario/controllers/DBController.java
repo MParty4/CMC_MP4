@@ -1,19 +1,16 @@
+/**
+ * File: DBController.java
+ */
 package cmc.mario.controllers;
 import dblibrary.project.csci230.*;
 import java.util.*;
-
 import cmc.mario.entities.Account;
 import cmc.mario.entities.University;
 import cmc.mario.entities.User;
 /**
- * File: DBController.java
- * DBController - Database controller for CMC system. This controller connects to all classes.
- * @authors Mario Party 4 - Kalila Moua, Yidan Zhang, and Tre Vasquez 
- * @version March 19, 2017
- */
-/**
- * @author y4zhang
- *
+ * Database Controller to get data from DBLibrary for all controller
+ * @author Kalila Moua,  Tre Vazquez, Jing Thao, Yidan Zhang
+ * @version 03/27/2017
  */
 public class DBController {
 	
@@ -35,6 +32,7 @@ public class DBController {
    * @param password the password to change the old password to
    * @param username the user's userName
    * @throws IllegalArgumentException if account cannot be found
+   * @return true if edit successfully
    */ 
   public boolean editPersonalProfile(String userName, String firstName, String lastName, String password){
 	  Account x = this.getSpecificUser(userName);
@@ -108,6 +106,7 @@ public boolean addUser(String firstName, String lastName, String username, Strin
   /**
    * To deactivate user-admin only.
    * @param username the username of the user to be deleted
+   * @throws IllegalArgumentException if the account has already deactived or it does not exist
    * @return true if deactivate successfully
    */
   public boolean deactivateUser(String username){
@@ -189,6 +188,7 @@ public boolean addUser(String firstName, String lastName, String username, Strin
     * @param socialScale which is scale of social to update
     * @param lifeScale which is scale of life to update
     * @param popMajor which is the emphases majors of this school to update
+    * @return true if edit successfully
    */
   public boolean editUniversity(String school, String state, String location, String control, int numberOfStudents, int percentFemales, int SATVerbal, int SATMath, 
 		  int expenses, int percentFinancialAid, int numberOfApplicants, int percentAdmitted, int percentEnrolled, 
@@ -226,7 +226,7 @@ public boolean addUser(String firstName, String lastName, String username, Strin
   /**
    * Gets a specific user.
    * @param username of the user need to view
-   * @return user to return
+   * @return account to return
    */
   public Account getSpecificUser(String username){
 	  String[][] userList =univLib.user_getUsers();
@@ -326,6 +326,7 @@ public boolean addUser(String firstName, String lastName, String username, Strin
    * @param schoolName the school object to be removed
    * @param school the name of the school to be removed
    * @throws NoSuchElementException if the user's saved list is empty
+   * @return true if successfully
    */
 	  public boolean removeSavedSchool(User user, String schoolName) {
 			// TODO Auto-generated method stub
@@ -355,6 +356,7 @@ public boolean addUser(String firstName, String lastName, String username, Strin
  * Method that will add a selected school to a specified user's saved school list
  * @param user user who will be adding to their list
  * @param schoolName name of school to be added to the saved school list
+ * @return true add successfully
  */
 	  public boolean addSavedSchool(User user, String schoolName) {
 			List<University> list = this.getSavedSchools(user.getUsername());
@@ -425,6 +427,7 @@ public boolean addUser(String firstName, String lastName, String username, Strin
 	 *            scale of life quality
 	 * @param popMajor
 	 *            the list of emphases for a specific school
+	 * @return list of universities meet search conditions
 	 */
 
 	public List<University> searchResults(String schoolName, String state, String location, String control, int numOfStuStart, int numOfStuEnd, 

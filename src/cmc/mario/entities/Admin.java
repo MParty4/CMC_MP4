@@ -8,7 +8,7 @@ package cmc.mario.entities;
  * information about an Admin extends Account 
  * 
  * @author Mario Party 4: Yidan Zhang
- * @version 03/26/2017
+ * @version 03/27/2017
  */
 public class Admin extends Account{
   /**

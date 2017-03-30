@@ -15,7 +15,7 @@ import cmc.mario.entities.University;
  * 
  * @author Mario Party 4: Yidan Zhang
  * @modify Kalila Moua
- * @version 03/26/2017
+ * @version 03/27/2017
  */
 
 public class AdminFuncController{
@@ -143,6 +143,35 @@ public AdminFuncController(Admin adm, DBController dbContr) {
   public University viewSpecificUniversity(String univeristyname){
     
     return this.dbContr.viewSpecificSchool(univeristyname);
+  }
+  /**
+   * Displays a specific list of universities meeting the search criteria for the admin.
+   * @param u the university to search results for
+   * @return list of universities in string format
+   */
+  public List<String> viewResults(University u) 
+  {
+    List<String> dis = new ArrayList<String>();
+    
+    dis.add(u.getSchoolName());
+    dis.add(u.getState());
+    dis.add(u.getLocation());
+    dis.add(u.getControl());
+    dis.add(Integer.toString(u.getNumOfStu()));
+    dis.add(Integer.toString(u.getPerFem()));
+    dis.add(Integer.toString(u.getSatVerbal()));
+    dis.add(Integer.toString(u.getSatMath()));
+    dis.add(Integer.toString(u.getPrice()));
+    dis.add(Integer.toString(u.getFinAid()));
+    dis.add(Integer.toString(u.getNumOfApp()));
+    dis.add(Integer.toString(u.getPerAdmit()));
+    dis.add(Integer.toString(u.getPerEnroll()));
+    dis.add(Double.toString(u.getAcademicScale()));
+    dis.add(Double.toString(u.getSocialScale()));
+    dis.add(Double.toString(u.getLifeScale()));
+    dis.addAll(this.dbContr.getEmphasesForUniversity(u.getSchoolName()));
+    
+    return dis;
   }
   
   /**

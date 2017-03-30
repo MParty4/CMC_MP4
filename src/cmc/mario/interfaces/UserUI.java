@@ -16,7 +16,7 @@ import cmc.mario.entities.User;
  * UserUI is an class for Users
  * 
  * @author Tre Vazquez | Mario Party 4
- * @version 03/26/2017
+ * @version 03/27/2017
  */
 
 public class UserUI extends AccountUI{ 

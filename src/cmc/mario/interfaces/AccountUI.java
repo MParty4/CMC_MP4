@@ -9,7 +9,7 @@ import cmc.mario.entities.Account;
  * AccountUI - account user class for cmc system. 
  * This class creates the methods that account, userUI, and adminUI must include.
  * 
- * @authors Mario Party 4 - Kalila Moua
+ * @author Mario Party 4: Kalila Moua
  * @modify Yidan Zhang
  * @version 3/26/2017
  */

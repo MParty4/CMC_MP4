@@ -12,7 +12,7 @@ import cmc.mario.entities.University;
  * Class for a Administrator and extends AccountUI
  * @author Yidan Zhang
  * @modify Kalila Moua
- * @version 03/26/2017
+ * @version 03/27/2017
  */
 
 public class AdminUI extends AccountUI{
@@ -125,7 +125,14 @@ public boolean addUniversity(String school, String state, String location, Strin
   public University viewSpecificUniversity(String universityName){
 	  return this.adContr.viewSpecificUniversity(universityName);
   }
-  
+  /**
+   * Displays a list of universities meeting the search criteria for the admin. 
+   * @param u university object to be used 
+   * @return list of universities.
+   */
+  public List<String> viewResults(University u){
+  return this.adContr.viewResults(u);
+  }
   /**
    * To edit a specific university's attributes
    *@param state the state where the school is located
@@ -144,6 +151,7 @@ public boolean addUniversity(String school, String state, String location, Strin
    * @param academicScale the scale of academic life on campus 
    * @param socialScale the scale of social life on campus 
    * @param lifeScale the scale of life on campus 
+   * @return true if edit successfully
    */   
   public boolean editUniversity(String school, String state, String location, String control, int numberOfStudents, int percentFemales, int SATVerbal, int SATMath, 
 		  int expenses, int percentFinancialAid, int numberOfApplicants, int percentAdmitted, int percentEnrolled, 

@@ -130,6 +130,7 @@ public class Account{
 		  this.isActive=isActive;
 		  
 	  }
+	  
 	  /**
 	   * Set type of user - Kalila (Black-box)
 	   * @param type of user

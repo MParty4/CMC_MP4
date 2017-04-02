@@ -95,7 +95,7 @@ public boolean addUser(String firstName, String lastName, String username, Strin
 	  Account a = this.getSpecificUser(username);
 	  if(a.getUsername()==null){
 		  return false;
-	  }
+	  }	
 	  int i = univLib.user_editUser(username, firstName, lastName, password, type, status);
 	  if(!(i==1)){
 		  return false;

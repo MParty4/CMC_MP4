@@ -63,26 +63,29 @@ public class AccountController {
 	   * @return true if the user is logged on and authentication is confirmed, otherwise return false
 	   */
 	  public AccountUI logOn(String username, String password){
-		  Account thisPerson = database.getSpecificUser(username);		 
-			  if(password.equals(thisPerson.getPassword())){
-				 if(thisPerson.getStatus()=='Y'){
-					 if(thisPerson.getTypeOfUser()=='a'){
-						 thisPerson.setActive(true);
-						 return new AdminUI(new Admin(thisPerson.getFirstName(),thisPerson.getLastName(),thisPerson.getUsername(),thisPerson.getPassword()));
-					 }
-					 else{
-						 thisPerson.setActive(true);
-						 return new UserUI(new User(thisPerson.getFirstName(),thisPerson.getLastName(),thisPerson.getUsername(),thisPerson.getPassword()));
-					 }
-				 }
-				 else{
-					 throw new IllegalArgumentException("Person is deactivated");
-				 }
-			  }
-			  else{
-				  throw new IllegalArgumentException("Password is not correct");
-			  }
-		  }
+      Account thisPerson = database.getSpecificUser(username);		 
+      	if(password.equals(thisPerson.getPassword())){
+			if(thisPerson.getStatus()=='Y'){
+				if(thisPerson.getTypeOfUser()=='a'){
+					thisPerson.setActive(true);
+					return new AdminUI(new Admin(thisPerson.getFirstName(),thisPerson.getLastName(),thisPerson.getUsername(),thisPerson.getPassword()));
+				}
+				else{
+					thisPerson.setActive(true);
+					return null;
+					//return new UserUI(new User(thisPerson.getFirstName(),thisPerson.getLastName(),thisPerson.getUsername(),thisPerson.getPassword()));
+				}
+			}
+			else{
+				return null;
+				//throw new IllegalArgumentException("Person is deactivated");
+			}
+		}
+		else{
+			return null;
+				//throw new IllegalArgumentException("Password is not correct");
+		}
+	}
 		  
 	  
 	  

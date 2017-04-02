@@ -3,22 +3,49 @@ package cmc.mario.entities;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
-
+import org.junit.Before;
+import org.junit.Test;
 public class AccountTest {
-
-	@Test
-	public void testAccount() {
-		fail("Not yet implemented");
+	private Account acct;
+	
+	@Before
+	public void setUp() throws Exception {
+	    acct = new Account();
+	    acct.setActive(true);
+	    acct.setTypeOfUser('u');
+	    acct.setStatus('Y');
+	    acct.setPassword("look!@me");
+	    acct.setTypeOfUser('u');
+	    acct.setFirstName("kalila");
+	    acct.setLastName("moua");
+	    acct.setUsername("k1moua");
+	  }
+	@Before
+	public void testAccountConstructor1() {
+		String orgFirstName = acct.firstName = null;
+		String orgLastName = acct.lastName = null;
+		String orgUsername = acct.username = null;
+		String orgPassword = acct.password = null;
+		String name = acct.getFirstName();
+		String lastName = acct.getLastName();
+		String username = acct.getUsername();
+		String password = acct.getPassword();
+		assertEquals(orgFirstName, name);
+		assertEquals(orgLastName, lastName);
+		assertEquals(orgUsername, username);
+		assertEquals(orgPassword, password);
 	}
 
 	@Test
-	public void testAccountStringStringStringStringCharChar() {
-		fail("Not yet implemented");
+	public void testAccountConstructor2() {
+		
 	}
 
 	@Test
 	public void testGetPassword() {
-		fail("Not yet implemented");
+		String expResult = "look!@me";
+		String result = acct.getPassword();
+		assertEquals("Password is " + expResult,expResult, result);
 	}
 
 	@Test

@@ -83,7 +83,7 @@ public boolean addUser(String firstName, String lastName, String username, Strin
   }
   
   /**
-   * This method allows the admin to edit user information. - Kalila 
+   * This method allows the admin to edit user information. - Kalila
    * @param firstName the first name to change the old first name to
    * @param lastName the last name to change the old last name to
    * @param password the password to change the old password to

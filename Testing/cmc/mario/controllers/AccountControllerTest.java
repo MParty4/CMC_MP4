@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 import cmc.mario.entities.Account;
 import org.junit.Test;
 import org.junit.Before;
+
 public class AccountControllerTest {
 	private AccountController acctCtr;
 	private Account acct;

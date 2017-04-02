@@ -4,16 +4,29 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class DBControllerTest {
+import cmc.mario.entities.User;
 
+public class DBControllerTest {
+	private DBController dbc;
+	
+	@Before
+	public void setUp(){
+		dbc = new DBController();
+	}
+	
+	
 	@Test
 	public void testDBController() {
-		fail("Not yet implemented");
+		
 	}
 
 	@Test
 	public void testEditPersonalProfile() {
-		fail("Not yet implemented");
+		String password = "yzhang";
+		User u = dbc.getSpecificUser("yuser");
+		dbc.editPersonalProfile("yuser", "Yidan", "Zhang", password);
+		String newpass = u.getPassword();
+		assertEquals("password after editing should be "+password, password, newpass);
 	}
 
 	@Test
@@ -28,12 +41,15 @@ public class DBControllerTest {
 
 	@Test
 	public void testDeactivateUser() {
-		fail("Not yet implemented");
+		User u = dbc.getSpecificUser("yuser");
+		dbc.deactivateUser("yuser")
+		String status = u.getStatus();
+		assertTrue("status after editing should be N"+password,'N'== status);
 	}
 
 	@Test
 	public void testAddUniversity() {
-		fail("Not yet implemented");
+		
 	}
 
 	@Test

@@ -16,7 +16,7 @@ public class User extends Account{
 	   * Default Constructor
 	   */
 	  public User(){
-		  super.setTypeOfUser('a');
+		  super.setTypeOfUser('u');
 	  }
 	 
 	  /**
@@ -27,7 +27,7 @@ public class User extends Account{
 		  * @param password the password of the user
 		  */
 	  public User(String firstName, String lastName, String username, String password){
-		  super.setTypeOfUser('a');
+		  super.setTypeOfUser('u');
 		  super.setFirstName(firstName);
 		  super.setLastName(lastName);
 		  super.setUsername(username);

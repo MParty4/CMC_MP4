@@ -2,18 +2,25 @@ package cmc.mario.controllers;
 
 import static org.junit.Assert.*;
 
+import cmc.mario.entities.Account;
 import org.junit.Test;
-
+import org.junit.Before;
 public class AccountControllerTest {
-
-	@Test
-	public void testAccountController() {
-		fail("Not yet implemented");
-	}
+	private AccountController acctCtr;
+	private Account acct;
+	private DBController database;
+	
+	@Before
+	public void setUp() throws Exception {
+		acct = new Account();
+		acct.setUsername("k1moua");
+		
+	  }
 
 	@Test
 	public void testAccountControllerAccount() {
-		fail("Not yet implemented");
+		acctCtr = new AccountController(acct);
+		database = new DBController();
 	}
 
 	@Test

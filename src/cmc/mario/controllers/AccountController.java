@@ -26,12 +26,12 @@ public class AccountController {
 	   */
 	  private DBController database;
 	  
-	  /**
-	   * Default constructor
-	   */
-	  public AccountController(){
-	
-	  }
+//	  /**
+//	   * Default constructor
+//	   */
+//	  public AccountController(){
+//	
+//	  }
 	  
 	  /**
 	   * constructor
@@ -42,7 +42,6 @@ public class AccountController {
 		this.database = new DBController();
 	  }
 	  
-	   
 	  /**
 	   * This method is to test if the user is logged off or not. //update in class diagram - Yidan
 	   * @return true if user is logged off, false otherwise

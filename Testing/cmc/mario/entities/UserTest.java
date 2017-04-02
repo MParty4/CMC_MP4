@@ -46,8 +46,8 @@ private User user;
 
 	@Test
 	public void testGetType() {
-		String expResult = 'u';
-		String result = user.getType();
+		char expResult = 'u';
+		char result = user.getType();
 		assertEquals("Type is " + expResult,expResult, result);		
 	}
 

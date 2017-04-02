@@ -2,11 +2,12 @@ package cmc.mario.entities;
 
 import static org.junit.Assert.*;
 
+
 import org.junit.Test;
 import org.junit.Before;
-import org.junit.Test;
+
 public class AccountTest {
-	private Account acct, acct1;
+	private Account acct1, acct2;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -16,27 +17,30 @@ public class AccountTest {
 		String password = "k1moua";
 		char type = 'u';
 		char status = 'Y';
-	    acct = new Account(firstName, lastName, username, password, type, status);
-	    acct.setFirstName("Kalila");
-	    acct.setLastName("Moua");
-	    acct.setUsername("k1moua");
-	    acct.setPassword("k1moua");
-	    acct.setTypeOfUser('u');
-	    acct.setStatus('Y');
-	    acct.setActive(true);
+	    acct2 = new Account(firstName, lastName, username, password, type, status);
+	    acct2.setFirstName("Kalila");
+	    acct2.setLastName("Moua");
+	    acct2.setUsername("k1moua");
+	    acct2.setPassword("k1moua");
+	    acct2.setTypeOfUser('u');
+	    acct2.setStatus('Y');
+	    acct2.setActive(true);
 	    acct1 = new Account();
-	    acct1.setFirstName("null");
-	    acct1.setLastName("null");
-	    acct1.setUsername("null");
-	    acct1.setPassword("null");
+	    acct1.setFirstName("A");
+	    acct1.setLastName("A");
+	    acct1.setUsername("A");
+	    acct1.setPassword("A");
+	    acct1.setTypeOfUser('a');
+	    acct1.setStatus('N');
+	    acct1.setActive(false);
 	  }
 	
 	@Test
 	public void testAccountConstructor1() {
-		String firstname = "null";
-		String lastname = "null";
-		String username = "null";
-		String password = "null";
+		String firstname = "A";
+		String lastname = "A";
+		String username = "A";
+		String password = "A";
 		String f = acct1.getFirstName();
 		String l = acct1.getLastName();
 		String u = acct1.getUsername();
@@ -55,12 +59,12 @@ public class AccountTest {
 		String orgPassword = "k1moua";
 		char type = 'u';
 		char status = 'Y';
-		String name = acct.getFirstName();
-		String lastName = acct.getLastName();
-		String username = acct.getUsername();
-		String password = acct.getPassword();
-		char t = acct.getTypeOfUser();
-		char st = acct.getStatus();
+		String name = acct2.getFirstName();
+		String lastName = acct2.getLastName();
+		String username = acct2.getUsername();
+		String password = acct2.getPassword();
+		char t = acct2.getTypeOfUser();
+		char st = acct2.getStatus();
 		assertEquals(orgFirstName, name);
 		assertEquals(orgLastName, lastName);
 		assertEquals(orgUsername, username);
@@ -72,76 +76,130 @@ public class AccountTest {
 
 	@Test
 	public void testGetPassword() {
-		String expResult = "k1moua";
-		String result = acct.getPassword();
-		assertEquals("Password is " + expResult,expResult, result);
+		String expResult = "A";
+		String expResult2 = "k1moua";
+		String result1 = acct1.getPassword();
+		String result2 = acct2.getPassword();
+		assertEquals("Password for constructor 1 is " + expResult,expResult, result1);
+		assertEquals("Password for constructor 2 is " + expResult,expResult2, result2);
 	}
 
 	@Test
 	public void testGetUsername() {
-		String expResult = "k1moua";
-		String result = acct.getUsername();
-		assertEquals("Username is " + expResult,expResult, result);
+		String expResult = "A";
+		String expResult2 = "k1moua";
+		String result1 = acct1.getUsername();
+		String result2 = acct2.getUsername();
+		assertEquals("Username for constructor 1 is " + expResult,expResult, result1);
+		assertEquals("Username for constructor 2 is " + expResult,expResult2, result2);
 	}
 
 	@Test
 	public void testGetFirstName() {
-		fail("Not yet implemented");
+		String expResult = "A";
+		String expResult2 = "Kalila";
+		String result1 = acct1.getFirstName();
+		String result2 = acct2.getFirstName();
+		assertEquals("First name for constructor 1 is " + expResult,expResult, result1);
+		assertEquals("First name  for constructor 2 is " + expResult,expResult2, result2);
 	}
 
 	@Test
 	public void testGetLastName() {
-		fail("Not yet implemented");
+		String expResult = "A";
+		String expResult2 = "Moua";
+		String result1 = acct1.getLastName();
+		String result2 = acct2.getLastName();
+		assertEquals("Last name for constructor 1 is " + expResult,expResult, result1);
+		assertEquals("Last name for constructor 2 is " + expResult,expResult2, result2);
 	}
 
 	@Test
 	public void testGetTypeOfUser() {
-		fail("Not yet implemented");
+		char expResult = 'a';
+		char expResult2 = 'u';
+		char result1 = acct1.getTypeOfUser();
+		char result2 = acct2.getTypeOfUser();
+		assertEquals("Type of user for constructor 1 is " + expResult,expResult, result1);
+		assertEquals("Type of user for constructor 2 is " + expResult,expResult2, result2);
 	}
 
 	@Test
 	public void testGetStatus() {
-		fail("Not yet implemented");
+		char expResult = 'Y';
+		char expResult2 = 'N';
+		char result1 = acct1.getStatus();
+		char result2 = acct2.getStatus();
+		assertEquals("Status for constructor 1 is " + expResult,expResult, result1);
+		assertEquals("Status for constructor 2 is " + expResult,expResult2, result2);
 	}
 
 	@Test
 	public void testIsActive() {
-		fail("Not yet implemented");
+		boolean expResult =  false;
+		boolean expResult2 = true;
+		boolean result1 = acct1.isActive();
+		boolean result2 = acct2.isActive();
+		assertEquals("Status for constructor 1 is " + expResult,expResult, result1);
+		assertEquals("Status for constructor 2 is " + expResult,expResult2, result2);
 	}
 
 	@Test
 	public void testSetActive() {
-		fail("Not yet implemented");
+		 acct1.setLastName("A");
+		 acct1.setUsername("A");
+		 acct1.setPassword("A");
+		 acct1.setTypeOfUser('a');
+		 acct1.setStatus('N');
+		 acct1.setActive(false);
 	}
 
 	@Test
 	public void testSetTypeOfUser() {
-		fail("Not yet implemented");
+		char original = 'a';
+		acct2.setTypeOfUser(original);
+		char type = acct2.getTypeOfUser();
+		assertEquals("Type of user is now: " + original, original, type);
 	}
 
 	@Test
 	public void testSetStatus() {
-		fail("Not yet implemented");
+		char original = 'N';
+		acct2.setStatus(original);
+		char status = acct2.getStatus();
+		assertEquals("Status of user is now: " + original, original, status);
 	}
 
 	@Test
 	public void testSetPassword() {
-		fail("Not yet implemented");
+		String original = "hello";
+		acct2.setPassword(original);
+		String pw = acct2.getPassword();
+		assertEquals("Password of user is now: " + original, original, pw);
 	}
 
 	@Test
 	public void testSetFirstName() {
-		fail("Not yet implemented");
+		String original = "Tre";
+		acct2.setFirstName(original);
+		String name = acct2.getFirstName();
+		assertEquals("First Name is now: " + original, original, name);
 	}
 
 	@Test
 	public void testSetLastName() {
-		fail("Not yet implemented");
+		String original = "Vasquez";
+		acct2.setLastName(original);
+		String lastname = acct2.getLastName();
+		assertEquals("last name is now: " + original, original, lastname);
 	}
 
 	@Test
 	public void testSetUsername() {
-		fail("Not yet implemented");
+		String original = "trev";
+		acct2.setUsername(original);
+		String username = acct2.getUsername();
+		assertEquals("Username of user is now: " + original, original, username);
 	}
 
 }

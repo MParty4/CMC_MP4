@@ -1,10 +1,14 @@
-package cmc.mario.entities;
+package junitTesting;
 
 import static org.junit.Assert.*;
 
-import java.util.List;
+import java.util.*;
 
+import org.junit.Before;
 import org.junit.Test;
+
+import cmc.mario.controllers.SearchController;
+import cmc.mario.entities.University;
 
 public class UniversityTest {
 	private University uni1;
@@ -37,10 +41,11 @@ public class UniversityTest {
 		uni2.setFinAid(70);
 		uni2.setNumOfApp(4000);
 		uni2.setPerAdmit(90);
-		uni2.getPerEnroll(80);
+		uni2.setPerEnroll(80);
 		uni2.setAcademicScale(2);
 		uni2.setLifeScale(3);
 		uni2.setSocialScale(3);
+		//Wrong type of list, it wants [] not <String>
 		List<String> popMajors1 = new ArrayList<String>();
 		String m1 = "Biology";
 		String m2 = "Computer Science";
@@ -51,7 +56,7 @@ public class UniversityTest {
 	}
 
 	@Test
-	public void testUniversity() {
+	public void testUniversity1() {
 		University uni3 = new University("ABILENE CHRISTIAN UNIVERSITY","TEXAS","SUBURBAN","PRIVATE",
 				10000, 50 , -1,-1 ,12088, 70 ,4000,90 , 80 , 2,3,3,popMajors);
 		assertTrue("Uni1 should be equal to Uni2", uni1.equals(uni3));
@@ -122,18 +127,18 @@ public class UniversityTest {
 	@Test
 	public void testSetPerFem() {
 		uni1.setPerFem(56);
-		assertTrue("Female percent should be 56",uni.getPerFem() == 56);
+		assertTrue("Female percent should be 56",uni1.getPerFem() == 56);
 	}
 
 	@Test
 	public void testGetSatVerbal() {
-		assertTrue("SAT Verbal should be -1", uni1.getSatVerbal()=-1)
+		assertTrue("SAT Verbal should be -1", uni1.getSatVerbal()==-1);
 	}
 
 	@Test
 	public void testSetSatVerbal() {
 		uni1.setSatVerbal(600);
-		assertTrue("SAT Verbal should be 600",uni1.getSatVerbal() == 600)
+		assertTrue("SAT Verbal should be 600",uni1.getSatVerbal() == 600);
 	}
 
 	@Test
@@ -155,7 +160,7 @@ public class UniversityTest {
 	@Test
 	public void testSetPrice() {
 		uni1.setPrice(1);
-		assertTrue("Price should be 1", uni1,getPrice() ==1);
+		assertTrue("Price should be 1", uni1.getPrice() ==1);
 	}
 
 	@Test
@@ -194,7 +199,7 @@ public class UniversityTest {
 
 	@Test
 	public void testGetPerEnroll() {
-		assertTrue("Percentage  Enrolled should be 80 ", uni1.getPerEnroll() = 80);
+		assertTrue("Percentage  Enrolled should be 80 ", uni1.getPerEnroll() == 80);
 	}
 
 	@Test

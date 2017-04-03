@@ -1,9 +1,11 @@
-package cmc.mario.controllers;
+package junitTesting;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
+import cmc.mario.controllers.DBController;
 import cmc.mario.entities.User;
 
 public class DBControllerTest {

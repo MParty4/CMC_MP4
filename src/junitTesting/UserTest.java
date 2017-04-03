@@ -1,8 +1,10 @@
-package cmc.mario.entities;
+package junitTesting;
 
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
+
+import cmc.mario.entities.User;
 
 public class UserTest {
 private User user,user2;
@@ -40,7 +42,7 @@ private User user,user2;
 		String result2 = user.getLastName();
 		String result3 = user.getUserName();
 		String result4 = user.getPassword();
-		String result5 = user.getType();
+		char result5 = user.getType();
 		assertEquals("firstname is " + expResult,expResult, result);
 		assertEquals("lastname is " + expResult2,expResult2, result2);
 		assertEquals("username is " + expResult3,expResult3, result3);
@@ -51,7 +53,7 @@ private User user,user2;
 	
 	@Test
 	public void testSecondConstructor(){
-		 user2 = new User("kalila","Moua", "k1moua", "k3$ha")
+		 user2 = new User("kalila","Moua", "k1moua", "k3$ha");
 		 String expResult = "kalila";
 	     String expResult2 = "Moua";
 	     String expResult3 = "k1moua";
@@ -61,7 +63,7 @@ private User user,user2;
 		 String result2 = user2.getLastName();
 		 String result3 = user2.getUserName();
 		 String result4 = user2.getPassword();
-		 String result5 = user2.getType();
+		 char result5 = user2.getType();
 		 assertEquals("firstname is " + expResult,expResult, result);
 		 assertEquals("lastname is " + expResult2,expResult2, result2);
 		 assertEquals("username is " + expResult3,expResult3, result3);
@@ -72,7 +74,7 @@ private User user,user2;
 	@Test
 	public void testGetFirstName() {
 		String expResult = "tree";
-		String result = user.getUserName();
+		String result = user.getFirstName();
 		assertEquals("Username is " + expResult,expResult, result);
 	}
 

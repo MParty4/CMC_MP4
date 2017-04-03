@@ -1,7 +1,9 @@
-package cmc.mario.controllers;
+package junitTesting;
 
 import static org.junit.Assert.*;
 
+import cmc.mario.controllers.AccountController;
+import cmc.mario.controllers.DBController;
 import cmc.mario.entities.Account;
 import org.junit.Test;
 import org.junit.Before;

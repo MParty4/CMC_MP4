@@ -1,8 +1,10 @@
-package cmc.mario.entities;
+package junitTesting;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import cmc.mario.entities.Admin;
 
 public class AdminTest {
 

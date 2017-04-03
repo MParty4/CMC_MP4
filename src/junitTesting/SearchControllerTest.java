@@ -1,4 +1,4 @@
-package cmc.mario.controllers;
+package junitTesting;
 
 import static org.junit.Assert.*;
 

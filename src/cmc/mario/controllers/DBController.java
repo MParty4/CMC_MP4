@@ -38,7 +38,7 @@ public class DBController {
 	  Account x = this.getSpecificUser(userName);
 	  if(x==null)
 	  {
-		  throw new IllegalArgumentException("Account is either invalid or is non-existant");
+		 return false;
 	  }
 	  else
 	  {
@@ -111,8 +111,8 @@ public boolean addUser(String firstName, String lastName, String username, Strin
    */
   public boolean deactivateUser(String username){
 	  Account a = this.getSpecificUser(username);
-	  if(a.getUsername()==null||a.getStatus()=='N'){
-		  throw new IllegalArgumentException("The account has already deactived or it does not exist");
+	  if(a.getFirstName()==null||a.getStatus()=='N'){
+		  return false;
 	  }
 	  a.setStatus('N');
 	  return this.editUser(a.getFirstName(), a.getLastName(), a.getUsername(), a.getPassword(), a.getTypeOfUser(), a.getStatus());

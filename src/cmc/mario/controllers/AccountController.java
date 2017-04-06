@@ -71,8 +71,7 @@ public class AccountController {
 				}
 				else{
 					thisPerson.setActive(true);
-					return null;
-					//return new UserUI(new User(thisPerson.getFirstName(),thisPerson.getLastName(),thisPerson.getUsername(),thisPerson.getPassword()));
+					return new UserUI(new User(thisPerson.getFirstName(),thisPerson.getLastName(),thisPerson.getUsername(),thisPerson.getPassword()));
 				}
 			}
 			else{

@@ -26,6 +26,7 @@ public class AccountController {
 	   */
 	  private DBController database;
 	  
+	  
 //	  /**
 //	   * Default constructor
 //	   */
@@ -62,7 +63,8 @@ public class AccountController {
 	   * @return true if the user is logged on and authentication is confirmed, otherwise return false
 	   */
 	  public AccountUI logOn(String username, String password){
-      Account thisPerson = database.getSpecificUser(username);		 
+      Account thisPerson = database.getSpecificUser(username);	
+      if(username.equals(thisPerson.getUsername())){
       	if(password.equals(thisPerson.getPassword())){
 			if(thisPerson.getStatus()=='Y'){
 				if(thisPerson.getTypeOfUser()=='a'){
@@ -71,6 +73,7 @@ public class AccountController {
 				}
 				else{
 					thisPerson.setActive(true);
+					//return null;
 					return new UserUI(new User(thisPerson.getFirstName(),thisPerson.getLastName(),thisPerson.getUsername(),thisPerson.getPassword()));
 				}
 			}
@@ -83,7 +86,12 @@ public class AccountController {
 			return null;
 				//throw new IllegalArgumentException("Password is not correct");
 		}
-	}
+      }
+      	else{
+      		return null;
+      		}
+      	}
+
 		  
 	  
 	  

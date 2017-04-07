@@ -9,7 +9,7 @@ import cmc.mario.entities.University;
 import cmc.mario.entities.User;
 /**
  * Database Controller to get data from DBLibrary for all controller
- * @author Kalila Moua,  Tre Vazquez, Jing Thao, Yidan Zhang
+ * @author Kalila Moua, Tre Vazquez, Jing Thao, Yidan Zhang
  * @version 03/27/2017
  */
 public class DBController {
@@ -106,7 +106,7 @@ public boolean addUser(String firstName, String lastName, String username, Strin
   /**
    * To deactivate user-admin only.
    * @param username the username of the user to be deleted - Yidan
-   * @throws IllegalArgumentException if the account has already deactived or it does not exist
+   * @throws IllegalArgumentException if the account has already deactivated or it does not exist
    * @return true if deactivate successfully
    */
   public boolean deactivateUser(String username){
@@ -440,7 +440,7 @@ public boolean addUser(String firstName, String lastName, String username, Strin
 			List<University> resultT = new ArrayList<University>();
 
 			 for(String[] arr: univList){
-				 if((arr[0] .contains(schoolName)|| (schoolName == "")) 
+				 if((arr[0].contains(schoolName)|| (schoolName == "")) 
 							&& ((arr[1] .contains(state)) ||(state == "")) 
 							&& ((arr[2] .contains(location)) ||(location == "")) 
 							&& ((arr[3] .contains(control)) ||(control == "")) 

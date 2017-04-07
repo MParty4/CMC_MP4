@@ -49,6 +49,14 @@ public class AccountUI{
 		return this.acctCtr.logOn(username, password);
 	  }
 	  /**
+		 * get error reason for log in
+		 * @return error num  
+		 */
+	  public int getError(){
+		  return this.acctCtr.getError();
+	  }
+	  
+	  /**
 	   * This method to get type of user with username
 	   * @param username the name the user hope to check the the type
 	   * @return 'u' if it's a user account; 'a' if it is an admin account

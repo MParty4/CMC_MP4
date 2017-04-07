@@ -26,6 +26,10 @@ public class AccountController {
 	   */
 	  private DBController database;
 	  
+	  /**
+	   * error reason for login
+	   */
+	  private int error;
 	  
 //	  /**
 //	   * Default constructor
@@ -63,37 +67,49 @@ public class AccountController {
 	   * @return true if the user is logged on and authentication is confirmed, otherwise return false
 	   */
 	  public AccountUI logOn(String username, String password){
+	  
       Account thisPerson = database.getSpecificUser(username);	
       if(username.equals(thisPerson.getUsername())){
       	if(password.equals(thisPerson.getPassword())){
 			if(thisPerson.getStatus()=='Y'){
 				if(thisPerson.getTypeOfUser()=='a'){
 					thisPerson.setActive(true);
+					this.error=0;
 					return new AdminUI(new Admin(thisPerson.getFirstName(),thisPerson.getLastName(),thisPerson.getUsername(),thisPerson.getPassword()));
 				}
 				else{
 					thisPerson.setActive(true);
+					this.error=1;
 					//return null;
 					return new UserUI(new User(thisPerson.getFirstName(),thisPerson.getLastName(),thisPerson.getUsername(),thisPerson.getPassword()));
 				}
 			}
 			else{
-				return null;
+				this.error=2;
+				return new AccountUI();
 				//throw new IllegalArgumentException("Person is deactivated");
 			}
 		}
 		else{
-			return null;
+			this.error=3;
+			return new AccountUI();
 				//throw new IllegalArgumentException("Password is not correct");
 		}
       }
       	else{
-      		return null;
+      		this.error=4;
+      		return new AccountUI();
       		}
       	}
 
-		  
-	  
+		/**
+		 * get error reason for log in
+		 * @return error num  
+		 */
+	  public int getError(){
+		//  System.out.println("r");
+		  return this.error;
+	  }
 	  
 	  /**
 	   * This method identifies the type of user the user is: 'a' or 'u'. -  Tre

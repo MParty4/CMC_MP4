@@ -4,7 +4,21 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import cmc.mario.controllers.DBController;
+import cmc.mario.controllers.UserFuncController;
+import cmc.mario.entities.User;
+
 public class UserFuncControllerTest {
+	private User user;
+	private UserFuncController usrFC;
+	private DBController dbc;
+	
+	public void Setup()
+	{
+		dbc.addUser(firstName, lastName, username, password, type);
+		user = (User) dbc.getSpecificUser("whatever name of user we decide");
+		usrFC = new UserFuncController(user);
+	}
 
 	@Test
 	public void testUserFuncController() {

@@ -33,35 +33,35 @@ public class AccountControllerTest {
 	public void testLogOnForUserCase1() {
 		String username = "juser";
 		String password = "user";
-		assertTrue("User is logged on", acctCtr.logOn(username, password).typeOfUser("juser")=='u');
+		assertTrue("User is logged on", acctCtr.logOn(username, password)==1);
 	}
 	
 	@Test
 	public void testLogOnForAdminCase2(){
 		String username = "nadmin";
 		String password = "admin";
-		assertTrue("Admin is logged on", acctCtr.logOn(username, password).typeOfUser("nadmin")=='a');
+		assertTrue("Admin is logged on", acctCtr.logOn(username, password)==0);
 	}
 
-	@Test
+	@Test(expected=NullPointerException.class)
 	public void testLogOnFailUsernameCase3() {
 		String username = "nadmi";
 		String password = "admin";
-		assertTrue("Admin username is not correct.", acctCtr.logOn(username, password)==null);
+		assertTrue("Admin username is not correct.", acctCtr.logOn(username, password)==4);
 	}
 	
 	@Test
 	public void testLogOnFailPasswordCase4() {
 		String username = "nadmin";
 		String password = "adm";
-		assertTrue("Admin pasword is not correct.", acctCtr.logOn(username, password)==null);
+		assertTrue("Admin pasword is not correct.", acctCtr.logOn(username, password)==3);
 	}
 
 	@Test
 	public void testLogOnDeactivatedAccountCase5() {
 		String username = "luser";
 		String password = "user";
-		assertTrue("Account is deactivated.", acctCtr.logOn(username, password)==null);
+		assertTrue("Account is deactivated.", acctCtr.logOn(username, password)==2);
 	}
 	
 	@Test

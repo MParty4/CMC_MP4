@@ -45,17 +45,9 @@ public class AccountUI{
 	   * @param password the password the user enters in
 	   * @return user is brought to accountUI if the user is logged on and authentication is confirmed	   
 	   */
-	  public AccountUI logOn(String username, String password){
+	  public int logOn(String username, String password){
 		return this.acctCtr.logOn(username, password);
 	  }
-	  /**
-		 * get error reason for log in
-		 * @return error num  
-		 */
-	  public int getError(){
-		  return this.acctCtr.getError();
-	  }
-	  
 	  /**
 	   * This method to get type of user with username
 	   * @param username the name the user hope to check the the type

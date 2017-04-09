@@ -37,21 +37,21 @@ public class CMCDriver {
 		String password = sc.nextLine();
 		
 		//call log on method
-		acct=acct.logOn(username, password);
+		int i =acct.logOn(username, password);
 		
 		//assign it to a user
-		if(acct instanceof UserUI){
+		if(i==1){
 			usr =(UserUI)acct;
 			System.out.println("Functionalities: Search for Schools, Manage My Saved Schools, and Manage My Profile");
 		}
 		//assign it to a admin
-		else if(acct instanceof AdminUI){
+		else if(i==0){
 			adm=(AdminUI)acct;
 			System.out.println("Functionalities: Manage Universities and Manage Users");
 		}
 		//not exist
 		else{
-			throw new IllegalArgumentException("The acct does  not exist");
+			System.out.println(i);
 		}
 	}
 	

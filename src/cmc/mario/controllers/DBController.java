@@ -25,6 +25,9 @@ public class DBController {
     this.univLib = new UniversityDBLibrary("mariop4","mariop4","csci230");
   }
   
+  public UniversityDBLibrary getUniversityLibrary(){
+	  return this.univLib;
+  }
   /**
    * This method allows the user to edit their own personal profile information. - Yidan 
    * @param firstName the first name to change the old first name to 

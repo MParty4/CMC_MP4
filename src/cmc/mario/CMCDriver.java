@@ -19,6 +19,7 @@ public class CMCDriver {
 	public CMCDriver() {
 		acct = new AccountUI();
 		sc= new Scanner(System.in);
+		adm = new AdminUI(new Admin());
 	}
 	
 	/**
@@ -282,29 +283,29 @@ public class CMCDriver {
 	
 	public void run(){
 		//First Time Login as a user
-		this.login();
-		this.viewSaveSchools();
-		this.removeSchool();
-		this.viewSavedDetails();
-		this.search();
-		this.recommendation();
-		this.saveSchool();
-		this.viewPersonalProfile();
-		this.editProfile();
-		this.logOff();
+//		this.login();
+//		this.viewSaveSchools();
+//		this.removeSchool();
+//		this.viewSavedDetails();
+//		this.search();
+//		this.recommendation();
+//		this.saveSchool();
+//		this.viewPersonalProfile();
+//		this.editProfile();
+//		this.logOff();
 		//Second Time login as an admin
-		this.login();
+//		this.login();
 		this.viewUsers();
-		this.addUser();
-		this.viewSpecificUser();
-		this.editUser();
-		this.deactivateUser();
-		this.viewUniversities();
-		this.addUniversity();
-		this.viewSpecificUniversity();
-		this.editUniversity();
-		this.logOff();
-			
+//		this.addUser();
+//		this.viewSpecificUser();
+//		this.editUser();
+//		this.deactivateUser();
+//		this.viewUniversities();
+//		this.addUniversity();
+//		this.viewSpecificUniversity();
+//		this.editUniversity();
+//		this.logOff();
+//			
 	}
 	private char[] addUser(String string, String string2, String string3, char c) {
 		// TODO Auto-generated method stub

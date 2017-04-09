@@ -38,7 +38,7 @@ public class DBControllerTest {
 //	}
 
 	@Test
-	public void testEditUser() {
+	public void testEditUser(){
 		Account acct = new Account();
 		String firstName = "Yidannnn";
 		String lastName = "Zhang";

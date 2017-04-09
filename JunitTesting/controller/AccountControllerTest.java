@@ -37,7 +37,7 @@ public class AccountControllerTest {
 	}
 	
 	@Test
-	public void testLogOnForAdminCase2() {
+	public void testLogOnForAdminCase2(){
 		String username = "nadmin";
 		String password = "admin";
 		assertTrue("Admin is logged on", acctCtr.logOn(username, password).typeOfUser("nadmin")=='a');

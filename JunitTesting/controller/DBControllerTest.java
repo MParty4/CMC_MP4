@@ -27,27 +27,27 @@ public class DBControllerTest {
 		assertTrue("Database library is set up", dbc.getUniversityLibrary()!=null);
 	}
 
-//	@Test
-//	public void testEditPersonalProfile() {
-////		String password = "yzhang";
-////		User u = dbc.getSpecificUser("yuser");
-////		dbc.editPersonalProfile("yuser", "Yidan", "Zhang", password);
-////		String newpass = u.getPassword();
-////		assertEquals("password after editing should be "+password, password, newpass);
-//		fail("Not yet implemented");
-//	}
-//
+	@Test
+	public void testEditPersonalProfile() {
+		String password = "yzhang";
+		User u = dbc.getSpecificUser("yuser");
+		dbc.editPersonalProfile("yuser", "Yidan", "Zhang", password);
+		String newpass = u.getPassword();
+		assertEquals("password after editing should be "+password, password, newpass);
+	
+	}
 
-//	@Test
-//	public void addUserSuccessfully(){
-//		assertTrue("Add a account Successful", adm.addUser("Alice", "Guess", "auser", "user", 'u')==true);
-//		List<Account> myarr = adm.viewAccount();
-//		assertEquals("Alice",myarr.get(9).getFirstName());
-//	}
-//	@Test
-//	public void addUserFailedForExistAccount(){
-//		assertFalse("Add an excist account", adm.addUser("Alice", "Lynn", "auser", "user", 'u')==true);
-//	}
+
+	@Test
+	public void addUserSuccessfully(){
+		assertTrue("Add a account Successful", dbc.addUser("Alice", "Guess", "auser", "user", 'u')==true);
+		List<Account> myarr = dbc.getAccountList();
+		assertEquals("Alice",myarr.get(9).getFirstName());
+	}
+	@Test
+	public void addUserFailedForExistAccount(){
+		assertFalse("Add an excist account", dbc.addUser("Alice", "Lynn", "auser", "user", 'u')==true);
+	}
 	@Test
 	public void addUserFailedForInvalidUsername(){
 		assertFalse("Add an account with invalid username", dbc.addUser("Alice", "Lynn", "juser", "user", 'u')==true);
@@ -75,7 +75,7 @@ public class DBControllerTest {
 	}
 	@Test
 	public void testDeactivateUserFailedNotExistName() {
-		assertFalse("The account does not exist", dbc.deactivateUser("aaa")==false);
+		assertFalse("The account does not exist", dbc.deactivateUser("aaa")==true);
 	}
 	@Test
 	public void testDeactivateUserFailedAlreadyDeactivat(){

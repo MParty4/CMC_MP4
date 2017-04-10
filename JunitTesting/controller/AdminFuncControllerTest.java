@@ -55,7 +55,8 @@ public class AdminFuncControllerTest {
 	
 	@Test
 	public void testViewSpecificUserSuccessful() {
-		assertTrue("View yuser account", admf.viewSpecificUser("yuser").getFirstName().equals("Yidan"));
+		assertTrue("View yuser account", admf.viewSpecificUser("yuser").getFirstName().equals("Amazing"));
+		assertTrue("View yuser account", admf.viewSpecificUser("kadmin").getFirstName().equals("Kalila"));
 	}
 	@Test
 	public void testViewSpecificUserFailedForInvalidUsername() {

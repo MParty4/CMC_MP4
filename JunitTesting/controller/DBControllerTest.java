@@ -39,9 +39,9 @@ public class DBControllerTest {
 
 	@Test
 	public void addUserSuccessfully(){
-		assertTrue("Add a account Successful", dbc.addUser("Alice", "Guess", "auser", "user", 'u')==true);
+		assertTrue("Add a account Successful", dbc.addUser("Apple", "Guess", "apple", "appleuser", 'u')==true);
 		List<Account> myarr = dbc.getAccountList();
-		assertEquals("Alice",myarr.get(9).getFirstName());
+		assertEquals("Apple",myarr.get(9).getFirstName());
 	}
 	@Test
 	public void addUserFailedForExistAccount(){
@@ -83,7 +83,7 @@ public class DBControllerTest {
 
 	@Test
 	public void addUniversityTest(){
-		assertTrue("Add Successfully", dbc.addUniversity("MMM", "NN", "PP", "QQ", -1, -1, -1, -1, -1, 10, -1, -1, -1, -1.0, -1.0, -1.0, new String[]{})==true);
+		assertTrue("Add Successfully", dbc.addUniversity("NNN", "OO", "PP", "QQ", -1, -1, -1, -1, -1, 10, -1, -1, -1, -1.0, -1.0, -1.0, new String[]{})==true);
 		assertEquals("NN",dbc.viewSpecificSchool("MMM").getState());
 	}
 	@Test
@@ -106,13 +106,9 @@ public class DBControllerTest {
 	public void testGetAccountList() {
 		List<Account> myarr = dbc.getAccountList();
 		Assert.assertNotNull("List should not be null", myarr);
-		assertEquals("guser", myarr.get(0).getUsername());
-		assertEquals("juser", myarr.get(1).getUsername());
-		assertEquals("kadmin", myarr.get(2).getUsername());
-		assertEquals("lur", myarr.get(3).getUsername());
-		assertEquals("luser", myarr.get(4).getUsername());
-		assertEquals("muser", myarr.get(5).getUsername());
-		assertEquals("nadmin", myarr.get(6).getUsername());
+		assertEquals("apple", myarr.get(0).getUsername());
+		assertEquals("guser", myarr.get(1).getUsername());
+		assertEquals("Jtdummy", myarr.get(2).getUsername());
 	}
 
 	@Test

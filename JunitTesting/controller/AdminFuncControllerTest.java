@@ -35,7 +35,7 @@ public class AdminFuncControllerTest {
 	
 	@Test
 	public void testAddUserSuccessful() {
-		assertTrue("Add a account Successful", admf.addUser("Greg", "Lynn", "muser", "user", 'u')==true);
+		assertTrue("Add a account Successful", admf.addUser("LOL", "Lol", "lzz", "lxx", 'a')==true);
 	}
 	@Test
 	public void testAddUserFailedForExistAccount() {
@@ -89,7 +89,7 @@ public class AdminFuncControllerTest {
 	
 	@Test
 	public void testAddUniversity() {
-		assertTrue("Add a University", admf.addUniversity("BB", "AA", "MAGIC", "PRIVATE", 100, 50, 100, 100, 200, 90, 200, 10, 10, 1.1, 2.1, 3.1, new String[]{"ART-HISTORY","FINANCE"})==true);
+		assertTrue("Add a University", admf.addUniversity("CC", "BB", "MAGICBIKE", "PUBLIC", 100, 50, 100, 100, 200, 90, 200, 10, 10, 1.1, 2.1, 3.1, new String[]{"ART-HISTORY","FINANCE"})==true);
 	}
 	@Test
 	public void testAddUniversityFailedForExisted() {

@@ -34,10 +34,12 @@ public class UserFuncControllerTest {
 	@Test
 	public void testSaveSchool() {
 		assertTrue("user should have succesfully saved a school", usrFC.saveSchool("UNIVERSITY OF MINNESOTA"));
+		assertTrue("user should have succesfully saved a school", usrFC.saveSchool("AUGSBURG"));
+		assertTrue("user should have succesfully saved a school", usrFC.saveSchool("BARNARD"));
 	}
 	@Test
 	public void testSaveSchoolFailedForExistSchoolInTheList(){
-		assertTrue("user should not have succesfully saved a school", usrFC.saveSchool("UNIVERSITY OF CHICAGO"));
+		assertFalse("user should not have succesfully saved a school", usrFC.saveSchool("UNIVERSITY OF CHICAGO"));
 	}
 	
 	
@@ -48,11 +50,11 @@ public class UserFuncControllerTest {
 
 	@Test
 	public void testRemoveSavedSchool() {
-		assertTrue("only university of chicago should be left on the list", usrFC.removeSavedSchool("UNIVERSITY OF MINNESOTA"));
+		assertTrue("only university of chicago should be left on the list", usrFC.removeSavedSchool("AUGSBURG"));
 	}
 	@Test
-	public void testRemoveSavedSchoolFailedNotExcistInSaveList(){
-		assertFalse("only university of chicago should be left on the list", usrFC.removeSavedSchool("UNIVERSITY OF MINNESOTA"));
+	public void testRemoveSavedSchoolFailedNotExistInSaveList(){
+		assertFalse("only university of chicago should be left on the list", usrFC.removeSavedSchool("BARN"));
 	}
 
 	@Test

@@ -798,7 +798,7 @@ public class FunctionalityTest {
 	public void viewAccountListTest(){
 		List<Account> myarr = adm.viewAccount();
 		Assert.assertNotNull("List should not be null", myarr);
-		assertEquals("auser", myarr.get(0).getUsername());
+		assertEquals("apple", myarr.get(0).getUsername());
 		assertEquals("guser", myarr.get(1).getUsername());
 		assertEquals("Jtdummy", myarr.get(2).getUsername());
 		assertEquals("juser", myarr.get(3).getUsername());
@@ -883,7 +883,7 @@ public class FunctionalityTest {
 	//U18: Add Universities
 	@Test
 	public void addUniversityTest(){
-		assertTrue("Add Successfully", adm.addUniversity("MMM", "NN", "PP", "QQ", -1, -1, -1, -1, -1, 10, -1, -1, -1, -1.0, -1.0, -1.0, new String[]{})==true);
+		assertTrue("Add Successfully", adm.addUniversity("NNm", "OO", "PP", "Z", -1, -1, -1, -1, -1, 10, -1, -1, -1, -1.0, -1.0, -1.0, new String[]{})==true);
 		assertEquals("NN",adm.viewSpecificUniversity("MMM").getState());
 	}
 	@Test

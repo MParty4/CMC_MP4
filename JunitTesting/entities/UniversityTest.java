@@ -1,26 +1,22 @@
-package controller;
+package entities;
 
 import static org.junit.Assert.*;
 
-import java.util.*;
+
 
 import org.junit.Before;
 import org.junit.Test;
 
-import cmc.mario.controllers.SearchController;
+import cmc.mario.controllers.DBController;
 import cmc.mario.entities.University;
 
 public class UniversityTest {
 	private University uni1;
+	
 	@Before
 	public void setUp() throws Exception{
-		List<String> popMajors = new ArrayList<String>();
-		SearchController seCon = new SearchController();
-		String m1 = "Biology";
-		String m2 = "Computer Science";
-		popMajors.add(m1);
-		popMajors.add(m2);
-		University uni1 = new University("ABILENE CHRISTIAN UNIVERSITY","TEXAS","SUBURBAN","PRIVATE",
+		String[] popMajors = {"Biology","Computer Science"};
+		 uni1 = new University("ABILENE CHRISTIAN UNIVERSITY","TEXAS","SUBURBAN","PRIVATE",
 				10000, 50 , -1,-1 ,12088, 70 ,4000,90 , 80 , 2,3,3,popMajors);
 		
 	
@@ -46,20 +42,28 @@ public class UniversityTest {
 		uni2.setLifeScale(3);
 		uni2.setSocialScale(3);
 		//Wrong type of list, it wants [] not <String>
-		List<String> popMajors1 = new ArrayList<String>();
-		String m1 = "Biology";
-		String m2 = "Computer Science";
-		popMajors1.add(m1);
-		popMajors1.add(m2);
+		String[] popMajors1 = {"Biology","Computer Science"};
 		uni2.setPopMajors(popMajors1);
-		assertTrue("Uni1 should be equal to Uni2", uni1.equals(uni2));
+		assertTrue("Uni1 should be equal to Uni2", uni1.getSchoolName()== uni2.getSchoolName()&& uni1.getState() == uni2.getState()
+				&& uni1.getLocation()==uni2.getLocation()&&uni1.getControl()==uni2.getControl()&&uni1.getNumOfStu() == uni1.getNumOfStu()&&
+				uni1.getPerFem()==uni1.getPerFem()&&uni1.getSatVerbal() == uni2.getSatVerbal()&&uni1.getSatMath() == uni2.getSatMath()&&
+				uni1.getPrice() == uni2.getPrice() &&uni1.getFinAid() == uni2.getFinAid()&&uni1.getNumOfApp() == uni2.getNumOfApp()&&
+				uni1.getPerAdmit()==uni2.getPerAdmit()&&uni1.getPerEnroll()==uni2.getPerEnroll()&&uni1.getAcademicScale() ==uni2.getAcademicScale()&&
+				uni1.getSocialScale()==uni2.getSocialScale()&&uni1.getLifeScale()==uni2.getLifeScale());
+		
 	}
 
 	@Test
 	public void testUniversity1() {
+		String[] popMajors1 = {"Biology","Computer Science"};
 		University uni3 = new University("ABILENE CHRISTIAN UNIVERSITY","TEXAS","SUBURBAN","PRIVATE",
-				10000, 50 , -1,-1 ,12088, 70 ,4000,90 , 80 , 2,3,3,popMajors);
-		assertTrue("Uni1 should be equal to Uni2", uni1.equals(uni3));
+				10000, 50 , -1,-1 ,12088, 70 ,4000,90 , 80 , 2,3,3,popMajors1);
+		assertTrue("Uni1 should be equal to Uni2", uni1.getSchoolName()== uni3.getSchoolName()&& uni1.getState() == uni3.getState()
+				&& uni1.getLocation()==uni3.getLocation()&&uni1.getControl()==uni3.getControl()&&uni1.getNumOfStu() == uni1.getNumOfStu()&&
+				uni1.getPerFem()==uni1.getPerFem()&&uni1.getSatVerbal() == uni3.getSatVerbal()&&uni1.getSatMath() == uni3.getSatMath()&&
+				uni1.getPrice() == uni3.getPrice() &&uni1.getFinAid() == uni3.getFinAid()&&uni1.getNumOfApp() == uni3.getNumOfApp()&&
+				uni1.getPerAdmit()==uni3.getPerAdmit()&&uni1.getPerEnroll()==uni3.getPerEnroll()&&uni1.getAcademicScale() ==uni3.getAcademicScale()&&
+				uni1.getSocialScale()==uni3.getSocialScale()&&uni1.getLifeScale()==uni3.getLifeScale());
 	}
 
 	@Test
@@ -245,18 +249,20 @@ public class UniversityTest {
 
 	@Test
 	public void testGetPopMajors() {
-		assertTrue("Popular Majors should be Biology and Computer Science", uni1.getPopMajors().get(0)=="Biology"&&
-				uni1.getPopMajors().get(1) == "Computer Science");
-	}
+
+		DBController db = new DBController();
+		University uni = db.getUniversities().get(0);
+		assertTrue("Popular Majors should be Biology and Computer Science", uni.getSchoolName().equals("AAAAA"));
+			}
 
 	@Test
 	public void testSetPopMajors() {
-		List<String> majors = new ArrayList<String>();
-		majors.add("Food");
-		majors.add("Candy");
-		uni1.setPopMajors(majors);
-		assertTrue("Popular Majors should be Food and Candy", uni1.getPopMajors().get(0)=="Food"&&
-				uni1.getPopMajors().get(1) == "Candy");
+		String[] list = {"WATER","EARTH","WIND","FIRE"};
+		DBController db = new DBController();
+		University uni = db.getUniversities().get(0);
+		uni.setPopMajors(list);
+		assertTrue("Popular Majors should be Food and Candy", uni.getPopMajors().get(0).equals("EARTH"));
 	}
 
 }
+

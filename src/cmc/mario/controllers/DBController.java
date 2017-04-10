@@ -393,6 +393,17 @@ public boolean addUser(String firstName, String lastName, String username, Strin
 		}
 		return emphasesList;
 	}
+	public void setEmphasisForUniversity(String universityName,String[] list){
+		UniversityDBLibrary u = new UniversityDBLibrary("mariop4", "mariop4", "csci230");
+		  for(int k=0; k<list.length; k++){
+			  String pop = list[k];
+			  u.university_addUniversityEmphasis(universityName, pop);
+		  }
+		 
+
+	}
+		
+	
 	
 	/**
 	 * Method to return a list of universities with attributes that fit in the criteria entered by user - Kalila

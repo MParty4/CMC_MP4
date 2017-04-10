@@ -53,7 +53,11 @@ public class FunctionalityTest {
 		assertTrue("Log in fail becasue of deactive account", acct.logOn("kadmin", "admin")==2);
 	}
 	
+	//U2: 
 	
+	//U3:
+	
+	//U4:
 	
 	//U5: Search For Schools
 	@Test (expected=NullPointerException.class)
@@ -91,6 +95,17 @@ public class FunctionalityTest {
 		assertTrue("New York Schoo: Bard", names.contains("BARD"));
 	}
 	
+	//U6:
+	
+	//U7:
+	
+	//U8:
+	
+	//U9:
+	
+	//U10:
+		
+	//U11:	
 	
 	//U12: View Users(Accounts)
 	@Test

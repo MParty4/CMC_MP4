@@ -75,7 +75,11 @@ public class FunctionalityTest {
 		assertTrue(dbz.removeSavedSchool(dbz.getSpecificUser("juser"), "UNIVERSITY OF MINNESOTA"));
 	}
 	//U4: view saved school details
-	
+	@Test
+	public void viewSavedSchoolDetails()
+	{
+		assertTrue(usr.viewSpecificSchool("UNIVERSITY OF MINNESOTA").getSchoolName().equals("UNIVERSITY OF MINNESOTA"));
+	}
 	//U5: Search For Schools
 	@Test (expected=NullPointerException.class)
 	public void searchForSchoolsTest(){

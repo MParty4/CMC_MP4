@@ -204,12 +204,16 @@ public class FunctionalityTest {
 		List<Account> myarr = adm.viewAccount();
 		Assert.assertNotNull("List should not be null", myarr);
 		assertEquals("guser", myarr.get(0).getUsername());
-		assertEquals("juser", myarr.get(1).getUsername());
-		assertEquals("kadmin", myarr.get(2).getUsername());
-		assertEquals("lur", myarr.get(3).getUsername());
-		assertEquals("luser", myarr.get(4).getUsername());
-		assertEquals("muser", myarr.get(5).getUsername());
-		assertEquals("nadmin", myarr.get(6).getUsername());
+		assertEquals("Jtdummy", myarr.get(1).getUsername());
+		assertEquals("juser", myarr.get(2).getUsername());
+		assertEquals("kadmin", myarr.get(3).getUsername());
+		assertEquals("lur", myarr.get(4).getUsername());
+		assertEquals("luser", myarr.get(5).getUsername());
+		assertEquals("muser", myarr.get(6).getUsername());
+		assertEquals("nadmin", myarr.get(7).getUsername());
+		assertEquals("tdummy", myarr.get(8).getUsername());
+		assertEquals("tuser", myarr.get(9).getUsername());
+		assertEquals("yuser", myarr.get(10).getUsername());
 	}
 	
 	//U13: Add User

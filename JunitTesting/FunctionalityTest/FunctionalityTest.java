@@ -117,13 +117,9 @@ public class FunctionalityTest {
 	@Test
 	public void viewPersonalProfileTest(){
 		DBController db = new DBController();
-		User tree1=(User)db.getSpecificUser("lur");
-		System.out.println("SOMETHING");
-		System.out.println(uI.viewPersonalProfile().getFirstName());
-		assertTrue(uI.viewPersonalProfile().getFirstName().equals("H"));
-		assertTrue(tree1.getLastName().equals("t"));
-		assertTrue(tree1.getPassword().equals("eat"));
-		assertTrue(tree1.getUsername().equals("lur"));
+		User user = db.getSpecificUser("lur");
+		UserUI uI =new UserUI(user);
+		uI.
 		
 	}
 		

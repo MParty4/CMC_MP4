@@ -174,10 +174,29 @@ public class DBControllerTest {
 //		fail("Not yet implemented");
 //	}
 //
-//	@Test
-//	public void testGetEmphasesForUniversity() {
-//		fail("Not yet implemented");
-//	}
+	@Test
+	public void testGetEmphasesForUniversity() {
+		List<String> list = dbc.getEmphasesForUniversity("COLORADO SCHOOL OF MINES");
+		for(int i =0 ; i< list.size();i++){
+			//System.out.println(list.get(i));
+		}
+		assertTrue(list.get(0).equals("COCONUT"));
+	}
+	
+	@Test
+	public void testSetEmphasesForUniversity() {
+		String[] list = {"HONEY","SUGAR","COCONUT"};
+		dbc.setEmphasisForUniversity("COLORADO SCHOOL OF MINES", list);
+		List<String> list2 = dbc.getEmphasesForUniversity("COLORADO SCHOOL OF MINES");
+		for(int i =0 ; i< list2.size();i++){
+			System.out.println(list2.get(i));
+		}
+		assertTrue(list2.get(0).equals("COCONUT"));
+		assertTrue(list2.get(1).equals("ENGINEERING"));
+		assertTrue(list2.get(2).equals("HONEY"));
+		assertTrue(list2.get(3).equals("SUGAR"));
+	
+	}
 //
 //	@Test
 //	public void testSearchResults() {

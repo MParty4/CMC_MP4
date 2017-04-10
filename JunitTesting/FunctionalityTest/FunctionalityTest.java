@@ -117,7 +117,34 @@ public class FunctionalityTest {
 	}
 	
 	//U6: view search results
-	
+	@Test
+	public void viewSearchResultsTest(){
+		DBController db = new DBController();
+		User user = db.getSpecificUser("lur");
+		UserUI uI =new UserUI(user);
+		List<University> list = db.getUniversities();
+		List<String> list2=uI.viewSearchResults(list.get(1));
+		assertTrue("ABILENE CHRISTIAN UNIVERSITY".equals( list2.get(0)));
+		assertTrue("TEXAS".equals( list2.get(1)));
+		assertTrue("SUBURBAN".equals(list2.get(2)));
+		assertTrue("PRIVATE".equals(list2.get(3)));
+		assertTrue(10000 == Integer.parseInt(list2.get(4)));
+		assertTrue(50 == Integer.parseInt(list2.get(5)));
+		assertTrue(-1 ==  Integer.parseInt(list2.get(6)));
+		assertTrue(-1 == Integer.parseInt(list2.get(7)));
+		assertTrue(12088==Integer.parseInt(list2.get(8)));
+		assertTrue(70==Integer.parseInt(list2.get(9)));
+		assertTrue(4000==Integer.parseInt(list2.get(10)));
+		assertTrue(90== Integer.parseInt(list2.get(11)));
+		assertTrue(80==Integer.parseInt(list2.get(12)));
+		assertTrue(2.0==Double.parseDouble(list2.get(13)));
+		assertTrue(3.0==Double.parseDouble(list2.get(14)));
+		assertTrue(3.0==Double.parseDouble(list2.get(15)));
+
+		
+		
+		
+	}
 	//U7: view specific school
 	@Test
 	public void viewSpecificSchoolTest(){

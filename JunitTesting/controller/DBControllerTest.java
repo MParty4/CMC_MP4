@@ -74,17 +74,24 @@ public class DBControllerTest {
 		assertTrue("lur is deactive now",dbc.getSpecificUser("lur").getStatus()=='N');
 	}
 		
-//
-//	@Test
-//	public void testAddUniversity() {
-//		
-//	}
-//
-//	@Test
-//	public void testEditUniversity() {
-//		fail("Not yet implemented");
-//	}
-//
+
+	@Test
+	public void addUniversityTest(){
+		assertTrue("Add Successfully", dbc.addUniversity("MMM", "NN", "PP", "QQ", -1, -1, -1, -1, -1, 10, -1, -1, -1, -1.0, -1.0, -1.0, new String[]{})==true);
+		assertEquals("NN",dbc.viewSpecificSchool("MMM").getState());
+	}
+	@Test
+	public void addUniversityFailedForExistSchool(){
+		assertFalse("The school exists", dbc.addUniversity("MMM", "NN", "PP", "QQ", -1, -1, -1, -1, -1, 10, -1, -1, -1, -1.0, -1.0, -1.0, new String[]{})==true);
+	}
+
+	
+		@Test
+		public void EditUniversityTest(){
+			dbc.editUniversity("MMM", "NN", "PP", "QQ", 10, 10, -1, -1, -1, 10, -1, -1, -1, -1.0, -1.0, -1.0);
+			assertEquals(10, dbc.viewSpecificSchool("MMM").getNumOfStu());
+		}
+		
 	@Test
 	public void testGetAccountList() {
 		List<Account> myarr = dbc.getAccountList();

@@ -165,7 +165,18 @@ public class FunctionalityTest {
 		assertTrue("List is not empty", !(myarr.isEmpty()));
 		assertTrue("The fourth university in the list", myarr.get(3).getSchoolName().equals("AMERICAN UNIVERSITY OF BEIRUT"));
 	}
-
+	
+	//U18: Add Universities
+	@Test
+	public void addUniversityTest(){
+		assertTrue("Add Successfully", adm.addUniversity("MMM", "NN", "PP", "QQ", -1, -1, -1, -1, -1, 10, -1, -1, -1, -1.0, -1.0, -1.0, new String[]{})==true);
+		assertEquals("NN",adm.viewSpecificUniversity("MMM").getState());
+	}
+	@Test
+	public void addUniversityFailedForExistSchool(){
+		assertFalse("The school exists", adm.addUniversity("MMM", "NN", "PP", "QQ", -1, -1, -1, -1, -1, 10, -1, -1, -1, -1.0, -1.0, -1.0, new String[]{})==true);
+	}
+	
 	//U19: View Specific University
 	@SuppressWarnings("deprecation")
 	@Test
@@ -191,6 +202,12 @@ public class FunctionalityTest {
 	
 	}
 	
+	//20: Edit University
+	@Test
+	public void EditUniversityTest(){
+		adm.editUniversity("MMM", "NN", "PP", "QQ", 10, 10, -1, -1, -1, 10, -1, -1, -1, -1.0, -1.0, -1.0);
+		assertEquals(10, adm.viewSpecificUniversity("MMM").getNumOfStu());
+	}
 	//U21 - Logoff - Admin
 	@Test
 	public void testLogOffAdmin(){

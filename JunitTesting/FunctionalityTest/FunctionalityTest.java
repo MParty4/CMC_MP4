@@ -14,6 +14,7 @@ import cmc.mario.controllers.DBController;
 import cmc.mario.entities.Account;
 import cmc.mario.entities.Admin;
 import cmc.mario.entities.University;
+import cmc.mario.entities.User;
 import cmc.mario.interfaces.AccountUI;
 import cmc.mario.interfaces.AdminUI;
 import cmc.mario.interfaces.UserUI;
@@ -28,6 +29,7 @@ public class FunctionalityTest {
 	public void setUp() {
 		acct = new AccountUI();
 		adm = new AdminUI(new Admin());
+		usr = new UserUI(new User());
 	}
 	//U1: Log in testing with 5 situations
 	@Test
@@ -149,5 +151,19 @@ public class FunctionalityTest {
 		assertEquals((Object)3.0, u.getSocialScale());
 		assertEquals((Object)4.0, u.getLifeScale());
 	
+	}
+	
+	//U21 - Logoff - Admin
+	@Test
+	public void testLogOffAdmin(){
+		Boolean boo = adm.logOff();
+		assertTrue("Administrator is logged off", boo==true);
+	}
+	
+	//U21 - Logoff - User
+	@Test
+	public void testLogOffUser(){
+		Boolean boo = usr.logOff();
+		assertTrue("User is logged off", boo==true);
 	}
 }

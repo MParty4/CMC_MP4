@@ -3,6 +3,9 @@ package cmc.mario.entities;
  * File: University.java
  */
 import java.util.*;
+
+import cmc.mario.controllers.DBController;
+import dblibrary.project.csci230.UniversityDBLibrary;
 /**
  * University Class which includes all information about a university
  * @author Mario Party 4: Jing Thao
@@ -10,7 +13,7 @@ import java.util.*;
  * @version 3/26/17
  */
 public class University {
-
+	private DBController db;
 	/**
 	 * the name of a school
 	 */
@@ -158,6 +161,28 @@ public class University {
 		this.academicScale = academicScale;
 		this.socialScale = socialScale;
 		this.lifeScale = lifeScale;
+	}
+	
+	public University(String schoolName, String state, String location, String control, int numOfStu, int perFem,
+			int satVerbal, int satMath, int price, int finAid, int numOfApp, int perAdmit, int perEnroll,
+			double academicScale, double socialScale, double lifeScale,String[] list) {
+		this.schoolName = schoolName;
+		this.state = state;
+		this.location = location;
+		this.control = control;
+		this.numOfStu = numOfStu;
+		this.perFem = perFem;
+		this.satVerbal = satVerbal;
+		this.satMath = satMath;
+		this.price = price;
+		this.finAid = finAid;
+		this.numOfApp = numOfApp;
+		this.perAdmit = perAdmit;
+		this.perEnroll = perEnroll;
+		this.academicScale = academicScale;
+		this.socialScale = socialScale;
+		this.lifeScale = lifeScale;
+		this.popMajors = list;
 	}
 
 	/**
@@ -422,8 +447,18 @@ public class University {
 	 * Get emphases majors of a school
 	 * @return a list of popular majors the school offers
 	 */
-	public String[] getPopMajors() {
-		return popMajors;
+	public List<String> getPopMajors() {
+		UniversityDBLibrary u = new UniversityDBLibrary("mariop4", "mariop4", "csci230");
+		String[][] uniE = u.university_getNamesWithEmphases();
+		List<String> emphasesList = new ArrayList<String>();
+		for(String[] em: uniE){
+			if(em[0].equals(schoolName)){
+				for(int i =1; i<em.length; i++){
+					emphasesList.add(em[i]);
+				}
+			}
+		}
+		return emphasesList;
 	}
 
 	/**
@@ -431,7 +466,9 @@ public class University {
 	 * @param popMajors a string array of popMajors to set for a university
 	 */
 	public void setPopMajors(String[] popMajors) {
-		this.popMajors = popMajors;
+		DBController db1 = new DBController();
+		 db1.setEmphasisForUniversity(schoolName, popMajors);
+		
 	}
 
 }

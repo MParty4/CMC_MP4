@@ -1,83 +1,93 @@
 package controller;
-
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import cmc.mario.controllers.DBController;
 import cmc.mario.controllers.UserFuncController;
+import cmc.mario.entities.Account;
+import cmc.mario.entities.University;
 import cmc.mario.entities.User;
 
 public class UserFuncControllerTest {
-	private User user;
+	private User usr,usr2;
 	private UserFuncController usrFC;
 	private DBController dbc;
 	
+	@Before
 	public void Setup()
 	{
-		dbc.addUser(firstName, lastName, username, password, type);
-		user = (User) dbc.getSpecificUser("whatever name of user we decide");
-		usrFC = new UserFuncController(user);
+		dbc = new DBController();
+		usr = new User("Jtest", "Jdummy", "Jtdummy", "Jtdummy");
+		usr2 = new User("Jtezt", "Jdummy", "JTdummy", "Jtdummy");
+		usrFC = new UserFuncController(usr);
+		dbc.addUser(usr.getFirstName(), usr.getLastName(), usr.getUserName(), usr.getPassword(), usr.getType());
 	}
 
 	@Test
 	public void testUserFuncController() {
-		fail("Not yet implemented");
+		assertTrue("user Function Controller is set up", usrFC != null);
+	}
+	
+	@Test
+	public void testSaveSchool() {
+		//assertFalse("user should have succesfully saved a school", usrFC.saveSchool("UNIVERSITY OF MINNESOTA"));
+		assertFalse("user should not have succesfully saved a school", usrFC.saveSchool("UNIVERSITY OF CHICAGO"));
 	}
 
 	@Test
 	public void testViewSavedSchools() {
-		fail("Not yet implemented");
+		assertTrue("user saved list should have some schools", (!(usrFC.viewSavedSchools().isEmpty())));
 	}
 
 	@Test
 	public void testRemoveSavedSchool() {
-		fail("Not yet implemented");
+		assertTrue("only university of chicago should be left on the list", usrFC.removeSavedSchool("UNIVERSITY OF MINNESOTA"));
 	}
 
 	@Test
 	public void testSearch() {
-		fail("Not yet implemented");
+		assertTrue("user should have a search result list", !(usrFC.search("", "MINNE", "", "", -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1.0, -1.0, -1.0,-1.0, 1.0, -1.0, new String[0]).isEmpty()));
 	}
 
 	@Test
 	public void testViewSearchResults() {
-		fail("Not yet implemented");
+		assertTrue("user should have a search result list for a university",  Integer.parseInt(usrFC.viewSearchResults(new University("BB", "AA", "MAGIC", "PRIVATE", 100, 50, 100, 100, 200, 90, 200, 10, 10, 1.1, 2.1, 3.1)).get(4))==100);
 	}
 
 	@Test
 	public void testViewSpecificSchool() {
-		fail("Not yet implemented");
-	}
+		assertTrue("View University of Minnesota", usrFC.viewSpecificSchool("UNIVERSITY OF MINNESOTA").getState().equals("MINNESOTA"));
+		}
+		@Test
+		public void testViewSpecificSchoolFailedForInvaildName() {
+			assertTrue("View university which does not exist", usrFC.viewSpecificSchool("ZZZ").getState()==null);
+		}
 
 	@Test
 	public void testViewRecommendation() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSaveSchool() {
-		fail("Not yet implemented");
+		assertTrue("View Recommendations", !usrFC.viewRecommendation(dbc.viewSpecificSchool("UNIVERSITY OF MINNESOTA")).isEmpty());
 	}
 
 	@Test
 	public void testViewPersonalProfile() {
-		fail("Not yet implemented");
+		assertTrue("USER PROFILE SHOULD BE RETURNED", usrFC.viewPersonalProfile()!=null);
 	}
 
 	@Test
 	public void testEditPersonalProfile() {
-		fail("Not yet implemented");
+		assertTrue("profile should be edited", usrFC.editPersonalProfile("Jtdummy", "Jtest", "Jdummy", "Jtd")== true);
 	}
 
 	@Test
 	public void testGetUser() {
-		fail("Not yet implemented");
+		assertTrue("should get a user", usrFC.getUser().equals(usr));
 	}
 
-	@Test
-	public void testSetUser() {
-		fail("Not yet implemented");
-	}
+//	@Test
+//	public void testSetUser() {
+//		assertTrue("should edit a user", usrFC.setUser(usr2));
+//	}
 
 }

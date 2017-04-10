@@ -231,9 +231,9 @@ public boolean addUser(String firstName, String lastName, String username, Strin
    * @param username of the user need to view - Yidan
    * @return account to return
    */
-  public Account getSpecificUser(String username){
+  public User getSpecificUser(String username){
 	  String[][] userList =univLib.user_getUsers();
-	  Account a = new Account();
+	  User a = new User();
 	  for(String[] arr : userList){
 		  if(arr[2].equals(username)){
 	    	a.setFirstName(arr[0]);

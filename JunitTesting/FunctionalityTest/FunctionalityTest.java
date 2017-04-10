@@ -48,25 +48,15 @@ public class FunctionalityTest {
 	public void LoginFailedForWrongPassword() {
 		assertTrue("Log in fail becasue of password", acct.logOn("guser", "v")==3);
 	}
-	
 	@Test
 	public void LoginFailedForDeactiveAccount() {
 		assertTrue("Log in fail becasue of deactive account", acct.logOn("kadmin", "admin")==2);
 	}
 	
 	//U2: view saved schools
-	@Test
-	public void ViewSavedSchoolTest()
-	{
-		assertTrue("list shouldn't be empty", usr.viewSavedSchools()!=null);
-	}
+	
 	//U3: remove school
-	@Test
-	public void removeSchoolTest()
-	{
-		usr.saveSchool("UNIVERSITY OF CHICAGO");
-		assertTrue("list should be empty", usr.removeSavedSchool("UNIVERSITY OF CHICAGO"));
-	}
+	
 	//U4: view saved school details
 	
 	//U5: Search For Schools
@@ -129,7 +119,8 @@ public class FunctionalityTest {
 		DBController db = new DBController();
 		User user = db.getSpecificUser("lur");
 		UserUI uI =new UserUI(user);
-		uI.
+		User tree1 = uI.viewPersonalProfile();
+		System.out.println(tree1.getFirstName());
 		
 	}
 		

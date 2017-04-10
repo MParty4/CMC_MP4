@@ -173,7 +173,7 @@ public class UserFuncController {
    * Displays the user profile to the user.
    * @return user object to preview user details
    */
-  public Account viewPersonalProfile()
+  public User viewPersonalProfile()
   {
     return this.dbc.getSpecificUser(this.user.getUserName()); 
   }

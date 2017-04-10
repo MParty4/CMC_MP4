@@ -138,7 +138,7 @@ public class UserUI extends AccountUI{
 	   * Displays the user profile to the user.
 	   * @return user object to preview user details
 	   */
-	  public Account viewPersonalProfile(){
+	  public User viewPersonalProfile(){
 	    return this.userContr.viewPersonalProfile();
 	  }
 	  

@@ -54,6 +54,44 @@ public class FunctionalityTest {
 	}
 	
 	
+	
+	//U5: Search For Schools
+	@Test (expected=NullPointerException.class)
+	public void searchForSchoolsTest(){
+		String schoolName = "";
+		String state = "NEW YORK";
+		String location = "";
+		String control = "";
+		int numOfStuStart = -1;
+		int numOfStuEnd = -1;
+		int perFemStart = -1;
+		int perFemEnd = -1;
+		int satVerbalStart = -1;
+		int satVerbalEnd = -1;
+		int satMathStart = -1;
+		int satMathEnd = -1;
+		int priceStart = -1; 
+		int priceEnd = -1;
+		int finAidStart = -1;
+		int finAidEnd = -1;
+		int numOfAppStart = -1;
+		int numOfAppEnd = -1;
+		int perAdmitStart = -1;
+		int perAdmitEnd = -1;
+		int perEnrollStart = -1;
+		int perEnrollEnd = -1;
+		double academicScaleStart = -1;
+		double academicScaleEnd = -1.0;
+		double socialScaleStart = -1.0;
+		double socialScaleEnd = -1.0;
+		double lifeScaleStart = -1.0;
+		double lifeScaleEnd = -1.0;
+		String[] popMajor = new String[5];
+		List<University> names = dbc.searchResults(schoolName, state, location, control, numOfStuStart, numOfStuEnd, perFemStart, perFemEnd, satVerbalStart, satVerbalEnd, satMathStart, satMathEnd, priceStart, priceEnd, finAidStart, finAidEnd, numOfAppStart, numOfAppEnd, perAdmitStart, perAdmitEnd, perEnrollStart, perEnrollEnd, academicScaleStart, academicScaleEnd, socialScaleStart, socialScaleEnd, lifeScaleStart, lifeScaleEnd, popMajor);
+		assertTrue("New York Schoo: Bard", names.contains("BARD"));
+	}
+	
+	
 	//U12: View Users(Accounts)
 	@Test
 	public void viewAccountListTest(){

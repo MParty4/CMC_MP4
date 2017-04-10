@@ -54,9 +54,26 @@ public class FunctionalityTest {
 	}
 	
 	//U2: view saved schools
-	
+	@Test
+	public void viewsaveSchoolTest()
+	{
+		DBController dbz = new DBController();
+		assertFalse(dbz.getSavedSchools(dbz.getSpecificUser("juser").getUsername()).isEmpty());
+	}
+	//U9: save school
+	@Test
+	public void saveaSchool()
+	{
+		DBController dbz = new DBController();
+		assertTrue(dbz.addSavedSchool(dbz.getSpecificUser("juser"), "UNIVERSITY OF MINNESOTA"));
+	}
 	//U3: remove school
-	
+	@Test
+	public void removeSchoolTest()
+	{
+		DBController dbz = new DBController();
+		assertTrue(dbz.removeSavedSchool(dbz.getSpecificUser("juser"), "UNIVERSITY OF MINNESOTA"));
+	}
 	//U4: view saved school details
 	
 	//U5: Search For Schools
@@ -111,7 +128,6 @@ public class FunctionalityTest {
 	
 	//U8: view recommendations
 	
-	//U9: save school
 	
 	//U10: view personal profile
 	@Test

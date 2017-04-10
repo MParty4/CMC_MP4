@@ -73,7 +73,14 @@ public class DBControllerTest {
 		dbc.deactivateUser("lur");	
 		assertTrue("lur is deactive now",dbc.getSpecificUser("lur").getStatus()=='N');
 	}
-		
+	@Test
+	public void testDeactivateUserFailedNotExistName() {
+		assertFalse("The account does not exist", dbc.deactivateUser("aaa")==false);
+	}
+	@Test
+	public void testDeactivateUserFailedAlreadyDeactivat(){
+		assertFalse("The account has already deactivate", dbc.deactivateUser("kadmin"));
+	}
 
 	@Test
 	public void addUniversityTest(){
@@ -90,6 +97,10 @@ public class DBControllerTest {
 		public void EditUniversityTest(){
 			dbc.editUniversity("MMM", "NN", "PP", "QQ", 10, 10, -1, -1, -1, 10, -1, -1, -1, -1.0, -1.0, -1.0);
 			assertEquals(10, dbc.viewSpecificSchool("MMM").getNumOfStu());
+		}
+		@Test
+		public void EditUniversityFailedNotExist(){
+			assertFalse("The school does not exist", dbc.editUniversity("abc", "NN", "PP", "QQ", 10, 10, -1, -1, -1, 10, -1, -1, -1, -1.0, -1.0, -1.0));
 		}
 		
 	@Test

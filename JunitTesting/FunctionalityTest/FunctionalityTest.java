@@ -156,6 +156,14 @@ public class FunctionalityTest {
 		adm.deactivateUser("tuser");	
 		assertTrue("tuser is deactive now",dbc.getSpecificUser("tuser").getStatus()=='N');
 	}
+	@Test(expected=NullPointerException.class)
+	public void testDeactivateUserFailedNotExistName() {
+		assertFalse("The account does not exist", dbc.deactivateUser("aaa")==false);
+	}
+	@Test(expected=NullPointerException.class)
+	public void testDeactivateUserFailedAlreadyDeactivat(){
+		assertFalse("The account has already deactivate", dbc.deactivateUser("kadmin"));
+	}
 	
 	//U17: View Universities
 	@Test
@@ -207,6 +215,10 @@ public class FunctionalityTest {
 	public void EditUniversityTest(){
 		adm.editUniversity("MMM", "NN", "PP", "QQ", 10, 10, -1, -1, -1, 10, -1, -1, -1, -1.0, -1.0, -1.0);
 		assertEquals(10, adm.viewSpecificUniversity("MMM").getNumOfStu());
+	}
+	@Test
+	public void EditUniversityFailedNotExist(){
+		assertFalse("The school does not exist", adm.editUniversity("abc", "NN", "PP", "QQ", 10, 10, -1, -1, -1, 10, -1, -1, -1, -1.0, -1.0, -1.0));
 	}
 	//U21 - Logoff - Admin
 	@Test

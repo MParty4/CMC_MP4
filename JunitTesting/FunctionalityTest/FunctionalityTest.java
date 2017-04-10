@@ -158,6 +158,20 @@ public class FunctionalityTest {
 	}
 	
 	//U8: view recommendations
+	@Test
+	public void viewRecommendationsTest(){
+		DBController db = new DBController();
+		User user = db.getSpecificUser("lur");
+		UserUI uI =new UserUI(user);
+		List<University> list = db.getUniversities();
+		List<University> list2 = uI.viewRecommendation(list.get(1));
+		assertTrue(list2.get(0).getSchoolName().equals("NICHOLLS STATE"));
+		assertTrue(list2.get(1).getSchoolName().equals("UNIVERSITY OF SOUTH DAKOTA"));
+		assertTrue(list2.get(2).getSchoolName().equals("MESA"));
+		assertTrue(list2.get(3).getSchoolName().equals("UNIVERSITY OF MONTANA"));
+		assertTrue(list2.get(4).getSchoolName().equals("UNIVERSITY WEST VIRGINIA"));
+		
+	}
 	
 	
 	//U10: view personal profile

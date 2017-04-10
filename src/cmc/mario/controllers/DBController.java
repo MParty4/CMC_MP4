@@ -397,6 +397,7 @@ public boolean addUser(String firstName, String lastName, String username, Strin
 		UniversityDBLibrary u = new UniversityDBLibrary("mariop4", "mariop4", "csci230");
 		  for(int k=0; k<list.length; k++){
 			  String pop = list[k];
+			  
 			  u.university_addUniversityEmphasis(universityName, pop);
 		  }
 		 

@@ -98,14 +98,49 @@ public class FunctionalityTest {
 	//U6: view search results
 	
 	//U7: view specific school
+	@Test
+	public void viewSpecificSchoolTest(){
+		DBController db = new DBController();
+		List<University> list = db.getUniversities();
+		usr.viewSearchResults(list.get(1));
+		University u = usr.viewSpecificSchool(list.get(1).getSchoolName());
+		System.out.println(u.getSchoolName());
+		assertTrue(u.getSchoolName().equals("ABILENE CHRISTIAN UNIVERSITY"));
+		
+	}
 	
 	//U8: view recommendations
 	
 	//U9: save school
 	
 	//U10: view personal profile
+	@Test
+	public void viewPersonalProfileTest(){
+		DBController db = new DBController();
+		User tree1=(User)db.getSpecificUser("lur");
+		System.out.println("SOMETHING");
+		System.out.println(uI.viewPersonalProfile().getFirstName());
+		assertTrue(uI.viewPersonalProfile().getFirstName().equals("H"));
+		assertTrue(tree1.getLastName().equals("t"));
+		assertTrue(tree1.getPassword().equals("eat"));
+		assertTrue(tree1.getUsername().equals("lur"));
+		
+	}
 		
 	//U11:	edit personal profile
+	@Test
+	public void editPersonalProfileTest(){
+		DBController db = new DBController();
+		usr.editPersonalProfile("lur", "H", "t", "eat");
+		Account tree1 = db.getSpecificUser("lur");
+		assertTrue(tree1.getFirstName().equals("H"));
+		assertTrue(tree1.getLastName().equals("t"));
+		assertTrue(tree1.getPassword().equals("eat"));
+		assertTrue(tree1.getUsername().equals("lur"));
+		
+		
+		
+	}
 	
 	//U12: View Users(Accounts)
 	@Test

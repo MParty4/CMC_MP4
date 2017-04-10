@@ -78,5 +78,7 @@ public class User extends Account{
 	  {
 	    return this.type;
 	  }
+
+
 	  
 }

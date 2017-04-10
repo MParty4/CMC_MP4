@@ -107,7 +107,7 @@ public class SearchController {
 	 * @return A list of universities
 	 */
 	public List<University> viewRecommendation(University u) {
-		List<University> uniList = dbControl.getUniversities();// dbControl.getUniversities();
+		List<University> uniList = dbControl.getUniversities();
 		String[][] listRecommend = new String[uniList.size()][2];
 		List<Double> listRecommend2 = new ArrayList<Double>();
 		List<University> uniRecommendList = new ArrayList<University>();

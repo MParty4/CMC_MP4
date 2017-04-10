@@ -12,6 +12,7 @@ import cmc.mario.controllers.DBController;
 import cmc.mario.entities.Account;
 import cmc.mario.entities.University;
 import cmc.mario.entities.User;
+import cmc.mario.interfaces.UserUI;
 
 public class DBControllerTest {
 	private DBController dbc;
@@ -29,11 +30,9 @@ public class DBControllerTest {
 
 	@Test
 	public void testEditPersonalProfile() {
-		String password = "yzhang";
+		dbc.editPersonalProfile("yuser", "Amazing", "Zhang", "y4zhang");
 		User u = dbc.getSpecificUser("yuser");
-		dbc.editPersonalProfile("yuser", "Yidan", "Zhang", password);
-		String newpass = u.getPassword();
-		assertEquals("password after editing should be "+password, password, newpass);
+		assertEquals("y4zhang",u.getPassword());
 	
 	}
 
@@ -55,13 +54,13 @@ public class DBControllerTest {
 
 	@Test
 	public void testEditUser(){
-		dbc.editUser("Amazing", "Zhang", "yuser", "user", 'u', 'Y');
+	//	dbc.editUser("Amazing", "Zhang", "yuser", "user", 'u', 'Y');
 		dbc.editUser("Jing", "Cool", "lur", "user", 'u', 'Y');
 		Account a = dbc.getSpecificUser("yuser");
 		assertEquals("Amazing", a.getFirstName());
 		assertEquals("Zhang", a.getLastName());
 		assertEquals("yuser", a.getUsername());
-		assertEquals("user", a.getPassword());
+		assertEquals("y4zhang", a.getPassword());
 		assertTrue("The type is user", a.getTypeOfUser()=='u');
 		assertTrue("The status is active", a.getStatus()=='Y');
 	}
@@ -198,10 +197,5 @@ public class DBControllerTest {
 		assertTrue(list2.get(3).equals("SUGAR"));
 	
 	}
-//
-//	@Test
-//	public void testSearchResults() {
-//		fail("Not yet implemented"); /kalila
-//	}
 
 }

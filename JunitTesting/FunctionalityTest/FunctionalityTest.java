@@ -105,7 +105,7 @@ public class FunctionalityTest {
 		int perAdmitEnd = -1;
 		int perEnrollStart = -1;
 		int perEnrollEnd = -1;
-		double academicScaleStart = -1;
+		double academicScaleStart = -1.0;
 		double academicScaleEnd = -1.0;
 		double socialScaleStart = -1.0;
 		double socialScaleEnd = -1.0;
@@ -115,7 +115,605 @@ public class FunctionalityTest {
 		List<University> names = dbc.searchResults(schoolName, state, location, control, numOfStuStart, numOfStuEnd, perFemStart, perFemEnd, satVerbalStart, satVerbalEnd, satMathStart, satMathEnd, priceStart, priceEnd, finAidStart, finAidEnd, numOfAppStart, numOfAppEnd, perAdmitStart, perAdmitEnd, perEnrollStart, perEnrollEnd, academicScaleStart, academicScaleEnd, socialScaleStart, socialScaleEnd, lifeScaleStart, lifeScaleEnd, popMajor);
 		assertTrue("New York Schoo: Bard", names.contains("BARD"));
 	}
-	
+	//U5: Search For Schools Test 2 - Academic scale start less than -1
+		@Test (expected=NullPointerException.class)
+		public void searchForSchoolsTest2(){
+			String schoolName = "";
+			String state = "NEW YORK";
+			String location = "";
+			String control = "";
+			int numOfStuStart = -1;
+			int numOfStuEnd = -1;
+			int perFemStart = -1;
+			int perFemEnd = -1;
+			int satVerbalStart = -1;
+			int satVerbalEnd = -1;
+			int satMathStart = -1;
+			int satMathEnd = -1;
+			int priceStart = -1; 
+			int priceEnd = -1;
+			int finAidStart = -1;
+			int finAidEnd = -1;
+			int numOfAppStart = -1;
+			int numOfAppEnd = -1;
+			int perAdmitStart = -1;
+			int perAdmitEnd = -1;
+			int perEnrollStart = -1;
+			int perEnrollEnd = -1;
+			double academicScaleStart = -2.0;
+			double academicScaleEnd = -2.0;
+			double socialScaleStart = -1.0;
+			double socialScaleEnd = -1.0;
+			double lifeScaleStart = -1.0;
+			double lifeScaleEnd = -1.0;
+			String[] popMajor = new String[5];
+			List<University> names = dbc.searchResults(schoolName, state, location, control, numOfStuStart, numOfStuEnd, perFemStart, perFemEnd, satVerbalStart, satVerbalEnd, satMathStart, satMathEnd, priceStart, priceEnd, finAidStart, finAidEnd, numOfAppStart, numOfAppEnd, perAdmitStart, perAdmitEnd, perEnrollStart, perEnrollEnd, academicScaleStart, academicScaleEnd, socialScaleStart, socialScaleEnd, lifeScaleStart, lifeScaleEnd, popMajor);
+			assertFalse("New York School does not contain Bard", names.contains("BARD"));
+		}
+		
+		//U5: Search For Schools Test 3 - Social scale start less than -1
+				@Test (expected=NullPointerException.class)
+				public void searchForSchoolsTest3(){
+					String schoolName = "";
+					String state = "NEW YORK";
+					String location = "";
+					String control = "";
+					int numOfStuStart = -1;
+					int numOfStuEnd = -1;
+					int perFemStart = -1;
+					int perFemEnd = -1;
+					int satVerbalStart = -1;
+					int satVerbalEnd = -1;
+					int satMathStart = -1;
+					int satMathEnd = -1;
+					int priceStart = -1; 
+					int priceEnd = -1;
+					int finAidStart = -1;
+					int finAidEnd = -1;
+					int numOfAppStart = -1;
+					int numOfAppEnd = -1;
+					int perAdmitStart = -1;
+					int perAdmitEnd = -1;
+					int perEnrollStart = -1;
+					int perEnrollEnd = -1;
+					double academicScaleStart = -1.0;
+					double academicScaleEnd = -1.0;
+					double socialScaleStart = -2.0;
+					double socialScaleEnd = -2.0;
+					double lifeScaleStart = -1.0;
+					double lifeScaleEnd = -1.0;
+					String[] popMajor = new String[5];
+					List<University> names = dbc.searchResults(schoolName, state, location, control, numOfStuStart, numOfStuEnd, perFemStart, perFemEnd, satVerbalStart, satVerbalEnd, satMathStart, satMathEnd, priceStart, priceEnd, finAidStart, finAidEnd, numOfAppStart, numOfAppEnd, perAdmitStart, perAdmitEnd, perEnrollStart, perEnrollEnd, academicScaleStart, academicScaleEnd, socialScaleStart, socialScaleEnd, lifeScaleStart, lifeScaleEnd, popMajor);
+					assertFalse("New York School does not contain Bard", names.contains("BARD"));
+				}
+				//U5: Search For Schools Test 4 - Life scale start less than -1
+				@Test (expected=NullPointerException.class)
+				public void searchForSchoolsTest4(){
+					String schoolName = "";
+					String state = "NEW YORK";
+					String location = "";
+					String control = "";
+					int numOfStuStart = -1;
+					int numOfStuEnd = -1;
+					int perFemStart = -1;
+					int perFemEnd = -1;
+					int satVerbalStart = -1;
+					int satVerbalEnd = -1;
+					int satMathStart = -1;
+					int satMathEnd = -1;
+					int priceStart = -1; 
+					int priceEnd = -1;
+					int finAidStart = -1;
+					int finAidEnd = -1;
+					int numOfAppStart = -1;
+					int numOfAppEnd = -1;
+					int perAdmitStart = -1;
+					int perAdmitEnd = -1;
+					int perEnrollStart = -1;
+					int perEnrollEnd = -1;
+					double academicScaleStart = -1.0;
+					double academicScaleEnd = -1.0;
+					double socialScaleStart = -1.0;
+					double socialScaleEnd = -1.0;
+					double lifeScaleStart = -2.0;
+					double lifeScaleEnd = -2.0;
+					String[] popMajor = new String[5];
+					List<University> names = dbc.searchResults(schoolName, state, location, control, numOfStuStart, numOfStuEnd, perFemStart, perFemEnd, satVerbalStart, satVerbalEnd, satMathStart, satMathEnd, priceStart, priceEnd, finAidStart, finAidEnd, numOfAppStart, numOfAppEnd, perAdmitStart, perAdmitEnd, perEnrollStart, perEnrollEnd, academicScaleStart, academicScaleEnd, socialScaleStart, socialScaleEnd, lifeScaleStart, lifeScaleEnd, popMajor);
+					assertFalse("New York School does not contain Bard", names.contains("BARD"));
+				}
+				//U5: Search For Schools Test 18 - numOfStuStart < -1
+				@Test (expected=NullPointerException.class)
+				public void searchForSchoolsTest18(){
+					String schoolName = "";
+					String state = "NEW YORK";
+					String location = "";
+					String control = "";
+					int numOfStuStart = -2;
+					int numOfStuEnd = -2;
+					int perFemStart = -1;
+					int perFemEnd = -1;
+					int satVerbalStart = -1;
+					int satVerbalEnd = -1;
+					int satMathStart = -1;
+					int satMathEnd = -1;
+					int priceStart = -1; 
+					int priceEnd = -1;
+					int finAidStart = -1;
+					int finAidEnd = -1;
+					int numOfAppStart = -1;
+					int numOfAppEnd = -1;
+					int perAdmitStart = -1;
+					int perAdmitEnd = -1;
+					int perEnrollStart = -1;
+					int perEnrollEnd = -1;
+					double academicScaleStart = -1.0;
+					double academicScaleEnd = -1.0;
+					double socialScaleStart = -1.0;
+					double socialScaleEnd = -1.0;
+					double lifeScaleStart = -1.0;
+					double lifeScaleEnd = -1.0;
+					String[] popMajor = new String[5];
+					List<University> names = dbc.searchResults(schoolName, state, location, control, numOfStuStart, numOfStuEnd, perFemStart, perFemEnd, satVerbalStart, satVerbalEnd, satMathStart, satMathEnd, priceStart, priceEnd, finAidStart, finAidEnd, numOfAppStart, numOfAppEnd, perAdmitStart, perAdmitEnd, perEnrollStart, perEnrollEnd, academicScaleStart, academicScaleEnd, socialScaleStart, socialScaleEnd, lifeScaleStart, lifeScaleEnd, popMajor);
+					assertFalse("New York School does not contain Bard", names.contains("BARD"));
+				}
+				//U5: Search For Schools Test 5 - numOfStuStart and End < -1
+				@Test (expected=NullPointerException.class)
+				public void searchForSchoolsTest5(){
+					String schoolName = "";
+					String state = "NEW YORK";
+					String location = "";
+					String control = "";
+					int numOfStuStart = -2;
+					int numOfStuEnd = -2;
+					int perFemStart = -1;
+					int perFemEnd = -1;
+					int satVerbalStart = -1;
+					int satVerbalEnd = -1;
+					int satMathStart = -1;
+					int satMathEnd = -1;
+					int priceStart = -1; 
+					int priceEnd = -1;
+					int finAidStart = -1;
+					int finAidEnd = -1;
+					int numOfAppStart = -1;
+					int numOfAppEnd = -1;
+					int perAdmitStart = -1;
+					int perAdmitEnd = -1;
+					int perEnrollStart = -1;
+					int perEnrollEnd = -1;
+					double academicScaleStart = -1.0;
+					double academicScaleEnd = -1.0;
+					double socialScaleStart = -1.0;
+					double socialScaleEnd = -1.0;
+					double lifeScaleStart = -1.0;
+					double lifeScaleEnd = -1.0;
+					String[] popMajor = new String[5];
+					List<University> names = dbc.searchResults(schoolName, state, location, control, numOfStuStart, numOfStuEnd, perFemStart, perFemEnd, satVerbalStart, satVerbalEnd, satMathStart, satMathEnd, priceStart, priceEnd, finAidStart, finAidEnd, numOfAppStart, numOfAppEnd, perAdmitStart, perAdmitEnd, perEnrollStart, perEnrollEnd, academicScaleStart, academicScaleEnd, socialScaleStart, socialScaleEnd, lifeScaleStart, lifeScaleEnd, popMajor);
+					assertFalse("New York School does not contain Bard", names.contains("BARD"));
+				}
+				//U5: Search For Schools Test 6 - perFemStart and End < -1
+				@Test (expected=NullPointerException.class)
+				public void searchForSchoolsTest6(){
+					String schoolName = "";
+					String state = "NEW YORK";
+					String location = "";
+					String control = "";
+					int numOfStuStart = -1;
+					int numOfStuEnd = -2;
+					int perFemStart = -2;
+					int perFemEnd = -1;
+					int satVerbalStart = -1;
+					int satVerbalEnd = -1;
+					int satMathStart = -1;
+					int satMathEnd = -1;
+					int priceStart = -1; 
+					int priceEnd = -1;
+					int finAidStart = -1;
+					int finAidEnd = -1;
+					int numOfAppStart = -1;
+					int numOfAppEnd = -1;
+					int perAdmitStart = -1;
+					int perAdmitEnd = -1;
+					int perEnrollStart = -1;
+					int perEnrollEnd = -1;
+					double academicScaleStart = -1.0;
+					double academicScaleEnd = -1.0;
+					double socialScaleStart = -1.0;
+					double socialScaleEnd = -1.0;
+					double lifeScaleStart = -1.0;
+					double lifeScaleEnd = -1.0;
+					String[] popMajor = new String[5];
+					List<University> names = dbc.searchResults(schoolName, state, location, control, numOfStuStart, numOfStuEnd, perFemStart, perFemEnd, satVerbalStart, satVerbalEnd, satMathStart, satMathEnd, priceStart, priceEnd, finAidStart, finAidEnd, numOfAppStart, numOfAppEnd, perAdmitStart, perAdmitEnd, perEnrollStart, perEnrollEnd, academicScaleStart, academicScaleEnd, socialScaleStart, socialScaleEnd, lifeScaleStart, lifeScaleEnd, popMajor);
+					assertFalse("New York School does not contain Bard", names.contains("BARD"));
+				}
+				//U5: Search For Schools Test 7 - satVerbalStart and End < -1
+				@Test (expected=NullPointerException.class)
+				public void searchForSchoolsTest7(){
+					String schoolName = "";
+					String state = "NEW YORK";
+					String location = "";
+					String control = "";
+					int numOfStuStart = -1;
+					int numOfStuEnd = -1;
+					int perFemStart = -1;
+					int perFemEnd = -1;
+					int satVerbalStart = -2;
+					int satVerbalEnd = -2;
+					int satMathStart = -1;
+					int satMathEnd = -1;
+					int priceStart = -1; 
+					int priceEnd = -1;
+					int finAidStart = -1;
+					int finAidEnd = -1;
+					int numOfAppStart = -1;
+					int numOfAppEnd = -1;
+					int perAdmitStart = -1;
+					int perAdmitEnd = -1;
+					int perEnrollStart = -1;
+					int perEnrollEnd = -1;
+					double academicScaleStart = -1.0;
+					double academicScaleEnd = -1.0;
+					double socialScaleStart = -1.0;
+					double socialScaleEnd = -1.0;
+					double lifeScaleStart = -1.0;
+					double lifeScaleEnd = -1.0;
+					String[] popMajor = new String[5];
+					List<University> names = dbc.searchResults(schoolName, state, location, control, numOfStuStart, numOfStuEnd, perFemStart, perFemEnd, satVerbalStart, satVerbalEnd, satMathStart, satMathEnd, priceStart, priceEnd, finAidStart, finAidEnd, numOfAppStart, numOfAppEnd, perAdmitStart, perAdmitEnd, perEnrollStart, perEnrollEnd, academicScaleStart, academicScaleEnd, socialScaleStart, socialScaleEnd, lifeScaleStart, lifeScaleEnd, popMajor);
+					assertFalse("New York School does not contain Bard", names.contains("BARD"));
+				}
+				//U5: Search For Schools Test 8 - satMathStart and End < -1
+				@Test (expected=NullPointerException.class)
+				public void searchForSchoolsTest8(){
+					String schoolName = "";
+					String state = "NEW YORK";
+					String location = "";
+					String control = "";
+					int numOfStuStart = -1;
+					int numOfStuEnd = -1;
+					int perFemStart = -1;
+					int perFemEnd = -1;
+					int satVerbalStart = -1;
+					int satVerbalEnd = -1;
+					int satMathStart = -2;
+					int satMathEnd = -2;
+					int priceStart = -1; 
+					int priceEnd = -1;
+					int finAidStart = -1;
+					int finAidEnd = -1;
+					int numOfAppStart = -1;
+					int numOfAppEnd = -1;
+					int perAdmitStart = -1;
+					int perAdmitEnd = -1;
+					int perEnrollStart = -1;
+					int perEnrollEnd = -1;
+					double academicScaleStart = -1.0;
+					double academicScaleEnd = -1.0;
+					double socialScaleStart = -1.0;
+					double socialScaleEnd = -1.0;
+					double lifeScaleStart = -1.0;
+					double lifeScaleEnd = -1.0;
+					String[] popMajor = new String[5];
+					List<University> names = dbc.searchResults(schoolName, state, location, control, numOfStuStart, numOfStuEnd, perFemStart, perFemEnd, satVerbalStart, satVerbalEnd, satMathStart, satMathEnd, priceStart, priceEnd, finAidStart, finAidEnd, numOfAppStart, numOfAppEnd, perAdmitStart, perAdmitEnd, perEnrollStart, perEnrollEnd, academicScaleStart, academicScaleEnd, socialScaleStart, socialScaleEnd, lifeScaleStart, lifeScaleEnd, popMajor);
+					assertFalse("New York School does not contain Bard", names.contains("BARD"));
+				}
+				//U5: Search For Schools Test 9 - priceStart and end < -1
+				@Test (expected=NullPointerException.class)
+				public void searchForSchoolsTest9(){
+					String schoolName = "";
+					String state = "NEW YORK";
+					String location = "";
+					String control = "";
+					int numOfStuStart = -1;
+					int numOfStuEnd = -1;
+					int perFemStart = -1;
+					int perFemEnd = -1;
+					int satVerbalStart = -1;
+					int satVerbalEnd = -1;
+					int satMathStart = -1;
+					int satMathEnd = -1;
+					int priceStart = -2; 
+					int priceEnd = -2;
+					int finAidStart = -1;
+					int finAidEnd = -1;
+					int numOfAppStart = -1;
+					int numOfAppEnd = -1;
+					int perAdmitStart = -1;
+					int perAdmitEnd = -1;
+					int perEnrollStart = -1;
+					int perEnrollEnd = -1;
+					double academicScaleStart = -1.0;
+					double academicScaleEnd = -1.0;
+					double socialScaleStart = -1.0;
+					double socialScaleEnd = -1.0;
+					double lifeScaleStart = -1.0;
+					double lifeScaleEnd = -1.0;
+					String[] popMajor = new String[5];
+					List<University> names = dbc.searchResults(schoolName, state, location, control, numOfStuStart, numOfStuEnd, perFemStart, perFemEnd, satVerbalStart, satVerbalEnd, satMathStart, satMathEnd, priceStart, priceEnd, finAidStart, finAidEnd, numOfAppStart, numOfAppEnd, perAdmitStart, perAdmitEnd, perEnrollStart, perEnrollEnd, academicScaleStart, academicScaleEnd, socialScaleStart, socialScaleEnd, lifeScaleStart, lifeScaleEnd, popMajor);
+					assertFalse("New York School does not contain Bard", names.contains("BARD"));
+				}
+				//U5: Search For Schools Test 10 - finAidStart and End < -1
+				@Test (expected=NullPointerException.class)
+				public void searchForSchoolsTest10(){
+					String schoolName = "";
+					String state = "NEW YORK";
+					String location = "";
+					String control = "";
+					int numOfStuStart = -1;
+					int numOfStuEnd = -1;
+					int perFemStart = -1;
+					int perFemEnd = -1;
+					int satVerbalStart = -1;
+					int satVerbalEnd = -1;
+					int satMathStart = -1;
+					int satMathEnd = -1;
+					int priceStart = -1; 
+					int priceEnd = -1;
+					int finAidStart = -2;
+					int finAidEnd = -2;
+					int numOfAppStart = -1;
+					int numOfAppEnd = -1;
+					int perAdmitStart = -1;
+					int perAdmitEnd = -1;
+					int perEnrollStart = -1;
+					int perEnrollEnd = -1;
+					double academicScaleStart = -1.0;
+					double academicScaleEnd = -1.0;
+					double socialScaleStart = -1.0;
+					double socialScaleEnd = -1.0;
+					double lifeScaleStart = -1.0;
+					double lifeScaleEnd = -1.0;
+					String[] popMajor = new String[5];
+					List<University> names = dbc.searchResults(schoolName, state, location, control, numOfStuStart, numOfStuEnd, perFemStart, perFemEnd, satVerbalStart, satVerbalEnd, satMathStart, satMathEnd, priceStart, priceEnd, finAidStart, finAidEnd, numOfAppStart, numOfAppEnd, perAdmitStart, perAdmitEnd, perEnrollStart, perEnrollEnd, academicScaleStart, academicScaleEnd, socialScaleStart, socialScaleEnd, lifeScaleStart, lifeScaleEnd, popMajor);
+					assertFalse("New York School does not contain Bard", names.contains("BARD"));
+				}
+				//U5: Search For Schools Test 11 - numOfAppStart and End < -1
+				@Test (expected=NullPointerException.class)
+				public void searchForSchoolsTest11(){
+					String schoolName = "";
+					String state = "NEW YORK";
+					String location = "";
+					String control = "";
+					int numOfStuStart = -1;
+					int numOfStuEnd = -1;
+					int perFemStart = -1;
+					int perFemEnd = -1;
+					int satVerbalStart = -1;
+					int satVerbalEnd = -1;
+					int satMathStart = -1;
+					int satMathEnd = -1;
+					int priceStart = -1; 
+					int priceEnd = -1;
+					int finAidStart = -1;
+					int finAidEnd = -1;
+					int numOfAppStart = -2;
+					int numOfAppEnd = -2;
+					int perAdmitStart = -1;
+					int perAdmitEnd = -1;
+					int perEnrollStart = -1;
+					int perEnrollEnd = -1;
+					double academicScaleStart = -1.0;
+					double academicScaleEnd = -1.0;
+					double socialScaleStart = -1.0;
+					double socialScaleEnd = -1.0;
+					double lifeScaleStart = -1.0;
+					double lifeScaleEnd = -1.0;
+					String[] popMajor = new String[5];
+					List<University> names = dbc.searchResults(schoolName, state, location, control, numOfStuStart, numOfStuEnd, perFemStart, perFemEnd, satVerbalStart, satVerbalEnd, satMathStart, satMathEnd, priceStart, priceEnd, finAidStart, finAidEnd, numOfAppStart, numOfAppEnd, perAdmitStart, perAdmitEnd, perEnrollStart, perEnrollEnd, academicScaleStart, academicScaleEnd, socialScaleStart, socialScaleEnd, lifeScaleStart, lifeScaleEnd, popMajor);
+					assertFalse("New York School does not contain Bard", names.contains("BARD"));
+				}
+				//U5: Search For Schools Test 12 - perAdmitStart and End < -1
+				@Test (expected=NullPointerException.class)
+				public void searchForSchoolsTest12(){
+					String schoolName = "";
+					String state = "NEW YORK";
+					String location = "";
+					String control = "";
+					int numOfStuStart = -1;
+					int numOfStuEnd = -1;
+					int perFemStart = -1;
+					int perFemEnd = -1;
+					int satVerbalStart = -1;
+					int satVerbalEnd = -1;
+					int satMathStart = -1;
+					int satMathEnd = -1;
+					int priceStart = -1; 
+					int priceEnd = -1;
+					int finAidStart = -1;
+					int finAidEnd = -1;
+					int numOfAppStart = -1;
+					int numOfAppEnd = -1;
+					int perAdmitStart = -2;
+					int perAdmitEnd = -2;
+					int perEnrollStart = -1;
+					int perEnrollEnd = -1;
+					double academicScaleStart = -1.0;
+					double academicScaleEnd = -1.0;
+					double socialScaleStart = -1.0;
+					double socialScaleEnd = -1.0;
+					double lifeScaleStart = -1.0;
+					double lifeScaleEnd = -1.0;
+					String[] popMajor = new String[5];
+					List<University> names = dbc.searchResults(schoolName, state, location, control, numOfStuStart, numOfStuEnd, perFemStart, perFemEnd, satVerbalStart, satVerbalEnd, satMathStart, satMathEnd, priceStart, priceEnd, finAidStart, finAidEnd, numOfAppStart, numOfAppEnd, perAdmitStart, perAdmitEnd, perEnrollStart, perEnrollEnd, academicScaleStart, academicScaleEnd, socialScaleStart, socialScaleEnd, lifeScaleStart, lifeScaleEnd, popMajor);
+					assertFalse("New York School does not contain Bard", names.contains("BARD"));
+				}
+				
+				//U5: Search For Schools Test 13 - perEnrollStart and End < -1
+				@Test (expected=NullPointerException.class)
+				public void searchForSchoolsTest13(){
+					String schoolName = "";
+					String state = "NEW YORK";
+					String location = "";
+					String control = "";
+					int numOfStuStart = -1;
+					int numOfStuEnd = -1;
+					int perFemStart = -1;
+					int perFemEnd = -1;
+					int satVerbalStart = -1;
+					int satVerbalEnd = -1;
+					int satMathStart = -1;
+					int satMathEnd = -1;
+					int priceStart = -1; 
+					int priceEnd = -1;
+					int finAidStart = -1;
+					int finAidEnd = -1;
+					int numOfAppStart = -1;
+					int numOfAppEnd = -1;
+					int perAdmitStart = -1;
+					int perAdmitEnd = -1;
+					int perEnrollStart = -2;
+					int perEnrollEnd = -2;
+					double academicScaleStart = -1.0;
+					double academicScaleEnd = -1.0;
+					double socialScaleStart = -1.0;
+					double socialScaleEnd = -1.0;
+					double lifeScaleStart = -1.0;
+					double lifeScaleEnd = -1.0;
+					String[] popMajor = new String[5];
+					List<University> names = dbc.searchResults(schoolName, state, location, control, numOfStuStart, numOfStuEnd, perFemStart, perFemEnd, satVerbalStart, satVerbalEnd, satMathStart, satMathEnd, priceStart, priceEnd, finAidStart, finAidEnd, numOfAppStart, numOfAppEnd, perAdmitStart, perAdmitEnd, perEnrollStart, perEnrollEnd, academicScaleStart, academicScaleEnd, socialScaleStart, socialScaleEnd, lifeScaleStart, lifeScaleEnd, popMajor);
+					assertFalse("New York School does not contain Bard", names.contains("BARD"));
+				}
+				
+				//U5: Search For Schools Test 14 - perAdmitStart and End < -1
+				@Test (expected=NullPointerException.class)
+				public void searchForSchoolsTest14(){
+					String schoolName = "";
+					String state = "NEW YORK";
+					String location = "";
+					String control = "";
+					int numOfStuStart = -1;
+					int numOfStuEnd = -1;
+					int perFemStart = -1;
+					int perFemEnd = -1;
+					int satVerbalStart = -1;
+					int satVerbalEnd = -1;
+					int satMathStart = -1;
+					int satMathEnd = -1;
+					int priceStart = -1; 
+					int priceEnd = -1;
+					int finAidStart = -1;
+					int finAidEnd = -1;
+					int numOfAppStart = -1;
+					int numOfAppEnd = -1;
+					int perAdmitStart = -1;
+					int perAdmitEnd = -1;
+					int perEnrollStart = -1;
+					int perEnrollEnd = -1;
+					double academicScaleStart = -6.0;
+					double academicScaleEnd = -6.0;
+					double socialScaleStart = -1.0;
+					double socialScaleEnd = -1.0;
+					double lifeScaleStart = -1.0;
+					double lifeScaleEnd = -1.0;
+					String[] popMajor = new String[5];
+					List<University> names = dbc.searchResults(schoolName, state, location, control, numOfStuStart, numOfStuEnd, perFemStart, perFemEnd, satVerbalStart, satVerbalEnd, satMathStart, satMathEnd, priceStart, priceEnd, finAidStart, finAidEnd, numOfAppStart, numOfAppEnd, perAdmitStart, perAdmitEnd, perEnrollStart, perEnrollEnd, academicScaleStart, academicScaleEnd, socialScaleStart, socialScaleEnd, lifeScaleStart, lifeScaleEnd, popMajor);
+					assertFalse("New York School does not contain Bard", names.contains("BARD"));
+				}
+				//U5: Search For Schools Test 15 - academicScaleStart and End > -5
+				@Test (expected=NullPointerException.class)
+				public void searchForSchoolsTest15(){
+					String schoolName = "";
+					String state = "NEW YORK";
+					String location = "";
+					String control = "";
+					int numOfStuStart = -1;
+					int numOfStuEnd = -1;
+					int perFemStart = -1;
+					int perFemEnd = -1;
+					int satVerbalStart = -1;
+					int satVerbalEnd = -1;
+					int satMathStart = -1;
+					int satMathEnd = -1;
+					int priceStart = -1; 
+					int priceEnd = -1;
+					int finAidStart = -1;
+					int finAidEnd = -1;
+					int numOfAppStart = -1;
+					int numOfAppEnd = -1;
+					int perAdmitStart = -1;
+					int perAdmitEnd = -1;
+					int perEnrollStart = -1;
+					int perEnrollEnd = -1;
+					double academicScaleStart = 6.0;
+					double academicScaleEnd = 6.0;
+					double socialScaleStart = -1.0;
+					double socialScaleEnd = -1.0;
+					double lifeScaleStart = -1.0;
+					double lifeScaleEnd = -1.0;
+					String[] popMajor = new String[5];
+					List<University> names = dbc.searchResults(schoolName, state, location, control, numOfStuStart, numOfStuEnd, perFemStart, perFemEnd, satVerbalStart, satVerbalEnd, satMathStart, satMathEnd, priceStart, priceEnd, finAidStart, finAidEnd, numOfAppStart, numOfAppEnd, perAdmitStart, perAdmitEnd, perEnrollStart, perEnrollEnd, academicScaleStart, academicScaleEnd, socialScaleStart, socialScaleEnd, lifeScaleStart, lifeScaleEnd, popMajor);
+					assertFalse("New York School does not contain Bard", names.contains("BARD"));
+				}
+				//U5: Search For Schools Test 16 - socialscalestart and End > -5
+				@Test (expected=NullPointerException.class)
+				public void searchForSchoolsTest16(){
+					String schoolName = "";
+					String state = "NEW YORK";
+					String location = "";
+					String control = "";
+					int numOfStuStart = -1;
+					int numOfStuEnd = -1;
+					int perFemStart = -1;
+					int perFemEnd = -1;
+					int satVerbalStart = -1;
+					int satVerbalEnd = -1;
+					int satMathStart = -1;
+					int satMathEnd = -1;
+					int priceStart = -1; 
+					int priceEnd = -1;
+					int finAidStart = -1;
+					int finAidEnd = -1;
+					int numOfAppStart = -1;
+					int numOfAppEnd = -1;
+					int perAdmitStart = -1;
+					int perAdmitEnd = -1;
+					int perEnrollStart = -1;
+					int perEnrollEnd = -1;
+					double academicScaleStart = -1.0;
+					double academicScaleEnd = -1.0;
+					double socialScaleStart = 6.0;
+					double socialScaleEnd = 6.0;
+					double lifeScaleStart = -1.0;
+					double lifeScaleEnd = -1.0;
+					String[] popMajor = new String[5];
+					List<University> names = dbc.searchResults(schoolName, state, location, control, numOfStuStart, numOfStuEnd, perFemStart, perFemEnd, satVerbalStart, satVerbalEnd, satMathStart, satMathEnd, priceStart, priceEnd, finAidStart, finAidEnd, numOfAppStart, numOfAppEnd, perAdmitStart, perAdmitEnd, perEnrollStart, perEnrollEnd, academicScaleStart, academicScaleEnd, socialScaleStart, socialScaleEnd, lifeScaleStart, lifeScaleEnd, popMajor);
+					assertFalse("New York School does not contain Bard", names.contains("BARD"));
+				}
+				//U5: Search For Schools Test 17 - lifeScaleStart and End > -5
+				@Test (expected=NullPointerException.class)
+				public void searchForSchoolsTest17(){
+					String schoolName = "";
+					String state = "NEW YORK";
+					String location = "";
+					String control = "";
+					int numOfStuStart = -1;
+					int numOfStuEnd = -1;
+					int perFemStart = -1;
+					int perFemEnd = -1;
+					int satVerbalStart = -1;
+					int satVerbalEnd = -1;
+					int satMathStart = -1;
+					int satMathEnd = -1;
+					int priceStart = -1; 
+					int priceEnd = -1;
+					int finAidStart = -1;
+					int finAidEnd = -1;
+					int numOfAppStart = -1;
+					int numOfAppEnd = -1;
+					int perAdmitStart = -1;
+					int perAdmitEnd = -1;
+					int perEnrollStart = -1;
+					int perEnrollEnd = -1;
+					double academicScaleStart = -1.0;
+					double academicScaleEnd = -1.0;
+					double socialScaleStart = -1.0;
+					double socialScaleEnd = -1.0;
+					double lifeScaleStart = 6.0;
+					double lifeScaleEnd = 6.0;
+					String[] popMajor = new String[5];
+					List<University> names = dbc.searchResults(schoolName, state, location, control, numOfStuStart, numOfStuEnd, perFemStart, perFemEnd, satVerbalStart, satVerbalEnd, satMathStart, satMathEnd, priceStart, priceEnd, finAidStart, finAidEnd, numOfAppStart, numOfAppEnd, perAdmitStart, perAdmitEnd, perEnrollStart, perEnrollEnd, academicScaleStart, academicScaleEnd, socialScaleStart, socialScaleEnd, lifeScaleStart, lifeScaleEnd, popMajor);
+					assertFalse("New York School does not contain Bard", names.contains("BARD"));
+				}
+				
 	//U6: view search results
 	@Test
 	public void viewSearchResultsTest(){
@@ -140,9 +738,6 @@ public class FunctionalityTest {
 		assertTrue(2.0==Double.parseDouble(list2.get(13)));
 		assertTrue(3.0==Double.parseDouble(list2.get(14)));
 		assertTrue(3.0==Double.parseDouble(list2.get(15)));
-
-		
-		
 		
 	}
 	//U7: view specific school
@@ -203,17 +798,18 @@ public class FunctionalityTest {
 	public void viewAccountListTest(){
 		List<Account> myarr = adm.viewAccount();
 		Assert.assertNotNull("List should not be null", myarr);
-		assertEquals("guser", myarr.get(0).getUsername());
-		assertEquals("Jtdummy", myarr.get(1).getUsername());
-		assertEquals("juser", myarr.get(2).getUsername());
-		assertEquals("kadmin", myarr.get(3).getUsername());
-		assertEquals("lur", myarr.get(4).getUsername());
-		assertEquals("luser", myarr.get(5).getUsername());
-		assertEquals("muser", myarr.get(6).getUsername());
-		assertEquals("nadmin", myarr.get(7).getUsername());
-		assertEquals("tdummy", myarr.get(8).getUsername());
-		assertEquals("tuser", myarr.get(9).getUsername());
-		assertEquals("yuser", myarr.get(10).getUsername());
+		assertEquals("auser", myarr.get(0).getUsername());
+		assertEquals("guser", myarr.get(1).getUsername());
+		assertEquals("Jtdummy", myarr.get(2).getUsername());
+		assertEquals("juser", myarr.get(3).getUsername());
+		assertEquals("kadmin", myarr.get(4).getUsername());
+		assertEquals("lur", myarr.get(5).getUsername());
+		assertEquals("luser", myarr.get(6).getUsername());
+		assertEquals("muser", myarr.get(7).getUsername());
+		assertEquals("nadmin", myarr.get(8).getUsername());
+		assertEquals("tdummy", myarr.get(9).getUsername());
+		assertEquals("tuser", myarr.get(10).getUsername());
+		assertEquals("yuser", myarr.get(11).getUsername());
 	}
 	
 	//U13: Add User

@@ -22,11 +22,6 @@ public class AdminFuncControllerTest {
 	public void testAdminFuncControllerAdmin() {
 		assertTrue("Admin Function Controller is set up", admf!=null);
 	}
-//
-//	@Test
-//	public void testAdminFuncControllerAdminDBController() {
-//		fail("Not yet implemented");
-//	}
 
 	@Test
 	public void testViewAccountIsNotEmpty() {
@@ -46,7 +41,6 @@ public class AdminFuncControllerTest {
 	public void testAddUserFailedForExistAccount() {
 		assertTrue("Cannot add an existed account", admf.addUser("John", "Cool", "juser", "user", 'u')==false);
 	}
-	
 	@Test
 	public void testAddUserFailedWithInvalidUserName() {
 		assertTrue("Cannot add an account with an existed username", admf.addUser("Grace", "Cool", "juser", "user", 'u')==false);
@@ -63,7 +57,6 @@ public class AdminFuncControllerTest {
 		assertTrue("View zuser account which does not exist in databse", admf.viewSpecificUser("zuser").getFirstName()==null);
 	}
 
-	
 	@Test
 	public void testEditUser() {
 		assertTrue("Edit Successfully",admf.editUser("Kalila", "Moua", "kadmin", "admin", 'a', 'Y')==true);

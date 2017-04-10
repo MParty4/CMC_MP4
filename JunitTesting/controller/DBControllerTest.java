@@ -158,22 +158,23 @@ public class DBControllerTest {
 		assertEquals((Object)3.0, u.getSocialScale());
 		assertEquals((Object)4.0, u.getLifeScale());
 	}
-//
-//	@Test
-//	public void testGetSavedSchools() {
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	public void testRemoveSavedSchool() {
-//		fail("Not yet implemented");
-//	}
-//
-//	@Test
-//	public void testAddSavedSchool() {
-//		fail("Not yet implemented");
-//	}
-//
+
+	@Test
+	public void testAddSavedSchool() {
+		assertTrue("save a school", dbc.addSavedSchool(dbc.getSpecificUser("tuser"), "UNIVERSITY OF MINNESOTA"));
+	}
+	
+	@Test
+	public void testGetSavedSchools() {
+		assertTrue("Not empty", dbc.getSavedSchools(dbc.getSpecificUser("tuser").getUserName()).isEmpty());
+	}
+
+
+	@Test
+	public void testRemoveSavedSchool() {
+		assertTrue("save a school", dbc.removeSavedSchool(dbc.getSpecificUser("tuser"), "UNIVERSITY OF MINNESOTA"));
+	}
+
 	@Test
 	public void testGetEmphasesForUniversity() {
 		List<String> list = dbc.getEmphasesForUniversity("COLORADO SCHOOL OF MINES");

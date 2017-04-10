@@ -155,8 +155,6 @@ public class FunctionalityTest {
 		assertTrue(tree1.getPassword().equals("eat"));
 		assertTrue(tree1.getUsername().equals("lur"));
 		
-		
-		
 	}
 	
 	//U12: View Users(Accounts)

@@ -78,7 +78,7 @@ public class FunctionalityTest {
 	@Test
 	public void viewSavedSchoolDetails()
 	{
-		assertTrue(usr.viewSpecificSchool("UNIVERSITY OF MINNESOTA").getSchoolName().equals("UNIVERSITY OF MINNESOTA"));
+		assertTrue(usr.viewSpecificSchool("UNIVERSITY OF MINNESOTA").getState().equals("MINNESOTA"));
 	}
 	//U5: Search For Schools
 	@Test (expected=NullPointerException.class)

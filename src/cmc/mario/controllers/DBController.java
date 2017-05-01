@@ -158,16 +158,7 @@ public boolean addUser(String firstName, String lastName, String username, Strin
 		  return false;
 		  
 	  }
-	  String pop ="";
-	  for(int k=0; k<popMajors.length; k++){
-		  pop=popMajors[k];
-	  }
-	  System.out.println(pop);
-	  int j =univLib.university_addUniversityEmphasis(school, pop);
-	  if(j!=1){
-		  System.out.println("e");
-		  return false;
-	  }
+
     return true;
   }
   /**
@@ -519,5 +510,8 @@ public boolean addUser(String firstName, String lastName, String username, Strin
 			System.out.println(results);
 			return results; // returns the list of matching universities with its attributes
 		}
+
 	
-}
+	}
+	
+

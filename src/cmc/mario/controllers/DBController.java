@@ -160,7 +160,7 @@ public boolean addUser(String firstName, String lastName, String username, Strin
 	  }
 	  String pop ="";
 	  for(int k=0; k<popMajors.length; k++){
-		  pop +=popMajors[k]+", ";
+		  pop=popMajors[k];
 	  }
 	  System.out.println(pop);
 	  int j =univLib.university_addUniversityEmphasis(school, pop);
@@ -169,6 +169,21 @@ public boolean addUser(String firstName, String lastName, String username, Strin
 		  return false;
 	  }
     return true;
+  }
+  /**
+   * This method delete a specific university - admin only. - Yidan
+    * @param schoolName university to delete
+   */
+  public boolean deleteUniversity(String schoolName){
+	  int i = univLib.university_deleteUniversity(schoolName);
+	  if(i != -1){
+		  return true;
+				  
+	  }
+	  else{
+		  return false;
+	  }
+    
   }
   
   /**
